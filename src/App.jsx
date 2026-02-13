@@ -5,6 +5,8 @@ import Home from './home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './login/Login';
 import School from './school/School';
+import School_1 from './school/School/School_1';
+import School_1_2 from './school/School/School_1_2';
  
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
          <Route path="/login" element={<Login />} />
           <Route path="/home/school" element={<School />} />
+            <Route path="/home/school/1" element={<School_1 />} />
+              <Route path="/home/school/1/2" element={<School_1_2 />} />
         
       </Routes>
     </BrowserRouter>
