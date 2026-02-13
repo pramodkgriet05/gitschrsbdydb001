@@ -1,40 +1,45 @@
-name: Deploy React Vite App to S3
+name: Deploy Vite React App to S3
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger deployment on push to main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repo
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # 4. Build Vite project
       - name: Build project
         run: npm run build
 
+      # 5. Configure AWS credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
-          aws-region: Asia Pacific (Mumbai) ap-south-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
+      # 6. Sync build folder to S3
       - name: Deploy to S3
-        uses: aws-actions/s3-sync-action@v1
-        with:
-          source-dir: ./dist
-          bucket: schgitrdbdyndb001
-          delete: true
-
+        run: |
+          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET }} \
+            --delete \
+            --acl public-read \
+            --exact-timestamps
