@@ -1,4 +1,4 @@
-name: Deploy React to S3
+name: Deploy React Vite App to S3
 
 on:
   push:
@@ -24,13 +24,17 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+          aws-region: Asia Pacific (Mumbai) ap-south-1
+
       - name: Deploy to S3
-        uses: aws-actions/s3-sync@v2
+        uses: aws-actions/s3-sync-action@v1
         with:
           source-dir: ./dist
           bucket: schgitrdbdyndb001
           delete: true
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          AWS_REGION: Asia Pacific (Mumbai) ap-south-1
+
