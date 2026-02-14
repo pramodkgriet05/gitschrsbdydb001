@@ -70,7 +70,7 @@ function ResetPassword()
 
                //let apidata5= await axios.get('http://13.233.74.60:8080/hello1')
                 //console.log(apidata5)
-                let apidata5= await axios.get('http://localhost:5173/hello1')
+                let apidata5= await axios.get('http://localhost:8080/hello1')
                 console.log(apidata5)
 
 
