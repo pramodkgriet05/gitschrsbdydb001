@@ -14,6 +14,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';  
 import ResetPassword from './login/ResetPassword';
+import Otp from './login/Otp';
+import Cnfrestpassword from './login/Conformresetpassword';
+import Std_info__c_update from './studentupdate/Std_info__c_update';
+import StudentUpdate from './studentupdate/StudentUpdate';
+
+import Stdinfo from './studentinfo/Stdinfo';
+import Std_info__v_update from './studentview/Std_info__v_update';
+import Std_pulldata from './studentview/Std_pulldata';
+
+
+
 
 
 function App() {
@@ -32,6 +43,18 @@ function App() {
 
       <Route path="/" element={<Home />} />
       <Route path="/restpassword" element={<ResetPassword />} />
+      <Route path="/otp" element={<Otp />} />Cnfrestpassword
+      <Route path="/cnfrestpassword" element={<Cnfrestpassword />} /> 
+
+      ===============================================================
+      <Route path="/stdinfo" element={<Stdinfo />} /> 
+      <Route path='/stdinfo/c/update' element={<Std_info__c_update />} />
+      <Route path='/std_info/c1/u/:classid' element={<StudentUpdate />} />
+      <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
+      <Route path='/std_info/c1/u/pulldata/:classid1' element={<Std_pulldata />} />
+
+
+
       
     
         

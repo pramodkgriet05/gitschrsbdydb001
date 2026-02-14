@@ -37,6 +37,11 @@ function Sch_login({ })
                     setuserInputdata({...userInputdata, password:e.target.value})
             
                    }
+
+                   function createAccount1()
+                   {
+                     window.location="stdinfo"
+                   }
                     
                    
                  
@@ -141,7 +146,7 @@ function Sch_login({ })
                                                            
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
-                                                        <button className=" btn btn-primary" onClick={e=>createAccount()}>SignIN</button>
+                                                        <button className=" btn btn-primary" onClick={e=>createAccount1()}>SignIN</button>
                                                         <a href="/restpassword">Reset Password</a>
                                                        </div>
                                                        </div>
