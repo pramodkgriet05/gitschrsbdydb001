@@ -68,10 +68,10 @@ function ResetPassword()
                // let apidata4= await axios.get('http://localhost:8080/hello1')
                 // console.log(apidata4)
 
-               //let apidata5= await axios.get('http://13.233.74.60:8080/hello1')
-                //console.log(apidata5)
-                let apidata5= await axios.get('http://localhost:8080/hello1')
+               let apidata5= await axios.get('http://13.233.74.60:8080/hello1')
                 console.log(apidata5)
+               // let apidata5= await axios.get('http://localhost:8080/hello1')
+              //  console.log(apidata5)
 
 
                 }
