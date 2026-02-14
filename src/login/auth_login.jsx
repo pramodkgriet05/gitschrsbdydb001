@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Check_user_login_status, isEmailValied } from "../../Utils/Utils";
 //import Homesch from "../school/home-sch"
 import Home from "../home/Home"
+import ResetPassword from "../login/ResetPassword";
 
 import axios from "axios";
 
@@ -141,7 +142,7 @@ function Sch_login({ })
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
                                                         <button className=" btn btn-primary" onClick={e=>createAccount()}>SignIN</button>
-                                                        <a href="/sch/resetpassword">Reset Password</a>
+                                                        <a href="/restpassword">Reset Password</a>
                                                        </div>
                                                        </div>
                                                        </div>

@@ -13,6 +13,7 @@ import Home from './home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';  
+import ResetPassword from './login/ResetPassword';
 
 
 function App() {
@@ -25,10 +26,12 @@ function App() {
       <Route path="/home/school/1" element={<School_1 />} />
       <Route path="/home/school/1/2" element={<School_1_2 />} />
       <Route path="/home/school/login/1" element={<Login />} />
+      
 
 
 
       <Route path="/" element={<Home />} />
+      <Route path="/restpassword" element={<ResetPassword />} />
       
     
         
