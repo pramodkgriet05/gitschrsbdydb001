@@ -49,9 +49,9 @@ function App() {
       ===============================================================
       <Route path="/stdinfo" element={<Stdinfo />} /> 
       <Route path='/stdinfo/c/update' element={<Std_info__c_update />} />
-      <Route path='/std_info/c1/u/:classid' element={<StudentUpdate />} />
+      <Route path='/std_info/c1/u/:stdid' element={<StudentUpdate />} />
       <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
-      <Route path='/std_info/c1/u/pulldata/:classid1' element={<Std_pulldata />} />
+      <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
 
 
 

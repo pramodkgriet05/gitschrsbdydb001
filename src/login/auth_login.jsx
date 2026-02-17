@@ -18,13 +18,15 @@ function Sch_login({ })
 
         let[apiresponce_SB, setapiresponce_SB ]=useState({});
             
-               let isUserloggin=Check_user_login_status()  
-                       if(isUserloggin==true)
-                       {
+            //    let isUserloggin=Check_user_login_status()  
+               
+            //    console.log(isUserloggin)
+            //            if(isUserloggin==true)
+            //            {
                           
-                           window.location="homesch"
+            //                window.location="homesch"
                           
-                       }
+            //            }
                    
                    
                    const updateEmail =(e)=>{
@@ -94,13 +96,16 @@ function Sch_login({ })
                             try
                             {
                              let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
+
+
+                             console.log(ApiResponse)
                             
                             console.log(ApiResponse.data.Message.userData)
                             console.log(ApiResponse.data.Message.token)
                              
                             localStorage.setItem("userData", JSON.stringify(ApiResponse.data.Message.userData))
                             localStorage.setItem("token", ApiResponse.data.Message.token)
-                            window.location="Std_info"
+                            window.location="/stdinfo"
                             }
                             catch(error)
                             {
@@ -146,7 +151,7 @@ function Sch_login({ })
                                                            
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
-                                                        <button className=" btn btn-primary" onClick={e=>createAccount1()}>SignIN</button>
+                                                        <button className=" btn btn-primary" onClick={e=>createAccount()}>SignIN</button>
                                                         <a href="/restpassword">Reset Password</a>
                                                        </div>
                                                        </div>

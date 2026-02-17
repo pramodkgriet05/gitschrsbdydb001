@@ -4,6 +4,8 @@ import Std_info_c1_u_pulldata from "./Std_info_c1_u_pulldata"
 
 function Add_new_student({rece_data, stdid1})
 {
+           //console.log(stdid1)
+           console.log("Add_new_student:"+stdid1)
              //let userId=GET_USER_ID()
             let[userInputdata, setuserInputdata]=useState({name:"",email:"",mobile:"",password:""})
             let[errorData, seterrorData]=useState({e_name:"",e_email:"",e_mobile:"",e_password:""})
@@ -55,16 +57,7 @@ function Add_new_student({rece_data, stdid1})
                                   
                               }
 
-                        if(stdinfo.standardandsection.length<0)
-                          {
-                              tempErrors={...tempErrors, Standardandsection:true}
-                              nooferrors=1
-                          }
-                          else
-                              {
-                                  tempErrors={...tempErrors, Standardandsection:false}
-                                  
-                              }
+                        
                         
                         if(stdinfo.gender.length==0)
                           {

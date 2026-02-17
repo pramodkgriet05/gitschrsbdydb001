@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Add_new_student from "../studentupdate/Add_new_student"///add student
 //import { GET_USER_ID, GET_USER_NAME } from "./utilils"
 
-function Std_info_c1_u_pulldata({classid})
+function Std_info_c1_u_pulldata({stdid1})
 {//Std_info/c1/u/pulldata
     // let userName=GET_USER_NAME()
       //    let userId=GET_USER_ID()
@@ -13,6 +13,10 @@ function Std_info_c1_u_pulldata({classid})
         //   {
         //     window.location="/homesch"
         //   }
+
+        //console.log(stdid1)
+       //  const {classid}=useParams()
+     //   console.log("std_info_c1_u_pulldata classid:"+stdid1)
 
    //let[stdinfo, setstdinfo]=useState({img1:"",roll_no:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classTeacher:"",other:"", userid:""})
    let[stdinfo1, setstdinfo1]=useState({img1:"",rollno:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classteacher:"",other:"", userid:""})
@@ -28,12 +32,16 @@ function Std_info_c1_u_pulldata({classid})
 
        async function pulldata()
         {
+            console.log("std_info_c1_u_pulldata classid:"+stdid1)
             try{
-             //let apiResponse=await axios.post('http://localhost:8080/s/pullrecords') pull all the records
-              let apiResponse=await axios.post('http://localhost:8080/s/pullrecords1/'+classid) //pull class wise records
+
+             let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
+
+            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords') //pull class wise records
             // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)
+             
             }
              
             catch(error)
@@ -42,6 +50,7 @@ function Std_info_c1_u_pulldata({classid})
             }
 
         }
+        // window.location="/Std_info/c1/u"
 
      pulldata()
         
@@ -65,7 +74,8 @@ function Std_info_c1_u_pulldata({classid})
             let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
             console.log(ApiResponse.data.Message)
             setstddelapimsg(ApiResponse.data.Message)
-            window.location="/Std_info/c1/u"
+            window.location=`/std_info/c1/u/${stdid1}`
+            Std_info_c1_u_pulldata()
 
        }
        catch(error)
@@ -192,7 +202,7 @@ function Std_info_c1_u_pulldata({classid})
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
        let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
      setIndex(null)
-     window.location="/Std_info/c1/u"
+      window.location=`/std_info/c1/u/${stdid1}`
     }
     catch(error)
     {

@@ -14,6 +14,8 @@ function StudentUpdate()
      // let userName=GET_USER_NAME()
      // let userId=GET_USER_ID()
       const {stdid}=useParams()
+      console.log(stdid)
+      console.log("Hi from student update")
                
   //  if(userName==null)
     //  {
@@ -100,7 +102,7 @@ function StudentUpdate()
     return(
         <div className="container">
             <div className="mt-5">
-            <h6>user,</h6><h3>userName userId stdid</h3>
+            <h6>user,</h6><h3>userName userId {stdid}</h3>
             </div>
             <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
              <button className="btn btn-primary ms-3 mt-5" onClick={e=>back_fun()}>Back</button>
@@ -161,7 +163,7 @@ function StudentUpdate()
                         
                          }
                             {
-                         show_A_M==true &&  <Std_info_c1_u_pulldata classid={stdid}/> 
+                         show_A_M==true &&  <Std_info_c1_u_pulldata stdid1={stdid} /> 
                             }
                           
                         

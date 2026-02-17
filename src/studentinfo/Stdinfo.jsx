@@ -14,17 +14,17 @@
         //   }
 
 
-        //                 function logout()
-        //                 {
-        //                     localStorage.clear()
-        //                     window.location="homesch"
-        //                 }
+                        function logout()
+                        {
+                            localStorage.clear()
+                            window.location="/"
+                        }
     
-        //                function home_fun()
-        //                {
-        //                  window.location="/Std_info"
+                       function home_fun()
+                       {
+                         window.location="/stdinfo"
 
-        //                }
+                       }
 
 
 
@@ -33,8 +33,8 @@
                 <div className="mt-5">
             { /* <h6> Hi,</h6><h3>{userName} </h3>*/}
                 </div>
-            {/*  <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>*/}
-                {/*<button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>*/}
+              <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
+                <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
                 <div className="row mt-5 ">
                 
                     <h1>St'Martins school</h1>
@@ -44,7 +44,7 @@
                         <h1>userDetails</h1>
                     </div>
                             <div className="col-4">
-                                <h3  >Update Records</h3>
+                                <h3  >Update Recordssss</h3>
                                 <div className="card"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="  profile_pic1 shadow " alt="..."/>
                                         <div className="card-body">

@@ -41,8 +41,10 @@ function SignUP({data_P})
                    {
                     try
                     {
+                       // let apires1=await axios.get('http://localhost:8080/hello1')
+                      //  console.log(apires1)
                      
-                        let ApiResponse= await axios.post('http://localhost:8080/s/createaccount', userInputdata)
+                         let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
                          console.log(ApiResponse)
                          console.log(ApiResponse.data)
                          console.log(ApiResponse.data.data)
@@ -53,8 +55,6 @@ function SignUP({data_P})
                     }
                     catch(error)
                     {
-                       
-                      
                          console.log(error)
                          error1=error.message
                          error2=error.response.data.message
