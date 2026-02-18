@@ -16,11 +16,11 @@ function Std_info__v_update()
                    function logout()
                     {
                         localStorage.clear()
-                        window.location="/homesch"
+                        window.location="/"
                     }
                     function back_fun()
                     { 
-                       window.location="/Std_info"
+                       window.location="/stdinfo"
                     }
 
     return(
@@ -37,7 +37,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/1" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/1" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/2" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/2" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/3" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/3" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/4" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/4" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/5" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/5" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/6" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/6" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/7" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/7" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/8" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/8" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/9" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/9" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ function Std_info__v_update()
                                     <div className="card-body">
                                         <h5 className="card-title">Get Records</h5>
                                          
-                                        <a href="/std_info/c1/u/pulldata/10" className="btn btn-primary">Click Here</a>
+                                        <a href="/std_info/c1/u/pulldata1/10" className="btn btn-primary">Click Here</a>
                                     </div>
                             </div>
                         </div>

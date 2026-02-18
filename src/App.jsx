@@ -22,6 +22,7 @@ import StudentUpdate from './studentupdate/StudentUpdate';
 import Stdinfo from './studentinfo/Stdinfo';
 import Std_info__v_update from './studentview/Std_info__v_update';
 import Std_pulldata from './studentview/Std_pulldata';
+import Pulldataafter from './studentupdate/Pulldataafter';
 
 
 
@@ -52,6 +53,7 @@ function App() {
       <Route path='/std_info/c1/u/:stdid' element={<StudentUpdate />} />
       <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
       <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
+      <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
 
 
 

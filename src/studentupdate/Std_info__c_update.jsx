@@ -20,7 +20,7 @@ function Std_info__c_update()
         
      function back_fun()
                    {
-                    window.location="/Std_info/c/update"
+                    window.location="/stdinfo"
                    }
                      
                    function logout()
@@ -28,10 +28,7 @@ function Std_info__c_update()
                         localStorage.clear()
                         window.location="/homesch"
                     }
-                    function back_fun()
-                    { 
-                       window.location="/Std_info"
-                    }
+                   
     return(
              <div className="container">
                 <div className="mt-5">

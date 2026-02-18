@@ -1,15 +1,187 @@
-import { useEffect } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
-function Pulldataafter({classname})
+function Pulldataafter({classid1})
 {
 
-    
+     let[stdinfo,setstdinfo]=useState([])
+     let[index, setIndex]=useState(null)
+     
+     const {classid}=useParams()
+     useEffect(()=>{
 
+       async function pulldata()
+        {
+            console.log("std_info_c1_u_pulldata classid:"+classid)
+            try{
+
+                                        const apiResponse = await axios.get(
+                               `http://13.233.74.60:8080/s/pullrecords1/${classid}`
+                                );
+               console.log(apiResponse)
+
+            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
+            //  console.log(apiResponse)
+
+            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
+            // console.log(apiResponse.data)
+           //  console.log(apiResponse.data['0'])
+             setstdinfo(apiResponse.data)
+             
+            }
+             
+            catch(error)
+            {
+                console.log(error)
+            }
+
+        }
+        // window.location="/Std_info/c1/u"
+
+     pulldata()
+        
+             //  console.log(apiresponse)
+              // console.log(apiresponse.data.result)
+    },[]) 
+
+    function logout()
+                        {
+                            localStorage.clear()
+                            window.location="/"
+                        }
+    
+                       function home_fun()
+                       {
+                         window.location="/stdinfo"
+
+                       }
+                       function backfun()
+                       {
+                        window.location="/std_info/c/viewrecords"
+
+                       }
 
      
+
     return (
     
-        <div></div>
+        <div>
+            <h1>pull data</h1>
+            <div>
+                <div className='mt-3'>
+                <label><strong>Class Name:  {classid}</strong></label><br />
+                <label><strong>Class Teacher</strong></label><br />
+                <label><strong>Section</strong></label><br />
+                <label><strong>No.of Students:n</strong></label><br />
+                    
+                </div>
+                <div>
+                    <button className="btn btn-primary mt-5 mb-3" onClick={e=>home_fun(true)}>Home</button>
+                    <button className="btn btn-primary mt-5 ms-3 mb-3" onClick={e=>backfun()}>Back</button>
+                    <button className="btn btn-primary mt-5 ms-3 mb-3" onClick={e=>logout()}>logout</button>
+                </div>
+
+
+            {/*<h3 className="text-danger">{stddelapimsg}</h3>*/}
+            </div>
+
+           
+            <div>
+             
+                    <table mt-3 className=" compact-table table table-sm align-middle table-striped table-hover">
+                        <thead>
+                            <tr className="fw-bold"> 
+                                <td>rollno</td> 
+                                    <td>Name</td>
+                                    <td>Gender</td>
+                                    <td>address</td>
+                                    <td>Class</td>
+                                    <td>dob</td>
+                                    <td>doj</td>
+                                    <td>mobile</td>
+                                    <td>father</td>
+                                    <td> gaurdian</td>
+                                    <td>classTeacher</td>
+                                    <td>other</td>
+                                    
+                            </tr>
+                        </thead>
+
+                         <tbody>
+       
+                 {  
+                    stdinfo.map((stdrecord, i)=>(
+                        <tr key={i}>
+                        <td > 
+                             {stdrecord.rollno }  
+                            </td> 
+                        <td>
+                            
+                            {stdrecord.name}
+                        </td>
+                        <td>
+                            
+                            {stdrecord.gender}
+                            </td>
+                        <td>
+                            
+                            {stdrecord.address}
+                             
+                            </td>
+                         <td>
+                            
+                            {stdrecord.standardandsection}
+                           
+                            </td> 
+                        <td>
+                              
+                             {stdrecord.dob}
+                             
+                             </td>
+                        <td>
+                              
+                             {stdrecord.doj}
+                             
+                             </td> 
+                        <td>  
+                              
+                             {stdrecord.mobile}
+                            
+                             </td>
+                        <td>   
+
+                        {stdrecord.father}
+                              </td>
+                        <td>
+                             
+                            {stdrecord.gaurdian}
+                            </td>
+                        <td> 
+                             
+                             {stdrecord.classteacher}
+                             
+                             </td>
+                        <td> 
+                             {stdrecord.other}
+                            
+                            </td> 
+                       
+                        
+                    
+                        </tr>
+                       
+                    ))
+
+                    
+                
+           }
+              
+             </tbody>
+                        
+            </table>
+            </div>
+        </div>
     
 )
 }

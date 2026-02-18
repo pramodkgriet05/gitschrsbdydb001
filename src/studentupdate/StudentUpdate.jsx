@@ -88,17 +88,17 @@ function StudentUpdate()
                      }
                    function back_fun()
                    {
-                    window.location="/Std_info/c/update"
+                    window.location="/stdinfo/c/update"
                    }
                     function home_fun()
                    {
-                    window.location="/Std_info"
+                    window.location="/stdinfo"
 
                    }
                    function logout()
                     {
                         localStorage.clear()
-                        window.location="/homesch"
+                        window.location="/"
                     }
     
 
