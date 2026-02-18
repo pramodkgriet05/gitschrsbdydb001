@@ -95,13 +95,16 @@ function Sch_login({ })
                         {
                             try
                             {
-                             let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
+                                  let ApiResponse= await axios.post('http://13.233.74.60:8080/s/login', userInputdata)
+                                  console.log(ApiResponse)
 
 
-                             console.log(ApiResponse)
+
+                            //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
+                            //  console.log(ApiResponse)
                             
-                            console.log(ApiResponse.data.Message.userData)
-                            console.log(ApiResponse.data.Message.token)
+                          //  console.log(ApiResponse.data.Message.userData)
+                          //  console.log(ApiResponse.data.Message.token)
                              
                             localStorage.setItem("userData", JSON.stringify(ApiResponse.data.Message.userData))
                             localStorage.setItem("token", ApiResponse.data.Message.token)

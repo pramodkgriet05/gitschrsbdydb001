@@ -41,11 +41,14 @@ function SignUP({data_P})
                    {
                     try
                     {
+                       let ApiResponse= await axios.post('http://13.233.74.60:8080/createaccount', userInputdata)
+                       console.log(ApiResponse)
+
                        // let apires1=await axios.get('http://localhost:8080/hello1')
                       //  console.log(apires1)
                      
-                         let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
-                         console.log(ApiResponse)
+                        // let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
+                      //   console.log(ApiResponse)
                          console.log(ApiResponse.data)
                          console.log(ApiResponse.data.data)
                          console.log(ApiResponse.data.status)

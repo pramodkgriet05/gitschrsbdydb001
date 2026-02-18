@@ -54,7 +54,20 @@ function Home()
          setsignUP_check(true)
         
     }
+        async  function hello1()
+          {
+                //let ApiResponse= await axios.get('http://13.233.74.60:8080/hello1')
+                let ApiResponse= await axios.get('http://localhost:8080/hello1')
+
+                  console.log(ApiResponse)
+                                  
+          }
     
+
+
+
+
+
     return(
          <div className="container">
             <div className="row mt-5 ">
@@ -100,6 +113,10 @@ function Home()
                                                                      
                                                     </div>
                   <div>
+                               </div>
+
+                               <div>
+                               <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
                                </div>
                                </div>
                                

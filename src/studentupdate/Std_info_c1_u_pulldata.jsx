@@ -35,9 +35,15 @@ function Std_info_c1_u_pulldata({stdid1})
             console.log("std_info_c1_u_pulldata classid:"+stdid1)
             try{
 
-             let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
+                                        const apiResponse = await axios.get(
+                               `http://13.233.74.60:8080/s/pullrecords1/${stdid1}`
+                                );
+             //  console.log(apiResponse)
 
-            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords') //pull class wise records
+            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
+            //  console.log(apiResponse)
+
+            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
             // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)

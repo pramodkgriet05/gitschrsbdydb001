@@ -45,10 +45,13 @@ function StudentUpdate()
        
         
              try{
+
+                 let apiresponse=await axios.post('http://13.233.74.60:8080/s/saverecord',stdinfo) 
+               console.log(apiresponse)
                  
                
-               let apiresponse=await axios.post('http://localhost:8080/s/saverecord',stdinfo) 
-               console.log(apiresponse)
+              // let apiresponse=await axios.post('http://localhost:8080/s/saverecord',stdinfo) 
+               //console.log(apiresponse)
                console.log("cal api:1")
                console.log(apiresponse.data.result)
                setapiErrorMessage({...apiErrorMessage, apiMessage:false})
