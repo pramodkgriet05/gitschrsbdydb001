@@ -5,22 +5,23 @@ import Add_new_student from "../studentupdate/Add_new_student"//add new student 
 import axios from "axios"
 import Std_info_c1_u_pulldata from "../studentupdate/Std_info_c1_u_pulldata"//Std_info_c1_u_pulldata
 import { useNavigate, useParams } from "react-router-dom"
+import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
  
  
  
 
 function StudentUpdate()
 {
-     // let userName=GET_USER_NAME()
-     // let userId=GET_USER_ID()
+      let userName=GET_USER_NAME()
+      let userId=GET_USER_ID()
       const {stdid}=useParams()
       console.log(stdid)
       console.log("Hi from student update")
                
-  //  if(userName==null)
-    //  {
-      //  window.location="/homesch"
-      //}
+    if(userName==null)
+      {
+        window.location="/"
+      }
     ////Std_info/c1/u
    
     
@@ -46,12 +47,12 @@ function StudentUpdate()
         
              try{
 
-                 let apiresponse=await axios.post('http://13.233.74.60:8080/s/saverecord',stdinfo) 
-               console.log(apiresponse)
+                  let apiresponse=await axios.post('http://65.2.25.249:8080/s/saverecord',stdinfo) 
+                console.log(apiresponse)
                  
                
-              // let apiresponse=await axios.post('http://localhost:8080/s/saverecord',stdinfo) 
-               //console.log(apiresponse)
+             // let apiresponse=await axios.post('http://localhost:8080/s/saverecord',stdinfo) 
+              // console.log(apiresponse)
                console.log("cal api:1")
                console.log(apiresponse.data.result)
                setapiErrorMessage({...apiErrorMessage, apiMessage:false})
@@ -105,7 +106,8 @@ function StudentUpdate()
     return(
         <div className="container">
             <div className="mt-5">
-            <h6>user,</h6><h3>userName userId {stdid}</h3>
+            <h6>user,</h6><h3>{userName}</h3>
+                <h3> class: {stdid}</h3>
             </div>
             <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
              <button className="btn btn-primary ms-3 mt-5" onClick={e=>back_fun()}>Back</button>

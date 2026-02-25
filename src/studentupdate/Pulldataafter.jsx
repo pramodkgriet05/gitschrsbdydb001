@@ -1,9 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import { GET_USER_NAME } from "../../Utils/Utils";
 
 function Pulldataafter({classid1})
 {
+
+           let userName=GET_USER_NAME()
+                       
+             if(userName==null)
+               {
+                window.location="/"
+              }
 
      let[stdinfo,setstdinfo]=useState([])
      let[index, setIndex]=useState(null)
@@ -14,17 +22,18 @@ function Pulldataafter({classid1})
        async function pulldata()
         {
             console.log("std_info_c1_u_pulldata classid:"+classid)
-            try{
+             try{
 
-                                        const apiResponse = await axios.get(
-                               `http://13.233.74.60:8080/s/pullrecords1/${classid}`
-                                );
-               console.log(apiResponse)
+                                         const apiResponse = await axios.get(
+                                `http://65.2.25.249:8080/s/pullrecords1/${classid}`
+                                 );
+                console.log(apiResponse)
 
-            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
-            //  console.log(apiResponse)
+             //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+classid) //pull all the records
+             //  console.log(apiResponse)
+                //let ApiResponse= await axios.get('http://localhost:8080/hello1')
 
-            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
+              //let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
             // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)
@@ -67,7 +76,8 @@ function Pulldataafter({classid1})
     return (
     
         <div>
-            <h1>pull data</h1>
+           
+            <h6 className="mt-5"> Hi,</h6><h3 className="mb-5">{userName} </h3>
             <div>
                 <div className='mt-3'>
                 <label><strong>Class Name:  {classid}</strong></label><br />

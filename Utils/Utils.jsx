@@ -4,23 +4,33 @@ export const  isEmailValied=(email)=>{
    return emailvalied.test(email)
 }
 
-export const Check_user_login_status=()=>{
-   let userData=localStorage.getItem("userData")
-          if(userData==undefined)
-      {
-         return false
-      }
-      else{
-         return true
-      }
+export const GET_USER_NAME=()=>{
+
+    let userData=localStorage.getItem('userData')
+   
+    if(userData!=null)
+        {
+             userData=JSON.parse(userData)
+             let userName=userData.UserName
+            return userName
+        } 
+        else
+        {
+            return null
+        }
+
+ }
+ export const GET_USER_ID=()=>{
+
+    let userData=localStorage.getItem('userData')
+    if(userData!=null)
+    {
+    userData=JSON.parse(userData)
+            return userData.id
+    }
+    else
+    {
+        return null
+    }
    }
-
-
-export const   getloggedinuserID=()=>{
-
-   let userData=localStorage.getItem('userData')
-   userData=JSON.parse(userData)
-   return userData.id
-
-}
   

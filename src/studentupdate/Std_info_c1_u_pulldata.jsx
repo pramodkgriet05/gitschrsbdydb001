@@ -32,16 +32,16 @@ function Std_info_c1_u_pulldata({stdid1})
 
        async function pulldata()
         {
-            console.log("std_info_c1_u_pulldata classid:"+stdid1)
-            try{
+            // console.log("std_info_c1_u_pulldata classid:"+stdid1)
+             try{
 
-                                        const apiResponse = await axios.get(
-                               `http://13.233.74.60:8080/s/pullrecords1/${stdid1}`
+                                         const apiResponse = await axios.get(
+                               `http://65.2.25.249:8080/s/pullrecords1/${stdid1}`
                                 );
-             //  console.log(apiResponse)
+               console.log(apiResponse)
 
-            //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
-            //  console.log(apiResponse)
+            //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
+            //   console.log(apiResponse)
 
             //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
             // console.log(apiResponse.data)
@@ -77,7 +77,8 @@ function Std_info_c1_u_pulldata({stdid1})
        try 
        {
             
-            let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
+          //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
+            let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
             console.log(ApiResponse.data.Message)
             setstddelapimsg(ApiResponse.data.Message)
             window.location=`/std_info/c1/u/${stdid1}`
@@ -206,7 +207,8 @@ function Std_info_c1_u_pulldata({stdid1})
 
     try{
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
-       let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
+      // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
+       let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
      setIndex(null)
       window.location=`/std_info/c1/u/${stdid1}`
     }

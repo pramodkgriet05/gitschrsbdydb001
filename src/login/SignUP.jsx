@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Check_user_login_status, isEmailValied } from "../../Utils/Utils";
+import { isEmailValied } from "../../Utils/Utils";
 //import Homesch from "../school/home-sch"
 import axios from "axios";
 import Home from "../home/Home"
@@ -41,17 +41,17 @@ function SignUP({data_P})
                    {
                     try
                     {
-                       let ApiResponse= await axios.post('http://13.233.74.60:8080/createaccount', userInputdata)
+                       let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', userInputdata)
                        console.log(ApiResponse)
 
                        // let apires1=await axios.get('http://localhost:8080/hello1')
                       //  console.log(apires1)
                      
-                        // let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
+                     //    let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
                       //   console.log(ApiResponse)
                          console.log(ApiResponse.data)
-                         console.log(ApiResponse.data.data)
-                         console.log(ApiResponse.data.status)
+                        console.log(ApiResponse.data.data)
+                        console.log(ApiResponse.data.status)
                          setApiMessage({...ApiMessage, message:ApiResponse.data.status})
                          
                          data_P(userInputdata.email)
@@ -59,9 +59,10 @@ function SignUP({data_P})
                     catch(error)
                     {
                          console.log(error)
+                         console.log(error.response)
                          error1=error.message
                          error2=error.response.data.message
-                         console.log(error.response.data)
+                       //  console.log(error.response.data)
                          setApiMessage({...ApiMessage, errorMessage:error2})
                          setapierrordata(true)
                     //  console.log(errorMessage.error)

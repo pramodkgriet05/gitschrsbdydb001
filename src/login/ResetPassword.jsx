@@ -1,6 +1,6 @@
  import { useState } from 'react'
 import axios from 'axios'
-import { Check_user_login_status, isEmailValied } from "../../Utils/Utils";
+import { isEmailValied } from "../../Utils/Utils";
  
 
 
@@ -130,7 +130,7 @@ function ResetPassword()
     
      return(
 
-         <div className="contaniner "> 
+         <div className="contaniner mt-5"> 
             <div className="row justify-content-center  ">
                 <div className="col-4  ">
                     <div className='text-center'>

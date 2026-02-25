@@ -1,5 +1,6 @@
- import profile_pic from "../pics/profile/profile_pic.jpg"
-//import { GET_USER_NAME } from "./utilils"
+ import { GET_USER_NAME } from "../../Utils/Utils"
+import profile_pic from "../pics/profile/profile_pic.jpg"
+
  
 
 
@@ -7,12 +8,12 @@
 function Std_info__v_update()
 {
           
-    // let userName=GET_USER_NAME()
+     let userName=GET_USER_NAME()
                    
-    //     if(userName==null)
-    //       {
-    //         window.location="/homesch"
-    //       }
+         if(userName==null)
+           {
+            window.location="/"
+          }
                    function logout()
                     {
                         localStorage.clear()
@@ -29,8 +30,9 @@ function Std_info__v_update()
             <button className="btn btn-primary mt-5 ms-3" onClick={e=>back_fun()}>Back</button> 
              <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
             <div className="row mt-5 ">
-                <h1>St'Martins school</h1>
-                 <div className="col-2">
+                  <h6> Hi,</h6><h3 className="mb-5">{userName} </h3>
+               
+                 <div className="col-2 ">
                     <h3  >Class 1</h3>
                             <div className="card"  style={{width: '12rem'}} >
                                     <img src={profile_pic} className="  profile_pic1 shadow " alt="..."/>

@@ -5,15 +5,20 @@ import { useState } from "react";
 //import Springbootlogin from "../springboot/login";
 //import Sch_createaccount from "./pics/authstd/createaccount";
 import labpic from "../../pics/profile/lab.jpg"
-import { isEmailValied } from "../../Utils/Utils";
+import { GET_USER_NAME, isEmailValied } from "../../Utils/Utils";
 import SignUP from "../login/SignUP";
 //import Signin from "../shared/signin";
 import Sch_login from "../login/auth_login";
 import axios from "axios";
-//import { GET_USER_NAME } from "../school1/utilils";
+
 function Home()
 {   
-   
+    let userName=GET_USER_NAME()
+               
+              if(userName!=null)
+              {
+               window.location="/stdinfo"
+              }
  
  
 
@@ -56,8 +61,8 @@ function Home()
     }
         async  function hello1()
           {
-                //let ApiResponse= await axios.get('http://13.233.74.60:8080/hello1')
-                let ApiResponse= await axios.get('http://localhost:8080/hello1')
+                let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
+               // let ApiResponse= await axios.get('http://localhost:8080/hello1')
 
                   console.log(ApiResponse)
                                   

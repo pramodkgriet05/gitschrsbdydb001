@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Check_user_login_status, isEmailValied } from "../../Utils/Utils";
+import {isEmailValied } from "../../Utils/Utils";
 //import Homesch from "../school/home-sch"
 import Home from "../home/Home"
 import ResetPassword from "../login/ResetPassword";
@@ -95,13 +95,16 @@ function Sch_login({ })
                         {
                             try
                             {
-                                  let ApiResponse= await axios.post('http://13.233.74.60:8080/s/login', userInputdata)
+                                  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
                                   console.log(ApiResponse)
+
+                        //         let apires1=await axios.get('http://localhost:8080/check')
+                        // console.log(apires1)
 
 
 
                             //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
-                            //  console.log(ApiResponse)
+                            //   console.log(ApiResponse)
                             
                           //  console.log(ApiResponse.data.Message.userData)
                           //  console.log(ApiResponse.data.Message.token)

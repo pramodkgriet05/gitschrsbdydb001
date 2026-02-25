@@ -1,6 +1,6 @@
- import profile_pic from "../pics/profile/profile_pic.jpg"
+ import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
+import profile_pic from "../pics/profile/profile_pic.jpg"
  
-//import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
  
 
 
@@ -8,16 +8,13 @@
 function Std_info__c_update()
 {
 
-    //let userName=GET_USER_NAME()
-                   
-    //     if(userName==null)
-    //       {
-    //         window.location="/homesch"
-    //       }
-    
-      
-        // let userName=GET_USER_NAME()
-        
+     let userName=GET_USER_NAME()
+     let userID=GET_USER_ID()
+
+       if(userName==null)
+           {
+            window.location="/"
+           }
      function back_fun()
                    {
                     window.location="/stdinfo"
@@ -26,7 +23,7 @@ function Std_info__c_update()
                    function logout()
                     {
                         localStorage.clear()
-                        window.location="/homesch"
+                        window.location="/"
                     }
                    
     return(

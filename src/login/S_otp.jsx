@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 
-function Otp()
+function S_otp()
 {
 
      let[userInputdata, setuserInputdata]=useState({name:"",email:"",mobile:"",password:"", id:"",conformpassword:"", otp:""})
@@ -107,8 +107,9 @@ function Otp()
             // let apires=await axios.post('http://localhost:8080/sendmessage',userInputdata) 
             //let apires=await axios.post('http://localhost:8080/forgotpasswrord',userInputdata)
             //let apires=await axios.post('http://localhost:8080/s/rp/update',userInputdata)
-           //  let apires=await axios.post('http://localhost:8080/s/otp/createaccount',userInputdata)
-             let apires=await axios.post('http://65.2.25.249:8080/s/otp/createaccount',userInputdata)
+           //  let apires=await axios.post('http://localhost:8080/s/otp/createaccount',userInputdata) 
+           
+               let apires=await axios.post('http://65.2.25.249:8080/s/otp/createaccount',userInputdata)
 
               // window.location='http://localhost:8080/login'
              // console.log(apires.data.result)
@@ -201,4 +202,4 @@ function Otp()
          
     )
 }
-export default Otp;
+export default S_otp;

@@ -23,6 +23,8 @@ import Stdinfo from './studentinfo/Stdinfo';
 import Std_info__v_update from './studentview/Std_info__v_update';
 import Std_pulldata from './studentview/Std_pulldata';
 import Pulldataafter from './studentupdate/Pulldataafter';
+import S_resetpassword from './login/S_ResetPasswordLink';
+import S_otp from './login/S_otp';
 
 
 
@@ -44,7 +46,7 @@ function App() {
 
       <Route path="/" element={<Home />} />
       <Route path="/restpassword" element={<ResetPassword />} />
-      <Route path="/otp" element={<Otp />} />Cnfrestpassword
+      <Route path="/otp" element={<Otp />} /> 
       <Route path="/cnfrestpassword" element={<Cnfrestpassword />} /> 
 
       ===============================================================
@@ -54,6 +56,8 @@ function App() {
       <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
       <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
       <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
+      <Route path='/sch/resetpasswordlink' element={<S_resetpassword />} />
+      <Route path='/s/otp/createaccount' element={<S_otp />} />
 
 
 

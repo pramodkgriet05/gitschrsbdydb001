@@ -1,17 +1,18 @@
     import profile_pic from "../pics/profile/profile_pic.jpg"
     import dance1 from  "../pics/profile/dance.jpg"
     import sports1 from "../pics/profile/sports.jpg"
-    //import { GET_USER_NAME } from "../Utils/Utils"
+import { GET_USER_NAME } from "../../Utils/Utils"
+  
     
 
     function Stdinfo()
     {
-        //   let userName=GET_USER_NAME()
+           let userName=GET_USER_NAME()
             
-        //   if(userName==null)
-        //   {
-        //     window.location="homesch"
-        //   }
+           if(userName==null)
+           {
+            window.location="/"
+           }
 
 
                         function logout()
@@ -31,7 +32,7 @@
         return(
             <div className="container">
                 <div className="mt-5">
-            { /* <h6> Hi,</h6><h3>{userName} </h3>*/}
+              <h6> Hi,</h6><h3>{userName} </h3>
                 </div>
               <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
                 <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>

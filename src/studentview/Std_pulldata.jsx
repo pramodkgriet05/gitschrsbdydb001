@@ -1,13 +1,14 @@
  import { useParams } from "react-router-dom"
 import Stdpullget from "./Stdpullget"
 import Pulldataafter from "../studentupdate/Pulldataafter"
+import { GET_USER_NAME } from "../../Utils/Utils"
 
 
  
 function Std_pulldata()
 {
     const {classid1}=useParams()
-
+    
 
     console.log(classid1)
     return( 

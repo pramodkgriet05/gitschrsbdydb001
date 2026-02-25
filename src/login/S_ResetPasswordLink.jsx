@@ -1,8 +1,16 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { GET_USER_NAME } from "../../Utils/Utils";
 
-function Cnfrestpassword()
+function S_resetpassword()
 {
+
+    let userName=GET_USER_NAME()
+                
+               if(userName!=null)
+               {
+                window.location="/stdinfo"
+               }
 
      let[userInputdata, setuserInputdata]=useState({name:"",email:"",mobile:"",password:"", id:"",conformpassword:""})
      let searchkeyword=""
@@ -80,8 +88,8 @@ function Cnfrestpassword()
 
             // let apires=await axios.post('http://localhost:8080/sendmessage',userInputdata) 
             //let apires=await axios.post('http://localhost:8080/forgotpasswrord',userInputdata)
-         //   let apires=await axios.post('http://localhost:8080/s/rp/update',userInputdata) 
-              let apires=await axios.post('http://65.2.25.249:8080/s/rp/update',userInputdata)
+            //let apires=await axios.post('http://localhost:8080/s/rp/update',userInputdata)
+            let apires=await axios.post('http://65.2.25.249:8080/s/rp/update',userInputdata)
 
               // window.location='http://localhost:8080/login'
               console.log(apires)
@@ -171,4 +179,4 @@ function Cnfrestpassword()
          
     )
 }
-export default Cnfrestpassword;
+export default S_resetpassword;
