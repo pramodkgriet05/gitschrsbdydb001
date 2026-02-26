@@ -158,7 +158,7 @@ function Sch_login({ })
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
                                                         <button className=" btn btn-primary" onClick={e=>createAccount()}>SignIN</button>
-                                                        <a href="/restpassword">Reset Password</a>
+                                                        <a href="/restpassword">Forgot Password</a>
                                                        </div>
                                                        </div>
                                                        </div>
