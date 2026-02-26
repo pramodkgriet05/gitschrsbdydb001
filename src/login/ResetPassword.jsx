@@ -89,7 +89,8 @@ function ResetPassword()
         {
             setemailError({...emailError, email:false})
             setemailError({...emailError, apiError:false})
-        let apiresponce=await  axios.post('http://localhost:8080/s/resetpassword',{email:email})
+       // let apiresponce=await  axios.post('http://localhost:8080/s/resetpassword',{email:email})
+        let apiresponce=await  axios.post('http://65.2.25.249:8080/s/resetpassword',{email:email})
         console.log(apiresponce)
         console.log("try1")
         console.log(apiresponce.data.status)
@@ -139,7 +140,7 @@ function ResetPassword()
                                     
                 <div className="card ">
                     <div className="card -body ">
-                        <h2>Reset Passworddddd</h2>
+                        <h2>Reset Password</h2>
                         
                         {
                          emailError.apiSuccess==false &&
@@ -154,14 +155,14 @@ function ResetPassword()
                         }
                          
                         <div className=' d-grid mt-3 md-3'>
-                            <button className='btn btn-warning mt-3' onClick={e=>validateemail()}  >Reset Password</button>
+                            <button className='btn btn-warning mt-3' onClick={e=>validateemail()}  >Submit</button>
                                                     </div>
                         <div className='text-danger'> {emailError.apiError==true && "Email is not register with us"}</div>
 
                         
                          
                     </div>
-                     <div className='mt-3'>
+                  {/*   <div className='mt-3'>
                                 <label><strong>Email</strong></label>
                                 <input type="text" className='form-control' placeholder='Email' onChange={e=>setdatadynamoDB({...datadynamoDB, id:e.target.value})}></input>
                                 <input type="text" className='form-control' placeholder='Email' onChange={e=>setdatadynamoDB({...datadynamoDB, name:e.target.value})}></input>
@@ -172,7 +173,7 @@ function ResetPassword()
                         <div>
                              <button className='btn btn-warning mt-3' onClick={e=>validateemail001()}>Dyanmodb</button>
                              <button className='btn btn-warning mt-3' onClick={e=>validateemail0022()}>hello1</button>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>

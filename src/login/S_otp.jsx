@@ -155,7 +155,7 @@ function S_otp()
                                             <div className="card ">
                                                     <div className="card -body ">
                                                         
-                                                        <h6>OTP has sent to your email addresssssss</h6>
+                                                        <h6>OTP has sent to your email address</h6>
                                                              { 
                                                              apierrormsgvalied==false &&
                                                             <div className='mt-3'>

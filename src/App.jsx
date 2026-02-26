@@ -56,6 +56,8 @@ function App() {
       <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
       <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
       <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
+
+      
       <Route path='/sch/resetpasswordlink' element={<S_resetpassword />} />
       <Route path='/s/otp/createaccount' element={<S_otp />} />
 
