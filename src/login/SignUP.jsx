@@ -185,7 +185,7 @@ function SignUP({data_P})
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>Password</strong></label>
-                                                                    <input type="text" className='form-control' placeholder='Password' onChange={e => updatePassword(e)}></input>
+                                                                    <input type="password" className='form-control' placeholder='Password' onChange={e => updatePassword(e)}></input>
                                                                      <div className="text-danger">
                                                                         {errorData.e_password}
 
