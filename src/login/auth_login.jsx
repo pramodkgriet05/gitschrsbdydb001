@@ -95,16 +95,16 @@ function Sch_login({ })
                         {
                             try
                             {
-                                  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
-                                  console.log(ApiResponse)
+                                      let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
+                                      console.log(ApiResponse)
 
-                        //         let apires1=await axios.get('http://localhost:8080/check')
-                        // console.log(apires1)
+                                //  let apires1=await axios.get('http://localhost:8080/check')
+                                //  console.log(apires1)
 
 
 
-                            //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
-                            //   console.log(ApiResponse)
+                                //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
+                                //  console.log(ApiResponse)
                             
                           //  console.log(ApiResponse.data.Message.userData)
                           //  console.log(ApiResponse.data.Message.token)
@@ -137,7 +137,7 @@ function Sch_login({ })
                                                                     <input type="text" className='form-control' placeholder='Email' onChange={e => updateEmail(e)}></input>
                                                                      <div className="text-danger">
                                                                         {
-                                                                              signinDataError.email==true &&
+                                                                              signinDataError.E_email==true &&
                                                                          errorData.e_email 
                                                                         }
 
@@ -145,7 +145,7 @@ function Sch_login({ })
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>Password</strong></label>
-                                                                    <input type="text" className='form-control' placeholder='Password' onChange={e => updatePassword(e)}></input>
+                                                                    <input type="password" className='form-control' placeholder='Password' onChange={e => updatePassword(e)}></input>
                                                                      <div className="text-danger">
                                                                         {
                                                                             signinDataError.apierror!=null &&
