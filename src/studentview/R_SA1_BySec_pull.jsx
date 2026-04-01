@@ -2,10 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 //import Std_info_c1_e from "./Std_info_c1_e"
 //import Add_new_student from "../studentupdate/Add_new_student"///add student
-//import { GET_USER_ID, GET_USER_NAME } from "./utilils"
-
+ 
 import imgstd from '../pics/profile/profile_pic.jpg'
 import { useParams } from "react-router-dom"
+import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
 
 function R_SA1_BySec_pull({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata

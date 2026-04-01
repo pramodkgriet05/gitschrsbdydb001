@@ -2,10 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 //import Std_info_c1_e from "./Std_info_c1_e"
 //import Add_new_student from "../studentupdate/Add_new_student"///add student
-//import { GET_USER_ID, GET_USER_NAME } from "./utilils"
-
+ 
 import imgstd from '../pics/profile/profile_pic.jpg'
 import { useParams } from "react-router-dom"
+import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
 
 function R_SA1_BySec({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata
@@ -518,9 +518,11 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
               {
                 console.log("e",errorg)
                 setpleasecheck(false)
-      let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
+     // let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
+      let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData)
        setupdateeditcolmdataR({})
-       let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
+      // let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
+       let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
                        console.log(apiresponse1)
                       
                         console.log(ApiResponse)
