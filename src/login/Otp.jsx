@@ -1,9 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { GET_USER_NAME } from "../../Utils/Utils";
 
 function Otp()
 {
 
+  let userName=GET_USER_NAME()
+                 
+                if(userName!=null)
+                {
+                 window.location="/stdinfo"
+                }
+   
      let[userInputdata, setuserInputdata]=useState({name:"",email:"",mobile:"",password:"", id:"",conformpassword:"", otp:""})
      let searchkeyword=""
      let tempdata1=""

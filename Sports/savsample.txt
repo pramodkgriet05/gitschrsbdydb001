@@ -1,0 +1,19 @@
+ function updateterm1(e)
+        {
+          let val=e.target.value
+          seteditcolomdata2(prev => ({ ...prev, term1: val }));
+          if(editcolomdata2.actualbalance-val>editcolomdata2.actualbalance)
+          {
+               setErrorg(1); 
+              console.log("eg:",errorg)
+             setmarkserrorw(true)
+              setpleasecheck("term1 fees greater than actual balance")
+
+        }
+        else{
+           setErrorg(0); 
+          setmarkserrorw(false) 
+          setupdateeditcolmdataR(prev => ({ ...prev,  actualbalance: val }));
+
+        }
+        }

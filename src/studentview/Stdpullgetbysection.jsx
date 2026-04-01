@@ -4,15 +4,15 @@ import { useEffect, useState } from "react"
 // import Add_new_student from "./add_new_student"
 //import { GET_USER_ID, GET_USER_NAME } from "../../Utils"
 
-function Stdpullget({classid,sectionid1})
+function Stdpullgetbysection({classid1,sectionid1})
 {//Std_info/c1/u/pulldata
-    //  let userName=GET_USER_NAME()
-    //       let userId=GET_USER_ID()
+      let userName=GET_USER_NAME()
+           let userId=GET_USER_ID()
                    
-    //     if(userName==null)
-    //       {
-    //         window.location="/homesch"
-    //       }
+         if(userName==null)
+           {
+             window.location="/homesch"
+           }
 
    //let[stdinfo, setstdinfo]=useState({img1:"",roll_no:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classTeacher:"",other:"", userid:""})
    let[stdinfo1, setstdinfo1]=useState({img1:"",rollno:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classteacher:"",other:"", userid:""})
@@ -23,15 +23,23 @@ function Stdpullget({classid,sectionid1})
    let[student, setstudent]=useState([])
    let[editcolomdata, seteditcolomdata]=useState()
    let[updateeditcolmdata, setupdateeditcolmdata]=useState()
+
+
+    
+ 
   
    useEffect(()=>{
 
        async function pulldata()
         {
+             console.log(classid1)
+             console.log(sectionid1)
+    
             try{
              //let apiResponse=await axios.post('http://localhost:8080/s/pullrecords') pull all the records
-              let apiResponse=await axios.post('http://localhost:8080/s/pullrecords1/'+classid) //pull class wise records
-            // console.log(apiResponse.data)
+            //  let apiResponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classid1}/${sectionid1}`) //pull class wise recordsadf
+              let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`)
+              // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)
             }
@@ -53,7 +61,7 @@ function Stdpullget({classid,sectionid1})
     return(
          
          <div>
-            <h1>pull data</h1>
+            <h1 className="mt-5">pull data ClassName: { classid1}  Section:  { sectionid1}</h1>
             <div>
             <h3 className="text-danger">{stddelapimsg}</h3>
             </div>
@@ -63,10 +71,11 @@ function Stdpullget({classid,sectionid1})
              
   
   
-            <table className=" compact-table table table-sm align-middle table-striped table-hover">
+            <table className=" mt-5 compact-table table table-sm align-middle table-striped table-hover"> 
                 <thead>
                     <tr className="fw-bold"> 
                            <td>rollno</td> 
+                           <td>photo</td>
                             <td>Name</td>
                             <td>Gender</td>
                             <td>address</td>
@@ -89,6 +98,11 @@ function Stdpullget({classid,sectionid1})
                         <td > 
                              {stdrecord.rollno }  
                             </td> 
+                             <td  style={{width:"40px", textAlign:"center"}}>
+                                  <img src={stdrecord.imgdata} className="student-photo"/>
+                            </td>
+
+
                         <td>
                             
                             {stdrecord.name}
@@ -161,6 +175,6 @@ function Stdpullget({classid,sectionid1})
              </div>
     )
 }
-export default Stdpullget;
+export default Stdpullgetbysection;
 
  

@@ -25,6 +25,15 @@ import Std_pulldata from './studentview/Std_pulldata';
 import Pulldataafter from './studentupdate/Pulldataafter';
 import S_resetpassword from './login/S_ResetPasswordLink';
 import S_otp from './login/S_otp';
+import Std_pulldataBySection from './studentupdate/Std_pulldataBySection';
+import Sportspage from '../Sports/Sportspage';
+import Extracurricularpage from '../Extracurricular Activities/Extracurricularpage';
+import Std_pulldatabysection from './studentview/Std_pulldatabysection';
+import Std_pulldatabysectionget from './studentview/Std_pulldatabysection';
+import PullEventDetails from '../Sports/PullEventDetails';
+import Fees from './Fees/Fees';
+import DailyUpdates from './Daily updates/DailyUpdates';
+import DailyUpdatesForm from './Daily updates/DailyUpdatesForm';
 
 
 
@@ -53,18 +62,42 @@ function App() {
       <Route path="/stdinfo" element={<Stdinfo />} /> 
       <Route path='/stdinfo/c/update' element={<Std_info__c_update />} />
       <Route path='/std_info/c1/u/:stdid' element={<StudentUpdate />} />
-      <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
       <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
-      <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
+
+      <Route path='/std_info/c1/u/:stdid/:sectionid' element={<Std_pulldataBySection />}   />
 
       
-      <Route path='/sch/resetpasswordlink' element={<S_resetpassword />} />
+
+      {/* --------------------------------------view records student links -------------------------------------*/}
+
+
+            <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
+            <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
+            <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
+            <Route path='/std_info/c1/u/pulldata1/:classid/:sectionid' element={<Std_pulldatabysectionget />} />
+
+      {/* ------------------------------------------------------------------------------------ */}
+
+      < Route path='/sch/resetpasswordlink' element={<S_resetpassword />} />
       <Route path='/s/otp/createaccount' element={<S_otp />} />
 
+      {/* ------------------------------------------------------------------------------------ */}
 
+       <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
 
-      
-    
+        <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
+
+       {/* <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} />  */}
+       {/* ------------------------------------------------------------------------------------ */}
+
+       <Route path='/stdinfo/c1/u/2026/fees' element={<Fees />} />  
+
+       {/* ------------------------------------------------------------------------------------ */}
+
+        <Route path='/stdinfo/c1/u/2026/dailyupdates' element={<DailyUpdates />} /> 
+         <Route path='/stdinfo/dailyupdates/:y/:classid/:sectionid' element={<DailyUpdatesForm />} />   
+
+       {/* ------------------------------------------------------------------------------------ */}
         
       </Routes>
       

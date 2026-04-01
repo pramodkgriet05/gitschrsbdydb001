@@ -10,16 +10,16 @@ import PullEditdelaws from "../../aws/PullEditdelaws"
 import PullEditdelawsBySection from "../../aws/PullEditdelawsBySection"
 import R_SA1 from "../../Results/R_SA1"
 import R_SA1_BySec from "../../Results/R_SA1_BySec"
-import Std_pulldataBySection from "./Std_pulldataBySection"
  
  
  
 
-function StudentUpdate()
+function Std_pulldataBySection()
 {
       let userName=GET_USER_NAME()
       let userId=GET_USER_ID()
       const {stdid}=useParams()
+      const {sectionid}=useParams()
       console.log(stdid)
       console.log("Hi from student update")
       let classidsch=stdid;
@@ -31,6 +31,9 @@ function StudentUpdate()
       let[sectionA, setsectionA]=useState("") 
       let[sectionB, setsectionB]=useState("")
       let[sectionC, setsectionC]=useState("")
+          const sctionAA =new useNavigate();
+
+      
 
 
                
@@ -42,7 +45,7 @@ function StudentUpdate()
    
     
     let[addstudent,setaddstudent]=useState(false)
-    let[stdinfo, setstdinfo]=useState({img1:"",rollno:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"",gaurdian:"",classteacher:"",other:"", userid:""})
+    let[stdinfo, setstdinfo]=useState({img1:"",rollno:"",name:"",Standred:"",stdinfo:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"",gaurdian:"",classteacher:"",other:"", userid:""})
     let[o_std_details, seto_std_details]=useState(false)
     let[message, setmessage]=useState(false)
     let[show_A_M, setshow_A_M]=useState(true)
@@ -53,11 +56,11 @@ function StudentUpdate()
    const navigate = useNavigate();
     let[show_results, setshow_results]=useState(false)
     let[showpullSA1, setshowpullSA1]=useState(false) 
+    let[pullecords, setpullecords]=useState({examname:"",standred:"", section:"",academicyear:""})
+  
 
-    const sctionAA =new useNavigate();
 
-
-    const stdinfoall=new FormData();show_results
+    const stdinfoall=new FormData(); 
 
           // let rollno = String(rollno).padStart(3, '0');
             stdinfoall.append("rollno",stdinfo.rollno);
@@ -79,16 +82,15 @@ function StudentUpdate()
      
     async function awscall()
     {
-          //let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall) 65.2.25.249
-
+          //let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall)
           let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall) 
-          
+ 
 
     }
     async function awscallget()
     {
-         // let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`)
-          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`) 
+          //let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
+          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`)
           console.log(apiresponse)
           console.log(apiresponse.data)
           setawsresposes(apiresponse.data)
@@ -105,8 +107,8 @@ function StudentUpdate()
                 // console.log(apiresponse)
                  
                
-             //  let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall) 
-               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall) 
+              // let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall)  
+               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall)
                console.log(apiresponse)
                console.log("cal api:1")
                console.log(apiresponse.data.result)
@@ -116,7 +118,7 @@ function StudentUpdate()
                 
              
              //  navigate("/Std_info/c1/u")
-                  window.location=`/Std_info/c1/u/${stdid}`
+                  window.location=`/std_info/c1/u/${stdid}/${sectionid}`
                   // window.location=`/Std_info/c1/u/stdid`
                   setmessage(true)
                
@@ -157,7 +159,7 @@ function StudentUpdate()
                         window.location="/"
                     }
 
-                  async  function pullAsectionData()
+                   async  function pullAsectionData()
                     {
                         // try
                         // {
@@ -172,12 +174,13 @@ function StudentUpdate()
                         // }
 
                         //<PullEditdelawsBySection stdid1={stdid} /> 
+
+
                         setshow_S_A(true)
                         setsectionA("A")
                         setshow_S_B(false)
                         setshow_S_C(false)
-                        sctionAA(`/std_info/c1/u/${stdid}/A`)
-                      
+                      //  sctionAA(`/std_info/c1/u/pulldata1/${stdid}/A`)
 
                     }
 
@@ -197,36 +200,45 @@ function StudentUpdate()
                         setshow_S_A(false)
                         setshow_S_B(false)
 
-                    }
+                    } 
                     function showresults()
                     {
                         setshow_results(true)
+                       // setshow_S_A(true)
                     }
 
-                    async function pullSA11()
-                    {
-                     // let apiresponse=await axios.get(`http://localhost:8080/m/s/reports/pull`)
-                      let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/reports/pull`)
-                      console.log(apiresponse)
+                    async function pullSA11(y,e)
+                     {
+                        console.log(y)
+                        console.log(e)
+                        console.log(stdid)
+                        console.log(sectionid)
+                        setpullecords({...pullecords, 
 
+                              examname:e,
+                              standred:stdid,
+                              section:sectionid ,
+                              academicyear:y
+                              //setpullecords
 
+                                          });
+                    //   let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pul`,pullecords)
+                    //   console.log(apiresponse)
+
+                      setshow_S_A(true)
                     }
 
-                    async function pullSA1()
+                    async function ADDresults()
                     {
 
                         try{
+                             //Does SA1 already exist for class 5 A 2026 ?
+                       const createrecords={
 
-                            //Does SA1 already exist for class 5 A 2026 ?
-
-
-
-                         const createrecords={
-
-                              examName:"SA1",
+                              examname:"FA3",
                               standred:1,
                               section:"A",
-                              academic_year:"2026"
+                              academicyear:"2026"
 
                                           };
                         let apiresponse=await axios.post(`http://localhost:8080/m/s/CreateRecords`,createrecords)
@@ -247,7 +259,7 @@ function StudentUpdate()
                 //     standardandsection: e.standardandsection
                 // };
 
-                setshowpullSA1(false)
+                         //setshowpullSA1(false)
                     }
 
                     
@@ -298,7 +310,8 @@ function StudentUpdate()
 
                            
 
-                            Standard= <strong> {stdinfo.Section} </strong><br/>
+                            Standard= <strong> {stdinfo.Standred} </strong><br/>
+                            Section= <strong> {stdinfo.Section} </strong><br/>
                             gender=<strong> {stdinfo.gender}</strong><br/>
                             dob=<strong> {stdinfo.dob}</strong><br/>
                             doj=<strong> {stdinfo.doj}</strong><br/>
@@ -313,32 +326,22 @@ function StudentUpdate()
 
                                     </div>
                     }
-                    
-                    
                </div>
                         {
                          show_A_M == true && 
-                        <Add_new_student rece_data={showconformdata} stdid1={stdid}/>
+                        <Add_new_student rece_data={showconformdata} stdid1={stdid} sectionid={sectionid}/>
                         
                          }
-                            {/* {
-                         show_A_M==true &&  <PullEditdelaws stdid1={stdid} /> 
-                            } */}
+                             {
+                         show_A_M==true &&  <PullEditdelawsBySection stdid1={stdid} section1={sectionid}/> 
+                            }  
 
-                            <h3 className="text-danger">Select Section</h3>
+                            {/* <h3 className="text-danger">Select Section</h3>
                              <div className="col-4"> 
                                 <button className="btn btn-warning mt-3 mb-5 " type="button" onClick={e=>pullAsectionData()}> A-Section</button> 
                                 <button className="btn btn-warning mt-3 ms-5 mb-5" type="button" onClick={e=>pullBsectionData()}> B-Section</button> 
                                 <button className="btn btn-warning mt-3 ms-5 mb-5" type="button" onClick={e=>pullCsectionData()}> C-Section</button> 
-                           </div>
-
-
-                           
-                           
-                               
-
-                             
-                          
+                           </div> */}
                             <div >
                             
                             {/* {show_S_A==true &&    <PullEditdelawsBySection stdid1={stdid} section1={sectionA}/> } 
@@ -371,95 +374,7 @@ function StudentUpdate()
                              <div>
                                 {/* asdfsadfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfsdfasdfsdfsfsdfasdfsadfsdfsadfasdfasdfsadfsadfsadfsdfasdfsadfasdfsdfsdfsadfsadfsdfsdfsdfasfasdfsdfsadfsdfsdfsdf */}
                                
-
-
-
-
-
-                                {/* <table className=" compact-table table table-sm align-middle table-striped table-hover">
-                <thead>
-                    <tr className="fw-bold"> 
-                           <td>Rollno</td> 
-                            <td>Image</td>
-                             <td>Name</td>
-                            <td>Gender</td>
-                            <td>Standred</td>
-                            <td>Section</td>
-                            <td>Dob</td>
-                            <td>Doj</td>
-                            <td>Address</td>
-                            <td>Mobile</td>
-                            <td>Father</td>
-                            <td> Gaurdian</td>
-                            <td>ClassTeacher</td>
-                            <td>Other</td>
-                            
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {  
-                    awsresposes1.map((stdrecord, i)=>(
-                        <tr key={i}>
-                        <td > 
-                             {stdrecord.rollno }  
-                            </td> 
-                            <td>
-                                 
-                                 <img src={stdrecord.imgdata} className="student-photo"/>
-                            </td>
-                        <td>
-                            {stdrecord.name}
-                        </td>
-                        <td>
-                            
-                            {stdrecord.gender}
-                            </td>
-                        <td>
-                            {stdrecord.Standred}
-                            </td>
-                            <td>
-                            {stdrecord.Section}
-                            </td>
-                         <td>
-                            {stdrecord.standardandsection}
-                            </td> 
-                        <td>
-                             {stdrecord.dob}
-                             </td>
-                        <td>  
-                             {stdrecord.doj}
-                             </td> 
-                              <td>
-                            {stdrecord.address}
-                            </td>
-                        <td>  
-                             {stdrecord.mobile}
-                             </td>
-                        <td>   
-
-                        {stdrecord.father}
-                              </td>
-                        <td>
-                             
-                            {stdrecord.gaurdian}
-                            </td>
-                        <td> 
-                             
-                             {stdrecord.classteacher}
-                             
-                             </td>
-                        <td> 
-                             {stdrecord.other}
-                            
-                            </td>  
-                       </tr>
-                       
-                    ))
-           }
-              
-             </tbody>
-            </table> */}
+                               
                              </div>
                              
                     
@@ -471,27 +386,38 @@ function StudentUpdate()
        
 
 
-<div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"  }}>
-   {/* {show_S_A &&  <a href="/Std_info/c1/u/2" className="btn btn-primary">Click Here</a> }
-   {/* {show_S_B && <PullEditdelawsBySection stdid1={stdid} section1={sectionB}/> }
-   {show_S_C && <PullEditdelawsBySection stdid1={stdid} section1={sectionC}/> } */}  
-</div>
+   {/* <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"  }}>
+   {show_S_A && <PullEditdelawsBySection stdid1={stdid} section1={sectionid}/> }
+    {show_S_B && <PullEditdelawsBySection stdid1={stdid} section1={sectionB}/> }
+   {show_S_C && <PullEditdelawsBySection stdid1={stdid} section1={sectionC}/> }  
+</div>   */}
 
-                       <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Results</button> 
+                       <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button> 
                                 { show_results==true &&
                                 <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}>
-                                    <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>pullSA1()}> SA1</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>pullSA11()}> pullSA1result</button> 
+                                    {/* <button className="btn btn-warning   mt-3 mb-5 me-3" type="button" onClick={e=>ADDresults()}> Addresult</button>  */}
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA1")}> SA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA2")}> SA2 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA3")}> SA3 result</button>
+
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA1")}> FA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA2")}> FA2 result</button>
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA3")}> FA3 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "Final")}> Final</button>  
+ 
+
+ 
                                     
                                 </div>
                                 }
 
+                                
                         <div>
 
                        
                              <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)" }} >
                                     {showpullSA1==true &&    <R_SA1  /> }
-                                    {show_S_A==true &&    <R_SA1_BySec stdid1={stdid} section1={sectionA}/> } 
+                                    {show_S_A==true &&    <R_SA1_BySec stdid1={stdid} section1={sectionA} createrecords1={pullecords}/> } 
                                </div>
                                
 
@@ -504,19 +430,9 @@ function StudentUpdate()
 
 
         </div>
-
-        
-
-       
-
-        
-
-        
-
-
-         
+   
     )
 }
-export default StudentUpdate
+export default Std_pulldataBySection
 
  

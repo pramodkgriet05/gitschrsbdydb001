@@ -145,3 +145,25 @@
    height: 10px;
   vertical-align: middle;
 }
+
+.student-photo {
+  width: 90px;          /* smaller than passport */
+  height: 110px;        /* maintain portrait look */
+  object-fit: cover;    /* crop nicely */
+  border-radius: 6px;   /* slight rounded corners */
+ border: 2px solid #ddd;
+  /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);*/
+}
+
+.std_rec_add1_Remarks{
+
+ display: inside;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 2px;    
+    margin-bottom: 2px;
+    width: auto;
+    height:40px;
+    border-radius: 5%
+
+}

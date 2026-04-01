@@ -1,11 +1,18 @@
  import { useState } from 'react'
 import axios from 'axios'
-import { isEmailValied } from "../../Utils/Utils";
+import { GET_USER_NAME, isEmailValied } from "../../Utils/Utils";
  
 
 
 function ResetPassword()
 {
+    let userName=GET_USER_NAME()
+                   
+                  if(userName!=null)
+                  {
+                   window.location="/stdinfo"
+                  }
+     
 
 
     let[email, setemail]=useState("")

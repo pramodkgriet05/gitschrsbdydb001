@@ -10,6 +10,8 @@ import SignUP from "../login/SignUP";
 //import Signin from "../shared/signin";
 import Sch_login from "../login/auth_login";
 import axios from "axios";
+import Pull_Admin_Records from "./Pull_Admin_Records";
+import '../../indexcss/index.css';
 
 function Home()
 {   
@@ -34,6 +36,8 @@ function Home()
     let noerrors=0
     let noerrors1=0
     let[apiresponce_SB, setapiresponce_SB ]=useState({});
+    let[pulladminrecords_a, setpulladminrecords_a]=useState(false);
+    let[imgclasssch,setimgclasssch]=useState()
 
     async function data_child(data)
     {
@@ -61,12 +65,27 @@ function Home()
     }
         async  function hello1()
           {
-                let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
-               // let ApiResponse= await axios.get('http://localhost:8080/hello1')
+                //let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
+             // let ApiResponse= await axios.get('http://localhost:8080/hello1')
+                let ApiResponse1= await axios.get('http://localhost:8080/student-photo?classNo=4&rollNo=4&extension=png')
+                console.log(ApiResponse1)
+                //console.log(ApiResponse1.request.response)
+                console.log(ApiResponse1.data)
+                let imgsch=ApiResponse1.data
+                setimgclasssch(imgsch)
 
-                  console.log(ApiResponse)
+                // let imgurl=ApiResponse1.data
+                //  console.log(imgurl)
                                   
           }
+     /*   async  function pulladminrecords()
+          {
+            setpulladminrecords_a(true)
+            let ApiResponse= await axios.get('http://localhost:8080/admin/recordpull')
+            //setpulladminrecords_a(false)
+
+            
+          }*/
     
 
 
@@ -122,6 +141,13 @@ function Home()
 
                                <div>
                                <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
+                               <img src={imgclasssch} className="student-photo"/>
+                             {/*  <button className="btn btn-primary" onClick={e=>pulladminrecords()}>pulladminrecors</button> */}
+                              
+                               <div>
+                              {  pulladminrecords_a==true&&  <Pull_Admin_Records /> }
+                               </div>
+
                                </div>
                                </div>
                                

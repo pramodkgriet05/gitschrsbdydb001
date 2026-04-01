@@ -2,7 +2,7 @@ import { useState } from "react"
 //import { GET_USER_ID } from "./utilils"
 import Std_info_c1_u_pulldata from "./Std_info_c1_u_pulldata"
 
-function Add_new_student({rece_data, stdid1})
+function Add_new_student({rece_data, stdid1,sectionid})
 {
            //console.log(stdid1)
            console.log("Add_new_student:"+stdid1)
@@ -11,14 +11,19 @@ function Add_new_student({rece_data, stdid1})
             let[errorData, seterrorData]=useState({e_name:"",e_email:"",e_mobile:"",e_password:""})
             let noerrors=0
              let[addstudent,setaddstudent]=useState(false)
-            let[stdinfo, setstdinfo]=useState({img1:"",rollno:"",name:"",standardandsection:stdid1,gender:"",dob:"",doj:"",address:"",mobile:"",father:"",gaurdian:"",classteacher:"",other:""})
-            let[stdinfo_error, setstdinfo_error]=useState({img1:false,rollno:false,Name:false,Standardandsection:false,gender:false,DOB:false,DOJ:false,Address:false,Mobile:false,Father:false,gaurdian:false,classteacher:false,Other:false})
+            let[stdinfo, setstdinfo]=useState({img1:"",rollno:"",name:"",Standred:stdid1,Section:sectionid, gender:"",dob:"",doj:"",address:"",mobile:"",father:"",gaurdian:"",classteacher:"",other:""})
+            let[stdinfo_error, setstdinfo_error]=useState({img1:false,rollno:false,Name:false,Section:false,gender:false,DOB:false,DOJ:false,Address:false,Mobile:false,Father:false,gaurdian:false,classteacher:false,Other:false})
             let[o_std_details, seto_std_details]=useState(false)
             let[message, setmessage]=useState(false)
             let nooferrors=0
             let tempErrors
             let stdvalue=stdid1
+            
             tempErrors={...stdinfo_error}
+
+            // const stdinfoall=new FormData();
+
+            // stdinfoall.append("rollno",stdinfo.rollno);
            
              
                    function data_fun(e)
@@ -31,19 +36,55 @@ function Add_new_student({rece_data, stdid1})
                         // setimg1(e.target.files[0])
                         
                     }
+
+                    const resizeImage = (file) => {
+                                      return new Promise((resolve) => {
+                                        const img = new Image();
+                                        const reader = new FileReader();
+
+                                        reader.onload = (e) => {
+                                          img.src = e.target.result;
+                                        };
+
+                                        img.onload = () => {
+                                          const canvas = document.createElement("canvas");
+
+                                          const targetWidth = 144;
+                                          const ratio = targetWidth / img.width;
+                                          const targetHeight = img.height * ratio;
+
+                                          canvas.width = targetWidth;
+                                          canvas.height = targetHeight;
+
+                                          const ctx = canvas.getContext("2d");
+                                          ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                                          canvas.toBlob((blob) => {
+                                            resolve(blob);
+                                          }, "image/jpeg");
+                                        };
+
+                                        reader.readAsDataURL(file);
+                                      });
+                                    };
+
+
+
+
                     function verifystd()
                     {
+                   
                       try
                       {
-                          if(stdinfo.rollno.length<2)
+                          if(stdinfo.rollno.length==0)
                           {
-                              tempErrors={...tempErrors, roll_no:true}
+                           
+                                tempErrors={...tempErrors, roll_no:true}
                               nooferrors=1
                           }
                           else
                               {
-                                  tempErrors={...tempErrors, roll_no:false}
-
+                               tempErrors={...tempErrors, roll_no:false}
                               }
                        
                         if(stdinfo.name.length<3)
@@ -56,9 +97,13 @@ function Add_new_student({rece_data, stdid1})
                                   tempErrors={...tempErrors, Name:false}
                                   
                               }
-
-                        
-                        
+                              if(!stdinfo.Section){
+                                    tempErrors = {...tempErrors, Section:true};
+                                    nooferrors = 1;
+                                }else{
+                                    tempErrors = {...tempErrors, Section:false};
+                                }
+  
                         if(stdinfo.gender.length==0)
                           {
                             tempErrors={...tempErrors, gender:true}
@@ -98,18 +143,39 @@ function Add_new_student({rece_data, stdid1})
                                 tempErrors={...tempErrors, classTeacher:false}
                             }
 
+                            if(!stdinfo.img1)
+                            {
+                               nooferrors=1
+                               tempErrors={...tempErrors, img1:true}
+                            }
+                            else{
+                               tempErrors={...tempErrors, img1:false}
+
+
+                            }
+
                          setstdinfo_error({...tempErrors})
                         
-                            if(nooferrors==0)
-
+                       if(nooferrors==0)
                         {
-    
-                            rece_data(stdinfo)
+                                                    if (stdinfo.img1) {
+                                  resizeImage(stdinfo.img1).then((resizedBlob) => {
+
+                                      const updatedData = {
+                                          ...stdinfo,
+                                          img1: new File([resizedBlob], stdinfo.img1.name, {
+                                              type: "image/jpeg"
+                                          })
+                                      };
+
+                                      rece_data(updatedData);
+                                 });
                         }
                         else{
                           console.log("error")
                           }
                         }
+                      }
                         catch(error)
                         {
                           console.log(error)
@@ -126,7 +192,7 @@ function Add_new_student({rece_data, stdid1})
     return(
       
                   <div className="col-8">
-                                <h3>Enter New Student Detailssssssss class:{stdid1}</h3> 
+                                <h3>Enter New Student Details class:{stdid1}{sectionid} </h3> 
                                    <div className="card mt-3" style={{width:'60rem'}}>
                                      
                                         <div className="row">
@@ -143,9 +209,22 @@ function Add_new_student({rece_data, stdid1})
                                                  <input type="text" className='form-control std_rec_add1 ' placeholder='Name' onChange={e=>setstdinfo({...stdinfo, name:e.target.value})}></input>
                                                  { stdinfo_error.Name==true && <div className="text-danger"> Min 3 charecters</div>}
                                                
-                                                 <label><strong>Standard and section</strong></label>
+                                                 {/* <label><strong>Standard and section</strong></label>
                                                  <input type="text" className='form-control std_rec_add1 '   placeholder={stdid1} onChange={e=>setstdinfo({...stdinfo, standardandsection:stdid1})} ></input>
-                                                  
+                                                   
+                                                  <label><strong>Standard and Section</strong></label>*/}
+
+                                                  <div className="d-flex align-items-center gap-3 mt-1 mb-1">
+
+                                                  <span><strong>Standard : </strong></span>{stdid1}
+                                                  <span><strong>Section   </strong></span>{sectionid}
+
+                                                 
+
+                                                  </div>
+                                                  {stdinfo_error.Section && 
+                                                    <div className="text-danger">Please select section</div>
+                                                    }
                                                  <strong>Gender</strong> 
                                                   
                                                 <spam>   <input type="radio" value="male" name="Gender" onChange={e=>setstdinfo({...stdinfo, gender:"Male"})}></input>Male </spam>
@@ -169,14 +248,15 @@ function Add_new_student({rece_data, stdid1})
                                                     <div className="card -body std_rec_add">
                                                         <div className="row">
                                                             <div className="col-3">
-                                                             <label className="mt-1 ms-3"> Mobile   </label>
-                                                             <label className="mt-3 ms-3"> Father</label>
+
+                                                             <label className="mt-1 ms-3"> <strong>Mobile </strong>  </label>
+                                                             <label className="mt-3 ms-3"><strong> Father</strong></label>
                                                              
-                                                             <label className="mt-3 ms-3">   mother/Gaudien name   </label>
+                                                             <label className="mt-3 ms-3"> <strong>  mother/Gaudien name  </strong> </label>
 
-                                                             <label className="mt-1 ms-3"> Class Teacher   </label>
+                                                             <label className="mt-1 ms-3"><strong> Class Teacher </strong>  </label>
 
-                                                             <label className="mt-3 ms-3"> Other   </label>
+                                                             <label className="mt-3 ms-3"><strong> Other </strong>   </label>
 
 
                                                             </div>
@@ -195,34 +275,18 @@ function Add_new_student({rece_data, stdid1})
                                                            
                                                           
                                                         </div>
-                                                         <label className=" text-danger mt-3 ms-3">UPLOAD PROFILE PIC</label>
+                                                         <label className=" text-success mt-3 ms-3">UPLOAD PROFILE PIC</label>
                                                              
                                                             <input type="file" className="form-control mt-1" placeholer="file" onChange={e=>setstdinfo({...stdinfo, img1:e.target.files[0]})}></input>
+                                                             { stdinfo_error.img1==true && <div className="text-danger"> Upload profile pic</div>}
                                                             <button className="btn btn-warning  d-grid mt-3" type="button" onClick={e=>verifystd()}> SUBMIT</button>
+                                                            {stdinfo.address}
                                                     </div>
                                            </div>
                                                 
                                          </div>
                                   </div>
-                                  </div>
-                                 
-                           
-                                  
-                                  
-
-                            
-                          
-
-
-                                    
-                                
-                                
-                                
-
-
-                              
-                                               
+                                  </div>                                                   
     )
-
 }
 export default Add_new_student

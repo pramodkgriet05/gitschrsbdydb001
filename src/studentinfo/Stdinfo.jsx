@@ -9,7 +9,7 @@ import { GET_USER_NAME } from "../../Utils/Utils"
     {
            let userName=GET_USER_NAME()
             
-           if(userName==null)
+            if(userName==null)
            {
             window.location="/"
            }
@@ -24,11 +24,7 @@ import { GET_USER_NAME } from "../../Utils/Utils"
                        function home_fun()
                        {
                          window.location="/stdinfo"
-
                        }
-
-
-
         return(
             <div className="container">
                 <div className="mt-5">
@@ -76,7 +72,7 @@ import { GET_USER_NAME } from "../../Utils/Utils"
                                         <img src={sports1} className="  profile_pic1 shadow " alt="..."/>
                                             <div className="card-body">
                                             
-                                                <a href="#" className="btn btn-primary">Click Here</a>
+                                                <a href="/stdinfo/c1/u/2026/sports" className="btn btn-primary">Click Here</a>
                                             </div>
                                         </div>
                                 </div>
@@ -86,13 +82,39 @@ import { GET_USER_NAME } from "../../Utils/Utils"
                                         <img src={dance1} className=" dance11 shadow" alt="..."/>
                                             <div className="card-body">
                                                 
-                                                <a href="#" className="btn btn-primary">Click Here</a>
+                                                <a href="/stdinfo/c1/u/2026/extracurricular" className="btn btn-primary">Click Here</a>
                                             </div>
                                         </div>
                                 </div>
 
+                                 <div className="col-4">
+                               
+                                </div>
 
+                                 <div className="col-4">
+                                 <h3  >Fees</h3>
+                                        <div className="card"  style={{width: '18rem'}} >
+                                        <img src={dance1} className=" dance11 shadow" alt="..."/>
+                                            <div className="card-body">
+                                                
+                                                <a href="/stdinfo/c1/u/2026/fees" className="btn btn-primary">Click Here</a>
+                                            </div>
+                                        </div>
+                                        
+                                </div>
+                                <div className="col-4">
+                                    <h3  >Daily Updates</h3>
+                                        <div className="card"  style={{width: '18rem'}} >
+                                        <img src={dance1} className=" dance11 shadow" alt="..."/>
+                                            <div className="card-body">
+                                                
+                                                <a href="/stdinfo/c1/u/2026/dailyupdates" className="btn btn-primary">Click Here</a>
+                                            </div>
+                                        </div>
 
+                                </div>
+
+                                
                                 </div>
                                 
                         

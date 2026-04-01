@@ -8,6 +8,14 @@ import { GET_USER_NAME } from "../../Utils/Utils"
 function Std_pulldata()
 {
     const {classid1}=useParams()
+
+    let userName=GET_USER_NAME()
+            
+            if(userName==null)
+           {
+            window.location="/"
+           }
+
     
 
     console.log(classid1)

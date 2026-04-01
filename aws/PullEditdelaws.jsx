@@ -1,12 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 //import Std_info_c1_e from "./Std_info_c1_e"
-import Add_new_student from "../studentupdate/Add_new_student"///add student
+//import Add_new_student from "../studentupdate/Add_new_student"///add student
 //import { GET_USER_ID, GET_USER_NAME } from "./utilils"
 
 import imgstd from '../pics/profile/profile_pic.jpg'
 
-function Std_info_c1_u_pulldata({stdid1})
+function PullEditdelaws({stdid1})
 {//Std_info/c1/u/pulldata
     // let userName=GET_USER_NAME()
       //    let userId=GET_USER_ID()
@@ -21,7 +21,7 @@ function Std_info_c1_u_pulldata({stdid1})
      //   console.log("std_info_c1_u_pulldata classid:"+stdid1)
 
    //let[stdinfo, setstdinfo]=useState({img1:"",roll_no:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classTeacher:"",other:"", userid:""})
-   let[stdinfo1, setstdinfo1]=useState({img1:"",rollno:"",name:"",standardandsection:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classteacher:"",other:"", userid:""})
+   let[stdinfo1, setstdinfo1]=useState({img1:"",imgFileName:"",rollno:"",name:"",standred:"",section:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classteacher:"",other:"", userid:""})
    let[stdinfo, setstdinfo]=useState([]) 
    let[stddelapimsg, setstddelapimsg]=useState( )
    let[sendEditData, setsendEditData]=useState()
@@ -29,6 +29,15 @@ function Std_info_c1_u_pulldata({stdid1})
    let[student, setstudent]=useState([])
    let[editcolomdata, seteditcolomdata]=useState()
    let[updateeditcolmdata, setupdateeditcolmdata]=useState()
+   let[deldata, setdeldata]=useState({img1:"",imgFileName:"",rollno:"",name:"",standred:"",section:"",gender:"",dob:"",doj:"",address:"",mobile:"",father:"", gaurdian:"",classteacher:"",other:"", userid:""})
+
+
+   
+
+
+       let[awsresposes, setawsresposes]=useState([])
+
+       let classidsch=stdid1;
   
    useEffect(()=>{
 
@@ -37,12 +46,14 @@ function Std_info_c1_u_pulldata({stdid1})
             // console.log("std_info_c1_u_pulldata classid:"+stdid1)
              try{
 
-                            //              const apiResponse = await axios.get(
-                            //    `http://65.2.25.249:8080/s/pullrecords1/${stdid1}`
-                            //     );
-               //console.log(apiResponse)
-
-               
+            //                              const apiResponse = await axios.get(
+            //                    `http://65.2.25.249:8080/s/pullrecords1/${stdid1}`
+            //                     );
+            //    console.log(apiResponse)
+                let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
+                 console.log(apiresponse)
+          console.log(apiresponse.data)
+          setawsresposes(apiresponse.data)
 
             //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
             //   console.log(apiResponse)
@@ -50,7 +61,7 @@ function Std_info_c1_u_pulldata({stdid1})
             //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
             // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
-             setstdinfo(apiResponse.data)
+            // setstdinfo(apiResponse.data)
              
             }
              
@@ -80,9 +91,30 @@ function Std_info_c1_u_pulldata({stdid1})
          
        try 
        {
+
+       // console.log(e.imgFileName)
+        // setdeldata(e)
+      //   const senddeldata=e.imgFileName
+                //         setdeldata(prev => ({
+                // ...prev,
+                // imgdatasend: e.imgFileName,
+                // standardandsection: e.standardandsection
+                // }));
+
+                                const data = {
+                    imgdatasend: e.imgFileName,
+                    standardandsection: e.standardandsection
+                };
+         setdeldata({...deldata, imgdatasend:e.imgFileName,standardandsection:e.standardandsection})
+         //setdeldata({...deldata, standardandsection:e.standardandsection})
+
             
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
-            let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
+          //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
+          let ApiResponse= await axios.post('http://localhost:8080/m/s/'+e.id+'/dele',data)
+
+          console.log(ApiResponse)
+
             console.log(ApiResponse.data.Message)
             setstddelapimsg(ApiResponse.data.Message)
             window.location=`/std_info/c1/u/${stdid1}`
@@ -134,8 +166,15 @@ function Std_info_c1_u_pulldata({stdid1})
      function updateStandred(e)
      {
          seteditcolomdata(e)
-         setupdateeditcolmdata({...updateeditcolmdata, standardandsection:e.target.value})
-         setstdinfo1({...stdinfo1, standardandsection:e.target.value })
+         setupdateeditcolmdata({...updateeditcolmdata, standred:e.target.value})
+         setstdinfo1({...stdinfo1, standred:e.target.value })
+
+     }
+     function updateSection(e)
+     {
+         seteditcolomdata(e)
+         setupdateeditcolmdata({...updateeditcolmdata, section:e.target.value})
+         setstdinfo1({...stdinfo1, section:e.target.value })
 
      }
      function updatedob(e)
@@ -212,9 +251,10 @@ function Std_info_c1_u_pulldata({stdid1})
     try{
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
       // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
-       let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
-     setIndex(null)
-      window.location=`/std_info/c1/u/${stdid1}`
+       //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
+       let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
+       setIndex(null)
+       window.location=`/std_info/c1/u/${stdid1}`
     }
     catch(error)
     {
@@ -238,7 +278,7 @@ function Std_info_c1_u_pulldata({stdid1})
     return(
          
          <div>
-            <h1>pull data</h1>
+            <h1>pulledit & delete  data{deldata.imgdatasend}</h1>
             <div>
             <h3 className="text-danger">{stddelapimsg}</h3>
             </div>
@@ -271,13 +311,13 @@ function Std_info_c1_u_pulldata({stdid1})
                 <tbody>
        
                  {  
-                    stdinfo.map((stdrecord, i)=>(
+                    awsresposes.map((stdrecord, i)=>(
                         <tr key={i}>
                         <td > 
                              {stdrecord.rollno }  
                             </td> 
                             <td>
-                                  <img src={imgstd} className="student-photo"/>
+                                  <img src={stdrecord.imgdata} className="student-photo"/>
                             </td>
                         <td>
                             {index===i?(<input value={editcolomdata.name } onChange={(e)=>updateName(e)} style={{ height: "24px", fontSize: "12px", padding: "2px" }}/>):(stdrecord.name)}
@@ -287,15 +327,11 @@ function Std_info_c1_u_pulldata({stdid1})
                             
                             </td>
                         <td>
-                            {index===i?(<input value={editcolomdata.address } onChange={(e)=>updateAddress(e)}/>):(stdrecord.sta)}
-                             
-                            </td>
-                             <td>
-                            {index===i?(<input value={editcolomdata.address } onChange={(e)=>updateAddress(e)}/>):(stdrecord.address)}
+                            {index===i?(<input value={editcolomdata.standred } onChange={(e)=>updateAddress(e)}/>):(stdrecord.standred)}
                              
                             </td>
                          <td>
-                            {index===i?(<input value={editcolomdata.standardandsection } onChange={(e)=>updateStandred(e)}/>):(stdrecord.standardandsection)} 
+                            {index===i?(<input value={editcolomdata.section } onChange={(e)=>updateStandred(e)}/>):(stdrecord.section)} 
                            
                             </td> 
                         <td>
@@ -356,7 +392,7 @@ function Std_info_c1_u_pulldata({stdid1})
              </div>
     )
 }
-export default Std_info_c1_u_pulldata
+export default PullEditdelaws
 
 {/*
 
