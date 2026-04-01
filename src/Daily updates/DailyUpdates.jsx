@@ -18,7 +18,7 @@ function DailyUpdates()
                 }
      function back_fun()
                    {
-                    window.location="/stdinfo/c1/u/2026/dailyupdates"
+                    window.location="/stdinfo"
                    }
                      
                    function logout()
