@@ -666,7 +666,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                             {stdrecord.name}
                         </td>
                         <td style={{  textAlign:"center"}}>
-                            {stdrecord.examcode}
+                            {stdrecord.examname}
                         </td>
 
                         <td style={{  textAlign:"center"}}>
