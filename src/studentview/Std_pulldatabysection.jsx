@@ -3,6 +3,7 @@ import Stdpullgetbysection from "./Stdpullgetbysection";
 import R_SA1_BySec_pull from "./R_SA1_BySec_pull";
 import { useState } from "react";
 import { GET_USER_NAME } from "../../Utils/Utils";
+import Navbar from "../Navbar/Navbar";
 
     function Std_pulldatabysectionget()
 {
@@ -14,6 +15,7 @@ import { GET_USER_NAME } from "../../Utils/Utils";
                {
                 window.location="/"
                }
+
     
     const {classid}=useParams()
     const {sectionid}=useParams()
@@ -65,6 +67,13 @@ import { GET_USER_NAME } from "../../Utils/Utils";
     return( 
     
        <div className="container">
+        <div className="row">
+            <div className="col-12">
+                <Navbar/>
+
+            </div>
+
+        </div>
         <div className="row">
             <div className="col-12">
                 

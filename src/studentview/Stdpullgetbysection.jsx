@@ -56,9 +56,12 @@ function Stdpullgetbysection({classid1,sectionid1})
              //  console.log(apiresponse)
               // console.log(apiresponse.data.result)
     },[]) 
+
+    
       
     
     return(
+        
          
          <div>
             <h1 className="mt-5">pull data ClassName: { classid1}  Section:  { sectionid1}</h1>
