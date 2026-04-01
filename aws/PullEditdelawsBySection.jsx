@@ -2,13 +2,13 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 //import Std_info_c1_e from "./Std_info_c1_e"
 //import Add_new_student from "../studentupdate/Add_new_student"///add student
-//import { GET_USER_ID, GET_USER_NAME } from "./utilils"
-
+ 
 import imgstd from '../pics/profile/profile_pic.jpg'
+import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
 
 function PullEditdelawsBySection({stdid1,section1})
 {//Std_info/c1/u/pulldata
-     let userName=GET_USER_NAME()
+     let userName=GET_USER_NAME ()
           let userId=GET_USER_ID()
                    
          if(userName==null)
