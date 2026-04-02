@@ -295,7 +295,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
          
               setErrorg(1); 
               console.log("eg:",errorg)
-             setmarkserrorwo(true)
+             setmarkserroro(true)
             
           }
           else{
@@ -578,7 +578,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
          <div className="row">
             {/* <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>pullSA11()}> pullSA1result</button>  */}
               {/* <h1>resutls SA-1</h1>  */}
-           <div  className="col-4"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} > {createrecords1.examname}</span>/ teacher</h3></div>
+           <div  className="col-6"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} > {createrecords1.examname}</span>/ {userName}</h3></div>
           
            
            <div className="col-8">

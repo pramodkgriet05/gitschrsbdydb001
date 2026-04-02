@@ -34,6 +34,7 @@ import PullEventDetails from '../Sports/PullEventDetails';
 import Fees from './Fees/Fees';
 import DailyUpdates from './Daily updates/DailyUpdates';
 import DailyUpdatesForm from './Daily updates/DailyUpdatesForm';
+import DailyUpdates_S from './Daily updates/DailyUpdates_S';
 
 
 
@@ -96,7 +97,7 @@ function App() {
 
         <Route path='/stdinfo/c1/u/2026/dailyupdates' element={<DailyUpdates />} /> 
          <Route path='/stdinfo/dailyupdates/:y/:classid/:sectionid' element={<DailyUpdatesForm />} />   
-
+         <Route path='/stdinfo/s/c1/u/:y/dailyupdates' element={<DailyUpdates_S />} />   
        {/* ------------------------------------------------------------------------------------ */}
         
       </Routes>

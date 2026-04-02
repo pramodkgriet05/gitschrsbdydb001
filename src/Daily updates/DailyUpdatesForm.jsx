@@ -54,7 +54,7 @@ function DailyUpdatesForm()
                     eventphotos.append("description",dailyupdates.description)
                      eventphotos.append("standred",classid)
                      eventphotos.append("section",sectionid)
-                   
+                    eventphotos.append("teachername",userName)
                     eventphotos.append("eventuniquename", eventUniqueName )
                    
                     eventphotos.append("file",file)
@@ -266,12 +266,12 @@ function DailyUpdatesForm()
                  <h3>Daily Updates  </h3>
                   <div className="col-2 mt-1">
                  <h6> year<span style={{fontSize:"17px",color: "red" }}>: {y} </span></h6>  
-             <h6>class: <span style={{fontSize:"17px",  color: "red"}}>: {classid} </span></h6> 
-             <h6>Section:   <span style={{fontSize:"17px",  color: "red"}}>: {sectionid} </span></h6> 
-             <h6>Month: <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.month12} </span></h6>  
-             <h6>Subject <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.subj} </span></h6>  
+                    <h6>class: <span style={{fontSize:"17px",  color: "red"}}>: {classid} </span></h6> 
+                    <h6>Section:   <span style={{fontSize:"17px",  color: "red"}}>: {sectionid} </span></h6> 
+                    <h6>Month: <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.month12} </span></h6>  
+                    <h6>Subject <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.subj} </span></h6>  
 
-            </div>
+                 </div>
           <div className="col-2">
             <h5>   </h5> 
             

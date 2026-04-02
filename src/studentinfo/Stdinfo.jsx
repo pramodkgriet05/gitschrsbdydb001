@@ -113,12 +113,24 @@ import { GET_USER_NAME } from "../../Utils/Utils"
                                         </div>
 
                                 </div>
+                                <div className="col-4">
+                                    
+
+                                </div>
+                                 <div className="col-4">
+                                    <h3  >Daily Updates(Students)</h3>
+                                        <div className="card"  style={{width: '18rem'}} >
+                                        <img src={dance1} className=" dance11 shadow" alt="..."/>
+                                            <div className="card-body">
+                                                
+                                                <a href="/stdinfo/s/c1/u/2026/dailyupdates" className="btn btn-primary">Click Here</a>
+                                            </div>
+                                        </div>
+
+                                </div>
 
                                 
                                 </div>
-                                
-                        
-                    
                 </div>
             </div>
 
