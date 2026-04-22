@@ -9,6 +9,7 @@ function SignUP({data_P})
         let[errorData, seterrorData]=useState({e_name:"",e_email:"",e_mobile:"",e_password:""})
         let[ApiMessage, setApiMessage]=useState({message:"",errorMessage:""})
         let[apierrordata, setapierrordata ]=useState(false)
+        let[inpfile, setinpfile]=useState()
         let error1
         let error2
         let noerrors=0
@@ -37,21 +38,70 @@ function SignUP({data_P})
                     setuserInputdata({...userInputdata, mobile:e.target.value})
             
                    }
-                   async function data_P1()
+                    async function compressImage(file) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = (e) => {
+      img.src = e.target.result;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width = img.width;
+      let height = img.height;
+
+      // resize if large
+      const maxWidth = 1280;
+      if (width > maxWidth) {
+        height = (height * maxWidth) / width;
+        width = maxWidth;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // compress
+      canvas.toBlob(
+        (blob) => {
+          resolve(new File([blob], file.name, { type: "image/jpeg" }));
+        },
+        "image/jpeg",
+        0.7 // reduce more if needed (0.6 / 0.5)
+      );
+    };
+  }); 
+}                 
+  
+              async function data_P1()
                    {
                     try
                     {
-                    let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', userInputdata)
-                        console.log(ApiResponse)
+                         const stdinfoall=new FormData(); 
 
-                       // let apires1=await axios.get('http://localhost:8080/hello1')
-                      //  console.log(apires1)
-                     
-                       //  let ApiResponse= await axios.post('http://localhost:8080/createaccount', userInputdata)
-                         console.log(ApiResponse)
-                         console.log(ApiResponse.data)
-                        console.log(ApiResponse.data.data)
-                        console.log(ApiResponse.data.status)
+                             stdinfoall.append("email",userInputdata.email);
+                            stdinfoall.append("name",userInputdata.name);
+                            stdinfoall.append("password", userInputdata.password);
+                            stdinfoall.append("mobile", userInputdata.mobile);
+                           const compressedFile = await compressImage(inpfile);
+
+                            stdinfoall.append("i", compressedFile );
+                    let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', stdinfoall)
+                      // console.log(ApiResponse)
+
+                      
+                      //  let ApiResponse= await axios.post('http://localhost:8080/createaccount', stdinfoall)
+                          console.log(ApiResponse)
+                          console.log(ApiResponse.data)
+                          console.log(ApiResponse.data.data)
+                          console.log(ApiResponse.data.status)
                          setApiMessage({...ApiMessage, message:ApiResponse.data.status})
                          
                          data_P(userInputdata.email)
@@ -62,11 +112,11 @@ function SignUP({data_P})
                          console.log(error.response)
                          error1=error.message
                          error2=error.response.data.message
-                       //  console.log(error.response.data)
-                         setApiMessage({...ApiMessage, errorMessage:error2})
+                         console.log(error.response.data)
+                        setApiMessage({...ApiMessage, errorMessage:error2})
                          setapierrordata(true)
-                    //  console.log(errorMessage.error)
-                        //data_P("Message:"+error1+error2)
+                      console.log(errorMessage.error)
+                        data_P("Message:"+error1+error2)
                       
                       
                     }
@@ -129,6 +179,16 @@ function SignUP({data_P})
                  noerrors=1
                
                tempdata={...tempdata, e_mobile:"mobile must be minimum 10 charecters "}
+                 }
+                 if(!inpfile)
+                {
+                     noerrors=1                  
+                  tempdata={...tempdata, e_file:" select profile photo"}
+                }
+                else
+                {                     
+               
+               tempdata={...tempdata, e_file:" "}
                  }
                seterrorData({...tempdata})
                console.log(noerrors)
@@ -199,6 +259,15 @@ function SignUP({data_P})
 
                                                                     </div>
                                                             </div>
+                                                            <div className='mt-3'>
+                                                                    <label><strong>upload profile pic</strong></label>
+                                                                    <input type="file" className='form-control' placeholder='Image' onChange={e => setinpfile(e.target.files[0])}></input>
+                                                                     <div className="text-danger">
+                                                                        {errorData.e_file}
+
+                                                                    </div>
+                                                            </div>
+                                                            
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
                                                         <button className=" btn btn-primary" onClick={e=>createAccount()}>submit</button>

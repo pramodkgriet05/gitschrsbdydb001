@@ -5,6 +5,10 @@ import { GET_USER_NAME } from "../../Utils/Utils";
 
 function Pulldataafter({classid1})
 {
+    let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+        
 
            let userName=GET_USER_NAME()
                        
@@ -25,7 +29,11 @@ function Pulldataafter({classid1})
              try{
 
                                          const apiResponse = await axios.get(
-                                `http://65.2.25.249:8080/s/pullrecords1/${classid}`
+                                `http://65.2.25.249:8080/s/pullrecords1/${classid}`,{
+                                                                                        headers:{
+                                                                                            Authorization:token1
+                                                                                        }
+                                                                                                }
                                  );
                 console.log(apiResponse)
 

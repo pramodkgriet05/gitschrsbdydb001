@@ -93,6 +93,8 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
     const [errorg, setErrorg] = useState(0);
     let[pleasecheck,setpleasecheck]=useState(false)
 
+    
+
        let classidsch=stdid1;
        const {stdid}=useParams()
              const {sectionid}=useParams()
@@ -497,13 +499,15 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
   async function  saveRow1( i )
    {
     console.log("e",errorg)
+    const confirmEdit = window.confirm("Do you want to edit this record?");
 
-
-    try{
+          if(confirmEdit)
+          {
+            try{
 
     
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
-      // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
+    //   let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
  let updatedData = {
          ...updateeditcolmdataR,
@@ -521,7 +525,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
      // let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
       let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData)
        setupdateeditcolmdataR({})
-      // let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
+       //let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
        let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
                        console.log(apiresponse1)
                       
@@ -544,7 +548,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
     {
         console.log(error)
     }
-    
+  }
      
    }
                     async function pullSA11(y,e)

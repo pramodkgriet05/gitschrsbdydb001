@@ -16,6 +16,9 @@ import R_SA1_BySec from "../../Results/R_SA1_BySec"
 
 function Std_pulldataBySection()
 {
+    let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
       let userName=GET_USER_NAME()
       let userId=GET_USER_ID()
       const {stdid}=useParams()
@@ -83,14 +86,22 @@ function Std_pulldataBySection()
     async function awscall()
     {
           //let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall)
-          let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall) 
+          let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{
+   headers:{
+    Authorization:token1
+   }
+        }) 
  
 
     }
     async function awscallget()
     {
           //let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
-          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`)
+          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`,{
+   headers:{
+    Authorization:token1
+   }
+        })
           console.log(apiresponse)
           console.log(apiresponse.data)
           setawsresposes(apiresponse.data)
@@ -108,7 +119,11 @@ function Std_pulldataBySection()
                  
                
               // let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall)  
-               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall)
+               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{
+   headers:{
+    Authorization:token1
+   }
+        })
                console.log(apiresponse)
                console.log("cal api:1")
                console.log(apiresponse.data.result)
@@ -267,6 +282,11 @@ function Std_pulldataBySection()
 
     return(
         <div className="container">
+             <div className="row">
+                    <div className="col-12">
+                     <h1 style={{ marginLeft:"370px",marginTop: "40px", fontSize:"70px" }}>St'Martins school</h1>
+                    </div>
+                    </div>
             <div className="mt-5">
             <h6>user,</h6><h3>{userName}</h3>
                 <h3> class: {stdid}</h3>
@@ -275,7 +295,7 @@ function Std_pulldataBySection()
              <button className="btn btn-primary ms-3 mt-5" onClick={e=>back_fun()}>Back</button>
              <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
             <div className="row mt-5 ">
-             <h1>St'Martins school</h1>
+           
                 <div className="col-4">
                    
                     <button className="btn btn-primary mt-5" onClick={e=>setshow_A_M(true)}>Add Details</button>

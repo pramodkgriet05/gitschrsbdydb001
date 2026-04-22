@@ -4,8 +4,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { GET_USER_NAME } from "../../Utils/Utils";
 
-function DailyUpdatesForm()
+function    DailyUpdatesForm()
 {
+
+
+     let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+  
 
     let userName=GET_USER_NAME()
                 
@@ -60,8 +66,9 @@ function DailyUpdatesForm()
                     eventphotos.append("file",file)
     
          
-                      //await axios.post(`http://localhost:8080/m/s/duadd`,eventphotos)
-                      await axios.post(`http://65.2.25.249:8080/m/s/duadd`,eventphotos)
+                     // await axios.post(`http://localhost:8080/m/s/duadd`,eventphotos,{headers:{Authorization:token1}})
+    
+                      await axios.post(`http://65.2.25.249:8080/m/s/duadd`,eventphotos, {headers:{Authorization:token1}})
 
                       window.location=`/stdinfo/dailyupdates/${y}/${classid}/${sectionid}`
                       setdailyupdates({})
@@ -108,7 +115,11 @@ function DailyUpdatesForm()
         try
         {
        // let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata)
+        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{
+   headers:{
+    Authorization:token1
+   }
+        })
 
          console.log(dupulldata)
          console.log(apiresponse.data)
@@ -144,11 +155,19 @@ function DailyUpdatesForm()
             "eventUniqueName":data.eventUniqueName
          }
                     //  let apiresponse= await axios.post(`http://localhost:8080/m/s/dudel`,dupulldata)
-                      let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/dudel`,dupulldata)
+                      let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/dudel`,dupulldata,{
+   headers:{
+    Authorization:token1
+   }
+        })
 
                       //  window.location=`/stdinfo/dailyupdates/${y}/${classid}/${sectionid}`
                     //  let apiresponse1= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-                      let apiresponse1= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata)
+                      let apiresponse1= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{
+   headers:{
+    Authorization:token1
+   }
+        })
 
          console.log(dupulldata)
                   setpulleventdetailsdata(apiresponse1.data)
@@ -170,10 +189,6 @@ function DailyUpdatesForm()
                     </div>
                 </div>
             </div>
-
-
-
-
     <div className="row">
         {
             successmsg==true&&<div style={{color:"red"}}>
@@ -193,7 +208,7 @@ function DailyUpdatesForm()
                         <input type="text" className='form-control std_rec_add1 ' placeholder='Event Name' onChange={e=>setdailyupdates({...dailyupdates, projectname:e.target.value})} ></input>
 
                          <select className='form-control std_rec_add1 '    placeholder='select year' onChange={e=>setdailyupdates({...dailyupdates, subject:e.target.value})} >
-                            <option>select class</option>
+                            <option>select subject</option>
                                     <option>Hindi</option>
                                     <option>Telugu</option>
                                     <option>English</option>
@@ -228,7 +243,7 @@ function DailyUpdatesForm()
 
 
         <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(5,"May" )}>May</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 6,"June")}>June</button> 
+        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(6,"June")}>June</button> 
         <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(7,"July")}>July</button>
         <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(8,"August")}>August</button>
 
@@ -316,7 +331,7 @@ function DailyUpdatesForm()
                                     </td>
                                       
                                      <td style={{ textAlign:"center", fontSize:"20px"}}>
-                                         {data.name}
+                                         {data.updatedby}
                                     </td>
                                      <td style={{ textAlign:"center"}} >
                                          {data.standred}
@@ -331,16 +346,9 @@ function DailyUpdatesForm()
                                     <td>
                                         <button className="btn btn-primary" onClick={e=>delrecordup(data)}>Delete</button>
                                     </td>
-                                    
-                                    
-                                     
                                 </tr>
-                             
-
-                        ))
-
+                                ))
                     }
-                    
                            </tbody>
                            </table>
         </div>

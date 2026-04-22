@@ -2,9 +2,6 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -127,6 +124,28 @@ button:focus-visible {
     width:150px;
     height:auto;
     border-radius: 5%
+  }
+  .profile_pic3
+  {
+    display: block;
+    margin-left: 0px;
+    margin-right: auto;
+    margin-top: 10px;   /* Optional */
+    margin-bottom: 10px;
+    width:250px;
+    height:350px;
+    border-radius: 1%
+  }
+  .profile_pic4
+  {
+    display: block;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;   /* Optional */
+    margin-bottom: 10px;
+    width:270px;
+    height:350px;
+    border-radius: 1%
   }
   .dance11
   {

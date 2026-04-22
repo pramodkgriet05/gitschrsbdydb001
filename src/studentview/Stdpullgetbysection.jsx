@@ -6,6 +6,10 @@ import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
  
 function Stdpullgetbysection({classid1,sectionid1})
 {//Std_info/c1/u/pulldata
+    let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+    
       let userName=GET_USER_NAME()
            let userId=GET_USER_ID()
                    
@@ -38,7 +42,11 @@ function Stdpullgetbysection({classid1,sectionid1})
             try{
              //let apiResponse=await axios.post('http://localhost:8080/s/pullrecords') pull all the records
             //  let apiResponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classid1}/${sectionid1}`) //pull class wise recordsadf
-              let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`)
+              let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`,{
+   headers:{
+    Authorization:token1
+   }
+        }) 
               // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)

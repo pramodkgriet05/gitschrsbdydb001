@@ -20,6 +20,25 @@ export const GET_USER_NAME=()=>{
         }
 
  }
+export const GET_USER_DATA=()=>{
+    console.log("check")
+
+    let userData=localStorage.getItem('userData')
+   
+    if(userData!=null)
+        {
+             userData=JSON.parse(userData)
+             let imgkey=userData.imgkey
+            return userData
+        } 
+        else
+        {
+            return null
+        }
+
+ }
+
+
  export const GET_USER_ID=()=>{
 
     let userData=localStorage.getItem('userData')

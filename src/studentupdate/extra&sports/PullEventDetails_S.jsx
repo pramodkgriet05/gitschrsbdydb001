@@ -1,14 +1,10 @@
 import axios, { Axios } from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
-import { GET_USER_NAME } from "../Utils/Utils";
+import { GET_USER_NAME } from "../../../Utils/Utils";
 
-function PullEventDetails()
+function PullEventDetails_S()
 {
-    let token=localStorage.getItem("token")
-        console.log(token)
-        let token1="Bearer"+" "+token;
-   
 let userName=GET_USER_NAME()
             
             if(userName==null)
@@ -20,6 +16,10 @@ let userName=GET_USER_NAME()
 
   let location =  useLocation();
 
+  let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+     
  
   let[disimagess, setimagesdis]=useState([])
    const [selectedIndex, setSelectedIndex] = useState(null);
@@ -76,25 +76,23 @@ let userName=GET_USER_NAME()
     let data=location.state.s3path
     let ename=location.state.eventname
 
-    console.log("data",data)
+    console.log("datappo",data)
     console.log("ename",ename)
 
     useEffect(() => {
-        let token=localStorage.getItem("token")
-        console.log(token)
-        let token1="Bearer"+" "+token;
-   
 
   async function fetchData() {
+
+       
 
     
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
         let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{
-   headers:{
-    Authorization:token1
-   }
-        });
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    });
 
     //console.log(res.data);
     console.log(res)
@@ -193,22 +191,14 @@ async function submitapi1()
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports12`,eventphotos)
-                  await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos,{
-   headers:{
-    Authorization:token1
-   }
-        })
+                  await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos)
 
                   setUploadedCount(i + 1);
 
 
             }
              //let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
-             let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{
-   headers:{
-    Authorization:token1
-   }
-        });
+             let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data});
 
     //console.log(res.data);
               console.log(res)
@@ -245,9 +235,9 @@ async function submitapi1()
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
-                        <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button>
-                         <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3">Back</Link>
-                         <Link  to={`/`} className="btn btn-primary ms-3">Home</Link>
+                        {/* <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button> */}
+                         <Link  to={"/stdinfo/s"} className="btn btn-primary ms-3">Back</Link>
+                         <Link  to={"/stdinfo"} className="btn btn-primary ms-3">Home</Link>
 
                       <h5 className="ms-5" >Academic Year:{year}</h5>
                       <h5 className="ms-5" >Event Type: {type}</h5>
@@ -259,11 +249,11 @@ async function submitapi1()
                       {/* <h5 class="card-title">Special title treatment</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
-                          <div>
+                          {/* <div>
                             <h4>Add more files</h4>
                       <input type="file"  multiple className='form-control std_rec_add1'  ref={fileInputRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
                       </div>
-                      
+                       */}
                           <div className="col-12"></div>
                           {isUploading && (
                                             <div>
@@ -282,8 +272,8 @@ async function submitapi1()
 
                            <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
                                         {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
-                                            <div className="card"  style={{width: '5rem',height: '5rem'}} >
-                                            <img   key={index} src={image}  className=" shadow" alt="" width="150"  height="170"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+                                            <div className="card"  style={{width: '13rem',height: '17rem'}} >
+                                            <img   key={index} src={image}  className="profile_pic2 shadow" alt=""    style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
 
 
                                                 <div className="card-body">
@@ -296,6 +286,9 @@ async function submitapi1()
                                     </div>
                                                ))
                       }  
+
+
+
                       {
 
                          selectedIndex !== null && (
@@ -318,14 +311,23 @@ async function submitapi1()
                          
                     
                        </div>
-                       </div>
+
+
+
+
+
+
+
+
+                    
+                    </div>
                   </div>
                         </div>        
                 </div>
 
     )
 }
-export default PullEventDetails
+export default PullEventDetails_S
 
 
 

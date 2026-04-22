@@ -94,8 +94,13 @@ function Home()
 
     return(
          <div className="container">
+          <div className="row">
+                    <div className="col-12">
+                  <h1 style={{ marginLeft:"370px",marginTop: "40px", fontSize:"70px" }}>St'Martins school</h1>
+                  </div>
+                </div>
             <div className="row mt-5 ">
-                <h1>St'Martins school</h1>
+               
                <div className="col-8 mt-5 text-center">  
                 <img src={labpic} className="img-lab justify-content-center"></img>
                 </div> 
@@ -140,8 +145,8 @@ function Home()
                                </div>
 
                                <div>
-                               <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
-                               <img src={imgclasssch} className="student-photo"/>
+                               {/* <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
+                               <img src={imgclasssch} className="student-photo"/> */}
                              {/*  <button className="btn btn-primary" onClick={e=>pulladminrecords()}>pulladminrecors</button> */}
                               
                                <div>

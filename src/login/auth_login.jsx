@@ -13,6 +13,7 @@ function Sch_login({ })
         let[userInputdata, setuserInputdata]=useState({ email:"" ,password:""})
         let[errorData, seterrorData]=useState({ e_email:"",e_password:""})
         let[signinDataError, setsigninDataerror]=useState({E_email:'false', E_password:'false', apierror:''})
+        let[imgkey, setimgkey]=useState()
         
         let noerrors=0
 
@@ -95,19 +96,14 @@ function Sch_login({ })
                         {
                             try
                             {
-                                      let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
-                                      console.log(ApiResponse)
-
-                                //  let apires1=await axios.get('http://localhost:8080/check')
-                                //  console.log(apires1)
-
-
-
-                                //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
-                                //  console.log(ApiResponse)
+                                let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
+                        
+                               //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
+                                  console.log(ApiResponse)
                             
-                          //  console.log(ApiResponse.data.Message.userData)
-                          //  console.log(ApiResponse.data.Message.token)
+                            console.log(ApiResponse.data.Message.userData)
+                            setimgkey(ApiResponse.data.Message.userData.imgkey)
+                            console.log(ApiResponse.data.Message.token)
                              
                             localStorage.setItem("userData", JSON.stringify(ApiResponse.data.Message.userData))
                             localStorage.setItem("token", ApiResponse.data.Message.token)

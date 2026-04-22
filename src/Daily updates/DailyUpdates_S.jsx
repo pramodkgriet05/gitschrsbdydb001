@@ -6,6 +6,11 @@ import { useParams } from "react-router-dom"
 function DailyUpdates_S()
 {
 
+    let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+   
+
     let[dailyupdates, setdailyupdates]=useState({})
     let[showsubject,setshowsubject]=useState(false)
     let[showtable,setshowtable]=useState(false)
@@ -16,13 +21,13 @@ function DailyUpdates_S()
 
 
      function month1(i,mnt)
-    {
-        setmonth(i)
-        setshowsubject(true)
-        setdailyupdates({...dailyupdates, month12:mnt})
-      //   window.location=`/stdinfo/c1/u/${y}/${classid}/${sectionid}`
+        {
+            setmonth(i)
+            setshowsubject(true)
+            setdailyupdates({...dailyupdates, month12:mnt})
+        //   window.location=`/stdinfo/c1/u/${y}/${classid}/${sectionid}`
 
-    }
+        }
 
 
 
@@ -46,7 +51,11 @@ function DailyUpdates_S()
         {
          console.log(dupulldata)
        // let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata)
+        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{
+   headers:{
+    Authorization:token1
+   }
+        })
 
          console.log(dupulldata)
          console.log(apiresponse.data)
@@ -69,11 +78,7 @@ function DailyUpdates_S()
             "month": " ",
             "subject": " "
          }
-    }
-
-
-
-
+    } 
     return(
 
         <div className="container">
@@ -96,7 +101,7 @@ function DailyUpdates_S()
                     <div className="row mt-5">
                           
                         <div className="   col-2">
-                            <h3>Academic Year</h3>
+                             
                             <h3>Class:</h3>
                             <h3>Section</h3>
                            
@@ -175,7 +180,7 @@ function DailyUpdates_S()
 
        </div>
 
-       <div className="row"  style={{marginTop:'30px'}}>
+       <div className="row"  style={{marginTop:'10px'}}>
         <div className="col-12">
         {showsubject==true&&
         <div>
@@ -217,15 +222,15 @@ function DailyUpdates_S()
                 <div className="row">
                     <div className="col-12 mt-5">
                         {
-           showtable==true&&<div>
+                 showtable==true&&<div>
                  <h3>Daily Updates  </h3>
                   <div className="col-2 mt-1">
-                   <h6> year<span style={{fontSize:"17px",color: "red" }}>: {y} </span></h6>  
+                    <h6> year<span style={{fontSize:"17px",color: "red" }}>: {y} </span></h6>  
                     <h6>class: <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.class1} </span></h6> 
                     <h6>Section:   <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.section} </span></h6> 
                     <h6>Month: <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.month12} </span></h6>  
                     <h6>Subject <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.subj} </span></h6>  
-                            </div>    
+                 </div>    
                      </div>
                      }
                     </div>                       
@@ -269,7 +274,7 @@ function DailyUpdates_S()
                                     </td>
                                       
                                      <td style={{ textAlign:"center", fontSize:"20px"}}>
-                                         {data.name}
+                                         {data.updatedby}
                                     </td>
                                      <td style={{ textAlign:"center"}} >
                                          {data.standred}
@@ -281,9 +286,9 @@ function DailyUpdates_S()
                                       {/* <a href={data.imgpreurl}  target="_blank"     rel="noopener noreferrer" >{data.imgfilename}</a> */}
                                       <span style={{ cursor: "pointer", color: "blue", textDecoration: "underline" }} onClick={() => window.open(data.imgpreurl, "_blank")}>{data.imgfilename}</span>
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <button className="btn btn-primary" onClick={e=>delrecordup(data)}>Delete</button>
-                                    </td>
+                                    </td> */}
                                 </tr>
                         ))
 

@@ -8,6 +8,7 @@ import profile_pic from "../pics/profile/profile_pic.jpg"
 
 function DailyUpdates()
 {
+    
 
      let userName=GET_USER_NAME()
      let userID=GET_USER_ID()

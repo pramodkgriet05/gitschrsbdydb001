@@ -81,14 +81,22 @@ function StudentUpdate()
     {
           //let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall) 65.2.25.249
 
-          let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall) 
+          let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    }) 
           
 
     }
     async function awscallget()
     {
          // let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`)
-          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`) 
+          let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/getrecords/${classidsch}`,{
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    }) 
           console.log(apiresponse)
           console.log(apiresponse.data)
           setawsresposes(apiresponse.data)
@@ -106,7 +114,11 @@ function StudentUpdate()
                  
                
              //  let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall) 
-               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall) 
+               let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    }) 
                console.log(apiresponse)
                console.log("cal api:1")
                console.log(apiresponse.data.result)

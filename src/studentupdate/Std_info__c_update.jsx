@@ -30,12 +30,17 @@ function Std_info__c_update()
     return(
              <div className="container">
                 <div className="mt-5">
-            <h6> User,</h6><h3>userName </h3>
+             <div className="row">
+                    <div className="col-12">
+                     <h1 style={{ marginLeft:"370px",marginTop: "40px", fontSize:"70px" }}>St'Martins school</h1>
+                    </div>
+            </div>
+            <h6> Hi,</h6><h3>{userName} </h3>
              </div>
              <button className="btn btn-primary mt-5 ms-3" onClick={e=>back_fun()}>Back</button> 
              <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
              <div className="row mt-5 ">
-                <h1>St'Martins school</h1>
+               
                  <div className="col-2">
                     <h3  >Class 1</h3>
                             <div className="card"  style={{width: '13rem'}} >

@@ -8,6 +8,11 @@ import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
 
 function PullEditdelawsBySection({stdid1,section1})
 {//Std_info/c1/u/pulldata
+
+     let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+  
      let userName=GET_USER_NAME ()
           let userId=GET_USER_ID()
                    
@@ -43,6 +48,10 @@ function PullEditdelawsBySection({stdid1,section1})
 
        async function pulldata()
         {
+             let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+       
             // console.log("std_info_c1_u_pulldata classid:"+stdid1)
              try{
 
@@ -52,7 +61,11 @@ function PullEditdelawsBySection({stdid1,section1})
             //    console.log(apiResponse)
                 //let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
               //  let apiresponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`)
-                let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`)
+                let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`,{
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    })
                  console.log(apiresponse)
           console.log(apiresponse.data)
           setawsresposes(apiresponse.data)
@@ -90,7 +103,10 @@ function PullEditdelawsBySection({stdid1,section1})
 
     async function deleterow(e)
     {
-         
+          const confirmEdit = window.confirm("Do you want to DELETE this record?");
+
+          if(confirmEdit)
+          {
        try 
        {
 
@@ -118,26 +134,26 @@ function PullEditdelawsBySection({stdid1,section1})
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
           //let ApiResponse= await axios.post('http://localhost:8080/m/s/dele',data)
-          let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data)
+          let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
 
           console.log(ApiResponse)
 
             console.log(ApiResponse.data.Message)
             setstddelapimsg(ApiResponse.data.Message)
              window.location=`/std_info/c1/u/${stdid1}/${section1}`
-             
-
        }
        catch(error)
        {
         console.log(error)
        }
     }
+    }
+
     function Editcolomchange(i, stdrecord)
      {
         console.log(i)
-        setIndex(i)
-          console.log(stdrecord)
+         setIndex(i)
+         console.log(stdrecord)
          seteditcolomdata(stdrecord)
          setupdateeditcolmdata(stdrecord)
          setstdinfo1(stdrecord)
@@ -253,7 +269,10 @@ function PullEditdelawsBySection({stdid1,section1})
      
   async function  saveRow1( )
    {
-    
+    const confirmEdit = window.confirm("Do you want to edit this record?");
+
+          if(confirmEdit)
+          {
 
     try{
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
@@ -261,7 +280,7 @@ function PullEditdelawsBySection({stdid1,section1})
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
        console.log("stdinfo",stdinfo1)
       // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)///Std_info/c1/u/10/C
-        let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)///Std_info/c1/u/10/C
+        let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
        setIndex(null)
        window.location=`/std_info/c1/u/${stdid1}/${section1}`
     }
@@ -269,6 +288,7 @@ function PullEditdelawsBySection({stdid1,section1})
     {
         console.log(error)
     }
+}
     function Editcol1(stdrecord)
     {
         console.log(stdrecord)

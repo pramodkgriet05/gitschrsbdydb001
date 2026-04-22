@@ -2,16 +2,24 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { GET_USER_NAME } from "../../Utils/Utils"
+import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
 
 function Fees()
 {
      let userName=GET_USER_NAME()
+     let userid=GET_USER_ID()
+     console.log(userName)
+     console.log(userid)
                  
                  if(userName==null)
                 {
                  window.location="/"
                 }
+
+                 let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+       
      
 
   let[fees,setfees]=useState({acadamicyear:"", class1:"" ,section:"",month:"",year:"",description:"",uploadimages1:""})
@@ -49,72 +57,49 @@ let navigate=useNavigate()
  console.log(year)
   console.log(type)
 
-     useEffect(()=>{
-    
-           async function pulldata()
-            {
-                 
-                 try{
-    
-                    //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
-                   // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
-                    let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`)
-
-
-                     console.log("aws",apiresponse)
-                    console.log(apiresponse.data)
-                    setawsresposes(apiresponse.data) 
-                }
-                 
-                catch(error)
-                {
-                    console.log(error)
-                }
-    
-            } 
-         pulldata() 
-        },[])  
-
+      
         function Editcolomchange(i,data)
         {
              setIndex(i)
             console.log(i)
             console.log(data)
             seteditcolomdata2({...data})
-            setupdateeditcolmdataR({...data})
+            setupdateeditcolmdataR({...data,  updatedby1:userName,userid:userid})
+          //   setupdateeditcolmdataR({...updateeditcolmdataR, updatedby1:userName})
 
         }
 
         async function saveandsend()
         {
-          try{
-           if(errorg===0)
-              {
-           // let apiresponse1=await      axios.post(`http://localhost:8080/m/s/fees/add`,updateeditcolmdataR)
-            let apiresponse1=await      axios.post(`http://65.2.25.249:8080/m/s/fees/add`,updateeditcolmdataR)
-
-            console.log(apiresponse1);
-             setIndex(null)
-              setupdateeditcolmdataR({})
-                setpleasecheck("")
-              }
-             //let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees)
-             let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees)
-
-                console.log(apiresponse)
-                setpulleventsdetails(true)
-                setpulleventdetailsdata(apiresponse.data)
-                
-               
-
-          }
-          catch(e)
+          
+          try
           {
-               console.log(e)
+          if(errorg===0)
+          {
+            const confirmEdit = window.confirm("Do you want to edit this record?");
+            if(confirmEdit)
+            {   
+               //let apiresponse1=await axios.post(`http://localhost:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
+               let apiresponse1=await axios.post(`http://65.2.25.249:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
+              console.log(apiresponse1);
+              setIndex(null)
+              setupdateeditcolmdataR({})
+              setpleasecheck(" ")
           }
+     }
+          // let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
+         let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
+              console.log(apiresponse)
+             setpulleventsdetails(true)
+             setpulleventdetailsdata(apiresponse.data)
+     }
+     catch(e)
+     {
+          console.log(e)
+     }
 
-        }
 
+       }
         function updatefirstlangW(e)
         {
              let val=e.target.value
@@ -132,7 +117,7 @@ let navigate=useNavigate()
           else{
             setErrorg(0); 
           setmarkserrorw(false) 
-                    setupdateeditcolmdataR(prev => ({ ...prev,  actualbalance: val }));
+                    setupdateeditcolmdataR(prev => ({ ...prev,  actualbalance: val, }));
         }
 
         }
@@ -236,23 +221,20 @@ let navigate=useNavigate()
         }
         }
 
-
-
-
-
-
-       
-
-
-
-
-
-
+ 
 async function submitapi()
 {
        
-                //let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees)
-                let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees)
+//                 let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{
+//    headers:{
+//     Authorization:token1
+//    }
+//         })
+                let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{
+   headers:{
+    Authorization:token1
+   }
+        })
 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
@@ -279,7 +261,7 @@ async function submitapi()
                         
 
                           <div>
-                            <h1> Document of Fees 2025-26</h1>
+                            <h1> Department of Fees 2025-26</h1>
                         </div>
                         </div>
                         
@@ -361,6 +343,7 @@ async function submitapi()
                            <th style={{ textAlign:"center", fontSize:"20px"}}>term4</th>
                            <th style={{ textAlign:"center", fontSize:"20px"}}>bal amount</th>
                            <th style={{ textAlign:"center", fontSize:"20px"}}>total amount</th>
+                           <th style={{ textAlign:"center", fontSize:"20px"}}>Updated By</th>
                            <th style={{ textAlign:"center", fontSize:"20px"}}>last added</th>
                            </tr>
                 </thead>     
@@ -425,16 +408,14 @@ async function submitapi()
                                         }}
                                         >
                                         {data.remainingbalance}
-                                        </td>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+                                        </td> 
                                     <td style={{  textAlign:"center"}}>
                                   {data.totalPaid} 
+                              
+                                    </td>
+                                     <td style={{  textAlign:"center"}}>
+                                  {data.updatedby1}
+                               
                               
                                     </td>
                                     <td  style={{

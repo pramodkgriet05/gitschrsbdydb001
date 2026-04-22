@@ -1,11 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-import cricketpic from "../images/cricket.jpg"
+import cricketpic from "../../../images/cricket.jpg"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { GET_USER_NAME } from "../Utils/Utils"
+import { GET_USER_NAME } from "../../../Utils/Utils";
 
-function Sportspage()
+
+function Sportspage_S()
 {
    let token=localStorage.getItem("token")
         console.log(token)
@@ -51,10 +52,10 @@ let navigate=useNavigate()
                     //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
                     let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{
-   headers:{
-    Authorization:token1
-   }
-        })
+                                                                                                headers:{
+                                                                                                Authorization:token1
+                                                                                                }
+                                                                                                    })
 
                      console.log("aws",apiresponse)
                     console.log(apiresponse.data)
@@ -150,11 +151,7 @@ async function submitapi()
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports1`,eventphotos)
-                  await axios.post(`http://65.2.25.249:8080/m/s/sports1`,eventphotos,{
-   headers:{
-    Authorization:token1
-   }
-        })
+                  await axios.post(`http://65.2.25.249:8080/m/s/sports1`,eventphotos)
 
                   setUploadedCount(i + 1);
 
@@ -178,11 +175,7 @@ async function submitapi()
                 eventdata.append("year", sports1.year);
                 eventdata.append("eventuniquename", eventUniqueName);
 //                await axios.post(`http://localhost:8080/m/s/sports`,eventdata)
-                await axios.post(`http://65.2.25.249:8080/m/s/sports`,eventdata,{
-   headers:{
-    Authorization:token1
-   }
-        })
+                await axios.post(`http://65.2.25.249:8080/m/s/sports`,eventdata)
 
                   setUploadedCount(0);
                 window.location=`/stdinfo/c1/u/${year}/${type}`
@@ -199,7 +192,7 @@ async function submitapi()
                  setpulleventsdetails(true)
                 setpulleventdetailsdata({...pulleventdetailsdata, data:awsrespose.eventuniquename })
 
-                        navigate(`/stdinfo/c1/u/${year}/${type}/d`, {
+                        navigate(`/s/stdinfo/c1/u/${year}/${type}/d`, {
                         state: {
                             s3path:`${awsrespose.eventuniquename}`,
                             eventname:`${awsrespose.eventname}`
@@ -226,7 +219,10 @@ async function submitapi()
              }*/
    
     return(
-       <div className="container ">
+
+        
+
+            <div className="container ">
               
                 <div className="row">
                   <div  style={{position:"relative"}}>
@@ -249,50 +245,8 @@ async function submitapi()
                         </div>
                         </div>
                         
-                        <div className="row mt-5">
-                          
-                        <div className="   col-2">
-                            <h3>Event Name:</h3>
-                            <h3>Event.Date:</h3>
-                            <h3>Description:</h3>
-                            <h4 style={{ marginTop: "65px" }} >Upload Images:</h4>
-                          
-
-                            
-   {/* // let[sports,setsports]=useState({eventname:"",day:"",month:"",year:"",Description:"",uploadimages:""}) */}
-
-                            
-                        </div>
+                           
                          
-                        <div className="   col-2">
-                        <input type="text" className='form-control std_rec_add1 ' placeholder='Event Name' onChange={e=>setsports({...sports1, eventname:e.target.value})} ></input>
-                        <div className="d-flex">
-                                <input type="text" className='form-control std_rec_add1 ' placeholder='Day'  onChange={e=>setsports({...sports1, day:e.target.value})} ></input>
-                                <input type="text" className='form-control std_rec_add1 ' placeholder='Month' onChange={e=>setsports({...sports1, month:e.target.value})} ></input>
-                                <input type="text" className='form-control std_rec_add1 ' placeholder='Year' onChange={e=>setsports({...sports1, year:e.target.value}) } ></input>
-
-                        </div>
-                         <textarea  type="text" className='form-control '  rows="3" placeholder='Description' onChange={e=>setsports({...sports1, description:e.target.value})}  ></textarea >
-       
-                         <input type="file"  multiple className='form-control std_rec_add1 ' placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
-
-                         <button className='btn btn-primary mt-2' disabled={isUploading} onClick={e=>submitapi()}>submit</button>
-                        </div> 
-                </div>
-                 <div className="row">
-        <div className="col-12 ">
-        {/* this div is about the upload info */}
-        {
-
-          isUploading==true&&
-          <div className="d-flex">
-           <h4>please wait while Uploading files: </h4><h4 style={{color:"red"}}>  {uploadedCount}</h4><h4>/</h4><h4>{files.length}</h4>
-            </div>
-        }
-
-        </div>
-      </div>
-     
 
                 <div className="row">
                    
@@ -300,7 +254,7 @@ async function submitapi()
                     awsresposes.map((awsrespose,i) => (   
                                                         <div className="col-4  " key={i} style={{ marginTop: "170px" }} >
                                                             <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                                                                <div className="card"  style={{width: '14rem',height: '17rem'}} >
+                                                                <div className="card"  style={{width: '20rem',height: '20rem'}} >
                                                                 <img src={awsrespose.urlthumbnail} className="  profile_pic2 shadow " alt="..."/> 
                                                                     <div className="card-body">
                                                                         <h5 className="card-title"> </h5>
@@ -310,11 +264,23 @@ async function submitapi()
                                                                     </div>
                                                                 </div>
                                                         </div>
-                                                         ))
-                                                        }
+
+                                       
+                              
+                                
+
+                            ))
+
+
+                  }
                  </div>
-                 </div>
+                
+                        
+
+             </div>
+             
+        
     )
 }
 
-export default Sportspage
+export default Sportspage_S

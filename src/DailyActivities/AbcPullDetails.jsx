@@ -1,0 +1,366 @@
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { GET_USER_NAME } from "../../Utils/Utils";
+
+function AbcPullDetails()
+{
+
+
+    let userName=GET_USER_NAME()
+            
+            if(userName==null)
+           {
+            window.location="/"
+           }
+  
+    let[disimagess, setimagesdis]=useState([])
+    const [selectedIndex, setSelectedIndex] = useState(null);
+    let[files, setfiles]=useState([])
+    const [uploadedCount, setUploadedCount] = useState(0);
+    const [isUploading, setIsUploading]  = useState(false);
+    const fileInputRef = useRef();
+
+    let {year}=useParams()
+ let { type}=useParams()
+
+ let navigate=useNavigate()
+ let [sports, setsports]=useState({})
+
+ 
+
+
+    let token=localStorage.getItem("token")
+        console.log(token)
+        let token1="Bearer"+" "+token;
+     
+const location = useLocation();
+
+    const data = location.state?.s3path || "";
+    const classid=location.state?.classid||"";
+    const description=location.state?.description||"";
+    const eventname=location.state?.eventname||"";
+    const sectionid=location.state?.sectionid||"";
+    const subject=location.state?.subject||"";
+    const acadamicyear=location.state?.acadamicyear||"";
+    const projectby=location.state?.projectby||"";
+    const projecthead=location.state?.projecthead||"";
+    const projectstdname=location.state?.projectstdname||"";
+
+      
+
+
+
+        
+
+
+    
+ 
+//console.log(location)
+
+console.log("path:data",data)
+
+
+     useEffect(()=>{
+    
+           async function pulldata()
+            {
+                 
+                 try{
+    
+                    //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
+                   // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
+                    let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
+                    //let apiresponse=await axios.post(`http://localhost:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
+
+                      console.log("aws",apiresponse)
+                    console.log(apiresponse.data)
+                  //  setawsresposes(apiresponse.data) 
+                     setimagesdis(apiresponse.data)
+                } 
+                catch(error)
+                {
+                    console.log(error)
+                } 
+            } 
+         pulldata() 
+        },[])  
+
+
+         const styles = {
+  modal: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background: "rgba(0,0,0,0.8)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  fullImage: {
+    maxWidth: "80%",
+    maxHeight: "80%"
+  },
+  close: {
+    position: "absolute",
+    top: 20,
+    right: 20,
+    fontSize: "20px"
+  },
+  prev: {
+    position: "absolute",
+    left: 20,
+    fontSize: "30px"
+  },
+  next: {
+    position: "absolute",
+    right: 20,
+    fontSize: "30px"
+  }
+};
+
+
+
+ //open image
+  const openImage = (index) => {
+    setSelectedIndex(index);
+  };
+
+  // close modal
+  const closeImage = () => {
+    setSelectedIndex(null);
+  };
+
+  // next image
+  const nextImage = () => {
+    if (selectedIndex < disimagess.length - 1) {
+      setSelectedIndex(selectedIndex + 1);
+    }
+  };
+
+  // previous image
+  const prevImage = () => {
+    if (selectedIndex > 0) {
+      setSelectedIndex(selectedIndex - 1);
+    }
+  };
+
+   
+async function compressImage(file) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = (e) => {
+      img.src = e.target.result;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width = img.width;
+      let height = img.height;
+
+      // resize if large
+      const maxWidth = 1280;
+      if (width > maxWidth) {
+        height = (height * maxWidth) / width;
+        width = maxWidth;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // compress
+      canvas.toBlob(
+        (blob) => {
+          resolve(new File([blob], file.name, { type: "image/jpeg" }));
+        },
+        "image/jpeg",
+        0.7 // reduce more if needed (0.6 / 0.5)
+      );
+    };
+  });
+}
+
+
+
+
+
+
+  async function submitapi1()
+{
+     
+    setIsUploading(true);
+    setUploadedCount(0);
+    let i=0;
+
+    try
+        { 
+            for( i=0;i<files.length;i++)
+            {
+                const eventphotos = new FormData();  
+
+                 const compressedFile = await compressImage(files[i]);
+
+
+                eventphotos.append("filepath", data )
+               
+                eventphotos.append("files",compressedFile)
+
+                //  console.log(files[i]);
+                //  await axios.post(`http://localhost:8080/m/s/abci/1`,eventphotos,{headers:{ Authorization:token1}})
+                  await axios.post(`http://65.2.25.249:8080/m/s/abci/1`,eventphotos,{headers:{ Authorization:token1}})
+
+                  setUploadedCount(i + 1);
+
+
+            }
+             //let res = await axios.post(`http://localhost:8080/m/s/abcpull`,{path:data},{headers:{ Authorization:token1}});
+             let res = await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data}, {headers:{ Authorization:token1}})
+
+    //console.log(res.data);
+              console.log(res)
+              setimagesdis(res.data)
+            }
+                catch(e)
+            {
+                console.log(e)
+            }     
+            setIsUploading(false)
+             setUploadedCount(0);
+             setfiles([]);
+             setsports({
+                          eventname: "",
+                          eventuniquename: "",
+                          day: "",
+                          month: "",
+                          year: "",
+                          description: "",
+                          uploadimages1: ""
+                        });
+
+                        
+            
+         
+           
+}
+
+
+
+
+
+
+
+
+
+
+    return(
+
+
+        <div className="container">
+                          <div>
+                            <div className="d-flex">
+                          <h1> School Name</h1><h1> </h1>
+                          </div> 
+                          <div className="row">
+                            <div className="col-4" style={{marginTop:"100px"}}>
+                              <h5 className="ms-5" >Academic Year: {acadamicyear}</h5>
+                              <h5 className="ms-5" >Event Type: Activity By class</h5>
+                              
+                              <h5 className="ms-5" >Class: {classid}/{sectionid} </h5>
+                              <h5 className="ms-5" >Subject: {subject} </h5>
+
+                            </div>
+                            
+                            </div>                 
+                            <div class="card" style={{ marginTop: "70px" }}>
+                            <div class="card-header d-flex">
+                              
+                                 <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button> 
+                                 <Link   to={`/stdinfo/ac/t/2026/${classid}/${sectionid}`} className="btn btn-primary ms-3">Back</Link>
+                                 <Link  to={"/stdinfo"} className="btn btn-primary ms-3">Home</Link>
+        
+                              <h5 className="ms-5" >Project Head:  {projecthead} </h5>
+                              <h5 className="ms-5" >Std.Code: {projectby}   </h5>
+                              <h5 className="ms-5" >Event Name:  {eventname} </h5>
+                              <h5 className="ms-5" >std.Name:  {projectstdname}  </h5> 
+                            </div>
+                            <div class="card-body " style={{  height: '600px', overflow: "auto"  }} >
+                              {/* <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
+                               <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
+                                   <div>
+                                    <h4>Add more files</h4>
+                              <input type="file"  multiple className='form-control std_rec_add1'  ref={fileInputRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+                              </div>
+                               
+                                  <div className="col-12"></div>
+                                  {isUploading && (
+                                                    <div>
+                                                        Uploading {uploadedCount} / {files.length}
+                                                    </div>
+                                                )}
+                       <div className="col-12"></div>
+        
+                              
+                        
+                              {
+                                  disimagess.map((image,index) =>(
+        
+                                        
+                                          // <img   key={index} src={image} alt="" width="150"  height="150"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+        
+                                   <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
+                                                {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
+                                                    <div className="card"  style={{width: '13rem',height: '17rem'}} >
+                                                    <img   key={index} src={image}  className="profile_pic2 shadow" alt=""    style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+        
+        
+                                                        <div className="card-body">
+                                                            <h5 className="card-title"> </h5>
+                                                            {/* <p className="card-text"> {awsrespose.description} </p> */}
+                                                        
+                                                            {/* <button className='btn btn-primary mt-2' onClick={e=>pulleventdetails(awsrespose)}>click here</button> */}
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                                       ))
+                              }  
+                              {
+        
+                                 selectedIndex !== null && (
+                                   <div
+                                    style={styles.modal}>
+        
+                                            <button onClick={closeImage} style={styles.close}>X</button>
+        
+                                            <button onClick={prevImage} style={styles.prev}>{"<"}</button>
+        
+                                            <img
+                                              src={disimagess[selectedIndex]}
+                                              alt=""
+                                              style={styles.fullImage}
+                                            />
+                                            <button onClick={nextImage} style={styles.next}>{">"}</button>
+        
+                                    </div>
+                                  )}
+                                 
+                            
+                               </div>
+                            </div>
+                          </div>
+                                </div>        
+                        </div>
+            )
+}
+export default AbcPullDetails

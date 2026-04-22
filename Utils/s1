@@ -1,0 +1,45 @@
+<div>
+                                    <table className=" compact-table table table-sm align-middle table-striped table-hover">
+                                        <thead>
+                                            <tr className="fw-bold">
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>act  amt</th > 
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>term1</th>
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>term2  </th>
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>term3</th>
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>term4</th>
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>bal amount</th>
+                                                <th style={{ textAlign:"center", fontSize:"20px"}}>total amount</th>
+
+                                            </tr>
+                                        </thead>
+                                         <tbody className="table-group-divider">
+                                         <tr>
+                                            <td style={{ textAlign:"center", fontSize:"20px"}}>
+                                                {data.actualbalance}
+                                            </td>
+                                            <td style={{ textAlign:"center"}} >
+                                                {data.term1}
+                                            </td>
+                                            <td style={{ textAlign:"center"}} >
+                                                {data.term2}
+                                            </td>
+                                            <td style={{ textAlign:"center"}} >
+                                                {data.term3}
+                                            </td>
+                                            <td style={{ textAlign:"center"}} >
+                                                {data.term4}
+                                            </td>
+                                            <td style={{ textAlign:"center"}}  >
+                                                {data.remainingbalance}
+                                            </td> 
+                                            <td style={{ textAlign:"center"}}  >
+                                                {data.remainingbalance}
+                                            </td> 
+                                         </tr>
+                                         </tbody>
+
+
+                                    </table>
+
+
+                                </div> 
