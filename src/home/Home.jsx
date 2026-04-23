@@ -65,14 +65,14 @@ function Home()
     }
         async  function hello1()
           {
-                //let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
-             // let ApiResponse= await axios.get('http://localhost:8080/hello1')
-                let ApiResponse1= await axios.get('http://localhost:8080/student-photo?classNo=4&rollNo=4&extension=png')
-                console.log(ApiResponse1)
+             //  let ApiResponse= await axios.get('http://localhost:8080/hello1')
+              let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
+               // let ApiResponse1= await axios.get('http://localhost:8080/student-photo?classNo=4&rollNo=4&extension=png')
+                console.log(ApiResponse)
                 //console.log(ApiResponse1.request.response)
-                console.log(ApiResponse1.data)
-                let imgsch=ApiResponse1.data
-                setimgclasssch(imgsch)
+                //console.log(ApiResponse1.data)
+                //let imgsch=ApiResponse1.data
+                //setimgclasssch(imgsch)
 
                 // let imgurl=ApiResponse1.data
                 //  console.log(imgurl)
@@ -145,8 +145,8 @@ function Home()
                                </div>
 
                                <div>
-                               {/* <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
-                               <img src={imgclasssch} className="student-photo"/> */}
+                                <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
+                               <img src={imgclasssch} className="student-photo"/> 
                              {/*  <button className="btn btn-primary" onClick={e=>pulladminrecords()}>pulladminrecors</button> */}
                               
                                <div>

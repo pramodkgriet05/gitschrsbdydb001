@@ -10,10 +10,9 @@ function SchUserList()
     let token1="Bearer "+token;
     let[awsresposes,setawsresposes]=useState([])
     let[index, setIndex]=useState(null)
-    let[updateeditcolmdata, setupdateeditcolmdata]=useState()
-    let[stdinfo1,setstdinfo1]=useState()
-    let[editcolomdata,seteditcolomdata]=useState()
-
+        let[updateeditcolmdata, setupdateeditcolmdata]=useState({})
+        let[stdinfo1,setstdinfo1]=useState({})
+ 
     let t="Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiQURNSU4iLCJuYW1lIjoicHJhbW9kIiwiaWQiOjMzLCJlbWFpbCI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsInN1YiI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsImlhdCI6MTc3Njg0OTQ2NSwiZXhwIjoxNzc3NzM4NDk3fQ.4B6oPlXkpmGRBGf8aeZ96nSa-cJnXO3MCXTTDOEG-aWQivGT3zA9CkCkoeL2U8qfuQsF1zbHOegcnpfdha0pQA"
     
 
@@ -26,14 +25,15 @@ function SchUserList()
          {
                try{
  
-                  // const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+                  // const apiResponse = await axios.get(`http://localhost:8080/admin/get/users1`,{headers:{Authorization:token1}}) 
                     //  let apiResponse= await axios.get('http://65.2.25.249:8080/admin/get/users', 
                         
                         
                     //      {headers:{Authorization:"Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiQURNSU4iLCJuYW1lIjoicHJhbW9kIiwiaWQiOjMzLCJlbWFpbCI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsInN1YiI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsImlhdCI6MTc3Njg0OTQ2NSwiZXhwIjoxNzc3NzM4NDk3fQ.4B6oPlXkpmGRBGf8aeZ96nSa-cJnXO3MCXTTDOEG-aWQivGT3zA9CkCkoeL2U8qfuQsF1zbHOegcnpfdha0pQA"
 
                     //      }})
-                const apiResponse = await axios.get(`http://65.2.25.249:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+                const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+                //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
 
                                  
                     console.log(apiResponse) 
@@ -50,19 +50,18 @@ function SchUserList()
 
   function Editcolomchange(i, stdrecord)
      {
-        console.log(i)
-        setIndex(i)
+          console.log(i)
+          setIndex(i)
           console.log(stdrecord)
-         seteditcolomdata(stdrecord)
+         
          setupdateeditcolmdata(stdrecord)
          setstdinfo1(stdrecord)
      }
 
      function updateName(e)
      {
-        //console.log(e.target.value)
-         seteditcolomdata(e)
-         setupdateeditcolmdata({...updateeditcolmdata, name:e.target.value})
+        console.log(e.target.value)
+          setupdateeditcolmdata({...updateeditcolmdata, name:e.target.value})
          setstdinfo1({...stdinfo1, name:e.target.value })
      }
 
@@ -70,26 +69,26 @@ function SchUserList()
 
      function updatedesignation(e)
      {
-        //console.log(e.target.value)
-         seteditcolomdata(e)
+        console.log(e.target.value)
+         
          setupdateeditcolmdata({...updateeditcolmdata, designation:e.target.value})
          setstdinfo1({...stdinfo1, designation:e.target.value })
      }
 
      function updateclassteacher(e)
      {
-        //console.log(e.target.value)
-         seteditcolomdata(e)
+        console.log(e.target.value)
+         
          setupdateeditcolmdata({...updateeditcolmdata, classteacher2:e.target.value})
-         setstdinfo1({...stdinfo1, isactive:e.target.value })
+         setstdinfo1({...stdinfo1, classteacher2:e.target.value })
      }
 
      function updateisactive(e)
      {
-        //console.log(e.target.value)
-         seteditcolomdata(e)
-         setupdateeditcolmdata({...updateeditcolmdata, classteacher2:e.target.value})
-         setstdinfo1({...stdinfo1, isactive:e.target.value })
+        console.log(e.target.value)
+        
+         setupdateeditcolmdata({...updateeditcolmdata, otpverified:e.target.value})
+         setstdinfo1({...stdinfo1, otpverified:e.target.value })
      }
 
 
@@ -108,13 +107,13 @@ function SchUserList()
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
        console.log("stdinfo",stdinfo1)
       // let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
-      //  let ApiResponse= await axios.post('http://localhost:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
+      //  let ApiResponse1= await axios.post('http://localhost:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
         let ApiResponse= await axios.post('http://65.2.25.249:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
 
         setIndex(null)
-       setstdinfo1({})
-      // const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
-       const apiResponse = await axios.get(`http://65.2.25.249:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+        setstdinfo1({})
+      //const apiResponse1 = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
+      const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
                                
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)
@@ -147,11 +146,11 @@ async function deleterow(stdrecord)
             
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
-         // let ApiResponse= await axios.post('http://localhost:8080/m/admin/dele',data,{headers:{Authorization:token1}})
+          //let ApiResponse= await axios.post('http://localhost:8080/m/admin/dele',data,{headers:{Authorization:token1}})
           let ApiResponse= await axios.post('http://65.2.25.249:8080/m/admin/dele',data,{headers:{Authorization:token1}})
  
-       //  const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
-         const apiResponse = await axios.get(`http://65.2.25.249:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+        //const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+         const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
                                
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)
@@ -165,23 +164,14 @@ async function deleterow(stdrecord)
     }
     }
 
-
      
-
-
-
-
-    
- 
-
-
-
     return(
         <div className="container">
             <div className="row " style={{marginBottom:"50px"}}>
                 <Navbar/> 
 
             </div>
+             
               <div className="row mt-5">
                 <div className="col-12 mt-5 " style={{marginBottom:"50px"}}>
 
@@ -215,7 +205,7 @@ async function deleterow(stdrecord)
                         <tr key={i}>
                         <td  style={{width:"20px", textAlign:"center"}}> 
 
-                              {index===i?(<input value={editcolomdata.name } onChange={(e)=>updateName(e)}  style={{width:"100px",fontSize:"15px"}} />):    <h4 style={{fontSize:"20px"}} > {stdrecord.name }  </h4>  }
+                              {index===i?(<input value={updateeditcolmdata.name } onChange={(e)=>updateName(e)}  style={{width:"100px",fontSize:"15px"}} />):    <h4 style={{fontSize:"20px"}} > {stdrecord.name }  </h4>  }
                             </td> 
 
                             <td  style={{width:"40px", textAlign:"center"}}> 
@@ -234,7 +224,7 @@ async function deleterow(stdrecord)
                                                                                                                                                              
                         </td>
                         <td style={{width:"40px", textAlign:"center"}}>
-                            {index===i?(<select value={editcolomdata.designation} onChange={(e)=>updatedesignation(e)} style={{width:"100px",fontSize:"15px"}} >
+                            {index===i?(<select value={updateeditcolmdata.designation} onChange={(e)=>updatedesignation(e)} style={{width:"100px",fontSize:"15px"}} >
                                        <option>TEACHER</option>
                                        <option>STAFF</option>
                                        <option>STUDENT</option>
@@ -243,7 +233,7 @@ async function deleterow(stdrecord)
             
                            </td>
                         <td style={{width:"40px", textAlign:"center"}}>
-                             {index===i?(<select value={editcolomdata.classteacher2 } onChange={(e)=>updateclassteacher(e)}  style={{width:"50px",fontSize:"15px"}}>
+                             {index===i?(<select value={updateeditcolmdata.classteacher2 } onChange={(e)=>updateclassteacher(e)}  style={{width:"50px",fontSize:"15px"}}>
                                 
                                      <option>1</option>
                                      <option>2</option>
@@ -266,10 +256,11 @@ async function deleterow(stdrecord)
         
                         </td>
                        <td style={{width:"40px", textAlign:"center"}}>
-                            {index===i?(<select value={editcolomdata.otpverified} onChange={(e)=>updateisactive(e)} style={{width:"100px",fontSize:"15px"}} >
+                            {index===i?(<select value={updateeditcolmdata.otpverified} onChange={(e)=>updateisactive(e)} style={{width:"100px",fontSize:"15px"}} >
                                        
                                        <option>false</option>
                                        <option>true</option>
+
 
                             </select>):  <h6 style={{color:"red"}} >  {String(stdrecord.otpverified)}   </h6>}
             

@@ -221,8 +221,6 @@ async function submitapi()
                     eventname:awsrespose.eventname
                 }
                   await axios.post(`http://localhost:8080/m/s/sportsall`,pulldata)
- 
-
              }*/
    
     return(

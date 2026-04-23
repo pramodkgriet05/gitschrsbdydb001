@@ -14,6 +14,8 @@ function Sch_login({ })
         let[errorData, seterrorData]=useState({ e_email:"",e_password:""})
         let[signinDataError, setsigninDataerror]=useState({E_email:'false', E_password:'false', apierror:''})
         let[imgkey, setimgkey]=useState()
+        let token = localStorage.getItem("token");
+        let token1="Bearer "+token; 
         
         let noerrors=0
 
@@ -97,6 +99,8 @@ function Sch_login({ })
                             try
                             {
                                 let ApiResponse= await axios.post('http://65.2.25.249:8080/s/login', userInputdata)
+                            //   const apiResponse1 = await axios.get(`http://65.2.25.249:8080/admin/get/users`,{headers:{Authorization:token1}}) 
+                               // console.log(apiResponse1)
                         
                                //  let ApiResponse= await axios.post('http://localhost:8080/s/login', userInputdata)
                                   console.log(ApiResponse)
