@@ -740,7 +740,7 @@ function Std_info_page_all()
               <table className=" compact-table table table-sm align-middle table-striped table-hover">
                 <thead>
                     <tr className="fw-bold" > 
-
+                           <th >Date</th>
                            <th >Subject</th> 
                           <th >Project Name</th> 
 
@@ -757,6 +757,9 @@ function Std_info_page_all()
                         data5?.map((data, i)=>(
 
                             <tr key={i}>
+                                    <td >
+                                         {data.date}-{data.month}-{data.year}
+                                    </td>
                                  
                                     <td >
                                          {data.subject}
