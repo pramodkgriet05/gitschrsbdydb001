@@ -245,8 +245,9 @@ function DailyUpdates_S()
                 <thead>
                     <tr className="fw-bold" > 
 
+                           <th >Date</th>
                            <th >Subject</th> 
-                          <th >Project Name</th> 
+                           <th >Project Name</th> 
 
                            <th>Description</th>
                            <th>Teacher Name  </th>
@@ -261,6 +262,10 @@ function DailyUpdates_S()
                         pulleventdetailsdata?.map((data, i)=>(
 
                             <tr key={i}>
+
+                                     <td >
+                                         {data.date}-{data.month}-{data.year}
+                                    </td>
                                  
                                     <td >
                                          {data.subject}
