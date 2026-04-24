@@ -1,7 +1,7 @@
 
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 //import Springbootlogin from "../springboot/login";
 //import Sch_createaccount from "./pics/authstd/createaccount";
 import labpic from "../../pics/profile/lab.jpg"
@@ -12,16 +12,19 @@ import Sch_login from "../login/auth_login";
 import axios from "axios";
 import Pull_Admin_Records from "./Pull_Admin_Records";
 import '../../indexcss/index.css';
+import { useNavigate } from "react-router-dom";
 
 function Home()
 {   
-    let userName=GET_USER_NAME()
-               
-              if(userName!=null)
-              {
-               window.location="/stdinfo"
-              }
- 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+    const userName = GET_USER_NAME();
+
+    if (userName) {
+      navigate("/stdinfo");
+    }
+  }, []);
  
 
   
