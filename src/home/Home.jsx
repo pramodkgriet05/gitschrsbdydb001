@@ -134,10 +134,7 @@ function Home()
                 signUP_check==true &&
                 <Sch_login/>
               }
-              
-
-
-                                                        
+                                                               
                                                         </div>
                                                                      
                                                     </div>
@@ -145,8 +142,8 @@ function Home()
                                </div>
 
                                <div>
-                                <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
-                               <img src={imgclasssch} className="student-photo"/> 
+                                {/* <button className="btn btn-primary" onClick={e=>hello1()}>hello1</button>
+                               <img src={imgclasssch} className="student-photo"/>  */}
                              {/*  <button className="btn btn-primary" onClick={e=>pulladminrecords()}>pulladminrecors</button> */}
                               
                                <div>

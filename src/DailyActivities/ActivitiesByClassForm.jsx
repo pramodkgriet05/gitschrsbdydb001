@@ -39,7 +39,7 @@ const [isUploading, setIsUploading] = useState(false);
 let[dailyupdates,setdailyupdates]=useState({})
  let[showsubject, setshowsubject]=useState(false)
  let[month,setmonth]=useState()
-const fileRef = useRef();   
+const fileRef = useRef(null);   
 let error=0;
 let[errormsg,seterrormsg]=useState(false)
  let[apierrormsg, setapierrormsg]=useState(false)
@@ -144,14 +144,12 @@ async function submitapi()
                 eventdata.append("eventtype", "abc");
                  eventdata.append("classid", classid )
                 eventdata.append("sectionid", sectionid)
-                 eventdata.append("subject", dailyupdates.subject)
-                 
-
+                 eventdata.append("subject", dailyupdates.subject) 
                 eventdata.append("eventname", dailyupdates.projectname);
                 eventdata.append("description", dailyupdates.description);
-                eventdata.append("day", new Date().getDate());
+                eventdata.append("day", dailyupdates.date);
                 eventdata.append("month", dailyupdates.mnb);
-                eventdata.append("year", new Date().getFullYear());
+                eventdata.append("year", dailyupdates.year );
                 eventdata.append("updatedby",userName)
                 eventdata.append("eventuniquename", eventUniqueName);
                 eventdata.append("projecthead", dailyupdates.projecthead )
@@ -162,34 +160,38 @@ async function submitapi()
 
               //  await axios.post(`http://localhost:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
                 await axios.post(`http://65.2.25.249:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
-
+                
 
                 let userdata={
 
-                  "academicyear":y,
-                  "month":dailyupdates.mnb,
-                  "classid":classid,
-                  "sectionid":sectionid,
-                  "subject":dailyupdates.subject
+                                "academicyear":y,
+                                "month":dailyupdates.mnb,
+                                "classid":classid,
+                                "sectionid":sectionid,
+                                "subject":dailyupdates.subject
 
-                }
+                              }
 
 
 
               //let apiresponse = await axios.post(`http://localhost:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
               let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
-                 fileRef.current.value=" ";
+               
 
               // console.log(apiresponse)
-                setawsresposes(apiresponse.data)
-                
-
-
+                setawsresposes(apiresponse.data) 
              //   await axios.post(`http://65.2.25.249:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}}) 
                   setUploadedCount(0);
                  setIsUploading(false) 
                  setdailyupdates({})
                  setfiles(null)
+                 setname(null)
+                 setstdcode1(null)
+                 setapierrormsg1(false)
+                 setapierrormsg(false)
+
+                 
+                 fileRef.current.value="";
 }
  
  function month1(i,mnt)
@@ -324,27 +326,13 @@ async function submitapi()
                     setname("")
 
                 }
-
-               
-                
-
-
+ 
                 console.log(apiresponse)
 
               }
 
-              
-              
-
-
-
-                                                                  
-
-
-
-
-
-
+               
+ 
 
 
     return(
@@ -379,8 +367,8 @@ async function submitapi()
 
        <div className="   col-2" style={{ marginLeft:"20px",marginTop: "65px" }}>
 
-       <input type="text" className='form-control std_rec_add1 ' ref={fileRef} placeholder='Event Name' onChange={e=>setdailyupdates({...dailyupdates, projectname:e.target.value})} ></input>
-        <select className='form-control std_rec_add1 ' ref={fileRef}   placeholder='select year' onChange={e=>setdailyupdates({...dailyupdates, subject:e.target.value})} >
+        <input type="text" className='form-control std_rec_add1 ' value={dailyupdates.projectname || ""} ref={fileRef} placeholder='Event Name' onChange={e=>setdailyupdates({...dailyupdates, projectname:e.target.value})} ></input>
+        <select className='form-control std_rec_add1 ' ref={fileRef}  value={dailyupdates.subject || ""} placeholder='select year' onChange={e=>setdailyupdates({...dailyupdates, subject:e.target.value})} >
                             <option>select subject</option>
                                     <option>HINDI</option>
                                     <option>TELUGU</option>
@@ -391,15 +379,12 @@ async function submitapi()
                                     <option>EV</option>
          </select>
           <div className="d-flex" >
-                                    <input type="text" className='form-control std_rec_add1' ref={fileRef} value={new Date().getDate()}    ></input>
-                                    {/* <input type="text" className='form-control std_rec_add1 ' value={new Date().getMonth()+1}   ></input> */}
-
-                                      <input type="text" className='form-control std_rec_add1 ' ref={fileRef} placeholder="month"  onChange={e=>setdailyupdates({...dailyupdates, mnb:e.target.value})} ></input>
-
-                                    <input type="text" className='form-control std_rec_add1 ' ref={fileRef} value={new Date().getFullYear()}   ></input>
+                                    <input type="text" className='form-control std_rec_add1'   ref={fileRef} value={dailyupdates.date || ""}  placeholder="Date"  onChange={e=>setdailyupdates({...dailyupdates, date:e.target.value})}></input>
+                                    <input type="text" className='form-control std_rec_add1 ' value={dailyupdates.mnb || ""} ref={fileRef} placeholder="Month"  onChange={e=>setdailyupdates({...dailyupdates, mnb:e.target.value})} ></input>
+                                    <input type="text" className='form-control std_rec_add1 ' value={dailyupdates.year || ""} ref={fileRef}  placeholder="Year"  onChange={e=>setdailyupdates({...dailyupdates, year:e.target.value})} ></input>
 
           </div>
-         <input type="text" className='form-control std_rec_add1 mb-4' ref={fileRef} placeholder='Project Head' onChange={e=>setdailyupdates({...dailyupdates, projecthead:e.target.value})} ></input>
+         <input type="text" className='form-control std_rec_add1 mb-4' value={dailyupdates.subject || ""}  ref={fileRef} placeholder='Project Head' onChange={e=>setdailyupdates({...dailyupdates, projecthead:e.target.value})} ></input>
          
          {
           errormsg==true&& 
@@ -407,7 +392,7 @@ async function submitapi()
          }
 
 
-         <input type="text" className='form-control std_rec_add1  mt-2' ref={fileRef} placeholder='Std Code' onChange={(e)=>stdcode(e)} ></input>
+         <input type="text" className='form-control std_rec_add1  mt-2' ref={fileRef} value={stdcode1 || ""} placeholder='Std Code' onChange={(e)=>stdcode(e)} ></input>
          {apierrormsg==true&& 
          
             <h6 style={{color:"red"}}>Student Code Wrong</h6>
@@ -415,23 +400,14 @@ async function submitapi()
           {
           apierrormsg1==true&&
           <h6 style={{color:"green"}}>FOUND</h6>
-          
-         }
-         <input type="text" className='form-control std_rec_add1  mt-3' ref={fileRef} placeholder="name"  value={name }  style={{color:"red" ,fontSize:"20px"}}></input>
+          }
+         <input type="text" className='form-control std_rec_add1  mt-3' ref={fileRef} placeholder="name"  value={name||""}  style={{color:"red" ,fontSize:"20px"}}></input>
            
-         
-        
-         
-        
-
-
-
-
-          <textarea  type="text" className='form-control '  rows="3" placeholder='Description' ref={fileRef} onChange={e=>setdailyupdates({...dailyupdates, description:e.target.value})}></textarea>
+         <textarea  type="text" className='form-control '  rows="3" placeholder='Description' value={dailyupdates.description || ""} ref={fileRef} onChange={e=>setdailyupdates({...dailyupdates, description:e.target.value})}></textarea>
        
-          <input type="file" multiple className='form-control std_rec_add1 ' ref={fileRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+         <input type="file" multiple className='form-control std_rec_add1 ' ref={fileRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
 
-           <button className='btn btn-primary mt-2'  disabled={isUploading} style={{borderBottom: "3px solid #ccc",  margin: "6px 0" }}onClick={e=>submitapi()}>submit</button>
+         <button className='btn btn-primary mt-2'  disabled={isUploading} style={{borderBottom: "3px solid #ccc",  margin: "6px 0" }}onClick={e=>submitapi()}>submit</button>
       
       </div>
       <div className="row">
