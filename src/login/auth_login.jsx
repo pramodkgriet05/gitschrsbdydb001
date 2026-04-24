@@ -21,17 +21,8 @@ function Sch_login({ })
 
         let[apiresponce_SB, setapiresponce_SB ]=useState({});
             
-               let isUserloggin=Check_user_login_status()  
-               
-               console.log(isUserloggin)
-                       if(isUserloggin==true)
-                       {
-                          
-                           window.location="homesch"
-                          
-                       }
-                   
-                   
+                
+                    
                    const updateEmail =(e)=>{
                     console.log(e.target.value)
                     setuserInputdata({...userInputdata, email:e.target.value})
