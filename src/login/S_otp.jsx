@@ -117,7 +117,9 @@ function S_otp()
             //let apires=await axios.post('http://localhost:8080/s/rp/update',userInputdata)
            //  let apires=await axios.post('http://localhost:8080/s/otp/createaccount',userInputdata) 
            
-               let apires=await axios.post('http://65.2.25.249:8080/s/otp/createaccount',userInputdata)
+               //let apires=await axios.post('http://65.2.25.249:8080/s/otp/createaccount',userInputdata)               let apires=await axios.post('http://65.2.25.249:8080/s/otp/createaccount',userInputdata)
+               let apires=await axios.post('/api/s/otp/createaccount',userInputdata)
+
 
               // window.location='http://localhost:8080/login'
              // console.log(apires.data.result)

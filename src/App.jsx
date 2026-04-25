@@ -103,14 +103,9 @@ function App() {
       {/* ------------------------------------------------------------------------------------ */}
 
        <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
-
         <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
-
-        
          <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
-
         <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} /> 
-
 
        {/* <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} />  */}
        {/* ------------------------------------------------------------------------------------ */}
@@ -124,16 +119,10 @@ function App() {
          <Route path='/stdinfo/s/c1/u/:y/dailyupdates' element={<DailyUpdates_S />} />   
 
        {/* ------------------------------------------------------------------------------------ */}
-
-
+ 
         <Route path='/rolebased' element={<RoleBased />} /> 
-
         <Route path='/stdinfo/2026/s/userlist' element={<SchUserList />} />  
-
-
-
-
-
+  
   {/* ------------------------------------------------------------------------------------ */} 
 
     <Route path='/stdinfo/c1/u/ac/:year/:type' element={<ActivitiesByClass />} />
@@ -141,19 +130,11 @@ function App() {
     <Route path='/stdinfo/abc/:year/d' element={<AbcPullDetails />} />
     <Route path='/stdinfo/ac/s/:y' element={<ActivitiesByClassForm_S />} />
     <Route path='/stdinfo/abc/s/:year/d' element={<AbcPullDetails_S />} />
-       
-
-
-
-
-      
+     
  {/* ------------------------------------------------------------------------------------ */} 
-
-
-
+ 
       </Routes>
-      
-      
+       
     </BrowserRouter>
   );
 }

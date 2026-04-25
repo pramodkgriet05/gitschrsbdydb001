@@ -80,16 +80,19 @@ let navigate=useNavigate()
             if(confirmEdit)
             {   
                //let apiresponse1=await axios.post(`http://localhost:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
-               let apiresponse1=await axios.post(`http://65.2.25.249:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
-              console.log(apiresponse1);
+               //let apiresponse1=await axios.post(`http://65.2.25.249:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
+               let apiresponse1=await axios.post(`/api/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
+               console.log(apiresponse1);
               setIndex(null)
               setupdateeditcolmdataR({})
               setpleasecheck(" ")
           }
      }
           // let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
-         let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
-              console.log(apiresponse)
+         //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
+         let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}})
+
+         console.log(apiresponse)
              setpulleventsdetails(true)
              setpulleventdetailsdata(apiresponse.data)
      }
@@ -230,12 +233,7 @@ async function submitapi()
 //     Authorization:token1
 //    }
 //         })
-                let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{
-   headers:{
-    Authorization:token1
-   }
-        })
-
+                let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}}) 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
                 setpulleventdetailsdata(apiresponse.data)

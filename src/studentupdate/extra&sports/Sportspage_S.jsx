@@ -51,13 +51,8 @@ let navigate=useNavigate()
     
                     //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
-                    let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{
-                                                                                                headers:{
-                                                                                                Authorization:token1
-                                                                                                }
-                                                                                                    })
-
-                     console.log("aws",apiresponse)
+                    let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
+                    console.log("aws",apiresponse)
                     console.log(apiresponse.data)
                     setawsresposes(apiresponse.data) 
                 }

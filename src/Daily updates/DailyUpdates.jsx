@@ -1,11 +1,6 @@
  import { Link } from "react-router-dom"
 import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
-import profile_pic from "../pics/profile/profile_pic.jpg"
- 
- 
-
-
-
+import profile_pic from "../pics/profile/profile_pic.jpg" 
 function DailyUpdates()
 {
     

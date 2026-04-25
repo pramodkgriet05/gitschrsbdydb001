@@ -44,7 +44,8 @@ function Std_info_page_all()
                  
                  try{ 
                    //  let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
-                     let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                     //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                     let apiresponse=await axios.post(" /api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
 
 
                       console.log("aws",apiresponse)
@@ -64,7 +65,8 @@ function Std_info_page_all()
            
             
            // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
-            let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
+            //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
+            let apiresponse=await axios.post("/api/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
 
             console.log(apiresponse)
             setawsresposes2(apiresponse.data)
@@ -78,7 +80,8 @@ function Std_info_page_all()
         {
             try{
                     //let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
+                    //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
+                    let apiresponse=await axios.post(" /api/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
 
             console.log(apiresponse)
             setdataa(apiresponse.data)
@@ -95,7 +98,8 @@ function Std_info_page_all()
         { 
              try{
                    // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
+                    //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
+                    let apiresponse=await axios.post("/api/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
 
                     console.log(apiresponse)
                     setdata4(apiresponse.data)
@@ -158,7 +162,9 @@ function Std_info_page_all()
                             {
                             console.log(dupulldata)
                            //let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata,dupulldata,{headers:{ Authorization:token1}})
-                            let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
+                            //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
+                            let apiresponse= await axios.post(`/api/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
+ 
                             console.log(dupulldata)
                             console.log(apiresponse.data)
                             setdata5(apiresponse.data)

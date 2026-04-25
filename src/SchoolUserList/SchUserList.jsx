@@ -23,17 +23,10 @@ function SchUserList()
  
         async function pulldata()
          {
-               try{
- 
-                  // const apiResponse = await axios.get(`http://localhost:8080/admin/get/users1`,{headers:{Authorization:token1}}) 
-                    //  let apiResponse= await axios.get('http://65.2.25.249:8080/admin/get/users', 
-                        
-                        
-                    //      {headers:{Authorization:"Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiQURNSU4iLCJuYW1lIjoicHJhbW9kIiwiaWQiOjMzLCJlbWFpbCI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsInN1YiI6InByYW1vZGsuZ3JpZXQwNTA1QGdtYWlsLmNvbSIsImlhdCI6MTc3Njg0OTQ2NSwiZXhwIjoxNzc3NzM4NDk3fQ.4B6oPlXkpmGRBGf8aeZ96nSa-cJnXO3MCXTTDOEG-aWQivGT3zA9CkCkoeL2U8qfuQsF1zbHOegcnpfdha0pQA"
-
-                    //      }})
-                const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
-                //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
+               try{ 
+                     const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+                     const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}})
+                    //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
 
                                  
                     console.log(apiResponse) 
@@ -108,12 +101,14 @@ function SchUserList()
        console.log("stdinfo",stdinfo1)
       // let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
       //  let ApiResponse1= await axios.post('http://localhost:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
-        let ApiResponse= await axios.post('http://65.2.25.249:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
+        //let ApiResponse= await axios.post('http://65.2.25.249:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
+        let ApiResponse= await axios.post('/api/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
 
         setIndex(null)
         setstdinfo1({})
       //const apiResponse1 = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
-      const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+      //const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+      const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}}) 
                                
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)
@@ -147,11 +142,13 @@ async function deleterow(stdrecord)
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
           //let ApiResponse= await axios.post('http://localhost:8080/m/admin/dele',data,{headers:{Authorization:token1}})
-          let ApiResponse= await axios.post('http://65.2.25.249:8080/m/admin/dele',data,{headers:{Authorization:token1}})
+          //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/admin/dele',data,{headers:{Authorization:token1}})
+          let ApiResponse= await axios.post('/api/m/admin/dele',data,{headers:{Authorization:token1}})
  
         //const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
-         const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
-                               
+         //const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+         const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}}) 
+                                        
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)
 

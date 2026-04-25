@@ -88,12 +88,7 @@ let userName=GET_USER_NAME()
     
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
-        let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{
-                                                                                                headers:{
-                                                                                                Authorization:token1
-                                                                                                }
-                                                                                                    });
-
+        let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
     //console.log(res.data);
     console.log(res)
     setimagesdis(res.data)

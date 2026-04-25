@@ -68,7 +68,9 @@ function    DailyUpdatesForm()
          
                      // await axios.post(`http://localhost:8080/m/s/duadd`,eventphotos,{headers:{Authorization:token1}})
     
-                      await axios.post(`http://65.2.25.249:8080/m/s/duadd`,eventphotos, {headers:{Authorization:token1}})
+                      //await axios.post(`http://65.2.25.249:8080/m/s/duadd`,eventphotos, {headers:{Authorization:token1}})
+                      //await axios.post(`http://65.2.25.249:8080/m/s/duadd`,eventphotos, {headers:{Authorization:token1}})
+                      await axios.post(`/api/m/s/duadd`,eventphotos, {headers:{Authorization:token1}})
 
                       window.location=`/stdinfo/dailyupdates/${y}/${classid}/${sectionid}`
                       setdailyupdates({})
@@ -115,13 +117,9 @@ function    DailyUpdatesForm()
         try
         {
        // let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{
-   headers:{
-    Authorization:token1
-   }
-        })
-
-         console.log(dupulldata)
+        //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}}) 
+        let apiresponse= await axios.post(`/api/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}}) 
+        console.log(dupulldata)
          console.log(apiresponse.data)
          setpulleventdetailsdata(apiresponse.data)
         
@@ -155,21 +153,14 @@ function    DailyUpdatesForm()
             "eventUniqueName":data.eventUniqueName
          }
                     //  let apiresponse= await axios.post(`http://localhost:8080/m/s/dudel`,dupulldata)
-                      let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/dudel`,dupulldata,{
-   headers:{
-    Authorization:token1
-   }
-        })
-
+                      //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/dudel`,dupulldata,{headers:{Authorization:token1}}) 
+                      let apiresponse= await axios.post(`/api/m/s/dudel`,dupulldata,{headers:{Authorization:token1}})
                       //  window.location=`/stdinfo/dailyupdates/${y}/${classid}/${sectionid}`
                     //  let apiresponse1= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-                      let apiresponse1= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{
-   headers:{
-    Authorization:token1
-   }
-        })
+                      //let apiresponse1= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}}) 
+                      let apiresponse1= await axios.post(`/api/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}}) 
 
-         console.log(dupulldata)
+                  console.log(dupulldata)
                   setpulleventdetailsdata(apiresponse1.data)
 
 

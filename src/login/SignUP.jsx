@@ -93,7 +93,8 @@ function SignUP({data_P})
                            const compressedFile = await compressImage(inpfile);
 
                             stdinfoall.append("i", compressedFile );
-                    let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', stdinfoall)
+                    //let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', stdinfoall)
+                    let ApiResponse= await axios.post('/api/createaccount', stdinfoall)
                       // console.log(ApiResponse)
 
                       

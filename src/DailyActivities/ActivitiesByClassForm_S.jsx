@@ -221,8 +221,10 @@ async function submitapi()
         try
         {
         //let apiresponse= await axios.post(`http://localhost:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-         console.log(dupulldata)
+        //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
+        let apiresponse= await axios.post(`/api/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
+
+        console.log(dupulldata)
          console.log(apiresponse.data)
          setawsresposes(apiresponse.data)
         
@@ -274,8 +276,6 @@ async function submitapi()
 
               async function stdcode(e)
               {
-                
-                
                 console.log(e.target.value)
                 let std=e.target.value
               

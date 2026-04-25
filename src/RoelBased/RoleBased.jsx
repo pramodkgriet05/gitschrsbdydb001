@@ -22,15 +22,11 @@ console.log(GET_ROLE())
         let token=localStorage.getItem("token")
         console.log(token)
         let token1="Bearer"+" "+token;
-        console.log(token1)
-        
-
+        console.log(token1) 
       //  let api=await axios.get("http://localhost:8080/auth/rolebasedcheck",token1)
-        let api1=await axios.get("http://localhost:8080/auth/admin/fees1",{
-   headers:{
-    Authorization:token1
-   }
-        }) 
+        //let api1=await axios.get("http://localhost:8080/auth/admin/fees1",{headers:{Authorization:token1}}) 
+        let api1=await axios.get("/api/auth/admin/fees1",{headers:{Authorization:token1}}) 
+        
         //console.log(api)
         console.log(api1) 
     }
@@ -41,14 +37,9 @@ console.log(GET_ROLE())
         console.log(token)
         let token1="Bearer"+" "+token;
         console.log(token1)
-        
-
-      //  let api=await axios.get("http://localhost:8080/auth/rolebasedcheck",token1)
-        let api1=await axios.get("http://localhost:8080/auth/teacher",{
-   headers:{
-    Authorization:token1
-   }
-        }) 
+              //  let api=await axios.get("http://localhost:8080/auth/rolebasedcheck",token1)
+        let api1=await axios.get("http://localhost:8080/auth/teacher",{headers:{Authorization:token1}})
+         
         //console.log(api)
         console.log(api1) 
     }

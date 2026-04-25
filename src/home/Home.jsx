@@ -69,7 +69,9 @@ function Home()
         async  function hello1()
           {
              //  let ApiResponse= await axios.get('http://localhost:8080/hello1')
-              let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
+             // let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
+              let ApiResponse= await axios.get('api/hello1')
+
                // let ApiResponse1= await axios.get('http://localhost:8080/student-photo?classNo=4&rollNo=4&extension=png')
                 console.log(ApiResponse)
                 //console.log(ApiResponse1.request.response)

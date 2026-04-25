@@ -128,7 +128,8 @@ async function submitapi()
 
                  // console.log(files[i]);
                 // await axios.post(`http://localhost:8080/m/s/abci`,eventphotos,{headers:{ Authorization:token1}})
-                await axios.post(`http://65.2.25.249:8080/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
+                //await axios.post(`http://65.2.25.249:8080/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
+                await axios.post(`/api/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
 
                   setUploadedCount(i + 1);
 
@@ -159,7 +160,8 @@ async function submitapi()
 
 
               //  await axios.post(`http://localhost:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
-                await axios.post(`http://65.2.25.249:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
+                //await axios.post(`http://65.2.25.249:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
+                await axios.post(`/api/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
                 
 
                 let userdata={
@@ -170,13 +172,12 @@ async function submitapi()
                                 "sectionid":sectionid,
                                 "subject":dailyupdates.subject
 
-                              }
-
-
+                              } 
 
               //let apiresponse = await axios.post(`http://localhost:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
-              let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
-               
+              //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
+              let apiresponse = await axios.post(`/api/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
+              
 
               // console.log(apiresponse)
                 setawsresposes(apiresponse.data) 
@@ -222,8 +223,9 @@ async function submitapi()
         try
         {
       //  let apiresponse= await axios.post(`http://localhost:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-        let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-         console.log(dupulldata)
+        //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
+        let apiresponse= await axios.post(`/api/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}}) 
+      console.log(dupulldata)
          console.log(apiresponse.data)
          setawsresposes(apiresponse.data)
         
@@ -288,7 +290,8 @@ async function submitapi()
                   //console.log("Enter 10 digit no")
                   //submitapi()
                  // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
-                  let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
+                  //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
+                  let apiresponse=await axios.post("/api/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
 
                   console.log(apiresponse)
                   console.log(apiresponse.data)
@@ -302,8 +305,6 @@ async function submitapi()
                                 setapierrormsg(true)
                                 setapierrormsg1(false)
                                 setname("")
-
-
                               }
                               else
                               {
@@ -324,7 +325,6 @@ async function submitapi()
                    setapierrormsg1(false)
                     setapierrormsg(false)
                     setname("")
-
                 }
  
                 console.log(apiresponse)

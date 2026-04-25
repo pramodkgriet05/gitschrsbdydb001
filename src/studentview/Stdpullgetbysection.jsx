@@ -42,11 +42,8 @@ function Stdpullgetbysection({classid1,sectionid1})
             try{
              //let apiResponse=await axios.post('http://localhost:8080/s/pullrecords') pull all the records
             //  let apiResponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classid1}/${sectionid1}`) //pull class wise recordsadf
-              let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`,{
-   headers:{
-    Authorization:token1
-   }
-        }) 
+              //let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
+              let apiResponse=await axios.get(`/api/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
               // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
              setstdinfo(apiResponse.data)
@@ -68,9 +65,7 @@ function Stdpullgetbysection({classid1,sectionid1})
     
       
     
-    return(
-        
-         
+    return( 
          <div>
             <h1 className="mt-5">pull data ClassName: { classid1}  Section:  { sectionid1}</h1>
             <div>

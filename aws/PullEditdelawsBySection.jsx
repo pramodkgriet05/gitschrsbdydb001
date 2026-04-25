@@ -61,11 +61,11 @@ function PullEditdelawsBySection({stdid1,section1})
             //    console.log(apiResponse)
                 //let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
               //  let apiresponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`)
-                let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`,{
-                                                                                                headers:{
-                                                                                                Authorization:token1
-                                                                                                }
-                                                                                                    })
+                //let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
+                let apiresponse=await axios.get(`/api/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
+                                                                                                
+                                                                                                
+                                                                                                 
                  console.log(apiresponse)
           console.log(apiresponse.data)
           setawsresposes(apiresponse.data)
@@ -134,7 +134,9 @@ function PullEditdelawsBySection({stdid1,section1})
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
           //let ApiResponse= await axios.post('http://localhost:8080/m/s/dele',data)
-          let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
+          //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
+          //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
+          let ApiResponse= await axios.post(' /api/m/s/dele',data,{headers:{Authorization:token1}})
 
           console.log(ApiResponse)
 
@@ -280,8 +282,9 @@ function PullEditdelawsBySection({stdid1,section1})
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
        console.log("stdinfo",stdinfo1)
       // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)///Std_info/c1/u/10/C
-        let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
-       setIndex(null)
+        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
+        let ApiResponse= await axios.post('/api/s/save',stdinfo1,{headers:{Authorization:token1}})       
+        setIndex(null)
        window.location=`/std_info/c1/u/${stdid1}/${section1}`
     }
     catch(error)

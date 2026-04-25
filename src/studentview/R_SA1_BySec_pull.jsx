@@ -130,7 +130,8 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
               
               
               // let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
+                 //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
+                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1)
 
 
 

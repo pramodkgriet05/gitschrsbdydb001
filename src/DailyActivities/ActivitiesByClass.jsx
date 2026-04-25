@@ -157,21 +157,7 @@ function ActivitiesByClass()
                                                                 <a href="/stdinfo/ac/t/2026/10/C" className="btn btn-primary  ">10 C</a>
                                                             </div>
                                                     </div>
-                                                </div>
-                                               
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                                </div> 
             </div>
 
         </div>

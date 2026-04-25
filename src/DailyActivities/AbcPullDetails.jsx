@@ -46,17 +46,7 @@ const location = useLocation();
     const acadamicyear=location.state?.acadamicyear||"";
     const projectby=location.state?.projectby||"";
     const projecthead=location.state?.projecthead||"";
-    const projectstdname=location.state?.projectstdname||"";
-
-      
-
-
-
-        
-
-
-    
- 
+    const projectstdname=location.state?.projectstdname||""; 
 //console.log(location)
 
 console.log("path:data",data)
@@ -71,8 +61,9 @@ console.log("path:data",data)
     
                     //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
-                    let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
+                    //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
                     //let apiresponse=await axios.post(`http://localhost:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
+                    let apiresponse=await axios.post(`/api/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
 
                       console.log("aws",apiresponse)
                     console.log(apiresponse.data)
@@ -219,13 +210,15 @@ async function compressImage(file) {
                 //  console.log(files[i]);
                 //  await axios.post(`http://localhost:8080/m/s/abci/1`,eventphotos,{headers:{ Authorization:token1}})
                   await axios.post(`http://65.2.25.249:8080/m/s/abci/1`,eventphotos,{headers:{ Authorization:token1}})
+                  await axios.post(`/api/m/s/abci/1`,eventphotos,{headers:{ Authorization:token1}})
 
                   setUploadedCount(i + 1);
 
 
             }
              //let res = await axios.post(`http://localhost:8080/m/s/abcpull`,{path:data},{headers:{ Authorization:token1}});
-             let res = await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data}, {headers:{ Authorization:token1}})
+             //let res = await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data}, {headers:{ Authorization:token1}})
+             let res = await axios.post(`/api/m/s/abcpull`,{path:data}, {headers:{ Authorization:token1}})
 
     //console.log(res.data);
               console.log(res)
@@ -246,23 +239,9 @@ async function compressImage(file) {
                           year: "",
                           description: "",
                           uploadimages1: ""
-                        });
-
-                        
-            
-         
-           
+                        }); 
 }
-
-
-
-
-
-
-
-
-
-
+ 
     return(
 
 
