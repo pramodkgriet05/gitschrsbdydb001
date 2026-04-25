@@ -131,7 +131,8 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
               
               // let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
                  //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1)
+                 //let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1)
+                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
 
 
 
@@ -168,7 +169,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
         
              //  console.log(apiresponse)
               // console.log(apiresponse.data.result)
-    },[ createrecords1]) 
+    },[createrecords1]) 
     
 
     async function deleterow(e)
@@ -197,7 +198,9 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
        //   let ApiResponse= await axios.post('http://localhost:8080/m/s/'+e.id+'/dele',data)
-           let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/'+e.id+'/dele',data)
+           //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/'+e.id+'/dele',data)
+           //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/'+e.id+'/dele',data,{headers:{Authorization:token1}})
+           let ApiResponse= await axios.post('/api/m/s/'+e.id+'/dele',data,{headers:{Authorization:token1}})
 
 
           console.log(ApiResponse)
@@ -222,8 +225,8 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
         //  setupdateeditcolmdata(stdrecord)
         //  setstdinfo1(stdrecord)
         // setupdateeditcolmdataR(stdrecord)
-       seteditcolomdata2({...stdrecord})
-   setupdateeditcolmdataR({...stdrecord})
+            seteditcolomdata2({...stdrecord})
+           setupdateeditcolmdataR({...stdrecord})
 
 
      }
@@ -520,10 +523,13 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
                 console.log("e",errorg)
                 setpleasecheck(false)
      // let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
-      let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData)
-       setupdateeditcolmdataR({})
+      //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
+      let ApiResponse= await axios.post('/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
+
+      setupdateeditcolmdataR({})
       // let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
-              let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
+             // let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
+              let apiresponse1=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
 
                        console.log(apiresponse1)
                       
@@ -565,7 +571,9 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
 
                                                     });
                      // let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,pullecords) 
-                      let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,pullecords) 
+                      //let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}})
+                      let apiresponse1=await axios.post(`/api/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}})
+                      
 
                                         console.log(apiresponse1)
                                           setawsresposes2(apiresponse1.data)
