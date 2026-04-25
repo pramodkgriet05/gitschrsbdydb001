@@ -24,9 +24,10 @@ function SchUserList()
         async function pulldata()
          {
                try{ 
-                     const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
                      const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}})
-                    //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
+                    //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}})
+                    //  const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
+
 
                                  
                     console.log(apiResponse) 
