@@ -11,6 +11,10 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata
      let userName=GET_USER_NAME()
          let userId=GET_USER_ID()
+
+         let token=localStorage.getItem("token")
+         let token1="Bearer"+" "+token;
+        
                    
          if(userName==null)
            {

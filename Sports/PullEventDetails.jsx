@@ -81,8 +81,9 @@ let userName=GET_USER_NAME()
 
     useEffect(() => {
         let token=localStorage.getItem("token")
-        console.log(token)
         let token1="Bearer"+" "+token;
+                console.log(token)
+
    
 
   async function fetchData() { 
