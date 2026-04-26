@@ -86,15 +86,16 @@ let navigate=useNavigate()
               setIndex(null)
               setupdateeditcolmdataR({})
               setpleasecheck(" ")
+          
           }
-     }
-          // let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
+           // let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
          //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
          let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}})
 
          console.log(apiresponse)
              setpulleventsdetails(true)
              setpulleventdetailsdata(apiresponse.data)
+     }
      }
      catch(e)
      {
@@ -127,7 +128,7 @@ let navigate=useNavigate()
         function updateterm1(e)
         {
           let val=Number(e.target.value)
-          let ab=Number(editcolomdata2.actualbalance)
+          let ab=Number(editcolomdata2.actualbalance || 0)
           seteditcolomdata2(prev => ({ ...prev, term1: val }));
           console.log(ab)
           console.log(val)
@@ -227,13 +228,8 @@ let navigate=useNavigate()
  
 async function submitapi()
 {
-       
-//                 let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{
-//    headers:{
-//     Authorization:token1
-//    }
-//         })
-                let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}}) 
+              //let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees, {headers:{Authorization:token1}})
+                let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
                 setpulleventdetailsdata(apiresponse.data)
@@ -254,10 +250,6 @@ async function submitapi()
                         
                         <h1>School Name </h1>
                         </div>
-                         
-                       
-                        
-
                           <div>
                             <h1> Department of Fees 2025-26</h1>
                         </div>
