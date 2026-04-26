@@ -50,7 +50,9 @@ let navigate=useNavigate()
     
                     //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
-                    let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
+                   //let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
+ 
+                   let apiresponse=await axios.get(`/api/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
                     console.log("aws",apiresponse)
                     console.log(apiresponse.data)
                     setawsresposes(apiresponse.data) 
@@ -144,7 +146,9 @@ async function submitapi()
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports1`,eventphotos)
-                  await axios.post(`http://65.2.25.249:8080/m/s/sports1`,eventphotos,{headers:{Authorization:token1}})
+                  //await axios.post(`http://65.2.25.249:8080/m/s/sports1`,eventphotos,{headers:{Authorization:token1}})
+
+                 await axios.post(`/api/m/s/sports1`,eventphotos,{headers:{Authorization:token1}})
                   setUploadedCount(i + 1);
             }
             }

@@ -8,6 +8,7 @@ function PullEventDetails()
     let token=localStorage.getItem("token")
         console.log(token)
         let token1="Bearer"+" "+token;
+        
    
 let userName=GET_USER_NAME()
             
@@ -79,24 +80,17 @@ let userName=GET_USER_NAME()
     console.log("data",data)
     console.log("ename",ename)
 
-    useEffect(() => {
-        let token=localStorage.getItem("token")
-        let token1="Bearer"+" "+token;
-                console.log(token)
-
-   
-
+    useEffect(() => { 
   async function fetchData() { 
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
-        let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-        //console.log(res.data);
+        //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+        let res = await axios.post(`/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+         //console.log(res.data);
     console.log(res)
     setimagesdis(res.data)
   }
-
   fetchData();
-
 }, []);
 
  // open image
@@ -187,22 +181,14 @@ async function submitapi1()
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports12`,eventphotos)
-                  await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos,{
-   headers:{
-    Authorization:token1
-   }
-        })
-
+                  //await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
+                  await axios.post(`/api/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
+    
                   setUploadedCount(i + 1);
-
-
             }
              //let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
-             let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{
-   headers:{
-    Authorization:token1
-   }
-        });
+             //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+             let res = await axios.post(`/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
 
     //console.log(res.data);
               console.log(res)
@@ -230,7 +216,6 @@ async function submitapi1()
 }
 
     return(
-
                 <div className="container">
                   <div>
                     <div className="d-flex">

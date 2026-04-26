@@ -102,7 +102,7 @@ function App() {
 
       {/* ------------------------------------------------------------------------------------ */}
 
-       <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
+          <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
         <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
          <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
         <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} /> 
