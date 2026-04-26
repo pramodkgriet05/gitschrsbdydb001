@@ -308,15 +308,6 @@ async function submitapi1()
                          
                     
                        </div>
-
-
-
-
-
-
-
-
-                    
                     </div>
                   </div>
                         </div>        

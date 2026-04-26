@@ -132,7 +132,8 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
               
               
               // let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
+                 //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
+                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
 
 
 
@@ -198,7 +199,8 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
           //  let ApiResponse= await axios.post('http://localhost:8080/s/'+e.id+'/dele')
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
          // let ApiResponse= await axios.post('http://localhost:8080/m/s/'+e.id+'/dele',data)
-          let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/'+e.id+'/dele',data)
+          //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/'+e.id+'/dele',data)
+          let ApiResponse= await axios.post('/api/m/s/'+e.id+'/dele',data,{headers:{Authorization:token1}})
 
 
           console.log(ApiResponse)
