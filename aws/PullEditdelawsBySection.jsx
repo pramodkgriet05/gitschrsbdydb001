@@ -66,9 +66,9 @@ function PullEditdelawsBySection({stdid1,section1})
                                                                                                 
                                                                                                 
                                                                                                  
-                 console.log(apiresponse)
-          console.log(apiresponse.data)
-          setawsresposes(apiresponse.data)
+        //          console.log(apiresponse)
+        //   console.log(apiresponse.data)
+        //   setawsresposes(apiresponse.data)
 
             //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
             //   console.log(apiResponse)
@@ -312,10 +312,9 @@ function PullEditdelawsBySection({stdid1,section1})
         
             <div  className="row">
             <div className="col-12">
-            <h1>pulledit & delete  data{deldata.imgdatasend}</h1> 
-           <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{classidsch}</h3></div>
+            <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{classidsch}</h3></div>
            <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Section:</h5> <h3>{sectionoption}</h3></div>
-           <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Teacher:</h5> <h3>classid</h3></div>
+           <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Teacher:</h5> <h3>{userName}</h3></div>
            
            <div>
             <h3 className="text-danger">{stddelapimsg}</h3>

@@ -192,7 +192,7 @@ function Add_new_student({rece_data, stdid1,sectionid})
     return(
       
                   <div className="col-8">
-                                <h3>Enter New Student Details class:{stdid1}{sectionid} </h3> 
+                                <h3>Enter New Student Details class:{stdid1}/{sectionid} </h3> 
                                    <div className="card mt-3" style={{width:'60rem'}}>
                                      
                                         <div className="row">
@@ -280,7 +280,7 @@ function Add_new_student({rece_data, stdid1,sectionid})
                                                             <input type="file" className="form-control mt-1" placeholer="file" onChange={e=>setstdinfo({...stdinfo, img1:e.target.files[0]})}></input>
                                                              { stdinfo_error.img1==true && <div className="text-danger"> Upload profile pic</div>}
                                                             <button className="btn btn-warning  d-grid mt-3" type="button" onClick={e=>verifystd()}> SUBMIT</button>
-                                                            {stdinfo.address}
+                                                            
                                                     </div>
                                            </div>
                                                 

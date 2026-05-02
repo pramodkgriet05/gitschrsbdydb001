@@ -9,7 +9,7 @@ import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
 
 function R_SA1_BySec_pull({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata
-     let userName=GET_USER_NAME()
+         let userName=GET_USER_NAME()
          let userId=GET_USER_ID()
          let token=localStorage.getItem("token")
          let token1="Bearer"+" "+token;
@@ -512,13 +512,13 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
       // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
- let updatedData = {
-         ...updateeditcolmdataR,
-         examcode:awsresposes2[i].examcode,
-         standred:awsresposes2[i].standred,
-         section:awsresposes2[i].section,
-         rollno:awsresposes2[i].rollno
-      }
+ let updatedData = {...awsresposes2[i],
+         ...updateeditcolmdataR
+      //    examcode:awsresposes2[i].examcode,
+      //    standred:awsresposes2[i].standred,
+      //    section:awsresposes2[i].section,
+      //    rollno:awsresposes2[i].rollno
+       }
          console.log("updated data",updateeditcolmdataR)
         //console.log(updateeditcolmdataR)
         if(errorg===0)

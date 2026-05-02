@@ -128,75 +128,90 @@ let navigate=useNavigate()
         function updateterm1(e)
         {
           let val=Number(e.target.value)
+          let t1=val;
+          let t2=Number(editcolomdata2.term2||0)
+          let t3 = Number(editcolomdata2.term3 || 0);
+          let t4 = Number(editcolomdata2.term4 || 0);
+
           let ab=Number(editcolomdata2.actualbalance || 0)
+
+          let total=t1+t2+t3+t4;
+
           seteditcolomdata2(prev => ({ ...prev, term1: val }));
           console.log(ab)
           console.log(val)
           console.log(e)
-          if(val>ab)
+          
+          if(total>ab)
           {
                setErrorg(1); 
-              console.log("eg:",errorg)
-             setmarkserrorw(true)
-              setpleasecheck("term1 fees greater than actual balance")
+               console.log("eg:",errorg)
+               setmarkserrorw(true)
+               setpleasecheck("Total is greater than actual  balance")
 
-        }
+          }
         else{
            setErrorg(0); 
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  term1: val }));
+          setpleasecheck("Total is greater than actual  balance")
+
 
         }
         }
          function updateterm2(e)
         {
           let val=Number(e.target.value)
-          let t1=Number(editcolomdata2.term1)
-          let ab=Number(editcolomdata2.actualbalance)
+          let t1=Number(editcolomdata2.term1||0)
+          let t2=val;
+          let t3 = Number(editcolomdata2.term3 || 0);
+          let t4 = Number(editcolomdata2.term4 || 0);
+        
+          let ab=Number(editcolomdata2.actualbalance||0)
+          let total=t1+t2+t3+t4;
+
           seteditcolomdata2(prev => ({ ...prev, term2: val }));
-          console.log(ab)
-          console.log(val)
-          console.log(e)
-          if(val+t1>ab)
+           if(total>ab)
           {
                setErrorg(1); 
-              console.log("eg:",errorg)
-             setmarkserrorw(true)
-              setpleasecheck("term2 fees greater than actual balance")
-
+               console.log("eg:",errorg)
+               setmarkserrorw(true)
+               setpleasecheck("total fees greater than actual balance") 
         }
         else{
            setErrorg(0); 
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  term2: val }));
-
+          setpleasecheck("") 
         }
         }
 
         function updateterm3(e)
         {
           let val=Number(e.target.value)
-          let t1=Number(editcolomdata2.term1)
-          let t2=Number(editcolomdata2.term2)
+          let t1=Number(editcolomdata2.term1||0)
+          let t2=Number(editcolomdata2.term2||0)
+          let t3=val;
+          let t4=NUmber(editcolomdata2.term4||0)
           let ab=Number(editcolomdata2.actualbalance)
+          let total=t1+t2+t3+t4;
           seteditcolomdata2(prev => ({ ...prev, term3: val }));
-          console.log(ab)
-          console.log(val)
-          console.log(e)
-          if(val+t1+t2>ab)
+           
+          if(total>ab)
           {
                setErrorg(1); 
               console.log("eg:",errorg)
              setmarkserrorw(true)
-              setpleasecheck("term3 fees greater than actual balance")
+              setpleasecheck("total fees greater than actual balance")
 
-        }
+          }
         else{
            setErrorg(0); 
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  term3: val }));
+          setpleasecheck("") 
 
-        }
+           }
         }
         function updateterm4(e)
         {
@@ -204,23 +219,24 @@ let navigate=useNavigate()
           let t1=Number(editcolomdata2.term1)
           let t2=Number(editcolomdata2.term2)
           let t3=Number(editcolomdata2.term3)
+          let t4=val;
           let ab=Number(editcolomdata2.actualbalance)
+          let total=t1+t2+t3+t4;
           seteditcolomdata2(prev => ({ ...prev, term4: val }));
-          console.log(ab)
-          console.log(val)
-          console.log(e)
-          if(val+t1+t2+t3>ab)
+           
+          if(total>ab)
           {
                setErrorg(1); 
-              console.log("eg:",errorg)
-             setmarkserrorw(true)
-              setpleasecheck("term4 fees greater than actual balance")
+               console.log("eg:",errorg)
+               setmarkserrorw(true)
+               setpleasecheck("total fees greater than actual balance")
 
-        }
+          }
         else{
            setErrorg(0); 
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  term4: val }));
+          setpleasecheck("")
 
         }
         }
@@ -228,8 +244,10 @@ let navigate=useNavigate()
  
 async function submitapi()
 {
-              //let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees, {headers:{Authorization:token1}})
-                let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
+       
+                //let apiresponse = await axios.post(`http://localhost:8080/api/m/s/fees`,fees, {headers:{Authorization:token1}})
+                //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
+                //let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
                 setpulleventdetailsdata(apiresponse.data)
@@ -242,21 +260,18 @@ async function submitapi()
                   <div  style={{position:"relative"}}>
                           <Link  to={`/stdinfo`} style={{ position:"absolute", top:"100px",right:"100px"}}className="btn btn-primary ms-3">Back</Link>
                           <Link  to={`/`} style={{ position:"absolute", top:"100px",right:"10px"}}className="btn btn-primary ms-3">Home</Link>
-
-
-                           </div>
+                  </div>
                    
                         <div className="col-12   d-flex justify-content-center align-items-center" style={{ width:"50vh",height: "30vh"}}>
                         
                         <h1>School Name </h1>
                         </div>
-                          <div>
+                        <div>
                             <h1> Department of Fees 2025-26</h1>
                         </div>
                         </div>
-                        
                         <div className="row mt-5">
-                          
+                     
                         <div className="   col-2">
                             <h3>Academic Year</h3>
                             <h3>Class:</h3>

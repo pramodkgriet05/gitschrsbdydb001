@@ -10,6 +10,7 @@ import PullEditdelaws from "../../aws/PullEditdelaws"
 import PullEditdelawsBySection from "../../aws/PullEditdelawsBySection"
 import R_SA1 from "../../Results/R_SA1"
 import R_SA1_BySec from "../../Results/R_SA1_BySec"
+import Attendance from "./Attendance"
  
  
  
@@ -34,17 +35,18 @@ function Std_pulldataBySection()
       let[sectionA, setsectionA]=useState("") 
       let[sectionB, setsectionB]=useState("")
       let[sectionC, setsectionC]=useState("")
-          const sctionAA =new useNavigate();
+      const sctionAA =new useNavigate();
+      let[showatten, setshowatten]=useState(false)
 
       
 
 
                
-    if(userName==null)
-      {
-        window.location="/"
-      }
-    ////Std_info/c1/u
+    // if(userName==null)
+    //   {
+    //     window.location="/"
+    //   }
+    // ////Std_info/c1/u
    
     
     let[addstudent,setaddstudent]=useState(false)
@@ -118,9 +120,9 @@ function Std_pulldataBySection()
                 // console.log(apiresponse)
                  
                
-              // let apiresponse=await axios.post('http://localhost:8080/m/s/saverecord',stdinfoall)  
+               let apiresponse=await axios.post('http://localhost:8080/api/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})  
               // let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
-               let apiresponse=await axios.post('/api/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
+               //let apiresponse=await axios.post('/api/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
    
     
                 console.log(apiresponse)
@@ -140,6 +142,7 @@ function Std_pulldataBySection()
             
                catch(error)
         {
+            console.log(error)
             console.log(error.response.data.Message)
             //setapiErrorMessage( {...apiErrorMessage, openMsg:true})
             setapiErrorMessage({...apiErrorMessage, apiMessage:true})
@@ -218,6 +221,7 @@ function Std_pulldataBySection()
                     function showresults()
                     {
                         setshow_results(true)
+                        setshowatten(false)
                        // setshow_S_A(true)
                     }
 
@@ -276,6 +280,16 @@ function Std_pulldataBySection()
                          //setshowpullSA1(false)
                     }
 
+                    async function showattendance()
+                    {
+                        console.log("showattendance is called:")
+                        setshow_results(false)
+                        setshow_S_A(false)
+                        setshowatten(true)
+
+                        
+                    }
+
                     
     
 
@@ -297,7 +311,7 @@ function Std_pulldataBySection()
            
                 <div className="col-4">
                    
-                    <button className="btn btn-primary mt-5" onClick={e=>setshow_A_M(true)}>Add Details</button>
+                    {/* <button className="btn btn-primary mt-5" onClick={e=>setshow_A_M(true)}>Add Details</button> */}
                      
                     <h1>  </h1>
                        
@@ -345,15 +359,30 @@ function Std_pulldataBySection()
 
                                     </div>
                     }
+                     
                </div>
+                       
+                       
                         {
                          show_A_M == true && 
                         <Add_new_student rece_data={showconformdata} stdid1={stdid} sectionid={sectionid}/>
                         
                          }
+                         <div className="mt-5 mb-5" style={{
+                            borderBottom: "1px solid #868282",
+                            margin: "6px 0"
+                            }}></div>
+
                              {
                          show_A_M==true &&  <PullEditdelawsBySection stdid1={stdid} section1={sectionid}/> 
                             }  
+
+                            <div className="mt-5 mb-5" style={{
+                            borderBottom: "1px solid #868282",
+                            margin: "6px 0"
+                            }}></div>
+
+
 
                             {/* <h3 className="text-danger">Select Section</h3>
                              <div className="col-4"> 
@@ -411,7 +440,11 @@ function Std_pulldataBySection()
    {show_S_C && <PullEditdelawsBySection stdid1={stdid} section1={sectionC}/> }  
 </div>   */}
 
-                       <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button> 
+                       <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button>
+
+                       <button className="btn btn-warning   mt-3 mb-5 ms-5 " type="button" onClick={e=>showattendance()}> Attendance</button>
+
+
                                 { show_results==true &&
                                 <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}>
                                     {/* <button className="btn btn-warning   mt-3 mb-5 me-3" type="button" onClick={e=>ADDresults()}> Addresult</button>  */}
@@ -437,6 +470,11 @@ function Std_pulldataBySection()
                              <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)" }} >
                                     {showpullSA1==true &&    <R_SA1  /> }
                                     {show_S_A==true &&    <R_SA1_BySec stdid1={stdid} section1={sectionA} createrecords1={pullecords}/> } 
+                               </div>
+                               <div>
+                                {
+                                    showatten==true&& <Attendance stdid1={stdid} section1={sectionid}/>
+                                }
                                </div>
                                
 

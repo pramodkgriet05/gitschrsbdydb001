@@ -67,7 +67,7 @@ let role=GET_ROLE()
 
                      { (role==="TEACHER"||role==="ADMIN")&&( 
                             <div className="col-4">
-                                <h3  >Update Recordssss</h3>
+                                <h3  >Update Records</h3>
                                 <div className="card"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="  profile_pic1 shadow " alt="..."/>
                                         <div className="card-body">

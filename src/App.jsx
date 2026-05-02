@@ -73,7 +73,7 @@ function App() {
       <Route path="/otp" element={<Otp />} /> 
       <Route path="/cnfrestpassword" element={<Cnfrestpassword />} /> 
 
-      ===============================================================
+      =====================================================================================================
       <Route path="/stdinfo" element={<Stdinfo />} />
       <Route path="/stdinfo/t" element={<Stdinfo_T />} />
       <Route path="/stdinfo/s" element={<Stdinfo_S />} /> 
@@ -85,7 +85,7 @@ function App() {
 
        <Route path='/std/info/:y' element={<Std_info_page_all />} />
        <Route path='/std/info/1' element={<Std_info1 />} />
-
+ 
 
       {/* --------------------------------------view records student links -------------------------------------*/}
 
@@ -103,14 +103,14 @@ function App() {
       {/* ------------------------------------------------------------------------------------ */}
 
           <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
-        <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
-         <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
-        <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} /> 
+          <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
+          <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
+          <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} /> 
 
        {/* <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} />  */}
        {/* ------------------------------------------------------------------------------------ */}
 
-       <Route path='/stdinfo/c1/u/2026/fees' element={<Fees />} />  
+          <Route path='/stdinfo/c1/u/2026/fees' element={<Fees />} />  
 
        {/* ------------------------------------------------------------------------------------ */}
 

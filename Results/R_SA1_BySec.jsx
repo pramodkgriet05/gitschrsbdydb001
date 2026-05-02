@@ -509,18 +509,13 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
           if(confirmEdit)
           {
-            try{
-
-    
+            try{ 
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
     //   let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
  let updatedData = {
-         ...updateeditcolmdataR,
-         examcode:awsresposes2[i].examcode,
-         standred:awsresposes2[i].standred,
-         section:awsresposes2[i].section,
-         rollno:awsresposes2[i].rollno
+         ...awsresposes2[i],
+         ...updateeditcolmdataR 
       }
          console.log("updated data",updateeditcolmdataR)
         //console.log(updateeditcolmdataR)
@@ -709,7 +704,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                          <td style={{  textAlign:"center"}}>
                             {index===i?      Number(editcolomdata2.seclangw)+ Number(editcolomdata2.seclango)       :    (stdrecord.ts)       }
                             
-                      </td>
+                        </td>
 
                           
                           <td style={{  textAlign:"center"}}>
@@ -846,12 +841,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                        
                     
                         </tr>
-                       
-                    ))
-
-                    
-                 
-
+                    ))  
            }
               
              </tbody>
