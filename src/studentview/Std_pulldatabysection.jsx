@@ -4,6 +4,7 @@ import R_SA1_BySec_pull from "./R_SA1_BySec_pull";
 import { useState } from "react";
 import { GET_USER_NAME } from "../../Utils/Utils";
 import Navbar from "../Navbar/Navbar";
+import Attendance_S from "./Attendance_S";
 
     function Std_pulldatabysectionget()
 {
@@ -26,6 +27,7 @@ import Navbar from "../Navbar/Navbar";
      let[show_S_A,setshow_S_A]=useState(false)
 
     let[pullecords, setpullecords]=useState({examname:"",standred:"", section:"",academicyear:""})
+   let[showatten, setshowatten]=useState(false)
 
 
 
@@ -36,6 +38,8 @@ import Navbar from "../Navbar/Navbar";
       function showresults()
                     {
                         setshow_results(true)
+                        setshowatten(false)
+
                        // setshow_S_A(true)
                     }
                      async function pullSA11(y,e)
@@ -57,6 +61,15 @@ import Navbar from "../Navbar/Navbar";
                     //   console.log(apiresponse)
 
                       setshow_S_A(true)
+                    }
+                    async function showattendance()
+                    {
+                        console.log("showattendance is called:")
+                        setshow_results(false)
+                        setshow_S_A(false)
+                        setshowatten(true)
+
+                        
                     }
 
 
@@ -83,6 +96,9 @@ import Navbar from "../Navbar/Navbar";
         </div>
         </div>
         <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button> 
+
+        <button className="btn btn-warning   mt-3 mb-5 ms-5 " type="button" onClick={e=>showattendance()}> Attendance</button>
+
                                 { show_results==true &&
                                 <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}>
                                     {/* <button className="btn btn-warning   mt-3 mb-5 me-3" type="button" onClick={e=>ADDresults()}> Addresult</button>  */}
@@ -102,6 +118,11 @@ import Navbar from "../Navbar/Navbar";
                                  <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)" }} >
                                     {/* {showpullSA1==true &&    <R_SA1  /> } */}
                                     {show_S_A==true &&    <R_SA1_BySec_pull stdid1={classid} section1={sectionid} createrecords1={pullecords}/> } 
+                               </div>
+                               <div>
+                                {
+                                    showatten==true&& <Attendance_S stdid1={classid} section1={sectionid}/>
+                                }
                                </div>
 
        </div>

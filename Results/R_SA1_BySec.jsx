@@ -475,29 +475,29 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
         function updateremarks(e)
         {
 
-           seteditcolomdata2({...editcolomdata2, remarks:e.target.value })
-            setupdateeditcolmdataR({...updateeditcolmdataR, remarks:e.target.value })
+           seteditcolomdata2(prev=>({...editcolomdata2, remarks:e.target.value }))
+            setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, remarks:e.target.value }))
 
         }
 
         function TeacherComments(e)
         {
 
-           seteditcolomdata2({...editcolomdata2, teacherfeedback:e.target.value })
-            setupdateeditcolmdataR({...updateeditcolmdataR, teacherfeedback:e.target.value })
+           seteditcolomdata2(prev=>({...editcolomdata2, teacherfeedback:e.target.value }))
+            setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, teacherfeedback:e.target.value }))
            
         }
 
         function parentcomment(e)
         {
-           seteditcolomdata2({...editcolomdata2, parentfeedback:e.target.value })
-            setupdateeditcolmdataR({...updateeditcolmdataR, parentfeedback:e.target.value })
+           seteditcolomdata2(prev=>({...editcolomdata2, parentfeedback:e.target.value }))
+            setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, parentfeedback:e.target.value }))
         }
 
         function updategrade(e)
         {
-           seteditcolomdata2({...editcolomdata2, grade:e.target.value })
-          setupdateeditcolmdataR({...updateeditcolmdataR, grade:e.target.value })
+           seteditcolomdata2(prev=>({...editcolomdata2, grade:e.target.value }))
+          setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, grade:e.target.value }))
 
         //   setupdateeditcolmdataR({...updateeditcolmdataR, grade:e.target.value,examcode:awsresposes2[i].examcode, standred:awsresposes2[i].standred, section:awsresposes2[i].section,rollno:awsresposes2[i].rollno })
         }

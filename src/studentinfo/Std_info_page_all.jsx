@@ -14,7 +14,7 @@ function Std_info_page_all()
 
     let {y}=useParams()
 
-    let [tabs, settabs]=useState({marks:false,fees:false,activities:false,dailyactivities:false})
+    let [tabs, settabs]=useState({marks:false,fees:false,activities:false,dailyactivities:false,stdatten:false})
     let[marks1,setmarks]=useState()
     let[awsresposes2,setawsresposes2]=useState()
     let[index, setIndex]=useState(null)
@@ -31,6 +31,8 @@ function Std_info_page_all()
                 let[dailyupdates, setdailyupdates]=useState({})
                 let[month,setmonth]=useState()
                 let[showtable,setshowtable]=useState(false)
+                let[data6,setdata6]=useState({}) 
+
 
 
 
@@ -43,7 +45,7 @@ function Std_info_page_all()
             {
                  
                  try{ 
-                   //  let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                      //let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
                      //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
                      let apiresponse=await axios.post(" /api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
 
@@ -130,11 +132,24 @@ function Std_info_page_all()
                         }});
               }
 
-              async function dailyactivitiestab()
+               function dailyactivitiestab()
               {
                                     settabs({...tabs,marks:false,fees:false,activity:false,dailyactivities:true})
-
                 
+              }
+               async function stdatten()
+              {
+                let data={
+                            stdcode:std,
+                            academicyear:y
+                        }
+                console.log("atdatten")
+                                    settabs({...tabs,marks:false,fees:false,activity:false,dailyactivities:false,stdatten:true})
+                    //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get/1`,data,{headers:{Authorization:token1}})
+                    let apiresponse=await axios.post(`/api/std/attn/get/1`,data,{headers:{Authorization:token1}})
+
+                    console.log(apiresponse)
+                    setdata6(apiresponse.data)
               }
               function month1(i,mnt)
                 {
@@ -323,7 +338,8 @@ function Std_info_page_all()
                                     <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>feestab()}>Fees</button>
                                     <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>activitytab()}>Activities</button>
                                     <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>dailyactivitiestab()}>Daily Project work</button>
-                          
+                                    <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>stdatten()}>Attendance</button>
+
                
                 </div>
                 </div>
@@ -697,22 +713,7 @@ function Std_info_page_all()
                                                          ))
                                     }
                                      </div>
-
-
-
-
-
-                                       
                                 </div>
-
-
-
-                                
-
-
-
-
-
                         </div>
 
                        </div>
@@ -806,6 +807,203 @@ function Std_info_page_all()
           </div>
            </div>
                         </div>
+                     }
+                     {
+                        tabs.stdatten==true&& 
+                            <div className="row">
+                                <div className="card mt-3"   style={{
+                                                    width: '95rem',height:"35rem",
+                                                    backgroundColor: '#f9f9f9',
+                                                    border: '2px solid #7f7d7d',
+                                                    boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+                                                    }}>
+                             
+                                <div className="col-12 mt-5 ms-5">
+                                    <h3>Attendance  </h3> 
+                                    <div>
+                                        <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
+                <thead>
+                    <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
+                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JUNE</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JULY</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >AUG</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >SEP</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >OCT</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >NOV</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >DEC</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JAN</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >FEB</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >MAR</th>
+                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >APR</th>
+
+
+                            {/* <th colSpan="3" >APR</th> */}
+                    </tr>
+                    <tr>
+                         <td style={{  textAlign:"center"}}>T </td>  
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>P</td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td>
+                         
+                        {/* <td style={{  textAlign:"center"}}>T </td>
+                        <td style={{  textAlign:"center"}}>P </td>
+                        <td style={{  textAlign:"center"}}>A </td> */}
+                    </tr>
+                    </thead>
+                    <tbody className="table-group-divider">
+                        <tr>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.junet}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.junep}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.junea}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.julyt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.julyp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.julya}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.augt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.augp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.auga}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.sept}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.sepp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.sepa}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.octt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.octp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.octa}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.novt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.novp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.nova}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.dect}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.decp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.deca}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.jant}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.janp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.jana}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.febt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.febp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.feba}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.mart}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.marp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.mara}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.aprt}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.aprp}
+                                    </td>
+                                    <td style={{  textAlign:"center"}}>
+                                        {data6.apra}
+                                    </td>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                                                        
+                                    
+
+                                
+                        </tr>   
+                    </tbody>
+
+                    </table>    
+           
+                                    </div>
+
+
+                                </div>
+                                </div>
+                            </div>
                      }
  
         </div>

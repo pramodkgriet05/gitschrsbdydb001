@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
 function Attendance({stdid1,section1})
 {
@@ -14,12 +15,11 @@ function Attendance({stdid1,section1})
     let[errmsgshow,seterrmsgshow]=useState(false)
     let[SI,setSI]=useState({"June":false,"July":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false,"jan":false,"feb":false,"mar":false,"apr":false})
     let error=0
+    let{classid,sectionid}=useParams()
 
   
 
-    console.log("classid",stdid1)
-    console.log("sectionid",section1)
-
+     
     let data={
         classid:stdid1,
         sectionid:section1
@@ -29,7 +29,9 @@ function Attendance({stdid1,section1})
 
         async function attendacepull()
         {
-                let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+
                 console.log(apiresponse)
                 setattendata(apiresponse.data)
 
@@ -394,6 +396,20 @@ function Attendance({stdid1,section1})
          }
         
         }
+
+        function TeacherComments(e)
+        {
+
+           seteditcolomdata2(prev=>({...editcolomdata2, teacherfeedback:e.target.value }))
+            //setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, teacherfeedback:e.target.value }))
+           
+        }
+
+        function parentcomment(e)
+        {
+           seteditcolomdata2(prev=>({...editcolomdata2, parentfeedback:e.target.value }))
+            //setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, parentfeedback:e.target.value }))
+        }
          
 
      
@@ -409,8 +425,12 @@ function Attendance({stdid1,section1})
                     {
 
                          console.log("no error")
-                         await axios.post(`http://localhost:8080/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
-                         let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                        // await axios.post(`http://localhost:8080/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
+                         await axios.post(`/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
+
+                         //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                         let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+
                          console.log(apiresponse)
                          setattendata(apiresponse.data)
 
@@ -437,6 +457,13 @@ function Attendance({stdid1,section1})
                         errmsgshow==true&& <h2 className="text-danger  text-center mt-5">{errmsg}</h2>
                 }
             </div> */}
+
+            <div>
+                <h5 className="ms-5" >Attendance </h5>
+                <h5 className="ms-5" >Class: {stdid1}   </h5>
+                <h5 className="ms-5" >Section:  {section1} </h5>
+                <h5 className="ms-5" >Acadamic Year: 2026-27</h5>
+              </div>
                          <div>
                  
            <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
@@ -457,6 +484,9 @@ function Attendance({stdid1,section1})
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >FEB</th>
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >MAR</th>
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >APR</th>
+                            <td style={{ textAlign:"center", fontSize:"20px"}}>Teacher Feedback</td>
+                            <td style={{ textAlign:"center", fontSize:"20px"}}>Parent Feedback</td>
+
 
 
                             {/* <th colSpan="3" >APR</th> */}
@@ -466,39 +496,41 @@ function Attendance({stdid1,section1})
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td style={{  textAlign:"center"}}>T </td>  
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>P</td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
-                        <td style={{  textAlign:"center"}}>T </td>
-                        <td style={{  textAlign:"center"}}>P </td>
-                        <td style={{  textAlign:"center"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td style={{  textAlign:"center",background:"blue"}}>T </td>  
+                        <td style={{  textAlign:"center",background:"green"}}>P </td>
+                        <td style={{  textAlign:"center",background:"red"}}>A </td>
+                        <td></td>
+                        <td></td>
                          
                         {/* <td style={{  textAlign:"center"}}>T </td>
                         <td style={{  textAlign:"center"}}>P </td>
@@ -524,196 +556,215 @@ function Attendance({stdid1,section1})
                                       <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.junet}   onChange={e=>seteditcolomdata2({...editcolomdata2,junet:e.target.value})} style={{width:"40px",border:SI.June==true&&"2px solid red",width:"30px" }}/>):(data.junet)
+                                     index===i?(<input value={editcolomdata2.junet}   onChange={e=>seteditcolomdata2({...editcolomdata2,junet:e.target.value})} style={{border:SI.June==true&&"2px solid red",width:"30px" }}/>):(data.junet)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.junep}   onChange={e=>seteditcolomdata2({...editcolomdata2,junep:e.target.value})} style={{width:"40px",border:SI.June==true&&"2px solid red",width:"30px"}}/>):(data.junep)
+                                     index===i?(<input value={editcolomdata2.junep}   onChange={e=>seteditcolomdata2({...editcolomdata2,junep:e.target.value})} style={{border:SI.June==true&&"2px solid red",width:"30px"}}/>):(data.junep)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.junea}   onChange={e=>seteditcolomdata2({...editcolomdata2,junea:e.target.value})} style={{width:"40px",border:SI.June==true&&"2px solid red",width:"30px"}}/>):(data.junea)
+                                     index===i?(<input value={editcolomdata2.junea}   onChange={e=>seteditcolomdata2({...editcolomdata2,junea:e.target.value})} style={{border:SI.June==true&&"2px solid red",width:"30px"}}/>):(data.junea)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.julyt}   onChange={e=>seteditcolomdata2({...editcolomdata2,julyt:e.target.value})} style={{width:"40px",border:SI.July==true&&"2px solid red",width:"30px" }}/>):(data.julyt)
+                                     index===i?(<input value={editcolomdata2.julyt}   onChange={e=>seteditcolomdata2({...editcolomdata2,julyt:e.target.value})} style={{border:SI.July==true&&"2px solid red",width:"30px" }}/>):(data.julyt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.julyp}   onChange={e=>seteditcolomdata2({...editcolomdata2,julyp:e.target.value})} style={{width:"40px",border:SI.July==true&&"2px solid red",width:"30px"}}/>):(data.julyp)
+                                     index===i?(<input value={editcolomdata2.julyp}   onChange={e=>seteditcolomdata2({...editcolomdata2,julyp:e.target.value})} style={{border:SI.July==true&&"2px solid red",width:"30px"}}/>):(data.julyp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.julya}   onChange={e=>seteditcolomdata2({...editcolomdata2,julya:e.target.value})} style={{width:"40px",border:SI.July==true&&"2px solid red",width:"30px"}}/>):(data.julya)
+                                     index===i?(<input value={editcolomdata2.julya}   onChange={e=>seteditcolomdata2({...editcolomdata2,julya:e.target.value})} style={{border:SI.July==true&&"2px solid red",width:"30px"}}/>):(data.julya)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.augt}   onChange={e=>seteditcolomdata2({...editcolomdata2,augt:e.target.value})} style={{width:"40px",border:SI.aug==true&&"2px solid red",width:"30px" }}/>):(data.augt)
+                                     index===i?(<input value={editcolomdata2.augt}   onChange={e=>seteditcolomdata2({...editcolomdata2,augt:e.target.value})} style={{border:SI.aug==true&&"2px solid red",width:"30px" }}/>):(data.augt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.augp}   onChange={e=>seteditcolomdata2({...editcolomdata2,augp:e.target.value})} style={{width:"40px",border:SI.aug==true&&"2px solid red",width:"30px"}}/>):(data.augp)
+                                     index===i?(<input value={editcolomdata2.augp}   onChange={e=>seteditcolomdata2({...editcolomdata2,augp:e.target.value})} style={{border:SI.aug==true&&"2px solid red",width:"30px"}}/>):(data.augp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.auga}   onChange={e=>seteditcolomdata2({...editcolomdata2,auga:e.target.value})} style={{width:"40px",border:SI.aug==true&&"2px solid red",width:"30px"}}/>):(data.auga)
+                                     index===i?(<input value={editcolomdata2.auga}   onChange={e=>seteditcolomdata2({...editcolomdata2,auga:e.target.value})} style={{border:SI.aug==true&&"2px solid red",width:"30px"}}/>):(data.auga)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.sept}   onChange={e=>seteditcolomdata2({...editcolomdata2,sept:e.target.value})} style={{width:"40px",border:SI.sep==true&&"2px solid red",width:"30px" }}/>):(data.sept)
+                                     index===i?(<input value={editcolomdata2.sept}   onChange={e=>seteditcolomdata2({...editcolomdata2,sept:e.target.value})} style={{border:SI.sep==true&&"2px solid red",width:"30px" }}/>):(data.sept)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.sepp}   onChange={e=>seteditcolomdata2({...editcolomdata2,sepp:e.target.value})} style={{width:"40px",border:SI.sep==true&&"2px solid red",width:"30px"}}/>):(data.sepp)
+                                     index===i?(<input value={editcolomdata2.sepp}   onChange={e=>seteditcolomdata2({...editcolomdata2,sepp:e.target.value})} style={{border:SI.sep==true&&"2px solid red",width:"30px"}}/>):(data.sepp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.sepa}   onChange={e=>seteditcolomdata2({...editcolomdata2,sepa:e.target.value})} style={{width:"40px",border:SI.sep==true&&"2px solid red",width:"30px"}}/>):(data.sepa)
+                                     index===i?(<input value={editcolomdata2.sepa}   onChange={e=>seteditcolomdata2({...editcolomdata2,sepa:e.target.value})} style={{border:SI.sep==true&&"2px solid red",width:"30px"}}/>):(data.sepa)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.octt}   onChange={e=>seteditcolomdata2({...editcolomdata2,octt:e.target.value})} style={{width:"40px",border:SI.oct==true&&"2px solid red",width:"30px" }}/>):(data.octt)
+                                     index===i?(<input value={editcolomdata2.octt}   onChange={e=>seteditcolomdata2({...editcolomdata2,octt:e.target.value})} style={{border:SI.oct==true&&"2px solid red",width:"30px" }}/>):(data.octt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.octp}   onChange={e=>seteditcolomdata2({...editcolomdata2,octp:e.target.value})} style={{width:"40px",border:SI.oct==true&&"2px solid red",width:"30px"}}/>):(data.octp)
+                                     index===i?(<input value={editcolomdata2.octp}   onChange={e=>seteditcolomdata2({...editcolomdata2,octp:e.target.value})} style={{border:SI.oct==true&&"2px solid red",width:"30px"}}/>):(data.octp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.octa}   onChange={e=>seteditcolomdata2({...editcolomdata2,octa:e.target.value})} style={{width:"40px",border:SI.oct==true&&"2px solid red",width:"30px"}}/>):(data.octa)
+                                     index===i?(<input value={editcolomdata2.octa}   onChange={e=>seteditcolomdata2({...editcolomdata2,octa:e.target.value})} style={{border:SI.oct==true&&"2px solid red",width:"30px"}}/>):(data.octa)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.novt}   onChange={e=>seteditcolomdata2({...editcolomdata2,novt:e.target.value})} style={{width:"40px",border:SI.nov==true&&"2px solid red",width:"30px" }}/>):(data.novt)
+                                     index===i?(<input value={editcolomdata2.novt}   onChange={e=>seteditcolomdata2({...editcolomdata2,novt:e.target.value})} style={{border:SI.nov==true&&"2px solid red",width:"30px" }}/>):(data.novt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.novp}   onChange={e=>seteditcolomdata2({...editcolomdata2,novp:e.target.value})} style={{width:"40px",border:SI.nov==true&&"2px solid red",width:"30px"}}/>):(data.novp)
+                                     index===i?(<input value={editcolomdata2.novp}   onChange={e=>seteditcolomdata2({...editcolomdata2,novp:e.target.value})} style={{border:SI.nov==true&&"2px solid red",width:"30px"}}/>):(data.novp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.nova}   onChange={e=>seteditcolomdata2({...editcolomdata2,nova:e.target.value})} style={{width:"40px",border:SI.nov==true&&"2px solid red",width:"30px"}}/>):(data.nova)
+                                     index===i?(<input value={editcolomdata2.nova}   onChange={e=>seteditcolomdata2({...editcolomdata2,nova:e.target.value})} style={{border:SI.nov==true&&"2px solid red",width:"30px"}}/>):(data.nova)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.dect}   onChange={e=>seteditcolomdata2({...editcolomdata2,dect:e.target.value})} style={{width:"40px",border:SI.dec==true&&"2px solid red",width:"30px" }}/>):(data.dect)
+                                     index===i?(<input value={editcolomdata2.dect}   onChange={e=>seteditcolomdata2({...editcolomdata2,dect:e.target.value})} style={{border:SI.dec==true&&"2px solid red",width:"30px" }}/>):(data.dect)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.decp}   onChange={e=>seteditcolomdata2({...editcolomdata2,decp:e.target.value})} style={{width:"40px",border:SI.dec==true&&"2px solid red",width:"30px"}}/>):(data.decp)
+                                     index===i?(<input value={editcolomdata2.decp}   onChange={e=>seteditcolomdata2({...editcolomdata2,decp:e.target.value})} style={{border:SI.dec==true&&"2px solid red",width:"30px"}}/>):(data.decp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.deca}   onChange={e=>seteditcolomdata2({...editcolomdata2,deca:e.target.value})} style={{width:"40px",border:SI.dec==true&&"2px solid red",width:"30px"}}/>):(data.deca)
+                                     index===i?(<input value={editcolomdata2.deca}   onChange={e=>seteditcolomdata2({...editcolomdata2,deca:e.target.value})} style={{border:SI.dec==true&&"2px solid red",width:"30px"}}/>):(data.deca)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.jant}   onChange={e=>seteditcolomdata2({...editcolomdata2,jant:e.target.value})} style={{width:"40px",border:SI.jan==true&&"2px solid red",width:"30px" }}/>):(data.jant)
+                                     index===i?(<input value={editcolomdata2.jant}   onChange={e=>seteditcolomdata2({...editcolomdata2,jant:e.target.value})} style={{border:SI.jan==true&&"2px solid red",width:"30px" }}/>):(data.jant)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.janp}   onChange={e=>seteditcolomdata2({...editcolomdata2,janp:e.target.value})} style={{width:"40px",border:SI.jan==true&&"2px solid red",width:"30px"}}/>):(data.janp)
+                                     index===i?(<input value={editcolomdata2.janp}   onChange={e=>seteditcolomdata2({...editcolomdata2,janp:e.target.value})} style={{border:SI.jan==true&&"2px solid red",width:"30px"}}/>):(data.janp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.jana}   onChange={e=>seteditcolomdata2({...editcolomdata2,jana:e.target.value})} style={{width:"40px",border:SI.jan==true&&"2px solid red",width:"30px"}}/>):(data.jana)
+                                     index===i?(<input value={editcolomdata2.jana}   onChange={e=>seteditcolomdata2({...editcolomdata2,jana:e.target.value})} style={{border:SI.jan==true&&"2px solid red",width:"30px"}}/>):(data.jana)
                                      }
                                     </td>
 
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.febt}   onChange={e=>seteditcolomdata2({...editcolomdata2,febt:e.target.value})} style={{width:"40px",border:SI.feb==true&&"2px solid red",width:"30px" }}/>):(data.febt)
+                                     index===i?(<input value={editcolomdata2.febt}   onChange={e=>seteditcolomdata2({...editcolomdata2,febt:e.target.value})} style={{border:SI.feb==true&&"2px solid red",width:"30px" }}/>):(data.febt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.febp}   onChange={e=>seteditcolomdata2({...editcolomdata2,febp:e.target.value})} style={{width:"40px",border:SI.feb==true&&"2px solid red",width:"30px"}}/>):(data.febp)
+                                     index===i?(<input value={editcolomdata2.febp}   onChange={e=>seteditcolomdata2({...editcolomdata2,febp:e.target.value})} style={{border:SI.feb==true&&"2px solid red",width:"30px"}}/>):(data.febp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.feba}   onChange={e=>seteditcolomdata2({...editcolomdata2,feba:e.target.value})} style={{width:"40px",border:SI.feb==true&&"2px solid red",width:"30px"}}/>):(data.feba)
+                                     index===i?(<input value={editcolomdata2.feba}   onChange={e=>seteditcolomdata2({...editcolomdata2,feba:e.target.value})} style={{border:SI.feb==true&&"2px solid red",width:"30px"}}/>):(data.feba)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.mart}   onChange={e=>seteditcolomdata2({...editcolomdata2,mart:e.target.value})} style={{width:"40px",border:SI.mar==true&&"2px solid red",width:"30px" }}/>):(data.mart)
+                                     index===i?(<input value={editcolomdata2.mart}   onChange={e=>seteditcolomdata2({...editcolomdata2,mart:e.target.value})} style={{border:SI.mar==true&&"2px solid red",width:"30px" }}/>):(data.mart)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.marp}   onChange={e=>seteditcolomdata2({...editcolomdata2,marp:e.target.value})} style={{width:"40px",border:SI.mar==true&&"2px solid red",width:"30px"}}/>):(data.marp)
+                                     index===i?(<input value={editcolomdata2.marp}   onChange={e=>seteditcolomdata2({...editcolomdata2,marp:e.target.value})} style={{border:SI.mar==true&&"2px solid red",width:"30px"}}/>):(data.marp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.mara}   onChange={e=>seteditcolomdata2({...editcolomdata2,mara:e.target.value})} style={{width:"40px",border:SI.mar==true&&"2px solid red",width:"30px"}}/>):(data.mara)
+                                     index===i?(<input value={editcolomdata2.mara}   onChange={e=>seteditcolomdata2({...editcolomdata2,mara:e.target.value})} style={{border:SI.mar==true&&"2px solid red",width:"30px"}}/>):(data.mara)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                        
-                                     index===i?(<input value={editcolomdata2.aprt}   onChange={e=>seteditcolomdata2({...editcolomdata2,aprt:e.target.value})} style={{width:"40px",border:SI.apr==true&&"2px solid red",width:"30px" }}/>):(data.aprt)
+                                      index===i?(<input value={editcolomdata2.aprt}   onChange={e=>seteditcolomdata2({...editcolomdata2,aprt:e.target.value})} style={{border:SI.apr==true&&"2px solid red",width:"30px" }}/>):(data.aprt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.aprp}   onChange={e=>seteditcolomdata2({...editcolomdata2,aprp:e.target.value})} style={{width:"40px",border:SI.apr==true&&"2px solid red",width:"30px"}}/>):(data.aprp)
+                                     index===i?(<input value={editcolomdata2.aprp}   onChange={e=>seteditcolomdata2({...editcolomdata2,aprp:e.target.value})} style={{border:SI.apr==true&&"2px solid red",width:"30px"}}/>):(data.aprp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.apra}   onChange={e=>seteditcolomdata2({...editcolomdata2,apra:e.target.value})} style={{width:"40px",border:SI.apr==true&&"2px solid red",width:"30px"}}/>):(data.apra)
+                                     index===i?(<input value={editcolomdata2.apra}   onChange={e=>seteditcolomdata2({...editcolomdata2,apra:e.target.value})} style={{border:SI.apr==true&&"2px solid red",width:"30px"}}/>):(data.apra)
                                      }
                                     </td>
+                                     
+                                    <td className="align-top" style={{  textAlign:"center"}}>
+                            {index===i?(<textarea value={editcolomdata2.teacherfeedback} onChange={(e)=>TeacherComments(e)}  style={{
+                                                                                                                                        width:"120px",
+                                                                                                                                        height:"100px",
+                                                                                                                                        verticalAlign:"top",
+                                                                                                                                        padding:"5px",
+                                                                                                                                        resize:"vertical"
+                                            }}  />):     <div style={{whiteSpace:"pre-wrap"}}> {data.teacherfeedback }</div> }
+                          </td>
+                           <td style={{  textAlign:"center"}}>
+                            {index===i?(<textarea value={editcolomdata2.parentfeedback} onChange={(e)=>parentcomment(e)}  style={{
+                                                                                                                                    width:"120px",
+                                                                                                                                height:"100px",
+                                                                                                                                verticalAlign:"top",
+                                                                                                                                padding:"5px",
+                                                                                                                                resize:"vertical"
+      }}  />):   <div style={{whiteSpace:"pre-wrap"}}>{data.parentfeedback }</div>}
+                          </td>
+
                                     
                                       
                                     {/* <td style={{  textAlign:"center"}} >
                                      {
                                         
-                                     index===i?(<input value={editcolomdata2.aprt}   onChange={e=>updateaprt(e)} style={{width:"40px",border:SI.Apr==true&&"2px solid red" }}/>):(data.aprt)
+                                     index===i?(<input value={editcolomdata2.aprt}   onChange={e=>updateaprt(e)} style={{border:SI.Apr==true&&"2px solid red" }}/>):(data.aprt)
                                     }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.aprp}   onChange={e=>updateaprp(e)} style={{width:"40px",border:SI.Apr==true&&"2px solid red"}}/>):(data.aprp)
+                                     index===i?(<input value={editcolomdata2.aprp}   onChange={e=>updateaprp(e)} style={{border:SI.Apr==true&&"2px solid red"}}/>):(data.aprp)
                                      }
                                     </td>
                                     <td style={{  textAlign:"center"}} >
                                      {
-                                     index===i?(<input value={editcolomdata2.apra}   onChange={e=>updateapra(e)} style={{width:"40px",border:SI.Apr==true&&"2px solid red"}}/>):(data.apra)
+                                     index===i?(<input value={editcolomdata2.apra}   onChange={e=>updateapra(e)} style={{border:SI.Apr==true&&"2px solid red"}}/>):(data.apra)
                                      }
                                     </td>
                                      */}

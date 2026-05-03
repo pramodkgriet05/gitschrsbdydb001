@@ -75,9 +75,9 @@ async function stdcode(e)
                 {
                   //console.log("Enter 10 digit no")
                   //submitapi()
-                  //let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                  let apiresponse=await axios.post("http://localhost:8080/api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
                  // let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
-                  let apiresponse=await axios.post("/api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                  //let apiresponse=await axios.post("/api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
          
                   console.log(apiresponse)
                   console.log(apiresponse.data)
@@ -98,14 +98,12 @@ async function stdcode(e)
                                 seterrormsg(false)
                                 
                               setTimeout(() => {
-                                                navigate("/std/info/2026",{state:{stdid:std}})
+                                                  navigate("/std/info/2026",{state:{stdid:std}})
                                  
-                              }, 2000);
-                                console.log("123",stdcode1)
-                                setname(apiresponse.data)
-                              }
-
-                   
+                                }, 2000);
+                                  console.log("123",stdcode1)
+                                 setname(apiresponse.data.name)
+                               } 
                 }
                 else
                 {
@@ -115,7 +113,7 @@ async function stdcode(e)
                   setapierrormsg(false)
                   setname("")
                 }
-                console.log(apiresponse)
+                //console.log(apiresponse)
 
               }
  
@@ -147,7 +145,12 @@ async function stdcode(e)
                         }
                         {
                         apierrormsg1==true&&
-                        <h6 style={{color:"green",marginLeft:"1070px"}}>FOUND</h6>
+                        <div className="d-flex mt-2" > 
+                        <h6 style={{color:"green",marginLeft:"1070px" }}>Found,</h6>
+                        <h6 style={{color:"red",marginLeft:"1px" }}> {name}</h6>
+
+ 
+                        </div>
                         
                     }
                  <h6> Hi,</h6>

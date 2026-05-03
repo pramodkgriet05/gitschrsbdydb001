@@ -527,7 +527,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
                 setpleasecheck(false)
      // let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
       //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
-      let ApiResponse= await axios.post('/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
+      let ApiResponse= await axios.post('/api/m/s/e/saverecord/1',updatedData,{headers:{Authorization:token1}})
 
       setupdateeditcolmdataR({})
       // let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)

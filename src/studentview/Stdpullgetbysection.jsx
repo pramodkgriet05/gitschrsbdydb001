@@ -29,6 +29,7 @@ function Stdpullgetbysection({classid1,sectionid1})
    let[updateeditcolmdata, setupdateeditcolmdata]=useState()
 
 
+
     
  
   
@@ -46,7 +47,7 @@ function Stdpullgetbysection({classid1,sectionid1})
               let apiResponse=await axios.get(`/api/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
               // console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
-             setstdinfo(apiResponse.data)
+            // setstdinfo(apiResponse.data)
             }
              
             catch(error)
