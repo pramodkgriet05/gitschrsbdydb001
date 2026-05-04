@@ -515,7 +515,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
  let updatedData = {
          ...awsresposes2[i],
-         ...updateeditcolmdataR 
+         ...editcolomdata2
       }
          console.log("updated data",updateeditcolmdataR)
         //console.log(updateeditcolmdataR)
