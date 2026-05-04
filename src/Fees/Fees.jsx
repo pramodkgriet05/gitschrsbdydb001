@@ -247,7 +247,7 @@ async function submitapi()
        
                 //let apiresponse = await axios.post(`http://localhost:8080/api/m/s/fees`,fees, {headers:{Authorization:token1}})
                 //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
-                //let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
+                let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
                 setpulleventdetailsdata(apiresponse.data)

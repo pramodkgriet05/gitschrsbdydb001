@@ -49,8 +49,7 @@ function PullEditdelawsBySection({stdid1,section1})
        async function pulldata()
         {
              let token=localStorage.getItem("token")
-        console.log(token)
-        let token1="Bearer"+" "+token;
+             let token1="Bearer"+" "+token;
        
             // console.log("std_info_c1_u_pulldata classid:"+stdid1)
              try{
@@ -59,16 +58,17 @@ function PullEditdelawsBySection({stdid1,section1})
             //                    `http://65.2.25.249:8080/s/pullrecords1/${stdid1}`
             //                     );
             //    console.log(apiResponse)
-                //let apiresponse=await axios.get(`http://localhost:8080/m/s/getrecords/${classidsch}`) 
+                 //let apiresponse=await axios.get(`http://localhost:8080/api/m/s/getrecords/${classidsch}`) 
               //  let apiresponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`)
                 //let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
                 let apiresponse=await axios.get(`/api/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
+                //let apiresponse=await axios.get(`http://localhost:8080/api/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
                                                                                                 
                                                                                                 
                                                                                                  
-        //          console.log(apiresponse)
-        //   console.log(apiresponse.data)
-        //   setawsresposes(apiresponse.data)
+              console.log(apiresponse)
+           console.log(apiresponse.data)
+           setawsresposes(apiresponse.data)
 
             //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
             //   console.log(apiResponse)
