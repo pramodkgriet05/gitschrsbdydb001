@@ -90,12 +90,10 @@ function Sch_login({ })
                             try
                             {
                                 //let ApiResponse= await axios.post('http://65.2.25.249:8080/api/s/login', userInputdata)
-                                //let ApiResponse= await axios.post('/api/s/login', userInputdata)
+                                let ApiResponse= await axios.post('/api/s/login', userInputdata)
 
-                            //   const apiResponse1 = await axios.get(`http://65.2.25.249:8080/admin/get/users`,{headers:{Authorization:token1}}) 
-                               // console.log(apiResponse1)
-                        
-                                 let ApiResponse= await axios.post('http://localhost:8080/api/s/login', userInputdata)
+                            
+                                 //let ApiResponse= await axios.post('http://localhost:8080/api/s/login', userInputdata)
                                   console.log(ApiResponse)
                             
                             console.log(ApiResponse.data.Message.userData)

@@ -66,9 +66,9 @@ function PullEditdelawsBySection({stdid1,section1})
                                                                                                 
                                                                                                 
                                                                                                  
-              console.log(apiresponse)
-           console.log(apiresponse.data)
-           setawsresposes(apiresponse.data)
+                console.log(apiresponse)
+                 console.log(apiresponse.data)
+                 setawsresposes(apiresponse.data)
 
             //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
             //   console.log(apiResponse)
@@ -280,12 +280,12 @@ function PullEditdelawsBySection({stdid1,section1})
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
       // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
-       console.log("stdinfo",stdinfo1)
-      // let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)///Std_info/c1/u/10/C
+         console.log("stdinfo",stdinfo1)
+        //let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
         //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
         let ApiResponse= await axios.post('/api/s/save',stdinfo1,{headers:{Authorization:token1}})       
         setIndex(null)
-       window.location=`/std_info/c1/u/${stdid1}/${section1}`
+        window.location=`/std_info/c1/u/${stdid1}/${section1}`
     }
     catch(error)
     {

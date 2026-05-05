@@ -87,8 +87,8 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
        let[awsresposes1, setawsresposes1]=useState([]) 
        let[awsresposes2, setawsresposes2]=useState([]) 
-       let errorg1=0;
-       let error=0;
+        let rsaerror=0;
+        let[error,seterror]=useState(0)
        let i=0;
        let[markserrorw,setmarkserrorw]=useState(false) 
        let[markserroro,setmarkserroro]=useState(false)
@@ -135,15 +135,12 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                   //                         };
               
               
-              // let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
+                  //let apiresponse=await axios.post(`http://localhost:8080/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
                  //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
-
-
-
+                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}}) 
                  console.log("reponse:",apiresponse)
-          console.log(apiresponse.data)
-          setawsresposes2(apiresponse.data)
+                 console.log(apiresponse.data)
+                 setawsresposes2(apiresponse.data)
            
           //setupdateeditcolmdataR(awsresposes )
 
@@ -161,12 +158,10 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
             }
            
           
-            catch(error)
+            catch(rsaerror)
             {
-                console.log(error)
-            }
-         
-
+                console.log(rsaerror)
+            } 
         }
         // window.location="/Std_info/c1/u"
 
@@ -215,9 +210,9 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
             Std_info_c1_u_pulldata()
 
        }
-       catch(error)
+       catch(rsaerror)
        {
-        console.log(error)
+        console.log(rsaerror)
        }
     }
     function Editcolomchange(i, stdrecord)
@@ -230,8 +225,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
         //  setstdinfo1(stdrecord)
         // setupdateeditcolmdataR(stdrecord)
             seteditcolomdata2({...stdrecord})
-           setupdateeditcolmdataR({...stdrecord})
-
+ 
 
      }
 
@@ -239,20 +233,25 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
      function updatefirstlangW(e)
      {
          let val=e.target.value;
-        seteditcolomdata2(prev => ({ ...prev, firstlangw: val }));
+         console.log(val)
+         seteditcolomdata2(prev => ({ ...prev, firstlangw: val }));
 
          if (Number(val) > 80)
           {
          
-              setErrorg(1); 
-              console.log("eg:",errorg)
-             setmarkserrorw(true)
+              rsaerror=rsaerror+1
+                
+              console.log("eg:",rsaerror)
+              setmarkserrorw(true)
             
           }
           else{
-            setErrorg(0); 
-          setmarkserrorw(false) 
-          setupdateeditcolmdataR(prev => ({ ...prev,  firstlangw: val }));
+                  console.log("eg:",rsaerror)
+                               
+
+             
+               setmarkserrorw(false) 
+               setupdateeditcolmdataR(prev => ({ ...prev,  firstlangw: val }));
         }
      }
      function updatefirstlangO(e)
@@ -263,16 +262,17 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          if (Number(val) > 20)
           {
          
-              setErrorg(1); 
+              rsaerror=rsaerror+1 
+               
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
+            
+   
           setmarkserroro(false) 
-          setupdateeditcolmdataR(prev => ({ ...prev,  firstlango: val }));
-        }
+         }
      }
      function updateseclangw(e)
      {
@@ -282,13 +282,15 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          if (Number(val) > 80)
           {
          
-              setErrorg(1); 
+            rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserrorw(true)
+              
             
           }
           else{
-            setErrorg(0); 
+                 
+    
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  seclangw: val }));
         }
@@ -300,14 +302,15 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 20)
           {
-         
-              setErrorg(1); 
+             
+            rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
+               
+        
           setmarkserroro(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  seclango: val }));
         }
@@ -320,14 +323,16 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 80)
           {
+               
          
-              setErrorg(1); 
+              rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserrorw(true)
             
           }
           else{
-            setErrorg(0); 
+                
+            
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  englishw: val }));
         }
@@ -339,14 +344,14 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 20)
           {
-         
-              setErrorg(1); 
+  
+              rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
+               
           setmarkserroro(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  englisho: val }));
         }
@@ -358,14 +363,14 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 80)
           {
-         
-              setErrorg(1); 
+  
+              rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserrorw(true)
             
           }
           else{
-            setErrorg(0); 
+               
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  mathsw: val }));
         }
@@ -377,14 +382,14 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 20)
           {
-         
-              setErrorg(1); 
+  
+              rsaerror=rsaerror+1
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
+             
           setmarkserroro(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  mathso: val }));
         }
@@ -397,14 +402,14 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 80)
           {
-         
-              setErrorg(1); 
+  
+              rsaerror=rsaerror+1
               console.log("eg:",errorg)
              setmarkserrorw(true)
             
           }
           else{
-            setErrorg(0); 
+                
           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  sciencew: val }));
         }
@@ -416,15 +421,16 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 20)
           {
-         
-              setErrorg(1); 
+ 
+              rsaerror=rsaerror+1
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
-          setmarkserroro(false) 
+            
+
+           setmarkserroro(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  scienceo: val }));
         }
      }
@@ -436,15 +442,15 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 80)
           {
-         
-              setErrorg(1); 
+               rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserrorw(true)
             
           }
           else{
-            setErrorg(0); 
-          setmarkserrorw(false) 
+             
+
+           setmarkserrorw(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  socialw: val }));
         }
      }
@@ -455,15 +461,15 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
 
          if (Number(val) > 20)
           {
-         
-              setErrorg(1); 
+               rsaerror=rsaerror+1 
               console.log("eg:",errorg)
              setmarkserroro(true)
             
           }
           else{
-            setErrorg(0); 
-          setmarkserroro(false) 
+               
+
+           setmarkserroro(false) 
           setupdateeditcolmdataR(prev => ({ ...prev,  socialo: val }));
         }
      }
@@ -497,19 +503,22 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
         function updategrade(e)
         {
            seteditcolomdata2(prev=>({...editcolomdata2, grade:e.target.value }))
-          setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, grade:e.target.value }))
+          setupdateeditcolmdataR(prev=>({...updateeditcolmdataR, grade:e.target.value })) 
+         }
 
-        //   setupdateeditcolmdataR({...updateeditcolmdataR, grade:e.target.value,examcode:awsresposes2[i].examcode, standred:awsresposes2[i].standred, section:awsresposes2[i].section,rollno:awsresposes2[i].rollno })
-        }
+         
 
-  async function  saveRow1( i )
+
+  async function  saveRow2( i )
    {
-    console.log("e",errorg)
+    console.log("i3",i)
+    console.log("e",rsaerror)
     const confirmEdit = window.confirm("Do you want to edit this record?");
 
           if(confirmEdit)
           {
             try{ 
+
     {/*    setstdinfo1({...stdinfo1, userid:GET_USER_ID()})*/}
     //   let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1)
        //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1)
@@ -517,40 +526,29 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          ...awsresposes2[i],
          ...editcolomdata2
       }
-         console.log("updated data",updateeditcolmdataR)
+         console.log("updated data",editcolomdata2)
         //console.log(updateeditcolmdataR)
-        if(errorg===0)
-              {
-                console.log("e",errorg)
+                 console.log("e",rsaerror)
                 setpleasecheck(false)
-     // let ApiResponse= await axios.post('http://localhost:8080/m/s/e/saverecord',updatedData)
+     //let ApiResponse= await axios.post('http://localhost:8080/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
       //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData)
       let ApiResponse= await axios.post('/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
 
       setupdateeditcolmdataR({})
-       //let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
+       //let apiresponse1=await axios.post(`http://localhost:8080/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
        //let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
        let apiresponse1=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
                        console.log(apiresponse1)
                       
                         console.log(ApiResponse)
                          setawsresposes2(apiresponse1.data)
-       setIndex(null)
-              }
-               else
-    {
-      setpleasecheck(false)
-      
-    }
-
-       //pullSA11();
-          
-       //window.location=`/std_info/c1/u/${stdid1}`
+       setIndex(null) 
+       rsaerror=0
     }
    
-    catch(error)
+    catch(rsaerror)
     {
-        console.log(error)
+        console.log(rsaerror)
     }
   }
      
@@ -570,17 +568,85 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                                             //setpullecords
 
                                                     });
-                    //  let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,pullecords) 
+                      //let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}}) 
                       //let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,pullecords)
                       let apiresponse1=await axios.post(`/api/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}}) 
  
                       
                                         console.log(apiresponse1)
-                                          setawsresposes2(apiresponse1.data)
-
+                                          setawsresposes2(apiresponse1.data) 
+                    } 
+                    function validatedata(data)
+                    {
+                      let error=0;
+                      if(Number(data.firstlangw)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.firstlango)>20)
+                      {
+                        error++
+                      }
+                      if(Number(data.seclangw)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.seclango)>20)
+                      {
+                        error++
+                      }
+                      if(Number(data.englishw)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.englisho)>20)
+                      {
+                        error++
+                      }
+                      if(Number(data.mathsw)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.mathso)>20)
+                      {
+                        error++
+                      }
+                      if(Number(data.sciencew)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.scienceo)>20)
+                      {
+                        error++
+                      }
+                      if(Number(data.socialw)>80)
+                      {
+                        error++
+                      }
+                      if(Number(data.socialo)>20)
+                      {
+                        error++
+                      }
+                      return error;
                     }
-                      
-    
+
+                    function editsave(i)
+                        {
+                          let val=i
+                          let error=validatedata(editcolomdata2)
+                          console.log("no.of error:",error)
+                           if(error===0)
+                          {
+                             
+                            console.log("call api")
+                            saveRow2(val)
+                          }
+                          else
+                          {
+                            console.log("do not cal api")
+                          }
+                        }
+
     
     return(
           
@@ -590,7 +656,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
            <div  className="col-4"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} > {createrecords1.examname}</span>/ teacher</h3></div>
           
            
-           <div className="col-8">
+           <div className="col-8 d-flex">
              {markserrorw==true&&  
              <div    className="col-4"> <h2 className="text-danger  text-center mt-5">   Enter value written less than 80  </h2>
 
@@ -834,7 +900,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                         </td>*/}
                         
                          <td>  {index === i ? (
-                  <button className="btn btn-success" onClick={() => saveRow1(i)}>Save</button>
+                  <button className="btn btn-success" onClick={() => editsave(i)}>Save</button>
                 ) : (
                   <button className="btn btn-primary" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
                 )}</td>
