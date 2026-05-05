@@ -384,7 +384,7 @@ async function submitapi()
                                     <input type="text" className='form-control std_rec_add1 ' value={dailyupdates.year || ""} ref={fileRef}  placeholder="Year"  onChange={e=>setdailyupdates({...dailyupdates, year:e.target.value})} ></input>
 
           </div>
-         <input type="text" className='form-control std_rec_add1 mb-4' value={dailyupdates.subject || ""}  ref={fileRef} placeholder='Project Head' onChange={e=>setdailyupdates({...dailyupdates, projecthead:e.target.value})} ></input>
+         <input type="text" className='form-control std_rec_add1 mb-4' value={dailyupdates.projecthead || ""}  ref={fileRef} placeholder='Project Head' onChange={e=>setdailyupdates({...dailyupdates, projecthead:e.target.value})} ></input>
          
          {
           errormsg==true&& 
