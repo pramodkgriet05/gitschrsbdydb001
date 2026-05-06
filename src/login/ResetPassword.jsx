@@ -98,7 +98,9 @@ function ResetPassword()
             setemailError({...emailError, apiError:false})
        // let apiresponce=await  axios.post('http://localhost:8080/s/resetpassword',{email:email})
         //let apiresponce=await  axios.post('http://65.2.25.249:8080/s/resetpassword',{email:email})
-        let apiresponce=await  axios.post(' /api/s/resetpassword',{email:email})
+        //let apiresponce=await  axios.post(' /api/s/resetpassword',{email:email})
+        let apiresponce=await  axios.post(' http://localhost:8080/api/s/resetpassword',{email:email})
+
      
         console.log(apiresponce)
         console.log("try1")

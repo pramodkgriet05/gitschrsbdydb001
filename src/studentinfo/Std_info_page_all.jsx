@@ -76,7 +76,7 @@ function Std_info_page_all()
 
 
             console.log("markstab")
-             settabs({...tabs,marks:true,fees:false,activity:false,dailyactivities:false})
+             settabs({...tabs,marks:true,fees:false,activity:false,dailyactivities:false,stdatten:false})
         }
       async  function feestab()
         {
@@ -88,7 +88,7 @@ function Std_info_page_all()
             console.log(apiresponse)
             setdataa(apiresponse.data)
              console.log("feestab")
-               settabs({...tabs,marks:false,fees:true,activity:false,dailyactivities:false})
+               settabs({...tabs,marks:false,fees:true,activity:false,dailyactivities:false,stdatten:false})
             }
             catch(e)
             {
@@ -106,7 +106,7 @@ function Std_info_page_all()
                     console.log(apiresponse)
                     setdata4(apiresponse.data)
                     console.log("activitytab")
-                    settabs({...tabs,marks:false,fees:false,activity:true,dailyactivities:false})
+                    settabs({...tabs,marks:false,fees:false,activity:true,dailyactivities:false,stdatten:false})
             }
             catch(e)
             {
@@ -134,7 +134,7 @@ function Std_info_page_all()
 
                function dailyactivitiestab()
               {
-                                    settabs({...tabs,marks:false,fees:false,activity:false,dailyactivities:true})
+                                    settabs({...tabs,marks:false,fees:false,activity:false,dailyactivities:true,stdatten:false})
                 
               }
                async function stdatten()
