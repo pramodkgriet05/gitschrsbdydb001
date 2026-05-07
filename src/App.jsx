@@ -49,6 +49,7 @@ import ActivitiesByClassForm_S from './DailyActivities/ActivitiesByClassForm_S';
 import AbcPullDetails_S from './DailyActivities/AbcPullDetails_S';
 import Std_info_page_all from './studentinfo/Std_info_page_all';
 import Std_info1 from './studentinfo/Std_info1';
+import Samax from './progaxios/Samax';
 
 
 
@@ -132,6 +133,16 @@ function App() {
     <Route path='/stdinfo/abc/s/:year/d' element={<AbcPullDetails_S />} />
      
  {/* ------------------------------------------------------------------------------------ */} 
+
+        <Route path='/std/axintr/1' element={<Samax />} />
+
+ 
+
+
+ {/* ---------------------------------------------------------------------------------------- */}
+
+ {/* ============================================================================================= */}
+
  
       </Routes>
        
