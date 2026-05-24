@@ -2,6 +2,7 @@ import axios, { Axios } from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { GET_USER_NAME } from "../../../Utils/Utils";
+import api from "../../api/Interaxios";
 
 function PullEventDetails_S()
 {
@@ -89,7 +90,10 @@ let userName=GET_USER_NAME()
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
         //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-        let res = await axios.post(`/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+        let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+
+            //let res = await axios.post(`http://localhost:8080/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}});
+
 
     //console.log(res.data);
     console.log(res)

@@ -50,6 +50,7 @@ import AbcPullDetails_S from './DailyActivities/AbcPullDetails_S';
 import Std_info_page_all from './studentinfo/Std_info_page_all';
 import Std_info1 from './studentinfo/Std_info1';
 import Samax from './progaxios/Samax';
+import PullEventDetails_V from './studentupdate/extra&sports/PullEventDetails_V';
 
 
 
@@ -106,7 +107,9 @@ function App() {
           <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} /> 
           <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
           <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
-          <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} /> 
+          <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} />
+          <Route path='/stdinfo/c1/u/:year/:type/video' element={<PullEventDetails_V />} /> 
+
 
        {/* <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} />  */}
        {/* ------------------------------------------------------------------------------------ */}

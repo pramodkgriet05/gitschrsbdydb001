@@ -1,85 +1,44 @@
-import axios, { Axios } from "axios";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
-import { GET_USER_NAME } from "../Utils/Utils";
-import api from "../src/api/Interaxios";
+import { GET_USER_NAME } from "../../../Utils/Utils";
+import Navbar from "../../Navbar/Navbar"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import api from "../../api/Interaxios";
 
-function PullEventDetails()
+function PullEventDetails_V()
 {
+
+       let userName=GET_USER_NAME()
+                
+                if(userName==null)
+               {
+                window.location="/"
+               }
+
+
     let token=localStorage.getItem("token")
-        console.log(token)
-        let token1="Bearer"+" "+token; 
-let userName=GET_USER_NAME()
-            
-            if(userName==null)
-           {
-            window.location="/"
-           }
+    let token1="Bearer"+" "+token;
 
-
-
-    let location =  useLocation();
-
- 
-    let[disimagess, setimagesdis]=useState([])
-    const [selectedIndex, setSelectedIndex] = useState(null);
+    
     let[files, setfiles]=useState([])
     const [uploadedCount, setUploadedCount] = useState(0);
     const [isUploading, setIsUploading]  = useState(false);
     const fileInputRef = useRef();
-
-    let {year}=useParams()
-    let {type}=useParams()
-
-    let navigate=useNavigate()
-
-    console.log(year)
-    console.log(type)
-
-   const styles = {
-  modal: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0,0,0,0.8)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  fullImage: {
-    maxWidth: "80%",
-    maxHeight: "80%"
-  },
-  close: {
-    position: "absolute",
-    top: 20,
-    right: 20,
-    fontSize: "20px"
-  },
-  prev: {
-    position: "absolute",
-    left: 20,
-    fontSize: "30px"
-  },
-  next: {
-    position: "absolute",
-    right: 20,
-    fontSize: "30px"
-  }
-};
+     let {year}=useParams()
+     let { type}=useParams()
+     let location =  useLocation();
+      let navigate=useNavigate()
+      let[disimagess, setimagesdis]=useState([])
 
 
-    
-    console.log(location.state.s3path)
-    let data=location.state.s3path
-    let ename=location.state.eventname
+     let data=location.state.s3path
+     let ename=location.state.eventname
 
-    console.log("data",data)
-    console.log("ename",ename)
+     console.log("data",data)
+     console.log("ename",ename)
 
-    useEffect(() => { 
+
+
+     useEffect(() => { 
   async function fetchData() { 
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
@@ -92,73 +51,48 @@ let userName=GET_USER_NAME()
   fetchData();
 }, []);
 
- // open image
-  const openImage = (index) => {
-    setSelectedIndex(index);
-  };
 
-  // close modal
-  const closeImage = () => {
-    setSelectedIndex(null);
-  };
-
-  // next image
-  const nextImage = () => {
-    if (selectedIndex < disimagess.length - 1) {
-      setSelectedIndex(selectedIndex + 1);
-    }
-  };
-
-  // previous image
-  const prevImage = () => {
-    if (selectedIndex > 0) {
-      setSelectedIndex(selectedIndex - 1);
-    }
-  };
-
-  async function compressImage(file) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    const reader = new FileReader();
-
-    reader.readAsDataURL(file);
-
-    reader.onload = (e) => {
-      img.src = e.target.result;
-    };
-
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-
-      let width = img.width;
-      let height = img.height;
-
-      // resize if large
-      const maxWidth = 1280;
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
-      }
-
-      canvas.width = width;
-      canvas.height = height;
-
-      ctx.drawImage(img, 0, 0, width, height);
-
-      // compress
-      canvas.toBlob(
-        (blob) => {
-          resolve(new File([blob], file.name, { type: "image/jpeg" }));
-        },
-        "image/jpeg",
-        0.7 // reduce more if needed (0.6 / 0.5)
-      );
-    };
-  });
+function submitapi1()
+{
+    console.log("")
 }
 
-async function submitapi1()
+function checkfilestype1()
+                  { 
+                     let error=0;
+
+                    for(let file of files)
+                    {
+                      let val="video"
+                      let actualfilesize=1024*1024*10
+                      let filesizeuser=file.size
+                      console.log("file size",file.size)
+                        console.log("filetype",file.type)
+                        
+                        if(filesizeuser>actualfilesize)
+                        {
+                          error=error+1 
+                          console.log("file size greater than " +filesize +" mb")
+                          setfilesizeerror(val+" file size greater than " +filesize +" mb")
+                          break
+                       
+                        }
+                        if(!file.type.startsWith(val+"/"))
+                        {
+                          console.log("file type:",val)
+                          error=error+1
+                          alert("selected file must be "+val+" type")
+                          break
+                        }  
+                    }
+                    
+                    if(error===0)
+                        {
+                          console.log("call api: error value",error)
+                          submitapi1()
+                        }  
+                  }
+                  async function submitapi1()
 {
      
     setIsUploading(true);
@@ -171,23 +105,23 @@ async function submitapi1()
             {
                 const eventphotos = new FormData();  
 
-                 const compressedFile = await compressImage(files[i]);
+                 //const compressedFile = await compressImage(files[i]);
 
 
-                eventphotos.append("filepath", data )
+                eventphotos.append("eventuniquename", data )
                
-                eventphotos.append("files",compressedFile)
+                eventphotos.append("files",files[i])
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports12`,eventphotos)
                   //await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
-                  await axios.post(`/api/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
+                let apiresponse1 = await api.post(`/m/s/sports1/v`,eventphotos,{headers:{Authorization:token1}})
     
                   setUploadedCount(i + 1);
             }
              //let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
              //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-             let res = await axios.post(`/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+             let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
 
     //console.log(res.data);
               console.log(res)
@@ -208,14 +142,17 @@ async function submitapi1()
             //               year: "",
             //               description: "",
             //               uploadimages1: ""
-            //             });
-            
-         
+            //             }); 
            
 }
 
+
+            
+    
+    
     return(
-                <div className="container">
+
+       <div className="container">
                   <div>
                     <div className="d-flex">
                   <h1> School Name</h1><h1> Date</h1>
@@ -223,7 +160,7 @@ async function submitapi1()
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
-                        <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button>
+                        <button   className="btn btn-primary ms-3 " onClick={checkfilestype1}>Add</button>
                          <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3">Back</Link>
                          <Link  to={`/`} className="btn btn-primary ms-3">Home</Link>
 
@@ -248,20 +185,17 @@ async function submitapi1()
                                                 Uploading {uploadedCount} / {files.length}
                                             </div>
                                         )}
-               <div className="col-12"></div>
-
-                      
-                
-                      {
+               <div className="col-12"></div> 
+               {
                           disimagess.map((image,index) =>(
 
                                 
                                   // <img   key={index} src={image} alt="" width="150"  height="150"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
 
-                           <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
+                           <div className="col-3 ms-5  me-2" key={index} style={{ marginTop: "50px" }} >
                                         {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
-                                            <div className="card"  style={{width: '5rem',height: '5rem'}} >
-                                            <img   key={index} src={image}  className=" shadow" alt="" width="150"  height="170"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+                                            <div className="card mt-5"  style={{width: '5rem',height: '5rem',marginLeft:"50px",marginRight:"50px"}} >
+                                            <video width="300" controls  key={index} src={image}  className=" shadow" alt=""     style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
 
 
                                                 <div className="card-body">
@@ -273,27 +207,11 @@ async function submitapi1()
                                             </div>
                                     </div>
                                                ))
-                      }  
-                      {
+                      }
 
-                         selectedIndex !== null && (
-                           <div
-                            style={styles.modal}>
 
-                                    <button onClick={closeImage} style={styles.close}>X</button>
 
-                                    <button onClick={prevImage} style={styles.prev}>{"<"}</button>
-
-                                    <img
-                                      src={disimagess[selectedIndex]}
-                                      alt=""
-                                      style={styles.fullImage}
-                                    />
-                                    <button onClick={nextImage} style={styles.next}>{">"}</button>
-
-                            </div>
-                          )}
-                         
+                          
                     
                        </div>
                        </div>
@@ -301,12 +219,12 @@ async function submitapi1()
                         </div>        
                 </div>
 
+
+
     )
 }
-export default PullEventDetails
 
-
-
+export default PullEventDetails_V
 
 
 

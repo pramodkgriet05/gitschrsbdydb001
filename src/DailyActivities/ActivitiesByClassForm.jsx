@@ -388,7 +388,7 @@ async function submitapi()
          
          {
           errormsg==true&& 
-           <h6 style={{color:"red"}}>Enter 10 digit No.</h6>
+           <h6 style={{color:"red"}}>Enter valid student code (Example: 202601a001)</h6>
          }
 
 

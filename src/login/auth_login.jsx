@@ -5,6 +5,7 @@ import Home from "../home/Home"
 import ResetPassword from "../login/ResetPassword";
 
 import axios from "axios";
+import api from "../api/Interaxios";
 
 function Sch_login({ })
 {
@@ -90,7 +91,9 @@ function Sch_login({ })
                             try
                             {
                                 //let ApiResponse= await axios.post('http://65.2.25.249:8080/api/s/login', userInputdata)
-                                let ApiResponse= await axios.post('/api/s/login', userInputdata)
+                                //let ApiResponse= await axios.post('/api/s/login', userInputdata)
+                                let ApiResponse= await api.post('/s/login', userInputdata)
+
 
                             
                                  //let ApiResponse= await axios.post('http://localhost:8080/api/s/login', userInputdata)

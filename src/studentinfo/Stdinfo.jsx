@@ -134,7 +134,7 @@ async function stdcode(e)
                     {
 
                         errormsg==true&& 
-                        <h6 style={{color:"red",marginLeft:"1070px"}}>Enter 10 digit No.</h6>
+                        <h6 style={{color:"red",marginLeft:"1070px"}}>Enter valid student code (Example: 202601a001)</h6>
                         }
 
 
