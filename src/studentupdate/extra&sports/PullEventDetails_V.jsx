@@ -28,6 +28,8 @@ function PullEventDetails_V()
      let location =  useLocation();
       let navigate=useNavigate()
       let[disimagess, setimagesdis]=useState([])
+      let ref7=useRef(null)
+
 
 
      let data=location.state.s3path
@@ -43,7 +45,9 @@ function PullEventDetails_V()
 
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
         //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-        let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+        //let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+                       let res = await api.post(`/sports/pullall`,{path:data})
+        
          //console.log(res.data);
     console.log(res)
     setimagesdis(res.data)
@@ -121,11 +125,15 @@ function checkfilestype1()
             }
              //let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
              //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-             let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+             //let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+              let res = await api.post(`/sports/pullall`,{path:data})
+
 
     //console.log(res.data);
               console.log(res)
               setimagesdis(res.data)
+                              ref7.current.value=""
+
             }
                 catch(e)
             {
@@ -176,7 +184,7 @@ function checkfilestype1()
                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
                           <div>
                             <h4>Add more files</h4>
-                      <input type="file"  multiple className='form-control std_rec_add1'  ref={fileInputRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+                      <input type="file"  multiple className='form-control std_rec_add1'  ref={ref7} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
                       </div>
                       
                           <div className="col-12"></div>

@@ -27,6 +27,8 @@ let userName=GET_USER_NAME()
     const [uploadedCount, setUploadedCount] = useState(0);
     const [isUploading, setIsUploading]  = useState(false);
     const fileInputRef = useRef();
+    let ref7=useRef(null)
+
 
     let {year}=useParams()
     let {type}=useParams()
@@ -177,24 +179,29 @@ async function submitapi1()
                  const compressedFile = await compressImage(files[i]);
 
 
-                eventphotos.append("filepath", data )
+                eventphotos.append("eventuniquename", data )
                
-                eventphotos.append("files",compressedFile)
+                eventphotos.append("files",files[i])
 
                   console.log(files[i]);
                  // await axios.post(`http://localhost:8080/m/s/sports12`,eventphotos)
                   //await axios.post(`http://65.2.25.249:8080/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
-                  await axios.post(`/api/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
+                  //await axios.post(`/api/m/s/sports12`,eventphotos,{headers:{Authorization:token1}})
+                  await api.post(`/m/s/sports1/v`,eventphotos)
+
     
                   setUploadedCount(i + 1);
             }
              //let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
              //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-             let res = await axios.post(`/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+             //let res = await axios.post(`/api/sports/pullall`,{path:data},{headers:{Authorization:token1}})
+               let res = await api.post(`/sports/pullall`,{path:data})
+
 
     //console.log(res.data);
-              console.log(res)
+              //console.log(res)
               setimagesdis(res.data)
+                ref7.current.value=""
             }
                 catch(e)
             {
@@ -202,19 +209,7 @@ async function submitapi1()
             }     
             setIsUploading(false)
              setUploadedCount(0);
-             setfiles([]);
-            //  setsports({
-            //               eventname: "",
-            //               eventuniquename: "",
-            //               day: "",
-            //               month: "",
-            //               year: "",
-            //               description: "",
-            //               uploadimages1: ""
-            //             });
-            
-         
-           
+             setfiles([]); 
 }
 
     return(
@@ -242,7 +237,7 @@ async function submitapi1()
                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
                           <div>
                             <h4>Add more files</h4>
-                      <input type="file"  multiple className='form-control std_rec_add1'  ref={fileInputRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+                      <input type="file"  multiple ref={ref7} className='form-control std_rec_add1'  placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
                       </div>
                       
                           <div className="col-12"></div>
