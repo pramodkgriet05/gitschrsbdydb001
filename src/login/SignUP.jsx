@@ -3,6 +3,7 @@ import { isEmailValied } from "../../Utils/Utils";
 //import Homesch from "../school/home-sch"
 import axios from "axios";
 import Home from "../home/Home"
+import api from "../api/Interaxios";
 function SignUP({data_P})
 {
     let[userInputdata, setuserInputdata]=useState({name:"",email:"",mobile:"",password:""})
@@ -94,7 +95,7 @@ function SignUP({data_P})
 
                             stdinfoall.append("i", compressedFile );
                     //let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', stdinfoall)
-                    let ApiResponse= await axios.post('/api/createaccount', stdinfoall)
+                    let ApiResponse= await api.post('/createaccount', stdinfoall)
                     //let ApiResponse= await axios.post('http://localhost:8080/api/createaccount', stdinfoall)
 
                       // console.log(ApiResponse)

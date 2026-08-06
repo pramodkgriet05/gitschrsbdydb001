@@ -13,6 +13,7 @@ import axios from "axios";
 import Pull_Admin_Records from "./Pull_Admin_Records";
 import '../../indexcss/index.css';
 import { useNavigate } from "react-router-dom";
+import api from "../api/Interaxios";
 
 function Home()
 {   
@@ -70,7 +71,7 @@ function Home()
           {
              //  let ApiResponse= await axios.get('http://localhost:8080/hello1')
              // let ApiResponse= await axios.get('http://65.2.25.249:8080/hello1')
-              let ApiResponse= await axios.get('api/hello1')
+              let ApiResponse= await api.get('/hello1')
 
                // let ApiResponse1= await axios.get('http://localhost:8080/student-photo?classNo=4&rollNo=4&extension=png')
                 console.log(ApiResponse)

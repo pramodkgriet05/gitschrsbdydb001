@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { GET_USER_NAME } from "../../Utils/Utils";
+import api from "../api/Interaxios";
 
 function AbcPullDetails_S()
 {
@@ -73,7 +74,7 @@ console.log("path:data",data)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
                     //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
                    // let apiresponse=await axios.post(`http://localhost:8080/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post(`/api/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
+                    let apiresponse=await api.post(`/m/s/abcpull`,{path:data},{headers:{Authorization:token1}})
 
                       console.log("aws",apiresponse)
                     console.log(apiresponse.data)

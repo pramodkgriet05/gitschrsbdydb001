@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
+import api from "../api/Interaxios"
 
 function Fees()
 {
@@ -81,7 +82,7 @@ let navigate=useNavigate()
             {   
                //let apiresponse1=await axios.post(`http://localhost:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
                //let apiresponse1=await axios.post(`http://65.2.25.249:8080/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
-               let apiresponse1=await axios.post(`/api/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
+               let apiresponse1=await api.post(`/auth/admin/fees`,updateeditcolmdataR,{headers:{Authorization:token1}})
                console.log(apiresponse1);
               setIndex(null)
               setupdateeditcolmdataR({})
@@ -90,7 +91,7 @@ let navigate=useNavigate()
           }
            // let apiresponse = await axios.post(`http://localhost:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
          //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
-         let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}})
+         let apiresponse = await api.post(`/m/s/fees`,fees,{headers:{Authorization:token1}})
 
          console.log(apiresponse)
              setpulleventsdetails(true)
@@ -189,10 +190,11 @@ let navigate=useNavigate()
         function updateterm3(e)
         {
           let val=Number(e.target.value)
+          console.log(val)
           let t1=Number(editcolomdata2.term1||0)
           let t2=Number(editcolomdata2.term2||0)
           let t3=val;
-          let t4=NUmber(editcolomdata2.term4||0)
+          let t4=Number(editcolomdata2.term4||0)
           let ab=Number(editcolomdata2.actualbalance)
           let total=t1+t2+t3+t4;
           seteditcolomdata2(prev => ({ ...prev, term3: val }));
@@ -247,7 +249,7 @@ async function submitapi()
        
                 //let apiresponse = await axios.post(`http://localhost:8080/api/m/s/fees`,fees, {headers:{Authorization:token1}})
                 //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/fees`,fees,{headers:{Authorization:token1}})
-                let apiresponse = await axios.post(`/api/m/s/fees`,fees,{headers:{Authorization:token1}}) 
+                let apiresponse = await api.post(`/m/s/fees`,fees,{headers:{Authorization:token1}}) 
                 console.log(apiresponse)
                 setpulleventsdetails(true)
                 setpulleventdetailsdata(apiresponse.data)

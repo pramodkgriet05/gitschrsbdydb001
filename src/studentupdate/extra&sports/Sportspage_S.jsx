@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import cricketpic from "../../../images/cricket.jpg"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { GET_USER_NAME } from "../../../Utils/Utils";
+import api from "../../api/Interaxios";
 
 
 function Sportspage_S()
@@ -34,6 +35,10 @@ let[pulleventdetailsdata, setpulleventdetailsdata]=useState({data:""})
 
 const [uploadedCount, setUploadedCount] = useState(0);
 const [isUploading, setIsUploading] = useState(false);
+let[showphoto,setshowphoto]=useState(true)
+let[showvideo,setshowvideo]=useState(false)
+ let[CT,setCT]=useState()
+ let ct=""
 
 let navigate=useNavigate()
 
@@ -52,7 +57,7 @@ let navigate=useNavigate()
                     //let apiresponse=await axios.get(`http://localhost:8080/m/s/sports/receive`)
                    // let apiresponse=await axios.get(`http://localhost:8080/m/s/${type}/${year}/receive`)
                     //let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
-                    let apiresponse=await axios.get(`/api/m/s/${type}/${year}/receive`,{headers:{Authorization:token1}})
+                    let apiresponse=await api.get(`/m/s/${type}/${year}/image/receive`,{headers:{Authorization:token1}})
 
                     console.log("aws",apiresponse)
                     console.log(apiresponse.data)
@@ -214,6 +219,36 @@ async function submitapi()
  
 
              }*/
+
+
+
+                  async function selectphotofun()
+{
+  console.log("Hi")
+        setshowvideo(false)
+        setshowphoto(true)
+        ct="image"
+        let apiresponse=await api.get(`/m/s/${type}/${year}/${ct}/receive`)
+
+                          console.log("awsasdasd",apiresponse)
+                          //console.log(apiresponse.data)
+                          setawsresposes(apiresponse.data) 
+
+  
+}
+async function selectvideofun() 
+{
+   ct="video"
+
+  setshowvideo(true)
+  setshowphoto(false)
+  let apiresponse=await api.get(`/m/s/${type}/${year}/${ct}/v/receive`)
+
+                    console.log("awsasdasd",apiresponse)
+                    //console.log(apiresponse.data)
+                    setawsresposes(apiresponse.data) 
+
+} 
    
     return(
 
@@ -241,6 +276,11 @@ async function submitapi()
                             <h1> Document of {type} 2025-26</h1>
                         </div>
                         </div>
+
+                         <div className="mt-5">
+                  <button  className="btn btn-primary mt-2" onClick={e=>selectphotofun()}>PHOTO</button>
+                  <button  className="btn btn-primary mt-2 ms-5" onClick={e=>selectvideofun()}>VIDEO</button> 
+                </div>
                         
                            
                          

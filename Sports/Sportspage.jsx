@@ -89,7 +89,7 @@ let ref7=useRef(null)
  
                    let apiresponse=await api.get(`/m/s/${type}/${year}/${ct}/receive`)
 
-                    console.log("aws",apiresponse)
+                    console.log("aws1",apiresponse)
                     console.log(apiresponse.data)
                    setawsresposes(apiresponse.data) 
                 }
@@ -402,13 +402,13 @@ async function selectphotofun()
    ct="image"
   let apiresponse=await api.get(`/m/s/${type}/${year}/${ct}/receive`)
 
-                    console.log("aws",apiresponse)
+                    console.log("awsasdasd",apiresponse)
                     //console.log(apiresponse.data)
                     setawsresposes(apiresponse.data) 
 
   
 }
-async function selectvideofun()
+async function selectvideofun() 
 {
    ct="video"
 
@@ -416,7 +416,7 @@ async function selectvideofun()
   setshowphoto(false)
   let apiresponse=await api.get(`/m/s/${type}/${year}/${ct}/v/receive`)
 
-                    console.log("aws",apiresponse)
+                    console.log("awsasdasd",apiresponse)
                     //console.log(apiresponse.data)
                     setawsresposes(apiresponse.data) 
 

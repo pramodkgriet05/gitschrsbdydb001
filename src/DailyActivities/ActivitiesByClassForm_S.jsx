@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect, useRef, useState } from "react";
 import { GET_USER_NAME } from "../../Utils/Utils";
 import axios from "axios";
+import api from "../api/Interaxios";
 
 function ActivitiesByClassForm_S()
 {
@@ -222,7 +223,7 @@ async function submitapi()
         {
         //let apiresponse= await axios.post(`http://localhost:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
         //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-        let apiresponse= await axios.post(`/api/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
+        let apiresponse= await api.post(`/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
 
         console.log(dupulldata)
          console.log(apiresponse.data)

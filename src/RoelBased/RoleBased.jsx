@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react";
+import api from "../api/Interaxios";
 
 function RoleBased()
 {
@@ -28,7 +29,7 @@ console.log(GET_ROLE())
         console.log(token1) 
       //  let api=await axios.get("http://localhost:8080/auth/rolebasedcheck",token1)
         //let api1=await axios.get("http://localhost:8080/auth/admin/fees1",{headers:{Authorization:token1}}) 
-        let api1=await axios.get("/api/auth/admin/fees1",{headers:{Authorization:token1}}) 
+        let api1=await api.get("/auth/admin/fees1",{headers:{Authorization:token1}}) 
         
         //console.log(api)
         console.log(api1) 

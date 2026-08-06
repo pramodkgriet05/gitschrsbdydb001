@@ -2,6 +2,7 @@ import { useState } from "react"
 import Navbar from "../Navbar/Navbar"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import api from "../api/Interaxios"
 
 function DailyUpdates_S()
 {
@@ -51,7 +52,7 @@ function DailyUpdates_S()
         {
          console.log(dupulldata)
        // let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata)
-        let apiresponse= await axios.post(`/api/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}})  
+        let apiresponse= await api.post(`/m/s/duaddpull`,dupulldata,{headers:{Authorization:token1}})  
          console.log(dupulldata)
          console.log(apiresponse.data)
          setpulleventdetailsdata(apiresponse.data) 

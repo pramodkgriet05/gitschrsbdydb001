@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
+import api from "../api/Interaxios";
 // import Std_info_c1_e from "./Std_info_c1_e"
 // import Add_new_student from "./add_new_student"
  
@@ -43,7 +44,7 @@ function Stdpullgetbysection({classid1,sectionid1})
              //let apiResponse=await axios.post('http://localhost:8080/s/pullrecords') pull all the records
                 //let apiResponse=await axios.get(`http://localhost:8080/api/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
               //let apiResponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
-              let apiResponse=await axios.get(`/api/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
+              let apiResponse=await api.get(`/m/s/p/getrecords/${classid1}/${sectionid1}`,{headers:{Authorization:token1}})
                console.log(apiResponse.data)
            //  console.log(apiResponse.data['0'])
                setstdinfo(apiResponse.data)

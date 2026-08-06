@@ -13,7 +13,7 @@ let api=axios.create({
 api.interceptors.request.use((config)=>{
 
     let token=localStorage.getItem("token")
-    if(config)
+    if(token)
     {
         config.headers.Authorization=`Bearer ${token}`
     }
