@@ -292,7 +292,7 @@ async function submitapi1()
                       </div>):
                       (
                         <div>
-                          <h1>NO Data Available</h1>
+                          <h1>NO Data orinfo Available</h1>
                           </div>
                       ) 
                     }
