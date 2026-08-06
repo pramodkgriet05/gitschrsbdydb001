@@ -4,7 +4,9 @@
 import { GET_USER_DATA, GET_USER_NAME } from "../../Utils/Utils"
 import { useRef, useState } from "react"
 import axios from "axios"
+
 import { useNavigate } from "react-router-dom"
+import api from "../api/Interaxios"
   
     
 
@@ -77,7 +79,7 @@ async function stdcode(e)
                   //submitapi()
                   //let apiresponse=await axios.post("http://localhost:8080/api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
                  // let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
-                  let apiresponse=await axios.post("/api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                  let apiresponse=await api.post("/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
          
                   console.log(apiresponse)
                   console.log(apiresponse.data)

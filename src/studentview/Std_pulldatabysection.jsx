@@ -82,7 +82,7 @@ import Attendance_S from "./Attendance_S";
        <div className="container">
         <div className="row">
             <div className="col-12">
-                <Navbar/>
+                <Navbar />
 
             </div>
 

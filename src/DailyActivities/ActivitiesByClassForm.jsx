@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect, useRef, useState } from "react";
 import { GET_USER_NAME } from "../../Utils/Utils";
 import axios from "axios";
+import api from "../api/Interaxios";
 
 function ActivitiesByClassForm()
 {
@@ -129,7 +130,7 @@ async function submitapi()
                  // console.log(files[i]);
                 // await axios.post(`http://localhost:8080/m/s/abci`,eventphotos,{headers:{ Authorization:token1}})
                 //await axios.post(`http://65.2.25.249:8080/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
-                await axios.post(`/api/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
+                await api.post(`/m/s/abci`,eventphotos,{headers:{Authorization:token1}})
 
                   setUploadedCount(i + 1);
 
@@ -161,7 +162,7 @@ async function submitapi()
 
               //  await axios.post(`http://localhost:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
                 //await axios.post(`http://65.2.25.249:8080/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
-                await axios.post(`/api/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
+                await api.post(`/m/s/abcd`,eventdata,{headers:{Authorization:token1}})
                 
 
                 let userdata={
@@ -176,7 +177,7 @@ async function submitapi()
 
               //let apiresponse = await axios.post(`http://localhost:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
               //let apiresponse = await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
-              let apiresponse = await axios.post(`/api/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
+              let apiresponse = await api.post(`/m/s/abcd/p`,userdata,{headers:{Authorization:token1}})
               
 
               // console.log(apiresponse)
@@ -224,7 +225,7 @@ async function submitapi()
         {
       //  let apiresponse= await axios.post(`http://localhost:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
         //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}})
-        let apiresponse= await axios.post(`/api/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}}) 
+        let apiresponse= await api.post(`/m/s/abcd/p`,dupulldata,{ headers:{Authorization:token1}}) 
       console.log(dupulldata)
          console.log(apiresponse.data)
          setawsresposes(apiresponse.data)
@@ -291,7 +292,7 @@ async function submitapi()
                   //submitapi()
                  // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
                   //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
-                  let apiresponse=await axios.post("/api/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
+                  let apiresponse=await api.post("/m/s/checkstd",{std:std},{headers:{Authorization:token1}})
 
                   console.log(apiresponse)
                   console.log(apiresponse.data)

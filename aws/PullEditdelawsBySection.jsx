@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
  
 import imgstd from '../pics/profile/profile_pic.jpg'
 import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
+import api from "../src/api/Interaxios"
 
 function PullEditdelawsBySection({stdid1,section1})
 {//Std_info/c1/u/pulldata
@@ -61,13 +62,13 @@ function PullEditdelawsBySection({stdid1,section1})
                  //let apiresponse=await axios.get(`http://localhost:8080/api/m/s/getrecords/${classidsch}`) 
               //  let apiresponse=await axios.get(`http://localhost:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`)
                 //let apiresponse=await axios.get(`http://65.2.25.249:8080/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
-                let apiresponse=await axios.get(`/api/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
+                let apiresponse=await api.get(`/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
                 //let apiresponse=await axios.get(`http://localhost:8080/api/m/s/p/getrecords/${classidsch}/${sectionoption}`,{headers:{Authorization:token1}})
                                                                                                 
                                                                                                 
                                                                                                  
-                console.log(apiresponse)
-                 console.log(apiresponse.data)
+                // console.log(apiresponse)
+                  console.log(apiresponse.data)
                  setawsresposes(apiresponse.data)
 
             //   let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+stdid1) //pull all the records
@@ -322,9 +323,9 @@ function PullEditdelawsBySection({stdid1,section1})
 
            
             <div>
-             
+            { 
   
-  
+            awsresposes.length>0?(
            <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
                 <thead>
                     <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
@@ -346,9 +347,10 @@ function PullEditdelawsBySection({stdid1,section1})
                             
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
        
                  {  
+                
                     awsresposes.map((stdrecord, i)=>(
                         <tr key={i}>
                         <td  style={{width:"20px", textAlign:"center"}}> 
@@ -421,6 +423,9 @@ function PullEditdelawsBySection({stdid1,section1})
               
              </tbody>
             </table>
+            ):(<div>no data available</div>)
+
+            }
              
            
             {  

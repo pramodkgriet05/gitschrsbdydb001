@@ -6,6 +6,8 @@ import { useState } from "react"
   
     
 
+
+
     function Stdinfo_S()
     {
            let userName=GET_USER_NAME()

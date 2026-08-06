@@ -1,6 +1,7 @@
  import { useState } from 'react'
 import axios from 'axios'
 import { GET_USER_NAME, isEmailValied } from "../../Utils/Utils";
+import api from '../api/Interaxios';
  
 
 
@@ -44,7 +45,7 @@ function ResetPassword()
         {
             try
             {
-                let apidata5= await axios.post('http://13.233.74.60:8080/hello5', datadynamoDB)
+                let apidata5= await api.post('http://13.233.74.60:8080/hello5', datadynamoDB)
                   console.log(apidata5)
                  // let apidata5= await axios.post('http://localhost:8080/hello5', datadynamoDB)
                //   console.log(apidata5)
@@ -98,7 +99,7 @@ function ResetPassword()
             setemailError({...emailError, apiError:false})
        // let apiresponce=await  axios.post('http://localhost:8080/s/resetpassword',{email:email})
         //let apiresponce=await  axios.post('http://65.2.25.249:8080/s/resetpassword',{email:email})
-        let apiresponce=await  axios.post('/api/s/resetpassword',{email:email})
+        let apiresponce=await  api.post('/s/resetpassword',{email:email})
         //let apiresponce=await  axios.post(' http://localhost:8080/api/s/resetpassword',{email:email})
 
      

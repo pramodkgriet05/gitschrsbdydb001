@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar"
 import pic from "../pics/profile/profile_pic.jpg"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import api from "../api/Interaxios"
 
 
 
@@ -47,7 +48,7 @@ function Std_info_page_all()
                  try{ 
                       //let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
                      //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
-                     let apiresponse=await axios.post(" /api/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
+                     let apiresponse=await api.post("/m/s/checkstd1",{std:std},{headers:{Authorization:token1}})
 
 
                       console.log("aws",apiresponse)
@@ -68,7 +69,7 @@ function Std_info_page_all()
             
            // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
             //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
-            let apiresponse=await axios.post("/api/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
+            let apiresponse=await api.post("/m/s/checkstd2",{std:std},{headers:{Authorization:token1}})
 
             console.log(apiresponse)
             setawsresposes2(apiresponse.data)
@@ -83,7 +84,7 @@ function Std_info_page_all()
             try{
                     //let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
                     //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post(" /api/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
+                    let apiresponse=await api.post("/m/s/checkstd3",{std:std},{headers:{Authorization:token1}})
 
             console.log(apiresponse)
             setdataa(apiresponse.data)
@@ -101,7 +102,7 @@ function Std_info_page_all()
              try{
                    // let apiresponse=await axios.post("http://localhost:8080/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
                     //let apiresponse=await axios.post("http://65.2.25.249:8080/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post("/api/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
+                    let apiresponse=await api.post("/m/s/checkstd4",{std:std},{headers:{Authorization:token1}})
 
                     console.log(apiresponse)
                     setdata4(apiresponse.data)
@@ -146,7 +147,7 @@ function Std_info_page_all()
                 console.log("atdatten")
                                     settabs({...tabs,marks:false,fees:false,activity:false,dailyactivities:false,stdatten:true})
                     //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get/1`,data,{headers:{Authorization:token1}})
-                    let apiresponse=await axios.post(`/api/std/attn/get/1`,data,{headers:{Authorization:token1}})
+                    let apiresponse=await api.post(`/std/attn/get/1`,data,{headers:{Authorization:token1}})
 
                     console.log(apiresponse)
                     setdata6(apiresponse.data)
@@ -178,7 +179,7 @@ function Std_info_page_all()
                             console.log(dupulldata)
                            //let apiresponse= await axios.post(`http://localhost:8080/m/s/duaddpull`,dupulldata,dupulldata,{headers:{ Authorization:token1}})
                             //let apiresponse= await axios.post(`http://65.2.25.249:8080/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
-                            let apiresponse= await axios.post(`/api/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
+                            let apiresponse= await api.post(`/m/s/duaddpull`,dupulldata,{headers:{ Authorization:token1}})
  
                             console.log(dupulldata)
                             console.log(apiresponse.data)
@@ -670,7 +671,7 @@ function Std_info_page_all()
                                                 {dataa?.remainingbalance}
                                             </td> 
                                             <td style={{ textAlign:"center"}}  >
-                                                {dataa?.remainingbalance}
+                                                {dataa?.totalPaid}
                                             </td> 
                                          </tr>
                                          </tbody>

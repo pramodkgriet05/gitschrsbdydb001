@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import api from "../api/Interaxios";
 
 function SchUserList()
 {
@@ -24,15 +25,12 @@ function SchUserList()
         async function pulldata()
          {
                try{ 
-                     const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}})
+                     const apiResponse = await api.get(`/hello11`,{headers:{Authorization:token1}})
                     //const apiResponse = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}})
                     //  const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
-
-
-                                 
-                    console.log(apiResponse) 
-                    setawsresposes(apiResponse.data)
-             }
+                     console.log(apiResponse) 
+                     setawsresposes(apiResponse.data)
+                  }
               
              catch(error)
              {
@@ -103,13 +101,13 @@ function SchUserList()
       // let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
       //  let ApiResponse1= await axios.post('http://localhost:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
         //let ApiResponse= await axios.post('http://65.2.25.249:8080/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
-        let ApiResponse= await axios.post('/api/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
+        let ApiResponse= await api.post('/admin/get/users/p',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
 
         setIndex(null)
         setstdinfo1({})
       //const apiResponse1 = await axios.get(`http://localhost:8080/hello11`,{headers:{Authorization:token1}}) 
       //const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
-      const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}}) 
+      const apiResponse = await api.get(`/hello11`,{headers:{Authorization:token1}}) 
                                
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)
@@ -144,11 +142,11 @@ async function deleterow(stdrecord)
           //  let ApiResponse= await axios.post('http://65.2.25.249:8080/s/'+e.id+'/dele')
           //let ApiResponse= await axios.post('http://localhost:8080/m/admin/dele',data,{headers:{Authorization:token1}})
           //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/admin/dele',data,{headers:{Authorization:token1}})
-          let ApiResponse= await axios.post('/api/m/admin/dele',data,{headers:{Authorization:token1}})
+          let ApiResponse= await api.post('/m/admin/dele',data,{headers:{Authorization:token1}})
  
         //const apiResponse = await axios.get(`http://localhost:8080/admin/get/users`,{headers:{Authorization:token1}}) 
          //const apiResponse = await axios.get(`http://65.2.25.249:8080/hello11`,{headers:{Authorization:token1}}) 
-         const apiResponse = await axios.get(`/api/hello11`,{headers:{Authorization:token1}}) 
+         const apiResponse = await api.get(`/hello11`,{headers:{Authorization:token1}}) 
                                         
        console.log(apiResponse) 
        setawsresposes(apiResponse.data)

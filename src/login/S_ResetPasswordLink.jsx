@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { GET_USER_NAME } from "../../Utils/Utils";
+import api from "../api/Interaxios";
 
 function S_resetpassword()
 {
@@ -91,7 +92,7 @@ function S_resetpassword()
           //  let apires=await axios.post('http://localhost:8080/s/rp/update',userInputdata)
           
             //let apires=await axios.post('http://65.2.25.249:8080/s/rp/update',userInputdata)
-            let apires=await axios.post(' /api/s/rp/update',userInputdata)
+            let apires=await api.post('/s/rp/update',userInputdata)
 
               // window.location='http://localhost:8080/login'
               console.log(apires)

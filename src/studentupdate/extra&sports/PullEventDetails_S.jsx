@@ -263,8 +263,10 @@ async function submitapi1()
                                         )}
                <div className="col-12"></div>
 
-                      
-                
+                      {
+                disimagess.length > 0 ? (
+                  <div>
+                     
                       {
                           disimagess.map((image,index) =>(
 
@@ -286,7 +288,14 @@ async function submitapi1()
                                             </div>
                                     </div>
                                                ))
-                      }  
+                      } 
+                      </div>):
+                      (
+                        <div>
+                          <h1>NO Data Available</h1>
+                          </div>
+                      ) 
+                    }
 
 
 

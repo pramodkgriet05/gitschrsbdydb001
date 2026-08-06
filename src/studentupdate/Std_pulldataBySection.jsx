@@ -11,6 +11,7 @@ import PullEditdelawsBySection from "../../aws/PullEditdelawsBySection"
 import R_SA1 from "../../Results/R_SA1"
 import R_SA1_BySec from "../../Results/R_SA1_BySec"
 import Attendance from "./Attendance"
+import api from "../api/Interaxios"
  
  
  
@@ -122,7 +123,7 @@ function Std_pulldataBySection()
                
                //let apiresponse=await axios.post('http://localhost:8080/api/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})  
               // let apiresponse=await axios.post('http://65.2.25.249:8080/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
-               let apiresponse=await axios.post('/api/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
+               let apiresponse=await api.post('/m/s/saverecord',stdinfoall,{headers:{Authorization:token1}})
    
     
                console.log(apiresponse)
