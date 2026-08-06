@@ -452,7 +452,7 @@ async function selectvideofun()
                         <div className="row mt-5">
                           
                         <div className="   col-2">
-                            <h3>Event Name:</h3>
+                            <h3>Event Namee:</h3>
                             <h3>Event.Date:</h3>
                             <h3>Description:</h3>
                             <h3 style={{ marginTop: "65px" }}>Photo/Video</h3>
