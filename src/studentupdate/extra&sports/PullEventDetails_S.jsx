@@ -240,7 +240,7 @@ async function submitapi1()
                          <Link  to={"/stdinfo/s"} className="btn btn-primary ms-3">Back</Link>
                          <Link  to={"/stdinfo"} className="btn btn-primary ms-3">Home</Link>
 
-                      <h5 className="ms-5" >Academic Year:{year}</h5>
+                      <h5 className="ms-5" >Academicc Year:{year}</h5>
                       <h5 className="ms-5" >Event Type: {type}</h5>
                       <h5 className="ms-5" >Event Name:  {ename}</h5>
 
