@@ -26,7 +26,7 @@ jobs:
 
       # 4. Build Vite project
       - name: Build project
-        run: npm run build
+        run: npm run build  -- --mode development
 
       # 5. Configure AWS credentials
       - name: Configure AWS Credentials
