@@ -51,6 +51,7 @@ import Std_info_page_all from './studentinfo/Std_info_page_all';
 import Std_info1 from './studentinfo/Std_info1';
 import Samax from './progaxios/Samax';
 import PullEventDetails_V from './studentupdate/extra&sports/PullEventDetails_V';
+import R_stdinfo from './responsive page/R_stdinfo';
 
 
 
@@ -143,6 +144,12 @@ function App() {
 
 
  {/* ---------------------------------------------------------------------------------------- */}
+        <Route path='/r/1' element={<R_stdinfo />} />
+
+ 
+
+  {/* ---------------------------------------------------------------------------------------- */}
+
 
  {/* ============================================================================================= */}
 

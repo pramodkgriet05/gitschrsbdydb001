@@ -10,7 +10,7 @@ import api from "../api/Interaxios"
   
     
 
-    function Stdinfo()
+    function R_stdinfo()
     {
            let userName=GET_USER_NAME()
 
@@ -124,7 +124,7 @@ async function stdcode(e)
             <div className="container">
                  <div className="row">
                     <div className="col-12">
-                  <h1    style={{ marginLeft:"370px",marginTop: "55px", fontSize:"70px" }}>St'Martins school</h1>
+                  <h1  className="school-title">St'Martins school</h1>
                   </div>
 
                     
@@ -168,16 +168,16 @@ async function stdcode(e)
                 
                     <div className="col-4">
                         <h1>  </h1>
-                        <img src={userdata1.imgkey} className="profile_pic3 mb-2"/> 
+                        <img src={userdata1?.imgkey} className="profile_pic3 mb-2"/> 
                         {/* <h1>userDetails</h1> */}
                          
-                            <h6 > UserName<span style={{fontSize:"17px",color: "red"   }}> {userdata1.UserName} </span></h6>  
-                            <h6>Designation: <span style={{fontSize:"17px",  color: "red"}}> {userdata1.designation} </span></h6> 
-                            <h6>ClassTeacher:   <span style={{fontSize:"17px",  color: "red"}}> {userdata1.classteacher2} </span></h6> 
-                            <h6>Email: <span style={{fontSize:"17px",  color: "red"}}> {userdata1.Email} </span></h6> 
+                            <h6 > UserName<span style={{fontSize:"17px",color: "red"   }}> {userdata1?.UserName} </span></h6>  
+                            <h6>Designation: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.designation} </span></h6> 
+                            <h6>ClassTeacher:   <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.classteacher2} </span></h6> 
+                            <h6>Email: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.Email} </span></h6> 
                             {/* <h6>Email: <span style={{fontSize:"17px",  color: "red"}}>: dailyupdates.month </span></h6>   */}
-                            <h6>Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1.mobile}</span></h6>  
-                            <h6>School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1.schoolname} </span></h6>  
+                            <h6>Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.mobile}</span></h6>  
+                            <h6>School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.schoolname} </span></h6>  
                     </div>
                      
                      
@@ -214,4 +214,4 @@ async function stdcode(e)
 
         )
     }
-    export default Stdinfo
+    export default R_stdinfo
