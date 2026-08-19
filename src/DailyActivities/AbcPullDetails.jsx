@@ -252,7 +252,7 @@ async function compressImage(file) {
                           <div className="row">
                             <div className="col-4" style={{marginTop:"100px"}}>
                               <h5 className="ms-5" >Academic Year: {acadamicyear}</h5>
-                              <h5 className="ms-5" >Event Type: Activity By class</h5>
+                              <h5 className="ms-5" >Event Type: Activity By classs</h5>
                               
                               <h5 className="ms-5" >Class: {classid}/{sectionid} </h5>
                               <h5 className="ms-5" >Subject: {subject} </h5>
