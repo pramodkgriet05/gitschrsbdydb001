@@ -100,7 +100,7 @@ async function stdcode(e)
                                 seterrormsg(false)
                                 
                               setTimeout(() => {
-                                                  navigate("/std/info/2026",{state:{stdid:std}})
+                                                  
                                  
                                 }, 2000);
                                   console.log("123",stdcode1)
@@ -130,82 +130,88 @@ async function stdcode(e)
                     
                 </div>
                 
+                <div className="flex-gried mt-2">
+                    <div>
+                        <h6 className="mt-2"> Hi,</h6> 
+                        <h6 >{userName} </h6>
+                    </div>
+
+
+                    <div className="button-area">
                 
-                <div className="mt-5 ">
-                    <h3 style={{ marginLeft:"1070px", fontSize:"30px" }}>Enter Std.Code</h3>
+                    <button className="btn btn-primary mt-2 ms-5     " onClick={e=>home_fun(true)}>Home</button>
+                    <button className="btn btn-primary mt-2 ms-3    " onClick={e=>logout()}>logout</button>
+
+                    </div>
+               </div>
+                
+                
+                <div className=" std-code-section mt-3  ">
+                    <h3  className="std-code-title">Enter Std.Code</h3>
                     {
 
                         errormsg==true&& 
-                        <h6 style={{color:"red",marginLeft:"1070px"}}>Enter valid student code (Example: 202601a001)</h6>
+                        <h6 className="std-code-er-clr" >Enter valid student code (Ex:202601a001)</h6>
                         }
 
 
-                        <input type="text" className='form-control std_rec_add1  mt-2' ref={fileRef} placeholder='Std Code' style={{width:"200px",marginLeft:"1070px"}} onChange={(e)=>stdcode(e)} ></input>
+                        <input type="text" className='form-control  mt-2 std-code-input std-code-section1' ref={fileRef} placeholder='Std Code'   onChange={(e)=>stdcode(e)} ></input>
                         {apierrormsg==true&& 
                         
-                            <h6 style={{color:"red",marginLeft:"1070px"}}>Student with code not found</h6>
+                            <h6  >Student with code not found</h6>
                         }
                         {
                         apierrormsg1==true&&
-                        <div className="d-flex mt-2" > 
-                        <h6 style={{color:"green",marginLeft:"1070px" }}>Found,</h6>
-                        <h6 style={{color:"red",marginLeft:"1px" }}> {name}</h6>
-
- 
+                        <div className="d-flex mt-2  " > 
+                            <h6 >Found,</h6>
+                            <h6 > {name}</h6>  
                         </div>
                         
-                    }
-                 <h6> Hi,</h6>
-                 
-                 <h3>{userName} </h3>
-                 
-
+                    }  
                 </div>
-               
-              <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
-                <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
+                
                 <div className="row mt-5 ">
                 
-                    <div className="col-4">
-                        <h1>  </h1>
+                    <div className="col-12 col-md-4 mobile-photo-data ">
+                        <div>
                         <img src={userdata1?.imgkey} className="profile_pic3 mb-2"/> 
+                        </div >
+                        <div className="ms-3">
                         {/* <h1>userDetails</h1> */}
                          
-                            <h6 > UserName<span style={{fontSize:"17px",color: "red"   }}> {userdata1?.UserName} </span></h6>  
-                            <h6>Designation: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.designation} </span></h6> 
-                            <h6>ClassTeacher:   <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.classteacher2} </span></h6> 
-                            <h6>Email: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.Email} </span></h6> 
+                            <h6 className="mobile-small" > UserName<span style={{fontSize:"17px",color: "red"   }}> {userdata1?.UserName} </span></h6>  
+                            <h6 className="mobile-small">Designation: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.designation} </span></h6> 
+                            <h6 className="mobile-small">ClassTeacher:   <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.classteacher2} </span></h6> 
+                            <h6 className="mobile-hide">Email: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.Email} </span></h6> 
                             {/* <h6>Email: <span style={{fontSize:"17px",  color: "red"}}>: dailyupdates.month </span></h6>   */}
-                            <h6>Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.mobile}</span></h6>  
-                            <h6>School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.schoolname} </span></h6>  
-                    </div>
-                     
-                     
-
-                      
-                            <div className="col-4">
-                                <h3  >Teacher Update Records</h3>
-                                <div className="card"  style={{width: '18rem'}} >
-                                        <img src={profile_pic} className="  profile_pic1 shadow " alt="..."/>
+                            <h6 className="mobile-hide">Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.mobile}</span></h6>  
+                            <h6 className="mobile-hide" >School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.schoolname} </span></h6>  
+                            </div>
+                    </div> 
+                    
+                            <div className="col-4 mrgt  ">
+                                <h3 className="mobile-small mrgt" >Teacher Update Records</h3>
+                                <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
+                                        <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
                                         <div className="card-body">
-                                            <h5 className="card-title">Class wise from I to X</h5>
+                                            <h5 className="card-title mobile-small ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/t" className="btn btn-primary">Click Here</a>
+                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button">Click Here</a>
                                         </div>
                                 </div>
                             </div>
-                            <div className="col-4">
-                                <h3  >Student View Records</h3>
-                                <div className="card"  style={{width: '18rem'}} >
-                                        <img src={profile_pic} className="  profile_pic1 shadow " alt="..."/>
+                            <div className="col-4 mrgt  ">
+                                <h3 className="mobile-small mrgt mrnr" >Student View Records</h3>
+                                <div className="card mobile-card mrgs-c "  style={{width: '18rem'}} >
+                                        <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
                                         <div className="card-body">
-                                            <h5 className="card-title">Class wise from I to X</h5>
+                                            <h5 className="card-title mobile-small">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/s" className="btn btn-primary">Click Here</a>
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button ">Click Here</a>
                                         </div>
                                 </div>
                             </div>
-      
+                         
      
                                       
                                 </div>

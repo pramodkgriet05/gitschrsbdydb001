@@ -136,6 +136,19 @@ button:focus-visible {
     height:350px;
     border-radius: 1%
   }
+
+  .profile_pic3
+  {
+     display: block;
+    margin-left: 0px;
+    margin-right: auto;
+    margin-top: 10px;   /* Optional */
+    margin-bottom: 10px;
+    width:250px;
+    height:350px;
+    border-radius: 1%
+     
+  }
   .profile_pic4
   {
     display: block;
@@ -250,6 +263,53 @@ button:focus-visible {
     font-size: 70px;
 }
 
+.std-code-section {
+    margin-left: 1070px;
+}
+
+.std-code-title {
+    font-size: 30px;
+}
+
+.std-code-input {
+    width: 200px;
+}
+.std-code-er-clr{
+  color:red
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.user-greeting {
+    display: flex;
+    gap: 5px;
+}
+
+.hm-lg {
+    display: flex;
+    gap: 5px;
+}
+.flex-gried {
+    display: flex;
+}
+
+.hm-lg-button{
+  margin-left: auto;
+}
+ .std-code-section-logout {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .button-area {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
 @media (max-width: 768px) {
 
     .school-title {
@@ -257,5 +317,96 @@ button:focus-visible {
         margin-top: 25px;
         font-size: 35px;
     }
+
+     .std-code-section {
+        margin-left: auto;
+        
+    }
+    .std-code-section1 {
+        margin-left: 80px;
+         
+    }
+
+    .std-code-title {
+        font-size:14px !important;
+        margin-left: 80px !important;
+
+    }
+
+    .std-code-input {
+        width: 120px !important;
+        height:25px ;
+         margin-left: 150px !important; 
+         font-size: 10px;
+        
+    }
+    .std-code-input-h
+    {
+     margin-top:150px!important ;
+
+    }
+    .hm-lg
+    {
+     margin-top:50px!important ;
+    }
+    .user-actions {
+        gap: 15px;
+    }
+
+    .hm-lg-button {
+       font-size: 15px !important;
+        padding: 2px 5px !important;
+    }
+    .hm-lg-card-button {
+       font-size: 10px;
+        padding: 10px 10px;
+        white-space: nowrap;
+    }
+
+    .profile_pic3
+  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;   /* Optional */
+    margin-bottom: 10px;
+    width:100px;
+    height: 100px;
+   object-fit: cover;
+    border-radius: 5% 
+  }
+
+   .mobile-small {
+        font-size: 12px;
+    }
+    .mobile-hide {
+        display: none;
+    }
+    .mobile-photo-data {
+        display: flex;
+    }
+     .mobile-card {
+        width: 120px !important;
+    }
+    .mrgt{
+      margin-top: 15px;
+      margin-left: 10px;
+     
+      
+    }
+    .mrgs-c{
+      
+      margin-left: 10px!important;
+    }
+
+    .profile_pic1 {
+      
+        width: 80px !important;
+        height: 100px !important;
+    }
+    .card-row {
+        column-gap: 10px;
+    }
+     
 
 }
