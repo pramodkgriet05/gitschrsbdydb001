@@ -1,0 +1,73 @@
+.schoolname
+{
+     
+    margin-top: 140px!important;
+    margin-left: 300px!important;
+    font-size: 70px!important; 
+}
+
+
+ .img-lab-1
+  {
+    width:600px;
+    height:auto;
+   }
+
+   
+
+
+
+
+/*===========================================================================================================*/
+/*-------mobile ----------*/
+ @media (max-width: 768px) {
+    /*sch title*/
+    .schoolname {
+        margin-left: 35px!important;
+        margin-top: 35px!important;
+        font-size: 35px!important;
+        
+    }
+
+    .img-lab-1
+  {
+   display: none!important;
+   }
+   .nu-1
+   {
+    margin-left: 10px!important;
+    font-size: 54px!important;
+   }
+
+   .ac-l-1
+   {
+     margin-left: 100px!important;
+     margin-top: 10px!important;
+   }
+
+   .new-user-card-1 {
+    width: 90%;
+    height: 100px;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobile-form-label {
+        font-size: 13px;
+    }
+
+    .mobile-form-input {
+        font-size: 13px!important;
+        padding: 2px 4px!important;
+    }
+
+    .ac-err-m-1{
+         font-size: 11px!important;
+
+    }
+
+
+
+
+}

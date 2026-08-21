@@ -109,11 +109,7 @@ button:focus-visible {
     width:500px;
     height:auto;
   }
-  .img-lab
-  {
-    width:600px;
-    height:auto;
-  }
+ 
   .profile_pic1
   {
     display: block;
@@ -251,12 +247,20 @@ button:focus-visible {
 }
 
 
-@media (max-width: 768px) {  
- 
+
+
+.school-title {
+    margin-left: 370px;
+    margin-top: 55px;
+    font-size: 70px;
+}
+
+.std-code-section {
+    margin-left: 1070px;
+}
 
 .std-code-title {
-    font-size: 30px;
-    
+    font-size: 30px; 
 }
 
 .std-code-input {
@@ -301,7 +305,14 @@ button:focus-visible {
     .pic-m{
         margin-top: 70px!important;
       }
+
+      @media (max-width: 768px) {
+    .school-title {
+        font-size: 35px;
+        
     }
+}
+      
 
 @media (max-width: 768px) {
 
@@ -325,6 +336,7 @@ button:focus-visible {
     .std-code-title {
         font-size:14px !important;
         margin-left: 240px !important;
+        
 
         
     }
@@ -339,6 +351,8 @@ button:focus-visible {
     .snf{
        margin-left: 135px !important;
        color: red;
+       margin-top:1px!important ;
+       font-size: 5px!important;
 
     }
     .sf{

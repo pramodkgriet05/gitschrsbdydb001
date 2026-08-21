@@ -219,27 +219,27 @@ function SignUP({data_P})
     return(
          
              
-                                 <div className="card mt-3">
-                                                    <div className="card -body ">
+                                 <div className="card mt-3 new-user-card-1" >
+                                                    <div className="card-body ">
                                                          
                                                         <h3>Enter Details</h3>
                                                              
                                                             <div className='mt-3'>
-                                                                    <label><strong>Name</strong></label>
-                                                                    <input type="text" className='form-control' placeholder='Name' onChange={e => updateName(e)}></input>
-                                                                    <div className="text-danger">
+                                                                    <label className="mobile-form-label"><strong>Name</strong></label>
+                                                                    <input type="text" className='form-control mobile-form-input' placeholder='Name' onChange={e => updateName(e)}></input>
+                                                                    <div className="text-danger ac-err-m-1">
                                                                         {errorData.e_name} 
 
                                                                     </div>
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>Email</strong></label>
-                                                                    <input type="text" className='form-control' placeholder='Email' onChange={e => updateEmail(e)}></input>
-                                                                     <div className="text-danger">
+                                                                    <input type="text" className='form-control mobile-form-input' placeholder='Email' onChange={e => updateEmail(e)}></input>
+                                                                     <div className="text-danger ac-err-m-1">
                                                                         {errorData.e_email}
                                                                         {
                                                                             apierrordata==true && 
-                                                                            <div className="text-danger">
+                                                                            <div className="text-danger ac-err-m-1">
                                                                                 {ApiMessage.errorMessage}
         
                                                                                 </div>
@@ -249,24 +249,24 @@ function SignUP({data_P})
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>Password</strong></label>
-                                                                    <input type="password" className='form-control' placeholder='Password' onChange={e => updatePassword(e)}></input>
-                                                                     <div className="text-danger">
+                                                                    <input type="password" className='form-control mobile-form-input' placeholder='Password' onChange={e => updatePassword(e)}></input>
+                                                                     <div className="text-danger ac-err-m-1">
                                                                         {errorData.e_password}
 
                                                                     </div>
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>mobile</strong></label>
-                                                                    <input type="text" className='form-control' placeholder='Mobile' onChange={e => updateMobile(e)}></input>
-                                                                     <div className="text-danger">
+                                                                    <input type="text" className='form-control mobile-form-input' placeholder='Mobile' onChange={e => updateMobile(e)}></input>
+                                                                     <div className="text-danger ac-err-m-1">
                                                                         {errorData.e_mobile}
 
                                                                     </div>
                                                             </div>
                                                             <div className='mt-3'>
                                                                     <label><strong>upload profile pic</strong></label>
-                                                                    <input type="file" className='form-control' placeholder='Image' onChange={e => setinpfile(e.target.files[0])}></input>
-                                                                     <div className="text-danger">
+                                                                    <input type="file" className='form-control mobile-form-input' placeholder='Image' onChange={e => setinpfile(e.target.files[0])}></input>
+                                                                     <div className="text-danger ac-err-m-1">
                                                                         {errorData.e_file}
 
                                                                     </div>
@@ -274,7 +274,7 @@ function SignUP({data_P})
                                                             
                                                              
                                                         <div className=' d-grid mt-3 md-3'>
-                                                        <button className=" btn btn-primary" onClick={e=>createAccount()}>submit</button>
+                                                        <button className=" btn btn-primary mobile-form-input" onClick={e=>createAccount()}>submit</button>
                                                        </div>
                                                        </div>
                                                        </div>
