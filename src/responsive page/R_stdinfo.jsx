@@ -187,6 +187,11 @@ async function stdcode(e)
                             <h6 className="mobile-hide">Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.mobile}</span></h6>  
                             <h6 className="mobile-hide" >School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.schoolname} </span></h6>  
                             </div>
+                            <h6>
+    Width: {window.innerWidth}px
+    <br />
+    Height: {window.innerHeight}px
+</h6>
                     </div> 
                     
                             <div className="col-4 mrgt  ">
