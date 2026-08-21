@@ -132,15 +132,15 @@ async function stdcode(e)
                 
                 <div className="flex-gried mt-2">
                     <div>
-                        <h6 className="mt-2"> Hi,</h6> 
+                        <h6 className="mt-2"> Hii,</h6> 
                         <h6 >{userName} </h6>
                     </div>
 
 
                     <div className="button-area">
                 
-                    <button className="btn btn-primary mt-2 ms-5     " onClick={e=>home_fun(true)}>Home</button>
-                    <button className="btn btn-primary mt-2 ms-3    " onClick={e=>logout()}>logout</button>
+                    <button className="btn btn-primary mt-2 ms-5  hm-lg-button " onClick={e=>home_fun(true)}>Home</button>
+                    <button className="btn btn-primary mt-2 ms-3  hm-lg-button " onClick={e=>logout()}>logout</button>
 
                     </div>
                </div>
@@ -158,13 +158,13 @@ async function stdcode(e)
                         <input type="text" className='form-control  mt-2 std-code-input std-code-section1' ref={fileRef} placeholder='Std Code'   onChange={(e)=>stdcode(e)} ></input>
                         {apierrormsg==true&& 
                         
-                            <h6  >Student with code not found</h6>
+                            <h6 className="snf" >Student with code not found</h6>
                         }
                         {
                         apierrormsg1==true&&
                         <div className="d-flex mt-2  " > 
-                            <h6 >Found,</h6>
-                            <h6 > {name}</h6>  
+                            <h6 className="sf" >Found,</h6>
+                            <h6  > {name}</h6>  
                         </div>
                         
                     }  
