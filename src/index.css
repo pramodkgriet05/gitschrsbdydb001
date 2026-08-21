@@ -251,21 +251,8 @@ button:focus-visible {
 }
 
 
-@media (max-width: 768px) {
-    .school-title {
-        font-size: 35px;
-    }
-}
-
-.school-title {
-    margin-left: 370px;
-    margin-top: 55px;
-    font-size: 70px;
-}
-
-.std-code-section {
-    margin-left: 1070px;
-}
+@media (max-width: 768px) {  
+ 
 
 .std-code-title {
     font-size: 30px;
@@ -277,6 +264,7 @@ button:focus-visible {
 }
 .std-code-er-clr{
   color:red
+  
 }
 
 .user-actions {
@@ -308,8 +296,12 @@ button:focus-visible {
 
     .button-area {
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 10px;
 }
+    .pic-m{
+        margin-top: 70px!important;
+      }
+    }
 
 @media (max-width: 768px) {
 
@@ -323,15 +315,16 @@ button:focus-visible {
         margin-left: auto;
         
     }
-    .std-code-section1 {
-        margin-left: 80px;
-        
-         
-    }
+    .std-code-er-clr{
+  color:red;
+  margin-left:60px !important;
+  
+      }
+   
 
     .std-code-title {
         font-size:14px !important;
-        margin-left: 220px !important;
+        margin-left: 240px !important;
 
         
     }
@@ -339,18 +332,18 @@ button:focus-visible {
     .std-code-input {
         width: 120px !important;
         height:25px ;
-         margin-left: 200px !important; 
+         margin-left: 230px !important; 
          font-size: 10px;
         
     }
     .snf{
-       margin-left: 95px !important;
+       margin-left: 135px !important;
        color: red;
 
     }
     .sf{
 
-      margin-left: 190px !important;
+      margin-left: 220px !important;
        color: green;
 
     }
@@ -392,8 +385,17 @@ button:focus-visible {
     border-radius: 5% 
   }
 
+  .pic-m{
+    margin-top: 25px!important;
+  }
+
+
+
    .mobile-small {
         font-size: 12px;
+         
+        margin-left: 30px;
+        margin-top: 5px;
        
     }
     .mobile-hide {
@@ -406,14 +408,28 @@ button:focus-visible {
         width: 120px !important;
     }
     .mrgt{
-      margin-top: 15px;
-      margin-left: 10px;
+      margin-top: 25px!important;
+      margin-left: 25px!important;
      
       
     }
+    .c2
+    {
+      margin-top: 25px!important;
+      margin-left: 80px!important;
+     
+
+    }
+    .c21
+    {
+      
+      margin-left: 70px!important;
+     
+
+    }
     .mrgs-c{
       
-      margin-left: 10px!important;
+      margin-left: 30px!important;
     }
 
     .profile_pic1 {

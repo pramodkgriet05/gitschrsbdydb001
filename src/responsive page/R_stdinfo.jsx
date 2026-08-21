@@ -170,7 +170,7 @@ async function stdcode(e)
                     }  
                 </div>
                 
-                <div className="row mt-5 ">
+                <div className="row pic-m">
                 
                     <div className="col-12 col-md-4 mobile-photo-data ">
                         <div>
@@ -187,14 +187,14 @@ async function stdcode(e)
                             <h6 className="mobile-hide">Mobile.No: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.mobile}</span></h6>  
                             <h6 className="mobile-hide" >School: <span style={{fontSize:"17px",  color: "red"}}> {userdata1?.schoolname} </span></h6>  
                             </div>
-                            <h6>
-    Width: {window.innerWidth}px
-    <br />
-    Height: {window.innerHeight}px
-</h6>
+                              {/* <h6>
+                                Width: {window.innerWidth}px
+                                <br />
+                                Height: {window.innerHeight}px
+                            </h6>*/}
                     </div> 
                     
-                            <div className="col-4 mrgt  ">
+                            <div className="col-4">
                                 <h3 className="mobile-small mrgt" >Teacher Update Records</h3>
                                 <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
@@ -205,9 +205,9 @@ async function stdcode(e)
                                         </div>
                                 </div>
                             </div>
-                            <div className="col-4 mrgt  ">
-                                <h3 className="mobile-small mrgt mrnr" >Student View Records</h3>
-                                <div className="card mobile-card mrgs-c "  style={{width: '18rem'}} >
+                            <div className="col-4">
+                                <h3 className="mobile-small  c2" >Student View Records</h3>
+                                <div className="card mobile-card c21  "  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
                                         <div className="card-body">
                                             <h5 className="card-title mobile-small">Class wise from I to X</h5>
