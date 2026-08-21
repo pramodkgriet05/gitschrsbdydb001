@@ -331,7 +331,7 @@ button:focus-visible {
 
     .std-code-title {
         font-size:14px !important;
-        margin-left: 185px !important;
+        margin-left: 220px !important;
 
         
     }
@@ -339,18 +339,18 @@ button:focus-visible {
     .std-code-input {
         width: 120px !important;
         height:25px ;
-         margin-left: 170px !important; 
+         margin-left: 200px !important; 
          font-size: 10px;
         
     }
     .snf{
-       margin-left: 75px !important;
+       margin-left: 95px !important;
        color: red;
 
     }
     .sf{
 
-      margin-left: 170px !important;
+      margin-left: 190px !important;
        color: green;
 
     }
@@ -394,6 +394,7 @@ button:focus-visible {
 
    .mobile-small {
         font-size: 12px;
+       
     }
     .mobile-hide {
         display: none;
