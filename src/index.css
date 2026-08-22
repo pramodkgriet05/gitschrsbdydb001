@@ -133,7 +133,7 @@ button:focus-visible {
     border-radius: 1%
   }
 
-  .profile_pic3
+  .profile_pic-std
   {
      display: block;
     margin-left: 0px;
@@ -306,12 +306,23 @@ button:focus-visible {
         margin-top: 70px!important;
       }
 
+       .mobile-card-9{
+
+         width: 200px !important; 
+
+       }
+       .c-b-9{
+         margin-bottom: 15px;
+       }
+
       @media (max-width: 768px) {
     .school-title {
         font-size: 35px;
         
     }
 }
+
+
       
 
 @media (max-width: 768px) {
@@ -406,8 +417,7 @@ button:focus-visible {
 
 
    .mobile-small {
-        font-size: 12px;
-         
+        font-size: 18px;
         margin-left: 30px;
         margin-top: 5px;
        
@@ -418,29 +428,92 @@ button:focus-visible {
     .mobile-photo-data {
         display: flex;
     }
-     .mobile-card {
-        width: 120px !important;
+
+    /*-----------------------------------------------*/
+    /*  col-12 col-md-4   */
+
+    .mobile-small {
+        font-size: 18px; 
+        margin-left: 30px;
+        margin-top: 5px; 
     }
-    .mrgt{
-      margin-top: 25px!important;
-      margin-left: 25px!important;
-     
-      
+     .mobile-card {
+        width: 130px !important;
     }
     .c2
     {
-      margin-top: 25px!important;
-      margin-left: 80px!important;
+      margin-top: 35px!important;
+      margin-left: 10px!important;
      
 
     }
     .c21
     {
       
-      margin-left: 70px!important;
-     
+       
+    }
+    .profile_pic1 {
+      
+        width: 80px !important;
+        height: 100px !important;
+    }
+    .card-row {
+        column-gap: 10px;
+    }
+    .hm-lg-button-c {
+       font-size: 13px !important;
+        padding: 2px 4px !important;
+        margin-bottom: 10px;
+    }
+    .mobile-small {
+        font-size: 12px; 
+        margin-top: 5px;
+       
+    }
+    .cd-t{
+      font-size: 15px; 
+    }
+    .profile_pic1-cd-sm{
+       width: 40px !important;
+        height: 50px !important;
 
     }
+
+    .mobile-card-9 {
+        width: 90px !important;
+    }
+    .gap-9{
+      margin-left: 5px!important;
+    }
+
+    .c-pc-9{
+      margin-top: 4px;
+      margin-left: 20px;
+
+    }
+    .b-9{
+      font-size: 7px !important;
+        padding: 5px 5px !important;
+        margin-bottom: 10px!important;
+    }
+    .u-9{
+      margin-top: 2px;
+    }
+    .c-9{
+       font-size: 20px !important;
+    }
+
+
+
+
+    /*-------------------------------------------------*/
+    .mrgt{
+      margin-top: 35px!important;
+      margin-left: 25px!important;
+     
+      
+    }
+    
     .mrgs-c{
       
       margin-left: 30px!important;
@@ -453,6 +526,11 @@ button:focus-visible {
     }
     .card-row {
         column-gap: 10px;
+    }
+
+    .dspnun
+    {
+        display: none;
     }
      
 

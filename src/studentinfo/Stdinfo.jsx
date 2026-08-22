@@ -194,25 +194,27 @@ async function stdcode(e)
                             </h6>*/}
                     </div> 
                     
-                            <div className="col-4">
+                            <div className="col-6 col-md-4">
                                 <h3 className="mobile-small mrgt" >Teacher Update Records</h3>
                                 <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
-                                        <div className="card-body">
-                                            <h5 className="card-title mobile-small ">Class wise from I to X</h5>
-                                            
-                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button">Click Here</a>
+                                        <div className="text-center">
+                                            <h5 className="card-title cd-t ">Class wise from I to X</h5>
+                                        </div>  
+                                         <div className="text-center"> 
+                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button-c">Click Here</a>
                                         </div>
                                 </div>
                             </div>
-                            <div className="col-4">
+                            <div className="col-6 col-md-4">
                                 <h3 className="mobile-small  c2" >Student View Records</h3>
                                 <div className="card mobile-card c21  "  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
-                                        <div className="card-body">
-                                            <h5 className="card-title mobile-small">Class wise from I to X</h5>
-                                            
-                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button ">Click Here</a>
+                                        <div className="text-center">
+                                            <h5 className="card-title cd-t">Class wise from I to X</h5>
+                                        </div>
+                                        <div className="text-center"> 
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c ">Click Here</a>
                                         </div>
                                 </div>
                             </div>

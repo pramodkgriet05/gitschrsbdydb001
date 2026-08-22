@@ -123,16 +123,14 @@ async function stdcode(e)
         return(
             <div className="container">
                  <div className="row">
-                    <div className="col-12">
-                  <h1  className="school-title">St'Martins school</h1>
-                  </div>
-
-                    
+                        <div className="col-12">
+                        <h1  className="school-title">St'Martins school</h1>
+                    </div>
                 </div>
                 
                 <div className="flex-gried mt-2">
                     <div>
-                        <h6 className="mt-2"> Hii,</h6> 
+                        <h6 className="mt-2"> Hi,</h6> 
                         <h6 >{userName} </h6>
                     </div>
 
@@ -193,27 +191,30 @@ async function stdcode(e)
                                 Height: {window.innerHeight}px
                             </h6>*/}
                     </div> 
+
                     
-                            <div className="col-4">
+                            <div className="col-6 col-md-4">
                                 <h3 className="mobile-small mrgt" >Teacher Update Records</h3>
                                 <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
-                                        <div className="card-body">
-                                            <h5 className="card-title mobile-small ">Class wise from I to X</h5>
-                                            
-                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button">Click Here</a>
-                                        </div>
+                                        <div className="text-center">
+                                            <h5 className="card-title cd-t  ">Class wise from I to X</h5>
+                                         </div >   
+                                            <div className="text-center">
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            </div>                                         
                                 </div>
                             </div>
-                            <div className="col-4">
+                            <div className="col-6 col-md-4">
                                 <h3 className="mobile-small  c2" >Student View Records</h3>
                                 <div className="card mobile-card c21  "  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
-                                        <div className="card-body">
-                                            <h5 className="card-title mobile-small">Class wise from I to X</h5>
-                                            
-                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button ">Click Here</a>
-                                        </div>
+                                       
+                                            <h5 className="card-title cd-t">Class wise from I to X</h5>
+                                            <div className="text-center">
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            </div>
+                                        
                                 </div>
                             </div>
                          
