@@ -53,10 +53,22 @@ font-size: 12px;
 }
 
 .sres-10{
-    font-size: 2px!important;
+    font-size: 10px!important;
     padding: 5px 7px!important;
 }
+.sa1-10{
+    font-size: 7px!important;
+     padding: 5px 7px!important;
+    
+}
+.sa1-gp-10{
+    margin-left: 5px!important; 
+}
 
+
+}
+.sa1-gp-10{
+    margin-left: 15px;
 
 }
 

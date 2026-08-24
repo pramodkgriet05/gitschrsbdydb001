@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import api from "../api/Interaxios";
 
 function Attendance({stdid1,section1})
 {
@@ -30,7 +31,7 @@ function Attendance({stdid1,section1})
         async function attendacepull()
         {
                 //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
-                let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                let apiresponse=await api.post(`/std/attn/get`,data,{headers:{Authorization:token1}})
 
                 console.log(apiresponse)
                 setattendata(apiresponse.data)
