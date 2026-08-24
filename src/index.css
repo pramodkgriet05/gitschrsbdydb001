@@ -315,12 +315,8 @@ button:focus-visible {
          margin-bottom: 15px;
        }
 
-      @media (max-width: 768px) {
-    .school-title {
-        font-size: 35px;
-        
-    }
-}
+
+      
 
 
       
@@ -328,7 +324,7 @@ button:focus-visible {
 @media (max-width: 768px) {
 
     .school-title {
-        margin-left: auto;
+        margin-left: 45px;
         margin-top: 25px;
         font-size: 35px;
     }

@@ -26,6 +26,10 @@ function Std_info__c_update()
                         localStorage.clear()
                         window.location="/"
                     }
+                    function home_fun()
+                    {
+                        window.location="/"
+                    }
                    
     return(
              <div className="container">
@@ -37,17 +41,17 @@ function Std_info__c_update()
                              </div>
 
                              <div className="flex-gried mt-2">
-            <div>
-                <h6 className="mt-2"> Hi,</h6> 
-                <h6 >{userName} </h6>
-            </div> 
-            <div className="button-area">
-        
-                    <button className="btn btn-primary mt-2 ms-5  hm-lg-button " onClick={e=>home_fun(true)}>Home</button>
-                    <button className="btn btn-primary mt-2 ms-3  hm-lg-button " onClick={e=>logout()}>logout</button>
+                                <div>
+                                    <h6 className="mt-2"> Hi,</h6> 
+                                    <h6 >{userName} </h6>
+                                </div> 
+                            <div className="button-area">
+                        
+                                    <button className="btn btn-primary mt-2 ms-5  hm-lg-button " onClick={e=>home_fun(true)}>Home</button>
+                                    <button className="btn btn-primary mt-2 ms-3  hm-lg-button " onClick={e=>logout()}>logout</button>
 
-            </div>
-        </div>
+                            </div>
+                         </div>
                      
             
 
@@ -182,16 +186,16 @@ function Std_info__c_update()
                 </div>
             </div>
             <div className="col-4 col-md-2">
-                <h3 className="c-9 mrgt" >class 5</h3>
+                <h3 className="c-9 mrgt" >class 10</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
                         <div className="text-center">
                             <h5 className="card-title cd-t u-9 ">update</h5>
                         </div>  
                         <div className="text-center"> 
-                            <Link to="/std_info/c1/u/5/A" className="btn btn-primary b-9 me-2 c-b-9">5A</Link>
-                            <Link to="/std_info/c1/u/5/B" className="btn btn-primary b-9 me-2 c-b-9">5B</Link>
-                            <Link to="/std_info/c1/u/5/C" className="btn btn-primary b-9 c-b-9">5C</Link>
+                            <Link to="/std_info/c1/u/10/A" className="btn btn-primary b-9 me-2 c-b-9">10A</Link>
+                            <Link to="/std_info/c1/u/10/B" className="btn btn-primary b-9 me-2 c-b-9">10B</Link>
+                            <Link to="/std_info/c1/u/10/C" className="btn btn-primary b-9 c-b-9">10C</Link>
                         </div>
                 </div>
             </div>                                   
