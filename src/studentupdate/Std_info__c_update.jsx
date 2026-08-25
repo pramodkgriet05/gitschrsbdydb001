@@ -53,13 +53,15 @@ function Std_info__c_update()
                             </div>
                          </div>
                      
-            
+         {/* <Link to="/stdinfo/dailyupdates/2026/1/A" className="btn btn-primary me-2">1 A</Link>
+                                        <Link to="/stdinfo/dailyupdates/2026/1/B" className="btn btn-primary  me-2">1 B</Link>
+                                        <Link to="/stdinfo/dailyupdates/2026/1/C" className="btn btn-primary ">1 C</Link>    */}
 
             
 
 <div className="row mt-5 ">
 
-    <div className="col-4 col-md-2">
+    <div className="col-4 col-md-2 ">
                 <h3 className="c-9 mrgt" >class 1</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -73,7 +75,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1 ">
                 <h3 className="c-9 mrgt" >class 2</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -87,7 +89,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 3</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -101,7 +103,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 4</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -115,7 +117,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 5</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -129,7 +131,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-<div className="col-4 col-md-2">
+<div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 6</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -143,7 +145,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 7</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -157,7 +159,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 8</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -171,7 +173,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 9</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>
@@ -185,7 +187,7 @@ function Std_info__c_update()
                         </div>
                 </div>
             </div>
-            <div className="col-4 col-md-2">
+            <div className="col-4 col-md-2 stdinfo-mf stdinfo-mf1">
                 <h3 className="c-9 mrgt" >class 10</h3>
                 <div className="card mobile-card-9 gap-9"  style={{width: '18rem'}} >
                         <img src={profile_pic} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9" alt="..."/>

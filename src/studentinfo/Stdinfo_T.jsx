@@ -90,7 +90,7 @@ let role=GET_ROLE()
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/c/update" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c/update" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ let role=GET_ROLE()
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">pic & videos</h5>
                                             
-                                            <a href="/stdinfo/c1/u/2026/sports" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c1/u/2026/sports" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ let role=GET_ROLE()
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/c1/u/2026/extracurricular" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c1/u/2026/extracurricular" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@ let role=GET_ROLE()
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/c1/u/2026/fees" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c1/u/2026/fees" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -154,26 +154,26 @@ let role=GET_ROLE()
 
          { (role==="TEACHER"||role==="ADMIN")&&( 
                             <div className="col-6 col-md-4">
-                                <h3 className="mobile-small mrgt" >Daily Updates</h3>
+                                <h3 className="mobile-small mrgt c-mt " >Daily Updates</h3>
                                 <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
                                         <img src={doc} className="  profile_pic1 shadow " alt="..."/>
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/c1/u/2026/dailyupdates" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c1/u/2026/dailyupdates" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
      )} 
                                      { (role==="TEACHER"||role==="ADMIN")&&( 
                             <div className="col-6 col-md-4">
-                                <h3 className="mobile-small mrgt c2" >School User List</h3>
+                                <h3 className="mobile-small mrgt c2 c-mt" >School User List</h3>
                                 <div className="card mobile-card mrgs-c c21"  style={{width: '18rem'}} >
                                         <img src={sl} className="  profile_pic1 shadow " alt="..."/>
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/2026/s/userlist" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/2026/s/userlist" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -187,13 +187,13 @@ let role=GET_ROLE()
     </div>
      { (role==="TEACHER"||role==="ADMIN")&&( 
                             <div className="col-6 col-md-4">
-                                <h3 className="mobile-small mrgt c2" >ACTIVITY BY CLASS</h3>
+                                <h3 className="mobile-small mrgt c2 c-mt" >ACTIVITY BY CLASS</h3>
                                 <div className="card mobile-card mrgs-c c21"  style={{width: '18rem'}} >
                                         <img src={abc} className="  profile_pic1 shadow " alt="..."/>
                                         <div className="text-center">
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                             
-                                            <a href="/stdinfo/c1/u/ac/2026/dailyactivities" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/c1/u/ac/2026/dailyactivities" className="btn btn-primary hm-lg-button-c c-mb">Click Here</a>
                                         </div>
                                 </div>
                             </div>

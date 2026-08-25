@@ -202,7 +202,7 @@ async function stdcode(e)
                                             <h5 className="card-title cd-t ">Class wise from I to X</h5>
                                         </div>  
                                          <div className="text-center"> 
-                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button-c mb-std">Click Here</a>
                                         </div>
                                 </div>
                             </div>
@@ -214,7 +214,7 @@ async function stdcode(e)
                                             <h5 className="card-title cd-t">Class wise from I to X</h5>
                                         </div>
                                         <div className="text-center"> 
-                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c ">Click Here</a>
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c mb-std ">Click Here</a>
                                         </div>
                                 </div>
                             </div>

@@ -427,10 +427,10 @@ function Attendance({stdid1,section1})
 
                          console.log("no error")
                         // await axios.post(`http://localhost:8080/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
-                         await axios.post(`/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
+                         await api.post(`/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
 
                          //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
-                         let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                         let apiresponse=await api.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
 
                          console.log(apiresponse)
                          setattendata(apiresponse.data)

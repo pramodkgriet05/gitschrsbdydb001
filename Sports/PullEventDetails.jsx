@@ -215,9 +215,17 @@ async function submitapi1()
     return(
                 <div className="container">
                   <div>
-                    <div className="d-flex">
-                  <h1> School Name</h1><h1> Date</h1>
-                  </div>                  
+                    <div className="col-12 "  > 
+                        <h1 className="school-title">School Name</h1>
+                    </div>      
+                    <div className="d-flex ">
+                       <h5 className="ms-5 fz-13" >Academic Year:{year}</h5>
+                      <h5 className="ms-5 fz-13" >Event Type: {type}</h5>
+                      <h5 className="ms-5 fz-13" >Event Name:  {ename}</h5>
+
+
+                    </div>          
+
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
@@ -225,9 +233,9 @@ async function submitapi1()
                          <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3">Back</Link>
                          <Link  to={`/`} className="btn btn-primary ms-3">Home</Link>
 
-                      <h5 className="ms-5" >Academic Year:{year}</h5>
-                      <h5 className="ms-5" >Event Type: {type}</h5>
-                      <h5 className="ms-5" >Event Name:  {ename}</h5>
+                      <h5 className="ms-5 dn" >Academic Year:{year}</h5>
+                      <h5 className="ms-5 dn" >Event Type: {type}</h5>
+                      <h5 className="ms-5 dn" >Event Name:  {ename}</h5>
 
                          
                     </div>
@@ -258,8 +266,8 @@ async function submitapi1()
 
                            <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
                                         {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
-                                            <div className="card"  style={{width: '5rem',height: '5rem'}} >
-                                            <img   key={index} src={image}  className=" shadow" alt="" width="150"  height="170"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+                                            <div   >
+                                            <img   key={index} src={image}  className=" shadow pic-10" alt="" width="150"  height="170"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
 
 
                                                 <div className="card-body">

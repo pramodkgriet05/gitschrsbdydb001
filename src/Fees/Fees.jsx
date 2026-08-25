@@ -258,26 +258,26 @@ async function submitapi()
                    return(
          <div className="container ">
               
-                <div className="row">
+                 <div className="row">
                   <div  style={{position:"relative"}}>
-                          <Link  to={`/stdinfo`} style={{ position:"absolute", top:"100px",right:"100px"}}className="btn btn-primary ms-3">Back</Link>
-                          <Link  to={`/`} style={{ position:"absolute", top:"100px",right:"10px"}}className="btn btn-primary ms-3">Home</Link>
+                          <Link  to={`/stdinfo`} style={{ position:"absolute",  right:"100px"}}className="btn btn-primary ms-3 btn-12 hm-lg-button">Back</Link>
+                          <Link  to={`/`} style={{ position:"absolute", right:"10px"}}className="btn btn-primary ms-3 btn-12 hm-lg-button">Home</Link>
                   </div>
                    
-                        <div className="col-12   d-flex justify-content-center align-items-center" style={{ width:"50vh",height: "30vh"}}>
+                        <div className="col-12 "  >
                         
-                        <h1>School Name </h1>
+                        <h1 className="school-title">School Name</h1>
                         </div>
-                        <div>
-                            <h1> Department of Fees 2025-26</h1>
+                          <div>
+                            <h1 className="mt-12 school-title-1 mt1-12"> Document of {type} 2025-26</h1>
                         </div>
                         </div>
                         <div className="row mt-5">
                      
-                        <div className="   col-2">
-                            <h3>Academic Year</h3>
-                            <h3>Class:</h3>
-                            <h3>Section</h3>
+                        <div className="col-4 col-md-2">
+                            <h3 className="school-title-2">Academic Year</h3>
+                            <h3 className="school-title-2 mt-12">Class:</h3>
+                            <h3 className="school-title-2 mt-12">Section</h3>
                            
 
                             
@@ -286,14 +286,14 @@ async function submitapi()
                             
                         </div>
                          
-                        <div className="   col-2">
-                        <select className='form-control std_rec_add1 ' value={fees.acadamicyear} placeholder='select year' onChange={e=>setfees({...fees, acadamicyear:e.target.value})} >
-                        <option>select year</option>
-                        <option>2026</option>
-                        <option>2027</option>
-                        <option>2028</option>
+                        <div className="col-4 col-md-2">
+                        <select className='form-control std_rec_add1  ' value={fees.acadamicyear} placeholder='select year' onChange={e=>setfees({...fees, acadamicyear:e.target.value})} >
+                        <option className=" ">select year</option>
+                        <option className=" ">2026</option>
+                        <option className=" ">2027</option>
+                        <option className=" ">2028</option>
                         </select>
-                        <select className='form-control std_rec_add1 ' value={fees.class1} placeholder='select year' onChange={e=>setfees({...fees, class1:e.target.value})} >
+                        <select className='form-control std_rec_add1   ' value={fees.class1} placeholder='select year' onChange={e=>setfees({...fees, class1:e.target.value})} >
                         <option>select class</option>
                         <option>1</option>
                         <option>2</option>
@@ -306,7 +306,7 @@ async function submitapi()
                         <option>9</option>
                         <option>10</option>
                         </select>
-                        <select className='form-control std_rec_add1 ' value={fees.section} placeholder='select year' onChange={e=>setfees({...fees, section:e.target.value})} >
+                        <select className='form-control std_rec_add1  ' value={fees.section} placeholder='select year' onChange={e=>setfees({...fees, section:e.target.value})} >
                         <option>select section</option>
                         <option>A</option>
                         <option>B</option>
@@ -332,7 +332,7 @@ async function submitapi()
                 <div className="row">
                      <table className=" compact-table table table-sm align-middle table-striped table-hover">
                 <thead>
-                    <tr className="fw-bold" > 
+                    <tr className="fw-bold h-10 text-center" > 
 
                            <th >Rollno</th> 
                            <th>Photo</th>
@@ -358,14 +358,14 @@ async function submitapi()
                     {
                         pulleventdetailsdata.map((data, i)=>(
 
-                            <tr key={i}>
+                            <tr key={i} className="h-10 text-center">
                                  
                                     <td >
                                          {data.rollno}
                                     </td>
 
                                      <td style={{  textAlign:"center"}}>
-                                  <img src={data.imgdatasend} className="student-photo"/>
+                                  <img src={data.imgdatasend} className="student-photo pic-10"/>
                                     </td>
                                       
                                      <td style={{ textAlign:"center", fontSize:"20px"}}>

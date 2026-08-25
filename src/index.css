@@ -54,7 +54,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.stdinfo-mf{
+  margin-left: 20px;
+
+}
+
 @media (prefers-color-scheme: light) {
+
+
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -309,19 +316,40 @@ button:focus-visible {
        .mobile-card-9{
 
          width: 200px !important; 
+         
+
+       }
+       .c-mf-du{
+        margin-left:80px ;
 
        }
        .c-b-9{
          margin-bottom: 15px;
        }
-
-
-      
-
-
+       .c-mb{
+        margin-bottom: 20px;
+       }
+       .c-mt
+       {
+        margin-top: 20px;
+        
+       }
+       .std-13{
+    margin-left: 40px;
+    margin-top: 20px;
+  } 
       
 
 @media (max-width: 768px) {
+
+  .stdinfo-mf1{
+  margin-left: 0px;
+
+}
+  .std-13{
+    margin-left: 2px;
+    margin-top: 5px;
+  }
 
     .school-title {
         margin-left: 45px;
@@ -424,9 +452,13 @@ button:focus-visible {
     .mobile-photo-data {
         display: flex;
     }
+     
+    
+    
+
 
     /*-----------------------------------------------*/
-    /*  col-12 col-md-4   */
+    /*    */
 
     .mobile-small {
         font-size: 18px; 
@@ -477,6 +509,7 @@ button:focus-visible {
 
     .mobile-card-9 {
         width: 90px !important;
+        
     }
     .gap-9{
       margin-left: 5px!important;
@@ -526,8 +559,11 @@ button:focus-visible {
 
     .dspnun
     {
+        display: none!important;
+    }
+     
+}
+.dn {
         display: none;
     }
      
-
-}

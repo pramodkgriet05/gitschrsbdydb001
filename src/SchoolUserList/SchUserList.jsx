@@ -173,24 +173,24 @@ async function deleterow(stdrecord)
 
                     <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
                 <thead>
-                    <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Name</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Image</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Email</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>ROLE</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>DESIGNATION</td>
+                    <tr className="fw-bold h-10"  style={{ textAlign:"center", fontSize:"20px"}}> 
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Name</td> 
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Image</td> 
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Email</td>
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>ROLE</td>
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>DESIGNATION</td>
                          
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>CLASS TEACHER</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>MOBILE   </td>
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>CLASS TEACHER</td>
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>MOBILE   </td>
 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>IS ACTIVE</td>
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>IS ACTIVE</td>
                             {/* <td style={{ textAlign:"center", fontSize:"20px"}}>Address</td>
                             <td style={{ textAlign:"center", fontSize:"20px"}}>Mobile</td>
                             <td style={{ textAlign:"center", fontSize:"20px"}}>Father</td>
                             <td style={{ textAlign:"center", fontSize:"20px"}}> Gaurdian</td>
                             <td style={{ textAlign:"center", fontSize:"20px"}}>ClassTeacher</td>*/}
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Delete</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Edit</td>
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Delete</td> 
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Edit</td>
                             
                     </tr>
                 </thead>
@@ -198,37 +198,37 @@ async function deleterow(stdrecord)
        
                  {  
                     awsresposes.map((stdrecord, i)=>(
-                        <tr key={i}>
+                        <tr key={i} className="h-10">
                         <td  style={{width:"20px", textAlign:"center"}}> 
 
-                              {index===i?(<input value={updateeditcolmdata.name } onChange={(e)=>updateName(e)}  style={{width:"100px",fontSize:"15px"}} />):    <h4 style={{fontSize:"20px"}} > {stdrecord.name }  </h4>  }
+                              {index===i?(<input value={updateeditcolmdata.name } onChange={(e)=>updateName(e)}  style={{width:"100px",fontSize:"15px"}} />):    <h4 className="fw-bold h-10" style={{fontSize:"20px"}} > {stdrecord.name }  </h4>  }
                             </td> 
 
-                            <td  style={{width:"40px", textAlign:"center"}}> 
-                                <img src={stdrecord.imgurl} className="student-photo"/>
+                            <td className="fw-bold h-10" style={{width:"40px", textAlign:"center"}}> 
+                                <img src={stdrecord.imgurl} className="student-photo pic-10"/>
                             </td> 
 
 
                             <td  style={{width:"60px", textAlign:"center"}}>
-                          <h4 style={{fontSize:"20px"}} > {stdrecord.email }  </h4>
+                          <h4  className="fw-bold h-10" style={{fontSize:"20px"}} > {stdrecord.email }  </h4>
 
                                   
                             </td>
                             
-                        <td style={{width:"100px", textAlign:"center", color:"red"}}>
-                               <h6> {(stdrecord.role)}  </h6>   
+                        <td  style={{width:"100px", textAlign:"center", color:"red"}}>
+                               <h6 className="fw-bold h-10"> {(stdrecord.role)}  </h6>   
                                                                                                                                                              
                         </td>
-                        <td style={{width:"40px", textAlign:"center"}}>
+                        <td className="fw-bold h-10" style={{width:"40px", textAlign:"center"}}>
                             {index===i?(<select value={updateeditcolmdata.designation} onChange={(e)=>updatedesignation(e)} style={{width:"100px",fontSize:"15px"}} >
                                        <option>TEACHER</option>
                                        <option>STAFF</option>
                                        <option>STUDENT</option>
 
-                            </select>):  <h6  >  {(stdrecord.designation)}   </h6>}
+                            </select>):  <h6 className="fw-bold h-10" >  {(stdrecord.designation)}   </h6>}
             
                            </td>
-                        <td style={{width:"40px", textAlign:"center"}}>
+                        <td className="fw-bold h-10" style={{width:"40px", textAlign:"center"}}>
                              {index===i?(<select value={updateeditcolmdata.classteacher2 } onChange={(e)=>updateclassteacher(e)}  style={{width:"50px",fontSize:"15px"}}>
                                 
                                      <option>1</option>
@@ -243,22 +243,22 @@ async function deleterow(stdrecord)
                                      <option>10</option>
 
                                 
-                                 </select>):  <h6>   {(stdrecord.classteacher2)}  </h6>  }
+                                 </select>):  <h6 className="fw-bold h-10">   {(stdrecord.classteacher2)}  </h6>  }
                        </td>
 
                         
-                        <td style={{width:"40px", textAlign:"center"}}>   
-                              <h6>   {(stdrecord.mobile)}  </h6>  
+                        <td   style={{width:"40px", textAlign:"center"}}>   
+                              <h6 className="fw-bold h-10">   {(stdrecord.mobile)}  </h6>  
         
                         </td>
-                       <td style={{width:"40px", textAlign:"center"}}>
+                       <td  style={{width:"40px", textAlign:"center"}}>
                             {index===i?(<select value={updateeditcolmdata.otpverified} onChange={(e)=>updateisactive(e)} style={{width:"100px",fontSize:"15px"}} >
                                        
                                        <option>false</option>
                                        <option>true</option>
 
 
-                            </select>):  <h6 style={{color:"red"}} >  {String(stdrecord.otpverified)}   </h6>}
+                            </select>):  <h6 className="fw-bold h-10" style={{color:"red"}} >  {String(stdrecord.otpverified)}   </h6>}
             
                            </td>
                           {/* <td style={{width:"40px", textAlign:"center"}}>
@@ -270,12 +270,12 @@ async function deleterow(stdrecord)
                              
                              </td>
                          */}
-                        <td  style={{width:"40px", textAlign:"center"}}>  <button className="btn btn-primary" onClick={e=>deleterow(stdrecord)}>Delete</button></td>
+                        <td  className="fw-bold h-10"  style={{width:"40px", textAlign:"center"}}>  <button className="btn btn-primary hm-lg-button" onClick={e=>deleterow(stdrecord)}>Delete</button></td>
 
                          <td  style={{width:"40px", textAlign:"center"}}>  {index === i ? (
-                  <button className="btn btn-success" onClick={() => saveRow1()}>Save</button>
+                  <button className="btn btn-success hm-lg-button" onClick={() => saveRow1()}>Save</button>
                 ) : (
-                  <button className="btn btn-primary" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
+                  <button className="btn btn-primary hm-lg-button" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
                 )}</td>
                         </tr>
                     ))
