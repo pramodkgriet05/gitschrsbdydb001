@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { GET_USER_NAME } from "../Utils/Utils";
 import api from "../src/api/Interaxios";
+import Navbar from "../src/Navbar/Navbar";
 
 function PullEventDetails()
 {
@@ -216,12 +217,12 @@ async function submitapi1()
                 <div className="container">
                   <div>
                     <div className="col-12 "  > 
-                        <h1 className="school-title">School Name</h1>
+                        <Navbar /> 
                     </div>      
                     <div className="d-flex ">
-                       <h5 className="ms-5 fz-13" >Academic Year:{year}</h5>
-                      <h5 className="ms-5 fz-13" >Event Type: {type}</h5>
-                      <h5 className="ms-5 fz-13" >Event Name:  {ename}</h5>
+                       <h5 className="ms-5 fz-13 mo h-10 " >Academic Year:{year}</h5>
+                      <h5 className="ms-5 fz-13 mo h-10" >Event Type: {type}</h5>
+                      <h5 className="ms-5 fz-13 mo h-10" >Event Name:  {ename}</h5>
 
 
                     </div>          
@@ -229,13 +230,13 @@ async function submitapi1()
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
-                        <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button>
-                         <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3">Back</Link>
-                         <Link  to={`/`} className="btn btn-primary ms-3">Home</Link>
+                        <button   className="btn btn-primary ms-3 hm-lg-button" onClick={submitapi1}>Add</button>
+                         <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3 hm-lg-button">Back</Link>
+                         <Link  to={`/`} className="btn btn-primary ms-3 hm-lg-button">Home</Link>
 
-                      <h5 className="ms-5 dn" >Academic Year:{year}</h5>
-                      <h5 className="ms-5 dn" >Event Type: {type}</h5>
-                      <h5 className="ms-5 dn" >Event Name:  {ename}</h5>
+                      <h5 className="ms-5 do" >Academic Year:{year}</h5>
+                      <h5 className="ms-5 do" >Event Type: {type}</h5>
+                      <h5 className="ms-5 do" >Event Name:  {ename}</h5>
 
                          
                     </div>
@@ -255,9 +256,6 @@ async function submitapi1()
                                             </div>
                                         )}
                <div className="col-12"></div>
-
-                      
-                
                       {
                           disimagess.map((image,index) =>(
 

@@ -68,7 +68,7 @@ function Stdpullgetbysection({classid1,sectionid1})
     
     return( 
          <div>
-            <h1 className="mt-5">pull data Class: { classid1} - Section:  { sectionid1}</h1>
+            <h1 className="mt-5 h-10">pull data Class: { classid1} - Section:  { sectionid1}</h1>
             <div>
             <h3 className="text-danger">{stddelapimsg}</h3>
             </div>
@@ -80,7 +80,7 @@ function Stdpullgetbysection({classid1,sectionid1})
   
             <table className=" mt-5 compact-table table table-sm align-middle table-striped table-hover"> 
                 <thead>
-                    <tr className="fw-bold"> 
+                    <tr className="fw-bold h-10"> 
                            <td>rollno</td> 
                            <td>photo</td>
                             <td>Name</td>
@@ -101,12 +101,12 @@ function Stdpullgetbysection({classid1,sectionid1})
        
                  {  
                     stdinfo.map((stdrecord, i)=>(
-                        <tr key={i}>
+                        <tr key={i} className="h-10">
                         <td > 
                              {stdrecord.rollno }  
                             </td> 
                              <td  style={{width:"40px", textAlign:"center"}}>
-                                  <img src={stdrecord.imgdata} className="student-photo"/>
+                                  <img src={stdrecord.imgdata} className="student-photo pic-10"/>
                             </td>
 
 

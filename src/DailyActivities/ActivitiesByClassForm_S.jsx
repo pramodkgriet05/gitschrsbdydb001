@@ -361,13 +361,13 @@ async function submitapi()
     <div className="row">
         
                     <div className="col-12">
-                    <h1 style={{ marginLeft:"480px",marginTop: "105px" }}>Activities By Class 2026-27</h1>
+                    <h1 className="du1-t-13 fnt-abc" style={{ marginLeft:"480px",marginTop: "15px" }}>Activities By Class 2026-27</h1>
                     </div>
     </div>
 
     <div className="row mt-5">
                           
-                        <div className="   col-2">
+                        <div className="col-4 col-md-2">
                              
                             <h3>Class:</h3>
                             <h3>Section</h3>
@@ -379,7 +379,7 @@ async function submitapi()
                             
                         </div>
                          
-                        <div className="   col-2">
+                        <div className="col-5 col-md-2">
                        
                         <select className='form-control std_rec_add1 ' value={dailyupdates.class1} placeholder='select year' onChange={e=>setdailyupdates({...dailyupdates, class1:e.target.value})} >
                         <option>select class</option>
@@ -412,21 +412,21 @@ async function submitapi()
         {/* this div is about button month and sub */}
         <div className="col-12" style={{marginTop:'100px'}}>
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(1,"January" )}>January</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 2,"February")}>February</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(3,"March")}>March</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(4,"April")}>April</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(1,"January" )}>January</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 2,"February")}>February</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(3,"March")}>March</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(4,"April")}>April</button>
 
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(5,"May" )}>May</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(6,"June")}>June</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(7,"July")}>July</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(8,"August")}>August</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(5,"May" )}>May</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(6,"June")}>June</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(7,"July")}>July</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(8,"August")}>August</button>
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 10,"October")}>October</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(11,"November")}>November</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(12,"December")}>December</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 10,"October")}>October</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(11,"November")}>November</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(12,"December")}>December</button>
 
 
        </div>
@@ -437,13 +437,13 @@ async function submitapi()
         {showsubject==true&&
         <div>
         
-        <button className='btn btn-primary mt-2' style={{marginTop:'20px'}}onClick={e=>subject( "Hindi")  }>Hindi</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Telugu")  }>Telugu</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "English")  }>English</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Maths")  }>Maths</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Science")  }>Science</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Social")  }>social</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "EV")  }>EV</button>
+        <button className='btn btn-primary mt-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Hindi")  }>Hindi</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Telugu")  }>Telugu</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "English")  }>English</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Maths")  }>Maths</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Science")  }>Science</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Social")  }>social</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "EV")  }>EV</button>
         </div>
         }
         </div>
@@ -474,21 +474,28 @@ async function submitapi()
       <div className="row">
 
         {
-                    awsresposes.map((awsrespose,i) => (   
-                                                        <div className="col-4  " key={i} style={{ marginTop: "170px" }} >
-                                                            <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                                                                <div className="card"  style={{width: '14rem',height: '20rem'}} >
-                                                                <img src={awsrespose.urlthumbnail} className="  profile_pic2 shadow " alt="..."/> 
-                                                                    <div className="card-body">
-                                                                        <h5 className="card-title"> </h5>
-                                                                        <p className="card-text"> {awsrespose.description} </p>
-                                                                        <p className="card-text">Project By: {awsrespose.updatedby } </p>
-                                                                        <button className='btn btn-primary mt-2' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+                   awsresposes.length>0 ?  (
+                    awsresposes.map((awsrespose,i) => (  
+                                                         <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                                                            <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                                                                <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                                                                <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
+                                                                    <div className="text-center">
+                                                                         
+                                                                         <p className="card-title cd-t u-9"> {awsrespose.description} </p>
+                                                                        <p className="card-title cd-t u-9">Project By: {awsrespose.updatedby } </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button className='btn btn-primary mt-2 c-btn' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+                                                                        <button className='btn btn-primary mt-2  c-btn c-btn-1' onClick={e=>deleteeventdetails(awsrespose)}>Delete</button>
+
                                                                     </div>
                                                                 </div>
                                                         </div>
-                                                         ))
-                                                        }
+                                                        )))
+                                                         :
+                                                         <h1 className="school-title-1"> No PHOTO data found</h1>
+        }
                   
 
 

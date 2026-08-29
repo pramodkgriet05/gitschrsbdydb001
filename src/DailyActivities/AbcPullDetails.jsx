@@ -282,7 +282,7 @@ async function compressImage(file) {
                               <h5 className="ms-5 dspnun" >Event Name:  {eventname} </h5>
                               <h5 className="ms-5 dspnun" >std.Name:  {projectstdname}  </h5> 
                             </div>
-                            <div class="card-body " style={{  height: '600px', overflow: "auto"  }} >
+                            <div class="card-body " style={{  height: '300px', overflow: "auto"  }} >
                               {/* <h5 class="card-title">Special title treatment</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 

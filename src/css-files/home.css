@@ -13,7 +13,22 @@
     height:auto;
    }
 
-   
+   .do {
+    display: block;
+}
+.mo{
+    display: none !important;
+    
+}
+
+@media (max-width: 768px) {
+    .do {
+        display: none !important;
+    }
+    .mo {
+    display: block!important;
+}
+}
 
 
 

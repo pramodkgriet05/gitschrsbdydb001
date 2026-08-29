@@ -5,6 +5,7 @@ import cricketpic from "../../../images/cricket.jpg"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { GET_USER_NAME } from "../../../Utils/Utils";
 import api from "../../api/Interaxios";
+import Navbar from "../../Navbar/Navbar";
 
 
 function Sportspage_S()
@@ -201,6 +202,18 @@ async function submitapi()
                         }
                         });              }
 
+                        async function pulleventdetailsvideo(awsrespose)
+              {
+                console.log("data",awsrespose) 
+                         navigate(`/s/stdinfo/c1/u/${year}/${type}/video`, {
+                         state: {
+                            s3path:`${awsrespose.eventuniquename}`,
+                             eventname:`${awsrespose.eventname}`
+                         }
+                         });           
+                        
+                      }
+
 
              /*async function pulleventdetails1(awsrespose)
              {
@@ -249,6 +262,7 @@ async function selectvideofun()
                     setawsresposes(apiresponse.data) 
 
 } 
+ 
    
     return(
 
@@ -256,60 +270,74 @@ async function selectvideofun()
 
             <div className="container ">
               
-                <div className="row">
-                  <div  style={{position:"relative"}}>
-                          <Link  to={`/stdinfo`} style={{ position:"absolute", top:"100px",right:"100px"}}className="btn btn-primary ms-3">Back</Link>
-                          <Link  to={`/`} style={{ position:"absolute", top:"100px",right:"10px"}}className="btn btn-primary ms-3">Home</Link>
-
-
-                           </div>
-                   
-                        <div className="col-12   d-flex justify-content-center align-items-center" style={{ width:"50vh",height: "30vh"}}>
-                        
-                        <h1>School Name </h1>
-                        </div>
+                <div className="row"> 
                          
-                       
+                       <Navbar />
                         
-
+                 </div>
                           <div>
-                            <h1> Document of {type} 2025-26</h1>
-                        </div>
+                            <h1 className="h-10"> Document of {type} 2025-26</h1>
+                        
                         </div>
 
                          <div className="mt-5">
-                  <button  className="btn btn-primary mt-2" onClick={e=>selectphotofun()}>PHOTO</button>
-                  <button  className="btn btn-primary mt-2 ms-5" onClick={e=>selectvideofun()}>VIDEO</button> 
+                  <button  className="btn btn-primary mt-2  hm-lg-button" onClick={e=>selectphotofun()}>PHOTO</button>
+                  <button  className="btn btn-primary mt-2 ms-5  hm-lg-button" onClick={e=>selectvideofun()}>VIDEO</button> 
                 </div>
                         
                            
                          
 
-                <div className="row">
+                  <div>
+        {showvideo==true && <div className="row">
+                  {
+                    awsresposes.length>0 ?
+                    awsresposes.map((awsrespose,i)=>(
+                     <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                    <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                     <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                     <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
+
+                           <div className="text-center">               
+                            <h5 className="card-title cd-t u-9 "> {awsrespose.description} </h5>
+                          </div>
+                          <button className='btn btn-primary mt-2 c-btn-2' onClick={e=>pulleventdetailsvideo(awsrespose)}>click here</button> 
+                          </div>
+                      </div> 
+                    )) 
+                         :
+                        <h1 className="mt-5 school-title-1">No VIDEO Data Found</h1>
+                 }
+                 </div>}
+                 </div>
+
+                 <div className="row  ">
+
+                  {
+                  showphoto==true &&<div className="row">
                    
                  {
-                    awsresposes.map((awsrespose,i) => (   
-                                                        <div className="col-4  " key={i} style={{ marginTop: "170px" }} >
-                                                            <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                                                                <div className="card"  style={{width: '20rem',height: '20rem'}} >
-                                                                <img src={awsrespose.urlthumbnail} className="  profile_pic2 shadow " alt="..."/> 
-                                                                    <div className="card-body">
-                                                                        <h5 className="card-title"> </h5>
-                                                                        <p className="card-text"> {awsrespose.description} </p>
-                                                                    
-                                                                        <button className='btn btn-primary mt-2' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+                   awsresposes.length>0 ?  (
+                    awsresposes.map((awsrespose,i) => (  
+                                                         <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                                                            <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                                                                <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                                                                <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
+                                                                    <div className="text-center">
+                                                                         
+                                                                        <h5 className="card-title cd-t u-9 "> {awsrespose.description} </h5>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button className='btn btn-primary mt-2 c-btn' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+ 
                                                                     </div>
                                                                 </div>
                                                         </div>
-
-                                       
-                              
-                                
-
-                            ))
-
-
-                  }
+                                                        )))
+                                                         :
+                                                         <h1 className="school-title-1"> No PHOTO data found</h1>
+                                                        }
+                                                   </div>   }
                  </div>
                 
                         

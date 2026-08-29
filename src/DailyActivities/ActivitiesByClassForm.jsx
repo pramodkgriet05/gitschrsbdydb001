@@ -506,7 +506,6 @@ async function submitapi()
                                                                     </div>
                                                                     <div>
                                                                         <button className='btn btn-primary mt-2 c-btn' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
-                                                                        <button className='btn btn-primary mt-2  c-btn c-btn-1' onClick={e=>deleteeventdetails(awsrespose)}>Delete</button>
 
                                                                     </div>
                                                                 </div>

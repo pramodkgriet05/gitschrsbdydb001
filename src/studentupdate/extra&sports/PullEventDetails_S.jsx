@@ -34,6 +34,9 @@ let userName=GET_USER_NAME()
 
  let navigate=useNavigate()
 
+  
+    let ref7=useRef(null)
+
  console.log(year)
  console.log(type)
 
@@ -84,16 +87,12 @@ let userName=GET_USER_NAME()
 
   async function fetchData() {
 
-       
-
-    
-
    // let res = await axios.post(`http://localhost:8080/m/s/sportsall`,{path:data});
         //let res = await axios.post(`http://65.2.25.249:8080/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
-        let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+        //let res = await api.post(`/m/s/sportsall`,{path:data},{headers:{Authorization:token1}})
+        let res = await api.post(`/sports/pullall`,{path:data})
 
             //let res = await axios.post(`http://localhost:8080/api/m/s/sportsall`,{path:data},{headers:{Authorization:token1}});
-
 
     //console.log(res.data);
     console.log(res)
@@ -227,22 +226,28 @@ async function submitapi1()
 }
 
     return(
-
-                <div className="container">
+      <div className="container">
                   <div>
-                    <div className="d-flex">
-                  <h1> School Name</h1><h1> Date</h1>
-                  </div>                  
+                    <div className="col-12 "  > 
+                        <h1 className="school-title">School Name</h1>
+                    </div>      
+                    <div className="d-flex ">
+                       <h5 className="ms-5 fz-13 mo" >Academic Year:{year}</h5>
+                      <h5 className="ms-5 fz-13 mo" >Event Type: {type}</h5>
+                      <h5 className="ms-5 fz-13 mo" >Event Name:  {ename}</h5>
+
+
+                    </div>          
+
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
-                        {/* <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button> */}
-                         <Link  to={"/stdinfo/s"} className="btn btn-primary ms-3">Back</Link>
-                         <Link  to={"/stdinfo"} className="btn btn-primary ms-3">Home</Link>
+                          <Link  to={`/s1/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3 hm-lg-button">Back</Link>
+                         <Link  to={`/`} className="btn btn-primary ms-3 hm-lg-button">Home</Link>
 
-                      <h5 className="ms-5" >Academicc Year:{year}</h5>
-                      <h5 className="ms-5" >Event Type: {type}</h5>
-                      <h5 className="ms-5" >Event Name:  {ename}</h5>
+                      <h5 className="ms-5 dn do" >Academic Year:{year}</h5>
+                      <h5 className="ms-5 dn do" >Event Type: {type}</h5>
+                      <h5 className="ms-5 dn do" >Event Name:  {ename}</h5>
 
                          
                     </div>
@@ -250,11 +255,11 @@ async function submitapi1()
                       {/* <h5 class="card-title">Special title treatment</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
-                          {/* <div>
+                          <div>
                             <h4>Add more files</h4>
-                      <input type="file"  multiple className='form-control std_rec_add1'  ref={fileInputRef} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+                      <input type="file"  multiple ref={ref7} className='form-control std_rec_add1'  placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
                       </div>
-                       */}
+                      
                           <div className="col-12"></div>
                           {isUploading && (
                                             <div>
@@ -263,10 +268,8 @@ async function submitapi1()
                                         )}
                <div className="col-12"></div>
 
-                      {
-                disimagess.length > 0 ? (
-                  <div>
-                     
+                      
+                
                       {
                           disimagess.map((image,index) =>(
 
@@ -275,8 +278,8 @@ async function submitapi1()
 
                            <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
                                         {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
-                                            <div className="card"  style={{width: '13rem',height: '17rem'}} >
-                                            <img   key={index} src={image}  className="profile_pic2 shadow" alt=""    style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+                                            <div   >
+                                            <img   key={index} src={image}  className=" shadow pic-10" alt="" width="150"  height="170"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
 
 
                                                 <div className="card-body">
@@ -288,17 +291,7 @@ async function submitapi1()
                                             </div>
                                     </div>
                                                ))
-                      } 
-                      </div>):
-                      (
-                        <div>
-                          <h1>NO Data orinfo Available</h1>
-                          </div>
-                      ) 
-                    }
-
-
-
+                      }  
                       {
 
                          selectedIndex !== null && (
@@ -321,10 +314,12 @@ async function submitapi1()
                          
                     
                        </div>
-                    </div>
+                       </div>
                   </div>
                         </div>        
                 </div>
+
+                 
 
     )
 }

@@ -255,31 +255,37 @@ async function compressImage(file) {
 
         <div className="container">
                           <div>
-                            <div className="d-flex">
-                          <h1> School Name</h1><h1> </h1>
-                          </div> 
-                          <div className="row">
-                            <div className="col-4" style={{marginTop:"100px"}}>
-                              <h5 className="ms-5" >Academic Year: {acadamicyear}</h5>
-                              <h5 className="ms-5" >Event Type: Activity By class</h5>
-                              
-                              <h5 className="ms-5" >Class: {classid}/{sectionid} </h5>
-                              <h5 className="ms-5" >Subject: {subject} </h5>
+                             <diV>
+                              <Navbar />
+                             </diV>
 
+
+                          <div className="row">
+                            <div className="col-12 col-md-12 c-mt " >
+                              <h5 className="c-mt fnt2-abc " >Academic Year: {acadamicyear}</h5>
+                              <h5 className="fnt2-abc " >Event Type: Activity By classs</h5>
+                              
+                              <h5 className=" fnt2-abc" >Class: {classid}/{sectionid} </h5>
+                              <h5 className=" fnt2-abc" >Subject: {subject} </h5> 
                             </div>
+                            <div className="   ">
+                            <h5 className="fnt2-abc  " >Project Head:  {projecthead} </h5>
+                              <h5 className="fnt2-abc  " >Std.Code: {projectby}   </h5>
+                              <h5 className=" fnt2-abc " >Event Name:  {eventname} </h5>
+                            </div>  
                             
-                            </div>                 
+                            </div>                   
                             <div class="card" style={{ marginTop: "70px" }}>
                             <div class="card-header d-flex">
                               
                                  {/* <button   className="btn btn-primary ms-3 " onClick={submitapi1}>Add</button>  */}
-                                 <Link   to={`/stdinfo`} className="btn btn-primary ms-3">Back</Link>
-                                 <Link  to={"/stdinfo"} className="btn btn-primary ms-3">Home</Link>
+                                 <Link   to={`/stdinfo`} className="btn btn-primary ms-3 hm-lg-button">Back</Link>
+                                 <Link  to={"/stdinfo"} className="btn btn-primary ms-3 hm-lg-button">Home</Link>
         
-                              <h5 className="ms-5" >Project Head:  {projecthead} </h5>
-                              <h5 className="ms-5" >Std.Code: {projectby}   </h5>
-                              <h5 className="ms-5" >Event Name:  {eventname} </h5>
-                              <h5 className="ms-5" >std.Name:  {projectstdname}  </h5>
+                              <h5 className="ms-5 dspnun" >Project Head:  {projecthead} </h5>
+                              <h5 className="ms-5 dspnun" >Std.Code: {projectby}   </h5>
+                              <h5 className="ms-5 dspnun" >Event Name:  {eventname} </h5>
+                              <h5 className="ms-5 dspnun" >std.Name:  {projectstdname}  </h5> 
  
 
 
@@ -287,7 +293,7 @@ async function compressImage(file) {
         
                                  
                             </div>
-                            <div class="card-body " style={{  height: '600px', overflow: "auto"  }} >
+                            <div class="card-body " style={{  height: '300px', overflow: "auto"  }} >
                               {/* <h5 class="card-title">Special title treatment</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
@@ -312,10 +318,10 @@ async function compressImage(file) {
                                         
                                           // <img   key={index} src={image} alt="" width="150"  height="150"   style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
         
-                                   <div className="col-2  " key={index} style={{ marginTop: "90px" }} >
+                                   <div className="col-2  " key={index}   >
                                                 {/* <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3> */}
-                                                    <div className="card"  style={{width: '13rem',height: '17rem'}} >
-                                                    <img   key={index} src={image}  className="profile_pic2 shadow" alt=""    style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
+                                                    <div className="card" >
+                                                    <img   key={index} src={image}  className="profile_pic2 shadow pic-10" alt=""    style={{ cursor: "pointer", objectFit: "cover" }} onClick={() => openImage(index)}/>
         
         
                                                         <div className="card-body">

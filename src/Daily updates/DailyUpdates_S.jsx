@@ -83,7 +83,10 @@ function DailyUpdates_S()
             <div className="row">
                     <div className="col-12">
 
-                <h1 style={{ marginLeft:"480px",marginTop: "15px" }}>Student Page  Daily Updates</h1>
+                <div className="col-12 col-md-12">
+
+                     <h1 className="du-t-13" style={{ marginLeft:"480px",marginTop: "15px" }}>Student page Daily Updates 2026-27</h1>
+                    </div>
                 </div>
                 </div>
                 <div className="row">
@@ -93,7 +96,7 @@ function DailyUpdates_S()
                     </div>
                     <div className="row mt-5">
                           
-                        <div className="   col-2">
+                        <div className="col-5 col-md-2">
                              
                             <h3>Class:</h3>
                             <h3>Section</h3>
@@ -105,7 +108,7 @@ function DailyUpdates_S()
                             
                         </div>
                          
-                        <div className="   col-2">
+                        <div className="col-5 col-md-2">
                        
                         <select className='form-control std_rec_add1 ' value={dailyupdates.class1} placeholder='select year' onChange={e=>setdailyupdates({...dailyupdates, class1:e.target.value})} >
                         <option>select class</option>
@@ -152,21 +155,21 @@ function DailyUpdates_S()
                 <div className="row">
         <div className="col-12" style={{marginTop:'100px'}}>
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(1,"January" )}>January</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 2,"February")}>February</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(3,"March")}>March</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(4,"April")}>April</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(1,"January" )}>January</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 2,"February")}>February</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(3,"March")}>March</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(4,"April")}>April</button>
 
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(5,"May" )}>May</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 6,"June")}>June</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(7,"July")}>July</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(8,"August")}>August</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(5,"May" )}>May</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 6,"June")}>June</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(7,"July")}>July</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(8,"August")}>August</button>
 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 10,"October")}>October</button> 
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(11,"November")}>November</button>
-        <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(12,"December")}>December</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 10,"October")}>October</button> 
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(11,"November")}>November</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(12,"December")}>December</button>
 
 
        </div>
@@ -178,13 +181,13 @@ function DailyUpdates_S()
         {showsubject==true&&
         <div>
         
-        <button className='btn btn-primary mt-2' style={{marginTop:'20px'}}onClick={e=>subject( "Hindi")  }>Hindi</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Telugu")  }>Telugu</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "English")  }>English</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Maths")  }>Maths</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Science")  }>Science</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "Social")  }>social</button>
-        <button className='btn btn-primary mt-2 ms-2' style={{marginTop:'20px'}}onClick={e=>subject( "EV")  }>EV</button>
+        <button className='btn btn-primary mt-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Hindi")  }>Hindi</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Telugu")  }>Telugu</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "English")  }>English</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Maths")  }>Maths</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Science")  }>Science</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "Social")  }>social</button>
+        <button className='btn btn-primary mt-2 ms-2 hm-lg-button' style={{marginTop:'20px'}}onClick={e=>subject( "EV")  }>EV</button>
         </div>
         }
         </div>
@@ -217,7 +220,7 @@ function DailyUpdates_S()
                         {
                  showtable==true&&<div>
                  <h3>Daily Updates  </h3>
-                  <div className="col-2 mt-1">
+                  <div className="col-12 col-md-2 mt-1">
                     <h6> year<span style={{fontSize:"17px",color: "red" }}>: {y} </span></h6>  
                     <h6>class: <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.class1} </span></h6> 
                     <h6>Section:   <span style={{fontSize:"17px",  color: "red"}}>: {dailyupdates.section} </span></h6> 
@@ -236,7 +239,7 @@ function DailyUpdates_S()
            showtable==true&&<div>
               <table className=" compact-table table table-sm align-middle table-striped table-hover">
                 <thead>
-                    <tr className="fw-bold" > 
+                    <tr className="fw-bold h-10" > 
 
                            <th >Date</th>
                            <th >Subject</th> 
@@ -254,7 +257,7 @@ function DailyUpdates_S()
                     {
                         pulleventdetailsdata?.map((data, i)=>(
 
-                            <tr key={i}>
+                            <tr key={i} className="h-10">
 
                                      <td >
                                          {data.date}-{data.month}-{data.year}

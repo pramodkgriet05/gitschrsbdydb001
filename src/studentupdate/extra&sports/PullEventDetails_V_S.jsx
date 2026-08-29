@@ -4,7 +4,7 @@ import Navbar from "../../Navbar/Navbar"
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import api from "../../api/Interaxios";
 
-function PullEventDetails_V()
+function PullEventDetails_V_S()
 {
 
        let userName=GET_USER_NAME()
@@ -175,8 +175,7 @@ function checkfilestype1()
                     <div class="card" style={{ marginTop: "70px" }}>
                     <div class="card-header d-flex">
                       
-                        <button   className="btn btn-primary ms-3 hm-lg-button" onClick={checkfilestype1}>Add</button>
-                         <Link  to={`/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3 hm-lg-button">Back</Link>
+                          <Link  to={`/s1/stdinfo/c1/u/${year}/${type}`} className="btn btn-primary ms-3 hm-lg-button">Back</Link>
                          <Link  to={`/`} className="btn btn-primary ms-3 hm-lg-button">Home</Link>
 
                       <h5 className="ms-5 do" >Academic Year:{year}</h5>
@@ -239,7 +238,7 @@ function checkfilestype1()
     )
 }
 
-export default PullEventDetails_V
+export default PullEventDetails_V_S
 
 
 
