@@ -26,7 +26,7 @@ import api from "../api/Interaxios"
                 //console.log(token)
                 let token1="Bearer"+" "+token;
                 let navigate=useNavigate()
-                let std
+               let std
     
   
 
@@ -100,6 +100,7 @@ async function stdcode(e)
                                 seterrormsg(false)
                                 
                               setTimeout(() => {
+                                                    navigate("/std/info/2026",{state:{stdid:std}})
                                                   
                                  
                                 }, 2000);
