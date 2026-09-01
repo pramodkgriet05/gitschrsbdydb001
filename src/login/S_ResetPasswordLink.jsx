@@ -135,10 +135,10 @@ function S_resetpassword()
     return(
         <div className="contaniner "> 
                     <div className="row justify-content-center ">
-                        <div className="col-4 mt-5">
-                                <h3>Reset password</h3>
-                                            <div className="card ">
-                                                    <div className="card -body ">
+                        <div className="col-12 col-md-4 mt-5">
+                                <h3 className="rp">Reset password</h3>
+                                            <div className="card  ">
+                                                    <div className="card-body ">
                                                       {
                                                         emailError.apiSuccess==false &&
                                                     <>   

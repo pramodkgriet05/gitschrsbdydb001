@@ -38,6 +38,9 @@ function Std_pulldataBySection()
       let[sectionC, setsectionC]=useState("")
       const sctionAA =new useNavigate();
       let[showatten, setshowatten]=useState(false)
+       const navigate1 = useNavigate();
+      let[formKey, setformKey]=useState(0)
+
 
       
 
@@ -135,9 +138,13 @@ function Std_pulldataBySection()
                 
              
              //  navigate("/Std_info/c1/u")
-                  window.location=`/std_info/c1/u/${stdid}/${sectionid}`
+                  //window.location=`/std_info/c1/u/${stdid}/${sectionid}`
+                  sctionAA(`/std_info/c1/u/${stdid}/${sectionid}`)
                   // window.location=`/Std_info/c1/u/stdid`
                   setmessage(true)
+                  setformKey(prev=>prev+1)
+                  seto_std_details(false)
+                  
                
                }
             
@@ -286,9 +293,7 @@ function Std_pulldataBySection()
                         console.log("showattendance is called:")
                         setshow_results(false)
                         setshow_S_A(false)
-                        setshowatten(true)
-
-                        
+                        setshowatten(true) 
                     }
 
                     
@@ -297,52 +302,62 @@ function Std_pulldataBySection()
     return(
         <div className="container">
              <div className="row">
-                    <div className="col-12">
-                     <h1 style={{ marginLeft:"370px",marginTop: "40px", fontSize:"70px" }}>St'Martins school</h1>
-                    </div>
-                    </div>
-            <div className="mt-5">
-            <h6>user,</h6><h3>{userName}</h3>
-                <h3> class: {stdid}</h3>
-            </div>
-            <button className="btn btn-primary mt-5" onClick={e=>home_fun(true)}>Home</button>
-             <button className="btn btn-primary ms-3 mt-5" onClick={e=>back_fun()}>Back</button>
-             <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
-            <div className="row mt-5 ">
-           
-                <div className="col-4">
-                   
-                    {/* <button className="btn btn-primary mt-5" onClick={e=>setshow_A_M(true)}>Add Details</button> */}
-                     
-                    <h1>  </h1>
-                       
-                    
+                 <div className="col-12">
+                            <h1 className="school-title">St'Martins school</h1>
+                            <div className="flex-gried mt-2">
+                                <div>
+                                    <h6 className="mt-2"> Hi,</h6> 
+                                    <h6 >{userName} </h6>
+                                    <h3 className="rb"> class: {stdid}</h3>
+                                </div> 
+                            <div className="button-area">
                         
+                                    <button className="btn btn-primary mt-2 ms-5  hm-lg-button " onClick={e=>home_fun(true)}>Home</button>
+                                     <button className="btn btn-primary ms-2 mt-2 hm-lg-button" onClick={e=>back_fun()}>Back</button>
+                                    <button className="btn btn-primary mt-2 ms-2  hm-lg-button " onClick={e=>logout()}>logout</button>
+
+                            </div>
+                         </div>
+                 </div>
+
+
+                    
+             </div>
+           
+            
+            <div className="row   "> 
+                <div className="col-12 col-md-4 mobile-pic-matter "> 
+                    {/* <button className="btn btn-primary mt-5" onClick={e=>setshow_A_M(true)}>Add Details</button> */} 
+                    <h1>  </h1>  
                         {
                             message==true && 
                                  <div>
                                     <h2 className="text-success">success </h2>
                                     <h2 className="text-success">record saved</h2>
-                                </div>
-                        
-                        }
-                   
+                                </div> 
+                        } 
+                        <div>
                      {
                         o_std_details==true &&
                        <div>
-                            <h1> Conform Details</h1>
+                            <h1 className="cnf-d-10"> Conform Details</h1> 
                             <img src={URL.createObjectURL(stdinfo.img1)}/><br/>
+                        </div>
+                     }
+                     </div>
+                     <div>
+                     {
+                        o_std_details==true &&<div className="h-10 g n-10">
+                            
 
                              
                             Name:    <strong>   {stdinfo.name}  </strong> <br/>
                             rollno: <strong>{stdinfo.rollno}</strong><br/>
                             {
                                apiErrorMessage.apiMessage==true && 
-                              <div className="text-danger"> Record with Standred,rollno,section exists, please try new </div>
+                              <div className="text-danger "> <h3 className="h-10">Recordd with Standred,rollno,section exists, please try new </h3></div>
 
-                            }
-
-                           
+                            } 
 
                             Standard= <strong> {stdinfo.Standred} </strong><br/>
                             Section= <strong> {stdinfo.Section} </strong><br/>
@@ -356,17 +371,18 @@ function Std_pulldataBySection()
                             classTeacher=<strong> {stdinfo.classteacher  }</strong><br/>
                             Other=<strong>{stdinfo.other}</strong><br/>
                             
-                            <button className="btn btn-warning  d-grid mt-3" type="button" onClick={e=>SendApi()}> SAVE</button>
+                            <button className="btn btn-warning  d-grid mt-3 rb" type="button" onClick={e=>SendApi()}> SAVE</button>
 
                                     </div>
                     }
+                    </div>
                      
                </div>
                        
                        
                         {
                          show_A_M == true && 
-                        <Add_new_student rece_data={showconformdata} stdid1={stdid} sectionid={sectionid}/>
+                        <Add_new_student key={formKey} rece_data={showconformdata} stdid1={stdid} sectionid={sectionid}/>
                         
                          }
                          <div className="mt-5 mb-5" style={{
@@ -438,29 +454,31 @@ function Std_pulldataBySection()
    {/* <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"  }}>
    {show_S_A && <PullEditdelawsBySection stdid1={stdid} section1={sectionid}/> }
     {show_S_B && <PullEditdelawsBySection stdid1={stdid} section1={sectionB}/> }
-   {show_S_C && <PullEditdelawsBySection stdid1={stdid} section1={sectionC}/> }  
+   {show_S_C && <PullEditdelawsBySection stdid1={stdid} section1={sectionC}/>
+   style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}
+   
+   }  
 </div>   */}
+ 
 
-                       <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button>
+<div >
+                       <button className="btn btn-warning   mt-3 mb-5  sres-10"   onClick={e=>showresults()}> Show Results</button>
 
-                       <button className="btn btn-warning   mt-3 mb-5 ms-5 " type="button" onClick={e=>showattendance()}> Attendance</button>
-
+                       <button className="btn btn-warning   mt-3 mb-5 ms-5 sres-10"   onClick={e=>showattendance()}> Attendance</button>
+</div>
 
                                 { show_results==true &&
-                                <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}>
+                                <div className="sa1-10" >
                                     {/* <button className="btn btn-warning   mt-3 mb-5 me-3" type="button" onClick={e=>ADDresults()}> Addresult</button>  */}
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA1")}> SA1 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA2")}> SA2 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA3")}> SA3 result</button>
+                                    <button className="btn btn-warning   mt-3 mb-5   sa1-10 " type="button" onClick={e=>pullSA11("2026", "SA1")}> SA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "SA2")}> SA2 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5  sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "SA3")}> SA3 result</button>
 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA1")}> FA1 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA2")}> FA2 result</button>
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA3")}> FA3 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "Final")}> Final</button>  
- 
-
- 
-                                    
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10   sa1-10" type="button" onClick={e=>pullSA11("2026", "FA1")}> FA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10  sa1-10" type="button" onClick={e=>pullSA11("2026", "FA2")}> FA2 result</button>
+                                    <button className="btn btn-warning   mt-3 mb-5  sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "FA3")}> FA3 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "Final")}> Final</button>  
+    
                                 </div>
                                 }
 

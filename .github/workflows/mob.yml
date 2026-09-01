@@ -3,7 +3,7 @@ name: Deploy Vite React App to S3
 on:
   push:
     branches:
-      - dev  # Trigger deployment on push to dev
+      - mobile  # Trigger deployment on push to mobile
 
 jobs:
   deploy:
@@ -26,11 +26,7 @@ jobs:
 
       # 4. Build Vite project
       - name: Build project
-<<<<<<< HEAD
-        run: npm run build  -- --mode development
-=======
-        run: npm run build -- --mode development
->>>>>>> dev
+        run: npm run build -- --mode mobile
 
       # 5. Configure AWS credentials
       - name: Configure AWS Credentials
@@ -43,6 +39,6 @@ jobs:
       # 6. Sync build folder to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_PROD }} \
+          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_MOB }} \
             --delete \
             --exact-timestamps

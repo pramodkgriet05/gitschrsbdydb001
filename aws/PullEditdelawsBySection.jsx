@@ -137,7 +137,7 @@ function PullEditdelawsBySection({stdid1,section1})
           //let ApiResponse= await axios.post('http://localhost:8080/m/s/dele',data)
           //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
           //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/dele',data,{headers:{Authorization:token1}})
-          let ApiResponse= await axios.post(' /api/m/s/dele',data,{headers:{Authorization:token1}})
+          let ApiResponse= await api.post('/m/s/dele',data,{headers:{Authorization:token1}})
 
           console.log(ApiResponse)
 
@@ -284,7 +284,7 @@ function PullEditdelawsBySection({stdid1,section1})
          console.log("stdinfo",stdinfo1)
         //let ApiResponse= await axios.post('http://localhost:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
         //let ApiResponse= await axios.post('http://65.2.25.249:8080/s/save',stdinfo1,{headers:{Authorization:token1}})///Std_info/c1/u/10/C
-        let ApiResponse= await axios.post('/api/s/save',stdinfo1,{headers:{Authorization:token1}})       
+        let ApiResponse= await api.post('/s/save',stdinfo1,{headers:{Authorization:token1}})       
         setIndex(null)
         window.location=`/std_info/c1/u/${stdid1}/${section1}`
     }
@@ -313,9 +313,9 @@ function PullEditdelawsBySection({stdid1,section1})
         
             <div  className="row">
             <div className="col-12">
-            <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{classidsch}</h3></div>
-           <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Section:</h5> <h3>{sectionoption}</h3></div>
-           <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Teacher:</h5> <h3>{userName}</h3></div>
+            <div  style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5 className="h-10">Class:</h5> <h3 className="h-10">{classidsch}</h3></div>
+            <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5 className="h-10">Section:</h5> <h3 className="h-10">{sectionoption}</h3></div>
+            <div style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5 className="h-10">Teacher:</h5> <h3 className="h-10">{userName}</h3></div>
            
            <div>
             <h3 className="text-danger">{stddelapimsg}</h3>
@@ -328,22 +328,22 @@ function PullEditdelawsBySection({stdid1,section1})
             awsresposes.length>0?(
            <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
                 <thead>
-                    <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Rollno</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Std.Code</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Photo</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Name</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Gender</td>
+                    <tr className="fw-bold h-10 "  style={{ textAlign:"center", fontSize:"20px"}}> 
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Rollno</td> 
+                            <td className="fw-bold h-10 "  style={{ textAlign:"center", fontSize:"20px"}}>Std.Code</td> 
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Photo</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Name</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Gender</td>
                          
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Dob</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Doj</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Address</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Mobile</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Father</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}> Gaurdian</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>ClassTeacher</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Delete</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Edit</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Dob</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Doj</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Address</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Mobile</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>Father</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}> Gaurdian</td>
+                            <td className="fw-bold h-10 " style={{ textAlign:"center", fontSize:"20px"}}>ClassTeacher</td>
+                            <td className="fw-bold h-10 "  style={{ textAlign:"center", fontSize:"20px"}}>Delete</td>
+                            <td className="fw-bold h-10 "  style={{ textAlign:"center", fontSize:"20px"}}>Edit</td>
                             
                     </tr>
                 </thead>
@@ -354,61 +354,61 @@ function PullEditdelawsBySection({stdid1,section1})
                     awsresposes.map((stdrecord, i)=>(
                         <tr key={i}>
                         <td  style={{width:"20px", textAlign:"center"}}> 
-                            <h4 style={{fontSize:"20px"}} > {stdrecord.rollno }  </h4>
+                            <h4 className="h-10 " style={{fontSize:"20px"}} > {stdrecord.rollno }  </h4>
                             </td> 
                             <td  style={{width:"40px", textAlign:"center"}}> 
-                            <h4 style={{fontSize:"20px"}} > {stdrecord.stdcode }  </h4>
+                            <h4 className="h-10 " style={{fontSize:"20px"}} > {stdrecord.stdcode }  </h4>
                             </td> 
 
 
                             <td  style={{width:"60px", textAlign:"center"}}>
-                                  <img src={stdrecord.imgdata} className="student-photo"/>
+                                  <img src={stdrecord.imgdata} className="student-photo pic-10"/>
                             </td>
                             
                         <td style={{width:"100px", textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata.name } onChange={(e)=>updateName(e)}  style={{width:"100px",fontSize:"15px"}} />):     <h6> {(stdrecord.name)}  </h6>   }
+                            {index===i?(<input value={editcolomdata.name } onChange={(e)=>updateName(e)}   style={{width:"100px",fontSize:"15px"}} />):     <h6 className="h-10 "> {(stdrecord.name)}  </h6>   }
                                                                                                                                                              
                         </td>
                         <td style={{width:"40px", textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata.gender} onChange={(e)=>updateGender(e)} style={{width:"60px"}} />):  <h6  >  {(stdrecord.gender)}   </h6>}
+                            {index===i?(<input value={editcolomdata.gender} onChange={(e)=>updateGender(e)} style={{width:"60px"}} />):  <h6 className="h-10 " >  {(stdrecord.gender)}   </h6>}
                              
                             </td>
 
 
                         
                         <td style={{width:"40px", textAlign:"center"}}>
-                             {index===i?(<input value={editcolomdata.dob } onChange={(e)=>updatedob(e)}  style={{width:"100px",fontSize:"12px"}}/>):  <h6>   {(stdrecord.dob)}  </h6>  }
+                             {index===i?(<input value={editcolomdata.dob } onChange={(e)=>updatedob(e)}  style={{width:"100px",fontSize:"12px"}}/>):  <h6 className="h-10 ">   {(stdrecord.dob)}  </h6>  }
                              
                              </td>
                         <td style={{width:"40px", textAlign:"center"}}>
-                             {index===i?(<input value={editcolomdata.doj } onChange={(e)=>updatedoj(e)} style={{width:"100px",fontSize:"12px"}}/>):  <h6>   {(stdrecord.doj)}  </h6>  }
+                             {index===i?(<input value={editcolomdata.doj } onChange={(e)=>updatedoj(e)} style={{width:"100px",fontSize:"12px"}}/>):  <h6 className="h-10 ">   {(stdrecord.doj)}  </h6>  }
                              
                              </td> 
                               <td style={{width:"40px", textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata.address } onChange={(e)=>updateAddress(e)} style={{width:"200px",fontSize:"15px", height:"100px", verticalAlign:"top", resize:"vertical"}}/>):  <h6>   {(stdrecord.address)}  </h6>  }
+                            {index===i?(<input value={editcolomdata.address } onChange={(e)=>updateAddress(e)} style={{width:"200px",fontSize:"15px", height:"100px", verticalAlign:"top", resize:"vertical"}}/>):  <h6 className="h-10 ">   {(stdrecord.address)}  </h6>  }
                              
                             </td>
                         <td style={{width:"40px", textAlign:"center"}}>   
-                             {index===i?(<input value={editcolomdata.mobile } onChange={(e)=>updateMobile(e)} style={{width:"80px",fontSize:"12px"}}  />): <h6>   {(stdrecord.mobile)}  </h6>  }
+                             {index===i?(<input value={editcolomdata.mobile } onChange={(e)=>updateMobile(e)} style={{width:"80px",fontSize:"12px"}}  />): <h6 className="h-10 ">   {(stdrecord.mobile)}  </h6>  }
                             
                              </td>
-                        <td style={{width:"40px", textAlign:"center"}}>   {index===i?(<input value={editcolomdata.father } onChange={(e)=>updateFather(e)}  style={{width:"70px",fontSize:"14px"}}    />):   <h6>   {(stdrecord.father)}  </h6>  }
+                        <td style={{width:"40px", textAlign:"center"}}>   {index===i?(<input value={editcolomdata.father } onChange={(e)=>updateFather(e)}  style={{width:"70px",fontSize:"14px"}}    />):   <h6 className="h-10 ">   {(stdrecord.father)}  </h6>  }
                               </td>
                         <td style={{width:"40px", textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata.gaurdian } onChange={(e)=>updategaurdian(e)} style={{width:"80px"}}   />):   <h6>   {(stdrecord.gaurdian)}  </h6>  }    
+                            {index===i?(<input value={editcolomdata.gaurdian } onChange={(e)=>updategaurdian(e)} style={{width:"80px"}}   />):   <h6 className="h-10 ">   {(stdrecord.gaurdian)}  </h6>  }    
                             </td>
                         <td style={{width:"40px", textAlign:"center"}}> 
-                             {index===i?(<input value={editcolomdata.classteacher } onChange={(e)=>updateTeacher(e)} style={{width:"120px", fontSize:"14px"}}  />):  <h6>   {(stdrecord.classteacher)}  </h6>  }
+                             {index===i?(<input value={editcolomdata.classteacher } onChange={(e)=>updateTeacher(e)} style={{width:"120px", fontSize:"14px"}}  />):  <h6 className="h-10 ">   {(stdrecord.classteacher)}  </h6>  }
                                                                                                                                                                  
                              
                              </td>
                         
-                        <td  style={{width:"40px", textAlign:"center"}}>  <button className="btn btn-primary" onClick={e=>deleterow(stdrecord)}>Delete</button></td>
+                        <td  style={{width:"40px", textAlign:"center"}}>  <button className="btn btn-primary hm-lg-button er-msg-10" onClick={e=>deleterow(stdrecord)}>Delete</button></td>
 
                          <td  style={{width:"40px", textAlign:"center"}}>  {index === i ? (
-                  <button className="btn btn-success" onClick={() => saveRow1()}>Save</button>
+                  <button className="btn btn-success hm-lg-button er-msg-10" onClick={() => saveRow1()}>Save</button>
                 ) : (
-                  <button className="btn btn-primary" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
+                  <button className="btn btn-primary hm-lg-button er-msg-10" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
                 )}</td>
                        
                     

@@ -436,51 +436,46 @@ async function selectvideofun()
               
                 <div className="row">
                   <div  style={{position:"relative"}}>
-                          <Link  to={`/stdinfo`} style={{ position:"absolute", top:"100px",right:"100px"}}className="btn btn-primary ms-3">Back</Link>
-                          <Link  to={`/`} style={{ position:"absolute", top:"100px",right:"10px"}}className="btn btn-primary ms-3">Home</Link>
+                          <Link  to={`/stdinfo`} style={{ position:"absolute",  right:"100px"}}className="btn btn-primary ms-3 btn-12 hm-lg-button">Back</Link>
+                          <Link  to={`/`} style={{ position:"absolute", right:"10px"}}className="btn btn-primary ms-3 btn-12 hm-lg-button">Home</Link>
                   </div>
                    
-                        <div className="col-12   d-flex justify-content-center align-items-center" style={{ width:"50vh",height: "30vh"}}>
+                        <div className="col-12 "  >
                         
-                        <h1>School Name </h1>
+                        <h1 className="school-title">School Name</h1>
                         </div>
                           <div>
-                            <h1> Document of {type} 2025-26</h1>
+                            <h1 className="mt-12 school-title-1 mt1-12"> Document of {type} 2025-26</h1>
                         </div>
                         </div>
                         
                         <div className="row mt-5">
                           
-                        <div className="   col-2">
-                            <h3>Event Namee:</h3>
-                            <h3>Event.Date:</h3>
-                            <h3>Description:</h3>
-                            <h3 style={{ marginTop: "65px" }}>Photo/Video</h3>
-                            <h3 style={{ marginTop: "15px" }} >Photos:</h3>
-                            <h3 className="mt-4">Videos:</h3> 
-                          
-
+                        <div className="col-4 col-md-2">
+                            <h3 className="school-title-2 mt5">Event Name:</h3>
+                            <h3 className="school-title-2 mt25">Event.Date:</h3>
+                            <h3 className="school-title-2 mt25">Description:</h3>
+                            <h3 className="school-title-2 mt25" style={{ marginTop: "65px" }}>Photo/Video</h3>
+                            <h3  className="school-title-2 mt35" style={{ marginTop: "15px" }} >Select Files:</h3>
                             
    {/* // let[sports,setsports]=useState({eventname:"",day:"",month:"",year:"",Description:"",uploadimages:""}) */}
-
-                            
                         </div>
                          
-                        <div className="   col-2">
-                        <input type="text" ref={ref1} className='form-control std_rec_add1 ' placeholder='Event Name' onChange={e=>setsports({...sports1, eventname:e.target.value})} ></input>
+                        <div className="col-6 col-md-2">
+                        <input type="text" ref={ref1} className='form-control   ' placeholder='Event Name' onChange={e=>setsports({...sports1, eventname:e.target.value})} ></input>
                         <div className="d-flex">
-                                <input type="text" ref={ref2} className='form-control std_rec_add1 '   placeholder='Day'  onChange={e=>setsports({...sports1, day:e.target.value})} ></input>
-                                <input type="text" ref={ref3} className='form-control std_rec_add1 '  placeholder='Month' onChange={e=>setsports({...sports1, month:e.target.value})} ></input>
-                                <input type="text" ref={ref4} className='form-control std_rec_add1 '   placeholder='Year' onChange={e=>setsports({...sports1, year:e.target.value}) } ></input>
+                                <input type="text" ref={ref2} className='form-control    '   placeholder='Day'  onChange={e=>setsports({...sports1, day:e.target.value})} ></input>
+                                <input type="text" ref={ref3} className='form-control   '  placeholder='Month' onChange={e=>setsports({...sports1, month:e.target.value})} ></input>
+                                <input type="text" ref={ref4} className='form-control   '   placeholder='Year' onChange={e=>setsports({...sports1, year:e.target.value}) } ></input>
 
                         </div>
                          <textarea  type="text" ref={ref5} className='form-control ' rows="3" placeholder='Description' onChange={e=>setsports({...sports1, description:e.target.value})}  ></textarea >
-       <select className="form-control mt-2" ref={ref6} onChange={e=>setCT(e.target.value)}>
-        <option>select</option>
-        <option>image</option>
-        <option>video</option>
+       <select className="form-control mt-2 " ref={ref6} onChange={e=>setCT(e.target.value)}>
+        <option className="ip-12">select</option>
+        <option className="ip-12">image</option>
+        <option className="ip-12">video</option>
        </select>
-                         <input type="file" multiple  ref={ref7} className='form-control std_rec_add1 mt-2 ' placeholder='Upload Files' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
+                         <input type="file" multiple  ref={ref7} className='form-control   mt-2  ' placeholder='Upload Files' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
                          {
                           filesizeerror&&<div>
                             <h6 style={{color:"red"}}>{filesizeerror}</h6>
@@ -488,13 +483,13 @@ async function selectvideofun()
                          }
                          {/* <input type="file"  className='form-control std_rec_add1 mt-3' placeholder='Upload Videos' onChange={e=>setfiles(Array.from(e.target.files))} ></input> */}
 
-                         <button className='btn btn-primary mt-2' disabled={isUploading} onClick={e=>checkfilestype(CT)}>submit</button>
+                         <button className='btn btn-primary mt-2 hm-lg-button' disabled={isUploading} onClick={e=>checkfilestype(CT)}>submit</button>
                         </div> 
                 </div>
 
                 <div className="mt-5">
-                  <button  className="btn btn-primary mt-2" onClick={e=>selectphotofun()}>PHOTO</button>
-                  <button  className="btn btn-primary mt-2 ms-5" onClick={e=>selectvideofun()}>VIDEO</button> 
+                  <button  className="btn btn-primary mt-2 hm-lg-button" onClick={e=>selectphotofun()}>PHOTO</button>
+                  <button  className="btn btn-primary mt-2 ms-5 hm-lg-button" onClick={e=>selectvideofun()}>VIDEO</button> 
                 </div>
                  <div className="row">
         <div className="col-12 ">
@@ -514,28 +509,26 @@ async function selectvideofun()
                   {
                     awsresposes.length>0 ?
                     awsresposes.map((awsrespose,i)=>(
-                      <div className="col-4" key={i} style={{marginTop:"170px"}}>
-                        <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                        <div className="card" style={{width: '14rem',height: '17rem'}} >
-                        <img src={awsrespose.urlthumbnail} className="profile_pic2 shadow " alt="..."/> 
+                     <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                    <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                     <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                     <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
 
-                          <div className="card-body">
-                          <h5 className="card-title"> </h5>
-                          <p className="card-text"> {awsrespose.description} </p>
-                      
-                        </div>
-                          <button className='btn btn-primary mt-2' onClick={e=>pulleventdetailsvideo(awsrespose)}>click here</button> 
+                           <div className="text-center">               
+                            <h5 className="card-title cd-t u-9 "> {awsrespose.description} </h5>
+                          </div>
+                          <button className='btn btn-primary mt-2 c-btn-2' onClick={e=>pulleventdetailsvideo(awsrespose)}>click here</button> 
                           </div>
                       </div> 
                     )) 
                          :
-                        <h1 className="mt-5">No VIDEO Data Found</h1>
+                        <h1 className="mt-5 school-title-1">No VIDEO Data Found</h1>
                  }
                  </div>}
                  </div>
      
 
-                <div className="row mt-5">
+                <div className="row  ">
 
                   {
                   showphoto==true &&<div className="row">
@@ -543,23 +536,24 @@ async function selectvideofun()
                  {
                    awsresposes.length>0 ?  (
                     awsresposes.map((awsrespose,i) => (  
-                                                         <div className="col-4  " key={i} style={{ marginTop: "170px" }} >
-                                                            <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                                                                <div className="card"  style={{width: '14rem',height: '17rem'}} >
-                                                                <img src={awsrespose.urlthumbnail} className="profile_pic2 shadow " alt="..."/> 
-                                                                    <div className="card-body">
-                                                                        <h5 className="card-title"> </h5>
-                                                                        <p className="card-text"> {awsrespose.description} </p>
-                                                                    
-                                                                        <button className='btn btn-primary mt-2' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
-                                                                        <button className='btn btn-primary mt-2 ms-4' onClick={e=>deleteeventdetails(awsrespose)}>Delete</button>
+                                                         <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                                                            <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                                                                <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                                                                <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
+                                                                    <div className="text-center">
+                                                                         
+                                                                        <h5 className="card-title cd-t u-9 "> {awsrespose.description} </h5>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button className='btn btn-primary mt-2 c-btn' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+                                                                        <button className='btn btn-primary mt-2  c-btn c-btn-1' onClick={e=>deleteeventdetails(awsrespose)}>Delete</button>
 
                                                                     </div>
                                                                 </div>
                                                         </div>
                                                         )))
                                                          :
-                                                         <h1> No PHOTO data found</h1>
+                                                         <h1 className="school-title-1"> No PHOTO data found</h1>
                                                         }
                                                    </div>   }
                  </div>

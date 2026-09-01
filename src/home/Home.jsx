@@ -15,6 +15,8 @@ import '../../indexcss/index.css';
 import { useNavigate } from "react-router-dom";
 import api from "../api/Interaxios";
 
+import "../css-files/home.css";
+
 function Home()
 {   
     const navigate = useNavigate();
@@ -102,21 +104,21 @@ function Home()
          <div className="container">
           <div className="row">
                     <div className="col-12">
-                  <h1 style={{ marginLeft:"370px",marginTop: "40px", fontSize:"70px" }}>St'Martins school</h1>
+                  <h1 className="schoolname">St'Martins school</h1>
                   </div>
                 </div>
             <div className="row mt-5 ">
                
-               <div className="col-8 mt-5 text-center">  
-                <img src={labpic} className="img-lab justify-content-center"></img>
+               <div className="col-8 mt-5 text-center img-lab-1">  
+                <img src={labpic} className="img-lab-1 justify-content-center"></img>
                 </div> 
                 
-                <div className="col-4 justify-content-center">  
+                <div className="col-12 col-md-4 justify-content-center">  
                    
-              <h1 className="text-center">New user</h1>
-               <button className="btn btn-primary ms-3 text-center" onClick={e=>{setcreateAccount1(true )}}>create account</button>
+              <h1 className="text-center nu-1">New user</h1>
+               <button className="btn btn-primary ms-3 text-center ac-l-1" onClick={e=>{setcreateAccount1(true )}}>create account</button>
               
-               <button className="btn btn-primary ms-3 text-center" onClick={e=>{ setSignIn1(true )}}>Login</button>
+               <button className="btn btn-primary ms-3 text-center ac-l-1" onClick={e=>{ setSignIn1(true )}}>Login</button>
                 {
                      createAccountbb==true &&
                 <div>

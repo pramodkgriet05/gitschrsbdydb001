@@ -95,24 +95,23 @@ import Attendance_S from "./Attendance_S";
 
         </div>
         </div>
-        <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>showresults()}> Show Results</button> 
+        <div >
+                       <button className="btn btn-warning   mt-3 mb-5  sres-10"   onClick={e=>showresults()}> Show Results</button>
 
-        <button className="btn btn-warning   mt-3 mb-5 ms-5 " type="button" onClick={e=>showattendance()}> Attendance</button>
-
-                                { show_results==true &&
-                                <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)"}}>
+                       <button className="btn btn-warning   mt-3 mb-5 ms-5 sres-10"   onClick={e=>showattendance()}> Attendance</button>
+       </div>
+                                 { show_results==true &&
+                                <div className="sa1-10" >
                                     {/* <button className="btn btn-warning   mt-3 mb-5 me-3" type="button" onClick={e=>ADDresults()}> Addresult</button>  */}
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA1")}> SA1 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA2")}> SA2 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "SA3")}> SA3 result</button>
+                                    <button className="btn btn-warning   mt-3 mb-5   sa1-10 " type="button" onClick={e=>pullSA11("2026", "SA1")}> SA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "SA2")}> SA2 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5  sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "SA3")}> SA3 result</button>
 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA1")}> FA1 result</button> 
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA2")}> FA2 result</button>
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "FA3")}> FA3 result</button>  
-                                    <button className="btn btn-warning   mt-3 mb-5 me-3 " type="button" onClick={e=>pullSA11("2026", "Final")}> Final</button>  
-
- 
-                                    
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10   sa1-10" type="button" onClick={e=>pullSA11("2026", "FA1")}> FA1 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10  sa1-10" type="button" onClick={e=>pullSA11("2026", "FA2")}> FA2 result</button>
+                                    <button className="btn btn-warning   mt-3 mb-5  sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "FA3")}> FA3 result</button> 
+                                    <button className="btn btn-warning   mt-3 mb-5 sa1-gp-10 sa1-10" type="button" onClick={e=>pullSA11("2026", "Final")}> Final</button>  
+    
                                 </div>
                                 }
                                  <div style={{width:"80vw", marginLeft:"calc(50% - 40vw)" }} >

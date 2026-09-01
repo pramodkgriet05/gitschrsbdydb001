@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { GET_USER_NAME } from "../../Utils/Utils";
+import api from "../api/Interaxios";
 
 function Pulldataafter({classid1})
 {
@@ -25,27 +26,10 @@ function Pulldataafter({classid1})
 
        async function pulldata()
         {
-            console.log("std_info_c1_u_pulldata classid:"+classid)
+            console.log("std_info_c1_u_pulldata classid:" +classid)
              try{
+                console.log("HI")
 
-                                         const apiResponse = await axios.get(
-                                `http://65.2.25.249:8080/s/pullrecords1/${classid}`,{
-                                                                                        headers:{
-                                                                                            Authorization:token1
-                                                                                        }
-                                                                                                }
-                                 );
-                console.log(apiResponse)
-
-             //  let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1/'+classid) //pull all the records
-             //  console.log(apiResponse)
-                //let ApiResponse= await axios.get('http://localhost:8080/hello1')
-
-              //let apiResponse=await axios.get('http://localhost:8080/s/pullrecords1') //pull class wise records
-            // console.log(apiResponse.data)
-           //  console.log(apiResponse.data['0'])
-             setstdinfo(apiResponse.data)
-             
             }
              
             catch(error)

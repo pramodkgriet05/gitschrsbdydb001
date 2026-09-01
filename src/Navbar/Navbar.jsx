@@ -26,23 +26,32 @@ function Navbar()
                         localStorage.clear()
                         window.location="/"
                     }
+                    function home_fun()
+                    {
+                        window.location="/"
+
+                    }
                    
     return(
              <div className="container">
-                        <div className=" row mt-5">
-                            <div className="col-3">
+                         <div className="row">
+                            <div className="col-12">
+                            <h1 className="school-title">St'Martins school</h1>
+                            </div>
+                             </div>
 
-                                <h6> Hi,</h6><h3>{userName} </h3>
-                                
-                                <button className="btn btn-primary mt-5 ms-3" onClick={e=>back_fun()}>Back</button> 
-                                <button className="btn btn-primary mt-5 ms-3" onClick={e=>logout()}>logout</button>
-                           </div>
-                                <div className="col-9">
-                                    <h1 style={{ marginLeft:"10px",marginTop: "55px", fontSize:"70px" }}>St'Martines High school</h1>
+                             <div className="flex-gried mt-2">
+                                <div>
+                                    <h6 className="mt-2"> Hi,</h6> 
+                                    <h6 >{userName} </h6>
+                                </div> 
+                            <div className="button-area">
+                        
+                                    <button className="btn btn-primary mt-2 ms-5  hm-lg-button " onClick={e=>home_fun(true)}>Home</button>
+                                    <button className="btn btn-primary mt-2 ms-3  hm-lg-button " onClick={e=>logout()}>logout</button>
 
                             </div>
-
-                        </div>
+                         </div>
             
             </div> 
             )

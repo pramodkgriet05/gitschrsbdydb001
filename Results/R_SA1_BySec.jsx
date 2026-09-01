@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import imgstd from '../pics/profile/profile_pic.jpg'
 import { useParams } from "react-router-dom"
 import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
+import api from "../src/api/Interaxios"
 
 function R_SA1_BySec({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata
@@ -137,7 +138,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
               
                   //let apiresponse=await axios.post(`http://localhost:8080/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
                  //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}}) 
+                 let apiresponse=await api.post(`/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}}) 
                  console.log("reponse:",apiresponse)
                  console.log(apiresponse.data)
                  setawsresposes2(apiresponse.data)
@@ -532,12 +533,12 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                 setpleasecheck(false)
      //let ApiResponse= await axios.post('http://localhost:8080/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
       //let ApiResponse= await axios.post('http://65.2.25.249:8080/m/s/e/saverecord',updatedData)
-      let ApiResponse= await axios.post('/api/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
+      let ApiResponse= await api.post('/m/s/e/saverecord',updatedData,{headers:{Authorization:token1}})
 
       setupdateeditcolmdataR({})
        //let apiresponse1=await axios.post(`http://localhost:8080/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
        //let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
-       let apiresponse1=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
+       let apiresponse1=await api.post(`/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
                        console.log(apiresponse1)
                       
                         console.log(ApiResponse)
@@ -570,7 +571,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                                                     });
                       //let apiresponse1=await axios.post(`http://localhost:8080/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}}) 
                       //let apiresponse1=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,pullecords)
-                      let apiresponse1=await axios.post(`/api/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}}) 
+                      let apiresponse1=await api.post(`/m/s/reports/pull`,pullecords,{headers:{Authorization:token1}}) 
  
                       
                                         console.log(apiresponse1)
@@ -653,16 +654,16 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          <div className="row">
             {/* <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>pullSA11()}> pullSA1result</button>  */}
               {/* <h1>resutls SA-1</h1>  */}
-           <div  className="col-4"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} > {createrecords1.examname}</span>/ teacher</h3></div>
+           <div  className=" col-12 col-md-4"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5 className="h-10">Class:</h5> <h3 className="h-10">{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} className="h-10" > {createrecords1.examname}</span>/ teacher</h3></div>
           
            
-           <div className="col-8 d-flex">
+           <div className="  col-12 col-md-8 d-flex">
              {markserrorw==true&&  
-             <div    className="col-4"> <h2 className="text-danger  text-center mt-5">   Enter value written less than 80  </h2>
+             <div    className="col-4"> <h2 className="text-danger  text-center mt-5 h-10">   Enter value written less than 80  </h2>
 
             </div>}
                  {markserroro==true&&  
-             <div  > <h2 className="text-danger  text-center mt-5">     Enter value oral less than 20 </h2>
+             <div  > <h2 className="text-danger  text-center mt-5 h-10">     Enter value oral less than 20 </h2>
             </div>}
             
             {/* {pleasecheck==true&&  
@@ -683,8 +684,8 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
   
             <table className=" compact-table table table-sm align-middle table-striped table-hover">
                 <thead>
-                    <tr className="fw-bold"> 
-                           <th>Rollno</th> 
+                    <tr className="fw-bold h-10"> 
+                           <th >Rollno</th> 
                             <th>Photo</th>
                              <th>Name  </th>
                               <th>Exam.code  </th> 
@@ -698,7 +699,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                             <th colSpan="3">E.V-1</th> */}
                             
                     </tr>
-                     <tr className="fw-bold "> 
+                     <tr className="fw-bold h-10"> 
                            <th> </th> 
                             <th> </th>
                              <th>   </th>
@@ -732,88 +733,88 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                  {  
                     awsresposes2.map((stdrecord, i)=>(
                         <tr key={stdrecord.rollno}>
-                        <td style={{  textAlign:"center"}}> 
-                             {stdrecord.rollno }  
+                        <td style={{  textAlign:"center"}} className="h-10"> 
+                            <h6 className="h-10"> {stdrecord.rollno }  </h6>
                             </td> 
                             <td style={{  textAlign:"center"}}>
-                                  <img src={stdrecord.imgpreurl} className="student-photo"/>
+                                  <img src={stdrecord.imgpreurl} className="student-photo pic-10"/>
                             </td>
                         <td style={{  textAlign:"center"}}>
-                            {stdrecord.name}
+                          <h6 className="h-10">{stdrecord.name}</h6>  
                         </td>
                         <td style={{  textAlign:"center"}}>
-                            {stdrecord.examname}
+                          <h6 className="h-10">  {stdrecord.examname}</h6>
                         </td>
 
                         <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.firstlangw || ""} onChange={(e)=>updatefirstlangW(e)}   style={{width:"40px",border: Number(editcolomdata2.firstlangw || 0) > 80? "2px solid red": "1px solid #ccc" }}/>):( stdrecord.firstlangw)}
+                            {index===i?(<input value={editcolomdata2.firstlangw || ""} onChange={(e)=>updatefirstlangW(e)}   style={{width:"40px",border: Number(editcolomdata2.firstlangw || 0) > 80? "2px solid red": "1px solid #ccc" }}/>):( <h6  className="h-10">{stdrecord.firstlangw}</h6>)}
                             
                         </td>
                          <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.firstlango || ""} onChange={(e)=>updatefirstlangO(e)}  style={{width:"40px",border: Number(editcolomdata2.firstlango || 0) > 20? "2px solid red": "1px solid #ccc" }}/>):( stdrecord.firstlango)}
+                            {index===i?(<input value={editcolomdata2.firstlango || ""} onChange={(e)=>updatefirstlangO(e)}  style={{width:"40px",border: Number(editcolomdata2.firstlango || 0) > 20? "2px solid red": "1px solid #ccc" }}/>):(<h6  className="h-10">{stdrecord.firstlango}</h6> )}
                             
                         </td>
                        <td style={{  textAlign:"center"}}>
-                            {index===i?  <span style={{width:"30px"}}>   { Number(editcolomdata2.firstlangw)+Number(editcolomdata2.firstlango)}   </span>: (stdrecord.tf) }
+                            {index===i?  <span style={{width:"30px"}}>   { Number(editcolomdata2.firstlangw)+Number(editcolomdata2.firstlango)}   </span>: (<h6  className="h-10">{stdrecord.tf}</h6>) }
                             
                         </td>
                       
                        
                          <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={ editcolomdata2.seclangw|| ""} onChange={(e)=>updateseclangw(e)}  style={{width:"40px",border: Number(editcolomdata2.seclangw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( stdrecord.seclangw)}
+                            {index===i?(<input value={ editcolomdata2.seclangw|| ""} onChange={(e)=>updateseclangw(e)}  style={{width:"40px",border: Number(editcolomdata2.seclangw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):(<h6  className="h-10">{stdrecord.seclangw}</h6>) }
                   
                         </td>
                          <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.seclango|| ""} onChange={(e)=>updateseclango(e)} style={{width:"40px",border: Number(editcolomdata2.seclango || 0) > 20? "2px solid red": "1px solid #ccc" }} />):(stdrecord.seclango)}
+                            {index===i?(<input value={editcolomdata2.seclango|| ""} onChange={(e)=>updateseclango(e)} style={{width:"40px",border: Number(editcolomdata2.seclango || 0) > 20? "2px solid red": "1px solid #ccc" }} />):(<h6  className="h-10">{stdrecord.seclango}</h6>)}
                             
                         </td>   
                          <td style={{  textAlign:"center"}}>
-                            {index===i?      Number(editcolomdata2.seclangw)+ Number(editcolomdata2.seclango)       :    (stdrecord.ts)       }
+                            {index===i?      Number(editcolomdata2.seclangw)+ Number(editcolomdata2.seclango)       :    (<h6  className="h-10">{stdrecord.ts}</h6> )       }
                             
                         </td>
 
                           
                           <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.englishw|| ""} onChange={(e)=>updateenglishw(e)} style={{width:"40px",border: Number(editcolomdata2.englishw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( stdrecord.englishw)}
+                            {index===i?(<input value={editcolomdata2.englishw|| ""} onChange={(e)=>updateenglishw(e)} style={{width:"40px",border: Number(editcolomdata2.englishw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):(<h6  className="h-10">{stdrecord.englishw}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.englisho|| ""} onChange={(e)=>updateenglisho(e)} style={{width:"40px",border: Number(editcolomdata2.englisho || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(stdrecord.englisho )}
+                            {index===i?(<input value={editcolomdata2.englisho|| ""} onChange={(e)=>updateenglisho(e)} style={{width:"40px",border: Number(editcolomdata2.englisho || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(<h6  className="h-10">{stdrecord.englisho}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?  Number(editcolomdata2.englishw)+ Number(editcolomdata2.englisho)       :( stdrecord.te )}
+                            {index===i?  Number(editcolomdata2.englishw)+ Number(editcolomdata2.englisho)       :(<h6  className="h-10">{stdrecord.te}</h6>  )}
                            </td>
 
 
                            <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.mathsw|| ""} onChange={(e)=>updatemathsw(e)} style={{width:"40px",border: Number(editcolomdata2.mathsw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( stdrecord.mathsw)}
+                            {index===i?(<input value={editcolomdata2.mathsw|| ""} onChange={(e)=>updatemathsw(e)} style={{width:"40px",border: Number(editcolomdata2.mathsw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):(<h6  className="h-10">{stdrecord.mathsw}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.mathso|| ""} onChange={(e)=>updatemathso(e)} style={{width:"40px",border: Number(editcolomdata2.mathso || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(stdrecord.mathso )}
+                            {index===i?(<input value={editcolomdata2.mathso|| ""} onChange={(e)=>updatemathso(e)} style={{width:"40px",border: Number(editcolomdata2.mathso || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(<h6  className="h-10">{stdrecord.mathso}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i? Number(editcolomdata2.mathsw)+ Number(editcolomdata2.mathso) :( stdrecord.tm )}
+                            {index===i? Number(editcolomdata2.mathsw)+ Number(editcolomdata2.mathso) :(<h6  className="h-10">{stdrecord.tm}</h6>  )}
                            </td>
 
 
                             <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.sciencew|| ""} onChange={(e)=>updatesciencew(e)} style={{width:"40px",border: Number(editcolomdata2.sciencew || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( stdrecord.sciencew)}
+                            {index===i?(<input value={editcolomdata2.sciencew|| ""} onChange={(e)=>updatesciencew(e)} style={{width:"40px",border: Number(editcolomdata2.sciencew || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( <h6  className="h-10">{stdrecord.sciencew}</h6>)}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.scienceo|| ""} onChange={(e)=>updatescienceo(e)} style={{width:"40px",border: Number(editcolomdata2.scienceo || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(stdrecord.scienceo )}
+                            {index===i?(<input value={editcolomdata2.scienceo|| ""} onChange={(e)=>updatescienceo(e)} style={{width:"40px",border: Number(editcolomdata2.scienceo || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(<h6  className="h-10">{stdrecord.scienceo}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?      Number(editcolomdata2.sciencew)+ Number(editcolomdata2.scienceo) :( stdrecord.tsci )}
+                            {index===i?      Number(editcolomdata2.sciencew)+ Number(editcolomdata2.scienceo) :(<h6  className="h-10">{stdrecord.tsci}</h6>  )}
                            </td>
 
 
                            <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.socialw|| ""} onChange={(e)=>updatesocialw(e)} style={{width:"40px",border: Number(editcolomdata2.socialw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( stdrecord.socialw)}
+                            {index===i?(<input value={editcolomdata2.socialw|| ""} onChange={(e)=>updatesocialw(e)} style={{width:"40px",border: Number(editcolomdata2.socialw || 0) > 80? "2px solid red": "1px solid #ccc" }} />):( <h6  className="h-10">{stdrecord.socialw}</h6>)}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i?(<input value={editcolomdata2.socialo|| ""} onChange={(e)=>updatesocialo(e)} style={{width:"40px",border: Number(editcolomdata2.socialo || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(stdrecord.socialo )}
+                            {index===i?(<input value={editcolomdata2.socialo|| ""} onChange={(e)=>updatesocialo(e)} style={{width:"40px",border: Number(editcolomdata2.socialo || 0) > 20? "2px solid red": "1px solid #ccc" }}  />):(<h6  className="h-10">{stdrecord.socialo}</h6> )}
                           </td>
                           <td style={{  textAlign:"center"}}>
-                            {index===i? Number(editcolomdata2.socialw)+ Number(editcolomdata2.socialo) :( stdrecord.tsoc )}
+                            {index===i? Number(editcolomdata2.socialw)+ Number(editcolomdata2.socialo) :( <h6  className="h-10">{stdrecord.tsoc}</h6> )}
                            </td>
                           {/*  <td>
                             {index===i?(<input value={editcolomdata2.socialw} onChange={(e)=>updatesocialw(e)} style={{width:"40px"}} />):( stdrecord.socialw)}
@@ -838,7 +839,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                             <td style={{  textAlign:"center"}}>
                                {index===i?((Number(editcolomdata2.socialw)+ Number(editcolomdata2.socialo))+ (Number(editcolomdata2.sciencew)+ Number(editcolomdata2.scienceo))
                               +  (Number(editcolomdata2.mathsw)+ Number(editcolomdata2.mathso))+ (Number(editcolomdata2.englishw)+ Number(editcolomdata2.englisho))
-                              +  (Number(editcolomdata2.seclangw)+ Number(editcolomdata2.seclango))+  Number(editcolomdata2.firstlangw)+Number(editcolomdata2.firstlango)        ):                    (stdrecord.total)}                                  
+                              +  (Number(editcolomdata2.seclangw)+ Number(editcolomdata2.seclango))+  Number(editcolomdata2.firstlangw)+Number(editcolomdata2.firstlango)        ): (<h6  className="h-10">{stdrecord.total}</h6> )}                                  
                            </td>
 
                             <td style={{  textAlign:"center"}}>
@@ -851,7 +852,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          verticalAlign:"top",
          padding:"5px",
          resize:"vertical"
-      }}  />):     <div style={{whiteSpace:"pre-wrap"}}> {stdrecord.teacherfeedback }</div> }
+      }}  />):     <div style={{whiteSpace:"pre-wrap"}}><h1 className="h-10"> {stdrecord.teacherfeedback }</h1></div> }
                           </td>
                            <td style={{  textAlign:"center"}}>
                             {index===i?(<textarea value={editcolomdata2.parentfeedback} onChange={(e)=>parentcomment(e)}  style={{
@@ -860,7 +861,7 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
          verticalAlign:"top",
          padding:"5px",
          resize:"vertical"
-      }}  />):   <div style={{whiteSpace:"pre-wrap"}}>{stdrecord.parentfeedback }</div>}
+      }}  />):   <div style={{whiteSpace:"pre-wrap"}}  > <h1 className="h-10">{stdrecord.parentfeedback }</h1></div>}
                           </td>
 
                            
@@ -900,9 +901,9 @@ function R_SA1_BySec({stdid1,section1,createrecords1})
                         </td>*/}
                         
                          <td>  {index === i ? (
-                  <button className="btn btn-success" onClick={() => editsave(i)}>Save</button>
+                  <button className="btn btn-success hm-lg-button er-msg-10" onClick={() => editsave(i)}>Save</button>
                 ) : (
-                  <button className="btn btn-primary" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
+                  <button className="btn btn-primary hm-lg-button er-msg-10" onClick={() => Editcolomchange(i,stdrecord)}>Edit</button>
                 )}</td>
                        
                     

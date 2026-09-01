@@ -10,10 +10,10 @@ import api from "../api/Interaxios"
   
     
 
-    function Stdinfo()
+    function R_stdinfo()
     {
            let userName=GET_USER_NAME()
- 
+
                 let[userdata1,setuserdata1]=useState(GET_USER_DATA())
                 let[errormsg,seterrormsg]=useState(false)
                 let[apierrormsg, setapierrormsg]=useState(false)
@@ -26,7 +26,7 @@ import api from "../api/Interaxios"
                 //console.log(token)
                 let token1="Bearer"+" "+token;
                 let navigate=useNavigate()
-               let std
+                let std
     
   
 
@@ -100,7 +100,6 @@ async function stdcode(e)
                                 seterrormsg(false)
                                 
                               setTimeout(() => {
-                                                    navigate("/std/info/2026",{state:{stdid:std}})
                                                   
                                  
                                 }, 2000);
@@ -124,16 +123,14 @@ async function stdcode(e)
         return(
             <div className="container">
                  <div className="row">
-                    <div className="col-12">
-                  <h1  className="school-title">St'Martins school</h1>
-                  </div>
-
-                    
+                        <div className="col-12">
+                        <h1  className="school-title">St'Martins school</h1>
+                    </div>
                 </div>
                 
                 <div className="flex-gried mt-2">
                     <div>
-                        <h6 className="mt-2"> Hii,</h6> 
+                        <h6 className="mt-2"> Hi,</h6> 
                         <h6 >{userName} </h6>
                     </div>
 
@@ -194,29 +191,30 @@ async function stdcode(e)
                                 Height: {window.innerHeight}px
                             </h6>*/}
                     </div> 
+
                     
                             <div className="col-6 col-md-4">
                                 <h3 className="mobile-small mrgt" >Teacher Update Records</h3>
                                 <div className="card mobile-card mrgs-c"  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
                                         <div className="text-center">
-                                            <h5 className="card-title cd-t ">Class wise from I to X</h5>
-                                        </div>  
-                                         <div className="text-center"> 
-                                            <a href="/stdinfo/t" className="btn btn-primary hm-lg-button-c mb-std">Click Here</a>
-                                        </div>
+                                            <h5 className="card-title cd-t  ">Class wise from I to X</h5>
+                                         </div >   
+                                            <div className="text-center">
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            </div>                                         
                                 </div>
                             </div>
                             <div className="col-6 col-md-4">
                                 <h3 className="mobile-small  c2" >Student View Records</h3>
                                 <div className="card mobile-card c21  "  style={{width: '18rem'}} >
                                         <img src={profile_pic} className="profile_pic1 shadow " alt="..."/>
-                                        <div className="text-center">
+                                       
                                             <h5 className="card-title cd-t">Class wise from I to X</h5>
-                                        </div>
-                                        <div className="text-center"> 
-                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c mb-std ">Click Here</a>
-                                        </div>
+                                            <div className="text-center">
+                                            <a href="/stdinfo/s" className="btn btn-primary hm-lg-button-c">Click Here</a>
+                                            </div>
+                                        
                                 </div>
                             </div>
                          
@@ -228,4 +226,4 @@ async function stdcode(e)
 
         )
     }
-    export default Stdinfo
+    export default R_stdinfo

@@ -51,6 +51,9 @@ import Std_info_page_all from './studentinfo/Std_info_page_all';
 import Std_info1 from './studentinfo/Std_info1';
 import Samax from './progaxios/Samax';
 import PullEventDetails_V from './studentupdate/extra&sports/PullEventDetails_V';
+import R_stdinfo from './responsive page/R_stdinfo';
+import PullEventDetails_V_S from './studentupdate/extra&sports/PullEventDetails_V_S';
+import DailyUpdates_s_lst from './Daily updates/DailyUpdates_s_lst';
 
 
 
@@ -80,6 +83,7 @@ function App() {
       <Route path="/stdinfo/t" element={<Stdinfo_T />} />
       <Route path="/stdinfo/s" element={<Stdinfo_S />} /> 
       <Route path='/stdinfo/c/update' element={<Std_info__c_update />} /> 
+
       <Route path='/std_info/c1/u/:stdid' element={<StudentUpdate />} />
       <Route path='/std_info/c1/u/pulldata' element={<Std_pulldata />} />
 
@@ -95,7 +99,7 @@ function App() {
             <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
             <Route path='/std_info/c/viewrecords' element={<Std_info__v_update />} />
             <Route path='/std_info/c1/u/pulldata1/:classid' element={<Std_pulldata />} />
-            <Route path='/std_info/c1/u/pulldata1/:classid/:sectionid' element={<Std_pulldatabysectionget />} />
+            <Route path='/std_info/c1/u2/:classid/:sectionid' element={<Std_pulldatabysectionget />} />
 
       {/* ------------------------------------------------------------------------------------ */}
 
@@ -108,7 +112,8 @@ function App() {
           <Route path='/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails />} /> 
           <Route path='/s1/stdinfo/c1/u/:year/:type' element={<Sportspage_S />} /> 
           <Route path='/s/stdinfo/c1/u/:year/:type/d' element={<PullEventDetails_S />} />
-          <Route path='/stdinfo/c1/u/:year/:type/video' element={<PullEventDetails_V />} /> 
+          <Route path='/stdinfo/c1/u/:year/:type/video' element={<PullEventDetails_V />} />
+          <Route path='/s/stdinfo/c1/u/:year/:type/video' element={<PullEventDetails_V_S />} /> 
 
 
        {/* <Route path='/stdinfo/c1/u/:year/:type' element={<Sportspage />} />  */}
@@ -119,7 +124,10 @@ function App() {
        {/* ------------------------------------------------------------------------------------ */}
 
          <Route path='/stdinfo/c1/u/2026/dailyupdates' element={<DailyUpdates />} /> 
-         <Route path='/stdinfo/dailyupdates/:y/:classid/:sectionid' element={<DailyUpdatesForm />} />   
+         <Route path='/stdinfo/dailyupdates/:y/:classid/:sectionid' element={<DailyUpdatesForm />} /> 
+
+         <Route path='/s/stdinfo/c1/u/2026/dailyupdates' element={<DailyUpdates_s_lst />} /> 
+
          <Route path='/stdinfo/s/c1/u/:y/dailyupdates' element={<DailyUpdates_S />} />   
 
        {/* ------------------------------------------------------------------------------------ */}
@@ -143,6 +151,12 @@ function App() {
 
 
  {/* ---------------------------------------------------------------------------------------- */}
+        <Route path='/r/1' element={<R_stdinfo />} />
+
+ 
+
+  {/* ---------------------------------------------------------------------------------------- */}
+
 
  {/* ============================================================================================= */}
 

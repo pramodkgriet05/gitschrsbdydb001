@@ -121,10 +121,10 @@ function Sch_login({ })
     return(
          
              
-                                 <div className="card mt-3">
-                                                    <div className="card -body ">
+                                 <div className="card mt-3"  >
+                                                    <div className="card-body">
                                                          
-                                                        <h3>Enter Login Details</h3>
+                                                        <h3>Enter Login Detailss</h3>
                                                                                                                        
                                                             <div className='mt-3'>
                                                                     <label><strong>Email</strong></label>

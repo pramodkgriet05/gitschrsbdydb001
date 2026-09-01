@@ -220,13 +220,15 @@ function Std_info_page_all()
              
              <div className="row">
                 <div className="col-12">
-                    <h1 style={{marginLeft:"400px",marginTop:"80px",fontSize:"70px"}}>Student info Page</h1>
+                    <h1 className="stdinfo-pg" >Student info Page</h1>
+                   <img src={data.imgFileName} className="profile_pic4 mb-2 stdinfo-pg-pic mo " />
+
 
                 </div>
              </div>
 
-                       <div className="row" style={{marginTop: '100px'}}>
-                        <div className=" col-12 card mt-3  "   style={{
+                       <div className="row std15"  >
+                        <div className=" col-12 col-md-12 card mt-3   "   style={{
                             
                             
                             width: '100rem',
@@ -238,9 +240,8 @@ function Std_info_page_all()
                             
                             }}>
                                 <div className="row">
-                                    <div className="col-4" >
-                                        <img src={data.imgFileName} className="profile_pic4 mb-2"
-                                            style={{
+                                    <div className=" col-0 col-md-4" >
+                                        <img src={data.imgFileName} className="profile_pic4 mb-2 pic-10 do" style={{
                                                 
                                                     width:'20rem',
                                                     backgroundColor: '#f9f9f9',
@@ -249,23 +250,54 @@ function Std_info_page_all()
                                         
                                         }}></img> 
                                     </div>
-                                     <div className="col-6" style={{marginBottom:"10px",marginTop:"20px"}}>
+                                     <div className="col-6 col-md-6" style={{marginBottom:"10px",marginTop:"20px"}}>
 
-                    <div className="card mt-3" style={{
-                           
-                            width:'53rem',
+                    <div className="card mt-3 std15-cw " style={{
+                            
                             backgroundColor: '#f9f9f9',
                             border: '2px solid #7f7d7d',
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-                        
-                        
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'  
                         }}>
+                            <div className="mo">
+                                <div className="d-flex"> 
+                                     <div className="ms-2 mt-3 mb-3">
+                                    
+                                    <label>Std(rollno):</label><br></br>
+                                    <label>Name</label><br></br>
+                                    <label>Std.code</label><br></br>
+                                    <label>Gender</label><br></br>
+                                    <label>DOB</label><br></br>
+                                    <label>DOJ</label><br></br>
+                                    <label>Father</label><br></br>
+                                    <label>Mobile</label><br></br>
+                                    <label>Class Teacher</label><br></br>
+                                    <label>Other</label><br></br>
+
+                                    </div> 
+                                    <div className="ms-3 mt-3 mb-3">
+                                  
+                                    <strong >{data.rollno}</strong><br></br>
+                                    <strong >{data.name}</strong><br></br>
+                                    <strong >{data.stdcode}</strong><br></br>
+                                    <strong >{data.gender}</strong><br></br>
+                                    <strong >{data.dob}</strong><br></br>
+                                    <strong >{data.doj}</strong><br></br>
+                                    <strong >{data.father}</strong><br></br>
+                                    <strong >{data.mobile}</strong><br></br>
+                                    <strong >{data.classteacher}</strong><br></br>
+                                    <strong >{data.other}</strong><br></br>
+                                    </div>
+                                </div>
+                                
+                                 
+                            </div>
+                            
                      <div className="row">                                     
-                      <div className="col-6">
-                       <div className="card -body std_rec_add" >
+                      <div className="col-6 col-md-6 do">
+                       <div className="card-body std_rec_add" >
                         <div className="d-flex">
-                        <label style={{marginLeft:"10px",marginTop:"20px",marginBottom:"10px",marginRight:"5px"}}><strong>Std(rollno)</strong></label>
-                        <input type="text" className='form-control std_rec_add1 ' value={data.rollno} style={{marginTop:"10px"}}   ></input>
+                        <label style={{marginLeft:"10px",marginTop:"20px",marginBottom:"10px",marginRight:"5px"}}><strong >Std(rollno)</strong></label>
+                        <input type="text" className='form-control std_rec_add1  std-code-input' value={data.rollno} style={{marginTop:"10px"}}   ></input>
                        </div>
                         <div className="d-flex">
                         <label style={{marginLeft:"10px",marginTop:"10px",marginBottom:"10px",marginRight:"5px"}}><strong>Name</strong></label>
@@ -286,13 +318,14 @@ function Std_info_page_all()
                         <div className="d-flex">
                         <label style={{marginLeft:"10px",marginTop:"10px",marginBottom:"10px",marginRight:"5px"}}><strong>DOJ</strong></label>
                         <input type="text" className='form-control std_rec_add1 ' value={data.doj}  style={{marginBottom:"10px"}}   ></input>
+                        
                        </div>
                        </div>
                        </div>
 
 
-                        <div className="col-6"> 
-                         <div className="card -body std_rec_add" >
+                        <div className="col-6 col-md-6 do"> 
+                         <div className="card-body std_rec_add" >
                           <div className="d-flex">
                            <label style={{marginLeft:"10px",marginTop:"20px",marginBottom:"10px",marginRight:"5px"}}><strong>Father</strong></label>
                            <input type="text" className='form-control std_rec_add1 ' value={data.father} style={{marginTop:"10px"}}   ></input>
@@ -335,11 +368,11 @@ function Std_info_page_all()
                             borderBottom: "5px solid #bcb9b9",
                             margin: "6px 0"
                             }}>
-                                    <button className="btn btn-primary" style={{marginLeft:"5px",marginBottom:"10px"}} onClick={e=>markstab()}>Marks</button>
-                                    <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>feestab()}>Fees</button>
-                                    <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>activitytab()}>Activities</button>
-                                    <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>dailyactivitiestab()}>Daily Project work</button>
-                                    <button className="btn btn-primary" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>stdatten()}>Attendance</button>
+                                    <button className="btn btn-primary hm-lg-button" style={{marginLeft:"5px",marginBottom:"10px"}} onClick={e=>markstab()}>Marks</button>
+                                    <button className="btn btn-primary hm-lg-button" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>feestab()}>Fees</button>
+                                    <button className="btn btn-primary hm-lg-button" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>activitytab()}>Activities</button>
+                                    <button className="btn btn-primary hm-lg-button" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>dailyactivitiestab()}>Daily Project work</button>
+                                    <button className="btn btn-primary hm-lg-button" style={{marginLeft:"15px",marginBottom:"10px"}} onClick={e=>stdatten()}>Attendance</button>
 
                
                 </div>
@@ -355,21 +388,21 @@ function Std_info_page_all()
                                          <div className="row">
                                             <div className="col-12" style={{marginTop:'5px'}}>
 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(1,"January" )}>January</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 2,"February")}>February</button> 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(3,"March")}>March</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(4,"April")}>April</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button ' onClick={e=>month1(1,"January" )}>January</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 2,"February")}>February</button> 
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(3,"March")}>March</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(4,"April")}>April</button>
 
 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(5,"May" )}>May</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 6,"June")}>June</button> 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(7,"July")}>July</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(8,"August")}>August</button>
+                                            <button className='btn btn-primary mt-2 ms-2  hm-lg-button' onClick={e=>month1(5,"May" )}>May</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 6,"June")}>June</button> 
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(7,"July")}>July</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(8,"August")}>August</button>
 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1( 10,"October")}>October</button> 
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(11,"November")}>November</button>
-                                            <button className='btn btn-primary mt-2 ms-2' onClick={e=>month1(12,"December")}>December</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(9,"Septembet" )}>Septembet</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1( 10,"October")}>October</button> 
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(11,"November")}>November</button>
+                                            <button className='btn btn-primary mt-2 ms-2 hm-lg-button' onClick={e=>month1(12,"December")}>December</button>
                                         </div>
                                         <div>
                                         <button className='btn btn-primary mt-2' style={{marginTop:'20px'}}onClick={e=>subject( "Hindi")  }>Hindi</button>
@@ -696,23 +729,28 @@ function Std_info_page_all()
                             }}>
                                 <div className="mt-5 ms-5">
                                      <div className="row">
+                                         {
+                   data4.length>0 ?  (
+                    data4.map((awsrespose,i) => (  
+                                                         <div className="col-4 col-md-2 btn1-12" key={i} style={{ marginTop: "100px" }} >
+                                                            <h3 className="cd-t"  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
+                                                                <div className="card mobile-card-9 gap-9"  style={{width: '14rem' }} >
+                                                                <img src={awsrespose.urlthumbnail} className="profile_pic1 shadow profile_pic1-cd-sm shadow c-pc-9 " alt="..."/> 
+                                                                    <div className="text-center">
+                                                                         
+                                                                        <h5 className="card-title cd-t u-9 "> {awsrespose.description} </h5>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button className='btn btn-primary mt-2 c-btn' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
+                                                                        <button className='btn btn-primary mt-2  c-btn c-btn-1' onClick={e=>deleteeventdetails(awsrespose)}>Delete</button>
 
-                                     {
-                                                 data4.map((awsrespose,i) => (   
-                                                        <div className="col-4  " key={i} style={{ marginTop: "170px" }} >
-                                                            <h3  > {  awsrespose.eventname} {awsrespose.day}.{awsrespose.month}.{awsrespose.year}</h3>
-                                                                <div className="card"  style={{width: '14rem',height: '20rem'}} >
-                                                                <img src={awsrespose.urlthumbnail} className="  profile_pic2 shadow " alt="..."/> 
-                                                                    <div className="card-body">
-                                                                        <h5 className="card-title"> </h5>
-                                                                        <p className="card-text"> {awsrespose.description} </p>
-                                                                        <p className="card-text">Project By: {awsrespose.updatedby } </p>
-                                                                        <button className='btn btn-primary mt-2' onClick={e=>pulleventdetails(awsrespose)}>click here</button>
                                                                     </div>
                                                                 </div>
                                                         </div>
-                                                         ))
-                                    }
+                                                        )))
+                                                         :
+                                                         <h1 className="school-title-1"> No PHOTO data found</h1>
+                                                        } 
                                      </div>
                                 </div>
                         </div>
@@ -731,7 +769,7 @@ function Std_info_page_all()
                              
                                 <div className="col-12 mt-5 ms-5">
                                     <h3>Daily Updates  </h3>
-                                        <div className="col-2 mt-1">
+                                        <div className="col-12 col-md-2 mt-1">
                                             <h6> year<span style={{fontSize:"17px",color: "red" }}>: {y} </span></h6>  
                                             <h6>class: <span style={{fontSize:"17px",  color: "red"}}>: {data.standred} </span></h6> 
                                             <h6>Section:   <span style={{fontSize:"17px",  color: "red"}}>: {data.section} </span></h6> 
@@ -819,13 +857,13 @@ function Std_info_page_all()
                                                     boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
                                                     }}>
                              
-                                <div className="col-12 mt-5 ms-5">
+                                <div className="col-12 mt-5">
                                     <h3>Attendance  </h3> 
                                     <div>
                                         <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
                 <thead>
-                    <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
-                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JUNE</th>
+                    <tr className="fw-bold "  style={{ textAlign:"center", fontSize:"20px"}}> 
+                             <th colSpan="3 " style={{ textAlign:"center", fontSize:"20px"}} >JUNE</th>
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JULY</th>
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >AUG</th>
                             <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >SEP</th>

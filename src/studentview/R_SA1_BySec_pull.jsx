@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import imgstd from '../pics/profile/profile_pic.jpg'
 import { useParams } from "react-router-dom"
 import { GET_USER_ID, GET_USER_NAME } from "../../Utils/Utils"
+import api from "../api/Interaxios"
 
 function R_SA1_BySec_pull({stdid1,section1,createrecords1})
 {//Std_info/c1/u/pulldata
@@ -135,7 +136,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
               // let apiresponse=await axios.post(`http://localhost:8080/m/s/reports/pull`,createrecords1)
                  //let apiresponse=await axios.post(`http://65.2.25.249:8080/m/s/reports/pull`,createrecords1)
                  //let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1)
-                 let apiresponse=await axios.post(`/api/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
+                 let apiresponse=await api.post(`/m/s/reports/pull`,createrecords1,{headers:{Authorization:token1}})
 
 
 
@@ -590,7 +591,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
          <div className="row">
             {/* <button className="btn btn-warning   mt-3 mb-5 " type="button" onClick={e=>pullSA11()}> pullSA1result</button>  */}
               {/* <h1>resutls SA-1</h1>  */}
-           <div  className="col-6"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5>Class:</h5> <h3>{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} > {createrecords1.examname}</span>/ {userName}</h3></div>
+           <div  className=" col-12 col-md-4"style={{display:"flex", gap:"10px", alignItems:"center"}}> <h5 className="h-10">Class:</h5> <h3 className="h-10">{stdid1}/{sectionid}/ <span style={{color: "red",fontSize:"40px"}} className="h-10" > {createrecords1.examname}</span>/ teacher</h3></div>
           
            
            <div className="col-8">
@@ -620,7 +621,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
   
             <table className=" compact-table table table-sm align-middle table-striped table-hover">
                 <thead>
-                    <tr className="fw-bold"> 
+                    <tr className="fw-bold h-10"> 
                            <th>Rollno</th> 
                             <th>Photo</th>
                              <th>Name asdasda </th>
@@ -635,7 +636,7 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
                             <th colSpan="3">E.V-1</th> */}
                             
                     </tr>
-                     <tr className="fw-bold ">  
+                     <tr className="fw-bold h-10 ">  
                            <th> </th> 
                             <th> </th>
                              <th>   </th>
@@ -668,12 +669,12 @@ function R_SA1_BySec_pull({stdid1,section1,createrecords1})
        
                  {  
                     awsresposes2.map((stdrecord, i)=>(
-                        <tr key={stdrecord.rollno}>
+                        <tr key={stdrecord.rollno} className="h-10">
                         <td> 
                              {stdrecord.rollno }  
                             </td> 
                             <td>
-                                  <img src={stdrecord.imgpreurl} className="student-photo"/>
+                                  <img src={stdrecord.imgpreurl} className="student-photo pic-10"/>
                             </td>
                         <td>
                             {stdrecord.name}

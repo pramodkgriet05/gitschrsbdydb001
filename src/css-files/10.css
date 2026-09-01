@@ -1,0 +1,210 @@
+.rb{
+    margin-bottom: 60px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px)
+{
+.ascrd-10{
+    width: 350px!important;
+}
+.h-10{
+    font-size: 12px!important;
+}
+.h-10::placeholder{
+font-size: 12px;
+}
+.ip-10{
+    width: 122px!important;
+    height: 25px!important;
+
+}
+.er-msg-10{
+    font-size: 10px;
+}
+.mobile-pic-matter {
+        display: flex;
+        align-items: center;
+         margin-top: 0;
+        padding-top: 0;
+    }
+
+    .cnf-d-10
+    {
+        font-size: 20px!important;
+    }
+    .g{
+        margin-left: 30px;
+        margin-top: 0px;
+    } 
+    .rb{
+    margin-bottom: 10px;
+}
+.pic-10{
+    width: 50px!important;
+    height: auto!important;
+}
+
+.sres-10{
+    font-size: 10px!important;
+    padding: 5px 7px!important;
+}
+.sa1-10{
+    font-size: 7px!important;
+     padding: 5px 7px!important;
+    
+}
+.sa1-gp-10{
+    margin-left: 5px!important; 
+}
+
+
+}
+.sa1-gp-10{
+    margin-left: 15px;
+
+}
+
+/*
+https://dtsbbnycdqtin.cloudfront.net/api/m/s/saverecord*/
+
+/*=======================================================================================================*/
+
+.mt-12{
+
+    margin-top: 100px;
+}
+
+.btn-12{
+    margin-top: 180px;
+  }
+  .school-title-1{
+    font-size: 50px;
+  }
+  .c-btn-1{
+   
+    margin-left: 7px;
+
+  }
+  .mt-12{
+    margin-top: 10px;
+  }
+  .mb-std{
+    margin-bottom: 20px;
+  }
+  
+
+  
+
+
+@media(max-width: 768px)
+{
+  .btn-12{
+    margin-top: 100px;
+  }
+  .btn1-12{
+    margin-top: 50px;
+  }
+  .school-title-1{
+    font-size: 25px;
+  }
+  .school-title-2{
+    font-size: 15px;
+  }
+  .ip-12{
+
+    width: 95px;
+    height:20px;
+    font-size: 5;
+  }
+  .ip1-12{
+
+    width: 95px;
+    height:20px;
+     
+  }
+  .ed-12{
+     width: 5px;
+    height:20px;
+    font-size: 20PX;
+ 
+  }
+  .ch-12
+  {
+    height:50px; 
+  }
+  .c-btn{
+   width: 35px;
+    height:20px;
+    margin-left: 2px;
+    margin-bottom: 15px;
+    font-size: 7px;
+
+  }
+  .c-btn-2{
+    width: 70px;
+    height:30px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font-size: 10px;
+
+
+  }
+  .c-btn-1{
+   
+    margin-left: 7px;
+
+  }
+  .mt-12{
+    margin-top: 35px;
+  }
+  .mt1-12{
+    margin-top: 90px!important;
+  }
+  .fz-13
+  {
+    font-size: 15px;
+    margin-top: 100px;
+  }
+  .du-t-13{
+    margin-top: 10px!important;
+    margin-left: 60px!important;
+    font-size: 30px;
+
+  }
+  .du1-t-13{
+    margin-top: 25px!important;
+    margin-left: 25px!important;
+    font-size: 205x;
+
+  }
+  /*==========================================================*/
+  .fnt-abc{
+    font-size: 25px;
+  }
+  .fnt1-abc{
+    font-size: 15px;
+    margin-top: 15px;
+  }
+  .abcmt{
+     margin-top: 15px;
+
+  }
+  .abcmb{
+     margin-top: 15px;
+
+  }
+  .fnt2-abc{
+    font-size: 15px;
+     
+  }
+  
+    
+}

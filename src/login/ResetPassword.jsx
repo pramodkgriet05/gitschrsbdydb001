@@ -111,7 +111,8 @@ function ResetPassword()
             
             console.log("p")
             setemailError({...emailError, apiSuccess:true})
-           
+            setemailError({...emailError, apiError:false })
+
             setApiMsg(apiresponce.data.message)
           
              
@@ -145,13 +146,13 @@ function ResetPassword()
 
          <div className="contaniner mt-5"> 
             <div className="row justify-content-center  ">
-                <div className="col-4  ">
+                <div className="col-12 col-md-4  ">
                     <div className='text-center'>
                  
                     </div>
                                     
-                <div className="card ">
-                    <div className="card -body ">
+                <div className="card rp " >
+                    <div className="card-body ">
                         <h2>Reset Password</h2>
                         
                         {
@@ -190,18 +191,7 @@ function ResetPassword()
                 </div>
             </div>
            
-                <div className='row justify-content-center'>
-                    <div className='col-4'>
-                        <div className='text-center'>
-                            <a href="conditions apply ms-3">Conditions apply</a>
-                             <a href="conditions apply ms-3">Conditions apply</a>
-                              <a href="conditions apply ms-3">Conditions apply</a>
-                        </div>
-                        <p className='text-center'>@ 1996-2025, Amazon.com</p>
-
-
-                    </div>
-                </div>
+                 
         </div>      
     )
 

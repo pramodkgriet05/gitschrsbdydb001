@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import api from "../api/Interaxios";
 
 function Attendance({stdid1,section1})
 {
@@ -30,10 +31,11 @@ function Attendance({stdid1,section1})
         async function attendacepull()
         {
                 //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
-                let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                let apiresponse=await api.post(`/std/attn/get`,data,{headers:{Authorization:token1}})
 
                 console.log(apiresponse)
                 setattendata(apiresponse.data)
+                console.log("rollnos:", apiresponse.data.map(x => x.rollno));
 
         }
         attendacepull(); 
@@ -426,10 +428,10 @@ function Attendance({stdid1,section1})
 
                          console.log("no error")
                         // await axios.post(`http://localhost:8080/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
-                         await axios.post(`/api/std/attn/edit`,data1,{headers:{Authorization:token1}})
+                         await api.post(`/std/attn/edit`,data1,{headers:{Authorization:token1}})
 
                          //let apiresponse=await axios.post(`http://localhost:8080/api/std/attn/get`,data,{headers:{Authorization:token1}})
-                         let apiresponse=await axios.post(`/api/std/attn/get`,data,{headers:{Authorization:token1}})
+                         let apiresponse=await api.post(`/std/attn/get`,data,{headers:{Authorization:token1}})
 
                          console.log(apiresponse)
                          setattendata(apiresponse.data)
@@ -459,33 +461,33 @@ function Attendance({stdid1,section1})
             </div> */}
 
             <div>
-                <h5 className="ms-5" >Attendance </h5>
-                <h5 className="ms-5" >Class: {stdid1}   </h5>
-                <h5 className="ms-5" >Section:  {section1} </h5>
-                <h5 className="ms-5" >Acadamic Year: 2026-27</h5>
+                <h5 className="ms-5 h-10" >Attendance </h5>
+                <h5 className="ms-5 h-10" >Class: {stdid1}   </h5>
+                <h5 className="ms-5 h-10" >Section:  {section1} </h5>
+                <h5 className="ms-5 h-10" >Acadamic Year: 2026-27</h5>
               </div>
                          <div>
                  
            <table className="table compact-table table-sm align-middle table-striped table-hover" style={{margin:"auto"}} >
                 <thead>
-                    <tr className="fw-bold"  style={{ textAlign:"center", fontSize:"20px"}}> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Rollno</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Std.Code</td> 
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Photo</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Name</td>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JUNE</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JULY</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >AUG</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >SEP</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >OCT</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >NOV</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >DEC</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JAN</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >FEB</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >MAR</th>
-                            <th colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >APR</th>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Teacher Feedback</td>
-                            <td style={{ textAlign:"center", fontSize:"20px"}}>Parent Feedback</td>
+                    <tr className="fw-bold h-10"  style={{ textAlign:"center", fontSize:"20px"}}> 
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Rollno</td> 
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Std.Code</td> 
+                            <td  className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Photo</td>
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Name</td>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JUNE</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JULY</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >AUG</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >SEP</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >OCT</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >NOV</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >DEC</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >JAN</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >FEB</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >MAR</th>
+                            <th className="fw-bold h-10" colSpan="3" style={{ textAlign:"center", fontSize:"20px"}} >APR</th>
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Teacher Feedback</td>
+                            <td className="fw-bold h-10" style={{ textAlign:"center", fontSize:"20px"}}>Parent Feedback</td>
 
 
 
@@ -537,7 +539,7 @@ function Attendance({stdid1,section1})
                         <td style={{  textAlign:"center"}}>A </td> */}
                     </tr>
                     </thead>
-                    <tbody className="table-group-divider">
+                    <tbody className="table-group-divider h-10">
                         {
                             attendata.map((data,i)=>
                                 <tr key={data.rollno}>
@@ -548,7 +550,7 @@ function Attendance({stdid1,section1})
                                      {data.stdcode}
                                     </td>
                                     <td style={{  textAlign:"center"}}>
-                                      <img src={data.imgpreurl} className="student-photo"/>
+                                      <img src={data.imgpreurl} className="student-photo pic-10"/>
                                     </td>
                                     <td style={{  textAlign:"center"}}>
                                      {data.name}
