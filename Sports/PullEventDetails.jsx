@@ -92,7 +92,7 @@ let userName=GET_USER_NAME()
         let res = await api.post(`/sports/pullall`,{path:data})
 
         //console.log(res.data);
-    // console.log(res)
+     console.log(res)
      setimagesdis(res.data)
   }
   fetchData();

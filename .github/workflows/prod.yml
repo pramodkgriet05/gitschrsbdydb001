@@ -24,13 +24,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 4. Build Vite project
+      # 4. Build Vite project--dev mode
       - name: Build project
-<<<<<<< HEAD
         run: npm run build  -- --mode development
-=======
-        run: npm run build -- --mode development
->>>>>>> dev
+       
 
       # 5. Configure AWS credentials
       - name: Configure AWS Credentials
@@ -40,7 +37,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # 6. Sync build folder to S3
+      # 6. Sync build folder to S3--devschapp20-10-26
       - name: Deploy to S3
         run: |
           aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_PROD }} \

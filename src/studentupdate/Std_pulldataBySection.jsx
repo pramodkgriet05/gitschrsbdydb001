@@ -66,7 +66,7 @@ function Std_pulldataBySection()
     let[show_results, setshow_results]=useState(false)
     let[showpullSA1, setshowpullSA1]=useState(false) 
     let[pullecords, setpullecords]=useState({examname:"",standred:"", section:"",academicyear:""})
-  
+  let[refreshData,setRefreshData]=useState(0)
 
 
     const stdinfoall=new FormData(); 
@@ -144,6 +144,8 @@ function Std_pulldataBySection()
                   setmessage(true)
                   setformKey(prev=>prev+1)
                   seto_std_details(false)
+                  setRefreshData(prev => prev + 1)
+
                   
                
                }
@@ -391,7 +393,7 @@ function Std_pulldataBySection()
                             }}></div>
 
                              {
-                         show_A_M==true &&  <PullEditdelawsBySection stdid1={stdid} section1={sectionid}/> 
+                         show_A_M==true &&  <PullEditdelawsBySection stdid1={stdid} section1={sectionid} refreshData={refreshData}/> 
                             }  
 
                             <div className="mt-5 mb-5" style={{

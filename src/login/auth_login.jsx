@@ -124,7 +124,7 @@ function Sch_login({ })
                                  <div className="card mt-3"  >
                                                     <div className="card-body">
                                                          
-                                                        <h3>Enter Login Detailss</h3>
+                                                        <h3>Enter Login Detailspssnope</h3>
                                                                                                                        
                                                             <div className='mt-3'>
                                                                     <label><strong>Email</strong></label>

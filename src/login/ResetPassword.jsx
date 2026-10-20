@@ -25,6 +25,7 @@ function ResetPassword()
 
     function validateemail()
     {
+
         if(isEmailValied(email))
         {
            
@@ -110,19 +111,16 @@ function ResetPassword()
         {
             
             console.log("p")
-            setemailError({...emailError, apiSuccess:true})
-            setemailError({...emailError, apiError:false })
+            setemailError({...emailError, apiSuccess:true,apiError:true, apiError:false})
+            //setemailError({...emailError, apiError:true })
 
             setApiMsg(apiresponce.data.message)
-          
-             
-
         }
         else
         {  
             
-             setemailError({...emailError, email:false})
-             setemailError({...emailError, apiError:true })
+             setemailError({...emailError, email:false,apiError:true})
+             //setemailError({...emailError, apiError:true })
             console.log("np")
 
         }
@@ -160,7 +158,7 @@ function ResetPassword()
                         <div className='mt-3'>
                                 <label><strong>Email</strong></label>
                                 <input type="text" className='form-control' placeholder='Email' onChange={e=>setemail(e.target.value)}   ></input>
-                                <div className='text-danger'> {emailError.email==true &&  "E-mail not in correct formoat"} </div>                          
+                                <div className='text-danger'> {emailError.email==true &&  "E-mail not in correct format"} </div>                          
                         </div>
                         }
                         {

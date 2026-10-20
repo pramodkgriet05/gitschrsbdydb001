@@ -94,7 +94,8 @@ function SignUP({data_P})
                            const compressedFile = await compressImage(inpfile);
 
                             stdinfoall.append("i", compressedFile );
-                    //let ApiResponse= await axios.post('http://65.2.25.249:8080/createaccount', stdinfoall)
+                           
+                    //let ApiResponse= await axios.post('https://dlc75mfchkiiy.cloudfront.net/api', stdinfoall)
                     let ApiResponse= await api.post('/createaccount', stdinfoall)
                     //let ApiResponse= await axios.post('http://localhost:8080/api/createaccount', stdinfoall)
 
@@ -109,9 +110,13 @@ function SignUP({data_P})
                          setApiMessage({...ApiMessage, message:ApiResponse.data.status})
                          
                          data_P(userInputdata.email)
+                         console.log("FULL RESPONSE:", ApiResponse);        // ← add this
+                         console.log("RESPONSE DATA:", ApiResponse.data);   // ← add this
                     }
                     catch(error)
                     {
+                      console.log("ERROR:", error.response);          // ← add this
+                      console.log("ERROR DATA:", error.response?.data); 
                          console.log(error)
                          console.log(error.response)
                          error1=error.message

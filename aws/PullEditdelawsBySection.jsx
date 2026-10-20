@@ -7,7 +7,7 @@ import imgstd from '../pics/profile/profile_pic.jpg'
 import { GET_USER_ID, GET_USER_NAME } from "../Utils/Utils"
 import api from "../src/api/Interaxios"
 
-function PullEditdelawsBySection({stdid1,section1})
+function PullEditdelawsBySection({stdid1,section1,refreshData})
 {//Std_info/c1/u/pulldata
 
      let token=localStorage.getItem("token")
@@ -93,7 +93,7 @@ function PullEditdelawsBySection({stdid1,section1})
         
              //  console.log(apiresponse)
               // console.log(apiresponse.data.result)
-    },[]) 
+    },[stdid1, section1, refreshData]) 
     function eitColom1(stdrecord)
     {
        // console.log(stdrecord)

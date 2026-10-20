@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 4. Build Vite project
+      # 4. Build Vite project--main
       - name: Build project
         run: npm run build
 
@@ -36,7 +36,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # 6. Sync build folder to S3
+      # 6. Sync build folder to S3--test02-10-26reactapp 
       - name: Deploy to S3
         run: |
           aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET }} \

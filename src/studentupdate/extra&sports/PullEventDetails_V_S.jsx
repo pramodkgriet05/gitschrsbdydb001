@@ -188,10 +188,7 @@ function checkfilestype1()
                       {/* <h5 class="card-title">Special title treatment</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}> 
-                          <div>
-                            <h4>Add more files</h4>
-                      <input type="file"  multiple className='form-control std_rec_add1'  ref={ref7} placeholder='Upload Images' onChange={e=>setfiles(Array.from(e.target.files))} ></input>
-                      </div>
+                           
                       
                           <div className="col-12"></div>
                           {isUploading && (
